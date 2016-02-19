@@ -386,8 +386,23 @@ def set_inputs(newItkObject, args=[], kargs={}):
         else:
             raise AttributeError('No method found to set the input.')
 
+    primary_input_methods = ('Input', 'InputImage', 'Image')
     # named args : name is the function name, value is argument(s)
     for attribName, value in kargs.items():
+        # try to get the images from the filters in args
+        # if the keyword is one defined in primary_input_methods
+        # or if it is of the form "SetInput%i", with %i an integer
+        if attribName in primary_input_methods:
+            value = output(value)
+        elif 'Input' in attribName:
+            key=attribName.replace('Input','')
+            try:
+                # Checking that the 'rest' of the key, after removing 'Input'
+                # is an integer greater than 0.
+                if str(int(key)) == key and int(key) > 0:
+                    value = output(value)
+            except:
+                pass
         # use Set as prefix. It allow to use a shorter and more intuitive
         # call (Ex: itk.ImageFileReader.UC2.New(FileName='image.png')) than
         # with the full name
