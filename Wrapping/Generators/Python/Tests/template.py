@@ -17,6 +17,8 @@
 #==========================================================================*/
 
 import itk
+import tempfile
+import os
 
 dim = 2
 PixelType = itk.UC
@@ -149,6 +151,105 @@ try:
     raise Exception('no exception sent for object without input')
 except AttributeError:
     pass
+
+# pass no attribute to reader and see if it automatically detects input image type.
+# Since we cannot easily know which type of images are supported in python, we generate
+# a lot of different types and try to create images using these types, create empty images
+# that we save, and then try to read them to test the reader.
+# We ignore the exception raised for creating types of pixels and images and from trying to
+# write the images on the hard disk the first time. We only care about exception raised from
+# the reader.
+
+def pixel_type_from_IO(pixel, component,dimension):
+    import itk
+    if pixel == 'scalar':
+        PixelType = component
+    elif pixel == 'rgb':
+        PixelType = itk.RGBPixel[component]
+    elif pixel == 'rgba':
+        PixelType = itk.RGBAPixel[component]
+    elif pixel == 'offset':
+        PixelType = itk.Offset[dimension]
+    elif pixel == 'vector':
+        PixelType = itk.Vector[component,dimension]
+    elif pixel == 'point':
+        PixelType = itk.Point[component,dimension]
+    elif pixel == 'covariantvector':
+        PixelType = itk.CovariantVector[component,dimension]
+    elif pixel == 'symmetricsecondranktensor':
+        PixelType = itk.SymmetricSecondRankTensor[component,dimension]
+    elif pixel == 'diffusiontensor3d':
+        PixelType = itk.DiffusionTensor3D[component]
+    elif pixel == 'complex':
+        PixelType = itk.complex[component]
+    elif pixel == 'fixedarray':
+        PixelType = itk.FixedArray[component,dimension]
+    elif pixel == 'matrix':
+        PixelType = itk.Matrix[component,dimension,dimension]
+    else:
+        raise RuntimeError("Unknown pixel type.")
+    return PixelType
+
+dimensions = [2,3]
+component_type_dic= {"float":itk.F, "double":itk.D,
+        "unsigned_char":itk.UC, "unsigned_short":itk.US, "unsigned_int":itk.UI,
+        "unsigned_long":itk.UL, "signed_char":itk.SC, "signed_short":itk.SS,
+        "signed int":itk.SI, "signed_long":itk.SL, "bool":itk.B}
+pixel_types = ['scalar', 'rgb', 'rgba',  'offset', 'vector', 'point', 'covariantvector', 'symmetricsecondranktensor', 'diffusiontensor3d', 'complex', 'fixedarray', 'matrix']
+dir_name=tempfile.mkdtemp()
+pixel_type_error = []
+image_error = []
+other_error = []
+writer_error = []
+reader_error = []
+pixel_fill_error = []
+for dim in dimensions:
+    for p in pixel_types:
+        for c,cv in component_type_dic.items():
+            try:
+                PixelType = pixel_type_from_IO(p,cv,dim)
+            except Exception as ex:
+                pixel_type_error.append(ex)
+                continue
+            try:
+                ImageType=itk.Image[PixelType,dim]
+                im=ImageType.New()
+            except Exception as ex:
+                image_error.append(ex)
+                continue
+            try:
+                zero_value = itk.NumericTraits[PixelType].ZeroValue()
+            except:
+                try:
+                    zero_value = PixelType()
+                    zero_value.Fill(0)
+                except:
+                    try:
+                        zero_value = PixelType(0)
+                    except Exception as ex:
+                        pixel_fill_error.append(ex)
+            try:
+                im.SetRegions(5)
+                im.Allocate()
+                im.FillBuffer( zero_value )
+                filename = os.path.join(dir_name, "_".join([p,c,str(dim)])+".nrrd")
+            except Exception as ex:
+                other_error.append(ex)
+                continue
+            try:
+                writer = itk.ImageFileWriter.New(Input=im, FileName=filename)
+                writer.Update()
+            except Exception as ex:
+                writer_error.append(str(ex) + " - " +str([p,c,dim]))
+                continue
+            try:
+                reader = itk.ImageFileReader.New(FileName=filename)
+                reader.Update()
+            except Exception as ex:
+                reader_error.append(ex)
+                continue
+
+assert reader_error == []
 
 # TODO: test auto_progress
 # but how ?

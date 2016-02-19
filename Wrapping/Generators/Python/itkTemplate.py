@@ -317,8 +317,9 @@ class itkTemplate(object):
         import itk
         keys = self.keys()
         cur = itk.auto_pipeline.current
+        if self.__name__=="itk::ImageFileReader":
+            return self._NewImageFileReader(*args, **kwargs)
         primary_input_methods = ('Input', 'InputImage', 'Input1')
-
         if len(args) != 0:
             # try to find a type suitable for the primary input provided
             input_type = output(args[0]).__class__
@@ -337,6 +338,70 @@ class itkTemplate(object):
         if len(keys) == 0:
             raise RuntimeError("No suitable template parameter can be found.")
         return self[keys[0]].New(*args, **kwargs)
+
+    def _NewImageFileReader(self, *args, **kwargs):
+        primary_input_methods = ('FileName',)
+        input_file_name = ''
+        if len(args) != 0:
+            # try to find a type suitable for the primary input provided
+            input_file_name = args[0]
+        elif set(primary_input_methods).intersection(kwargs.keys()):
+            for method in primary_input_methods:
+                if method in kwargs:
+                    input_file_name = kwargs[method]
+                    break
+        if not input_file_name:
+            raise RuntimeError("No file name.")
+        import itk
+        imageIO = itk.ImageIOFactory.CreateImageIO( input_file_name,itk.ImageIOFactory.ReadMode )
+        if not imageIO:
+            raise RuntimeError("No IO Factory found.")
+        component_type_dic= {"float":itk.F, "double":itk.D,
+        "unsigned_char":itk.UC, "unsigned_short":itk.US, "unsigned_int":itk.UI,
+        "unsigned_long":itk.UL, "signed_char":itk.SC, "signed_short":itk.SS,
+        "signed int":itk.SI, "signed_long":itk.SL}
+        # Read the metadata from the image file.
+        imageIO.SetFileName( input_file_name )
+        imageIO.ReadImageInformation()
+        dimension = imageIO.GetNumberOfDimensions()
+        component_as_string = imageIO.GetComponentTypeAsString(imageIO.GetComponentType())
+        component = component_type_dic[component_as_string]
+        pixel = imageIO.GetPixelTypeAsString(imageIO.GetPixelType())
+        PixelType = itkTemplate.pixel_type_from_IO(pixel, component)
+        ImageType = itk.Image[PixelType,dimension]
+        ReaderType = itk.ImageFileReader[ImageType]
+        return ReaderType.New(*args, **kwargs)
+
+    @staticmethod
+    def pixel_type_from_IO(pixel, component):
+        import itk
+        if pixel == 'scalar':
+            PixelType = component
+        elif pixel == 'rgb':
+            PixelType = itk.RGBPixel[component]
+        elif pixel == 'rgba':
+            PixelType = itk.RGBAPixel[component]
+        elif pixel == 'offset':
+            PixelType = itk.Offset[dimension]
+        elif pixel == 'vector':
+            PixelType = itk.Vector[component,dimension]
+        elif pixel == 'point':
+            PixelType = itk.Point[component,dimension]
+        elif pixel == 'covariantvector':
+            PixelType = itk.CovariantVector[component,dimension]
+        elif pixel == 'symmetricsecondranktensor':
+            PixelType = itk.SymmetricSecondRankTensor[component,dimension]
+        elif pixel == 'diffusiontensor3d':
+            PixelType = itk.DiffusionTensor3D[component]
+        elif pixel == 'complex':
+            PixelType = itk.complex[component]
+        elif pixel == 'fixedarray':
+            PixelType = itk.FixedArray[component,dimension]
+        elif pixel == 'matrix':
+            PixelType = itk.Matrix[component,dimension,dimension]
+        else:
+            raise RuntimeError("Unknown pixel type.")
+        return PixelType
 
     def keys(self):
         return self.__template__.keys()
