@@ -217,6 +217,8 @@ protected:
 
   ObjectFactoryBase();
   virtual ~ObjectFactoryBase();
+  static void classFinalize();
+  friend class ObjectFactoryBaseInitialize;
 
 private:
   OverRideMap *m_OverrideMap;
@@ -250,6 +252,18 @@ private:
 
   static  bool  m_StrictVersionChecking;
 };
+
+class ObjectFactoryBaseInitialize
+{
+public:
+  typedef ObjectFactoryBaseInitialize Self;
+
+  ObjectFactoryBaseInitialize();
+  ~ObjectFactoryBaseInitialize();
+private:
+  static unsigned int m_Count;
+};
+
 } // end namespace itk
 
 #endif

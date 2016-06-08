@@ -59,32 +59,6 @@ FactoryListType * m_InternalFactories;
 bool              m_Initialized;
 }
 
-namespace
-{
-class CleanUpObjectFactory
-{
-public:
-
-  ~CleanUpObjectFactory()
-  {
-    itk::ObjectFactoryBase::UnRegisterAllFactories();
-
-    if ( ObjectFactoryBasePrivate::m_InternalFactories )
-      {
-      for ( std::list< ObjectFactoryBase * >::iterator i =
-              ObjectFactoryBasePrivate::m_InternalFactories->begin();
-            i != ObjectFactoryBasePrivate::m_InternalFactories->end(); ++i )
-        {
-        (*i)->UnRegister();
-        }
-      delete ObjectFactoryBasePrivate::m_InternalFactories;
-      }
-  }
-};
-//NOTE:  KWStyle insists on m_ for m_CleanUpObjectFactoryGlobal
-static CleanUpObjectFactory m_CleanUpObjectFactoryGlobal;
-}
-
 /** \class StringOverMap
  * \brief Internal implementation class for ObjectFactorBase.
  *
@@ -109,6 +83,7 @@ public:
  * between the application's ITK version and the dynamic libraries'
  * ITK version.
  */
+
 bool ObjectFactoryBase::m_StrictVersionChecking = false;
 
 void
@@ -140,12 +115,29 @@ ObjectFactoryBase::GetStrictVersionChecking()
  * Create an instance of a named ITK object using the loaded
  * factories
  */
+
+void
+ObjectFactoryBase
+::classFinalize()
+{
+  itk::ObjectFactoryBase::UnRegisterAllFactories();
+  if ( ObjectFactoryBasePrivate::m_InternalFactories )
+    {
+    for ( std::list< ObjectFactoryBase * >::iterator i =
+            ObjectFactoryBasePrivate::m_InternalFactories->begin();
+          i != ObjectFactoryBasePrivate::m_InternalFactories->end(); ++i )
+      {
+      (*i)->UnRegister();
+      }
+    delete ObjectFactoryBasePrivate::m_InternalFactories;
+    }
+}
+
 LightObject::Pointer
 ObjectFactoryBase
 ::CreateInstance(const char *itkclassname)
 {
   ObjectFactoryBase::Initialize();
-
   for ( FactoryListType::iterator
         i = ObjectFactoryBasePrivate::m_RegisteredFactories->begin();
         i != ObjectFactoryBasePrivate::m_RegisteredFactories->end(); ++i )
@@ -164,7 +156,6 @@ std::list< LightObject::Pointer >
 ObjectFactoryBase
 ::CreateAllInstance(const char *itkclassname)
 {
-
   ObjectFactoryBase::Initialize();
 
   std::list< LightObject::Pointer > created;
@@ -185,7 +176,6 @@ void
 ObjectFactoryBase
 ::InitializeFactoryList()
 {
-  static_cast<void>(m_CleanUpObjectFactoryGlobal);
   /**
    * Don't do anything if we are already initialized
    */
@@ -928,4 +918,20 @@ ObjectFactoryBase
 {
   return m_LibraryPath.c_str();
 }
+
+ObjectFactoryBaseInitialize::ObjectFactoryBaseInitialize()
+{
+  ++Self::m_Count;
+}
+
+ObjectFactoryBaseInitialize::~ObjectFactoryBaseInitialize()
+{
+  if(--Self::m_Count == 0)
+    {
+    ObjectFactoryBase::classFinalize();
+    }
+}
+
+unsigned int ObjectFactoryBaseInitialize::m_Count;
+
 } // end namespace itk
