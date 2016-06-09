@@ -193,6 +193,13 @@ set(BASELINE "${ITK_DATA_ROOT}/Baseline/Common")
 set(TEMP ${ITK_TEST_OUTPUT_DIR})
 
 
+#add_library(itkObjectFactoryLib1Test itkObjectFactoryLib1Test.cxx)
+#target_link_libraries(itkObjectFactoryLib1Test ${ITKCommon_LIBRARIES})
+#add_library(itkObjectFactoryLib2Test itkObjectFactoryLib2Test.cxx)
+#target_link_libraries(itkObjectFactoryLib2Test ${ITKCommon_LIBRARIES})
+#add_executable(itkObjectFactoryUnregisterTest itkObecFactoryUnregisterTest.cxx)
+#target_link_libraries(itkObjectFactoryUnregisterTest itkObjectFactoryLib1Test itkObjectFactoryLib2Test)
+
 add_executable(itkMathTest itkMathTest.cxx )
 itk_module_target_label(itkMathTest)
 target_link_libraries(itkMathTest LINK_PUBLIC ${ITKCommon_LIBRARIES})
