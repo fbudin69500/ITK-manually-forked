@@ -95,7 +95,8 @@ protected:
   virtual void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VnlHalfHermitianToRealInverseFFTImageFilter);
+  VnlHalfHermitianToRealInverseFFTImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   typedef vnl_vector< InputPixelType  > SignalVectorType;
 };

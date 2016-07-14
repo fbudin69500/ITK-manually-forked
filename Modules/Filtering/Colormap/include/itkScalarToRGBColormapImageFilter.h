@@ -162,7 +162,8 @@ protected:
   void BeforeThreadedGenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarToRGBColormapImageFilter);
+  ScalarToRGBColormapImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 private:
   typename ColormapType::Pointer m_Colormap;

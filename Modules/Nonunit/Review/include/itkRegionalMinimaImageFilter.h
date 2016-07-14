@@ -145,7 +145,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RegionalMinimaImageFilter);
+  RegionalMinimaImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool                 m_FullyConnected;
   bool                 m_FlatIsMinima;

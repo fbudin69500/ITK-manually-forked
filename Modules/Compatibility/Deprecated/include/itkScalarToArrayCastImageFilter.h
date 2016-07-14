@@ -74,7 +74,8 @@ protected:
                             ThreadIdType threadId);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarToArrayCastImageFilter);
+  ScalarToArrayCastImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

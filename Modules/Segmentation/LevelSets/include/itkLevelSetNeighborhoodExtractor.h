@@ -151,7 +151,8 @@ protected:
   { return m_LastPointIsInside; }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LevelSetNeighborhoodExtractor);
+  LevelSetNeighborhoodExtractor(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   void      GenerateDataFull();
 

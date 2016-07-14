@@ -229,7 +229,8 @@ private:
   typedef std::list<AttributeItemType*> OrderedAttributesContainer;
   OrderedAttributesContainer m_OrderedAttributes;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(DOMNode);
+  DOMNode(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 } // namespace itk

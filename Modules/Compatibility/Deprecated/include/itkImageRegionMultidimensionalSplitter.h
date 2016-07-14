@@ -106,7 +106,8 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageRegionMultidimensionalSplitter);
+  ImageRegionMultidimensionalSplitter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   static unsigned int ComputeSplits(unsigned int numberOfPieces,
                                     const RegionType &region,

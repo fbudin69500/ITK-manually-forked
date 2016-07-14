@@ -78,7 +78,8 @@ protected:
   ~ScalarRegionBasedLevelSetFunctionTestHelper() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarRegionBasedLevelSetFunctionTestHelper);
+  ScalarRegionBasedLevelSetFunctionTestHelper(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 };
 
 template <unsigned int NDimension>

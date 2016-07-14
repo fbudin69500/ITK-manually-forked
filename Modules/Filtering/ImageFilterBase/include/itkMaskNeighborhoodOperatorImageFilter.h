@@ -178,7 +178,8 @@ protected:
                             ThreadIdType threadId) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MaskNeighborhoodOperatorImageFilter);
+  MaskNeighborhoodOperatorImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   OutputPixelType m_DefaultValue;
   bool            m_UseDefaultValue;

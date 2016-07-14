@@ -103,7 +103,8 @@ protected:
   { Superclass::PrintSelf(os, indent); }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorNearestNeighborInterpolateImageFunction);
+  VectorNearestNeighborInterpolateImageFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

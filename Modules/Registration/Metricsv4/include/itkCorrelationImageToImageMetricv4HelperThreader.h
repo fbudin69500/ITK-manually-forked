@@ -117,7 +117,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CorrelationImageToImageMetricv4HelperThreader);
+  CorrelationImageToImageMetricv4HelperThreader( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   struct CorrelationMetricPerThreadStruct
     {

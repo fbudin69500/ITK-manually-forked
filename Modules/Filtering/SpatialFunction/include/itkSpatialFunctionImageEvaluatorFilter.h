@@ -93,7 +93,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpatialFunctionImageEvaluatorFilter);
+  SpatialFunctionImageEvaluatorFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** The function that will be evaluated over the image */
   FunctionType *m_PixelFunction;

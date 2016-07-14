@@ -169,7 +169,8 @@ protected:
   virtual void VerifyPreconditions() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RecursiveGaussianImageFilter);
+  RecursiveGaussianImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Compute the N coefficients in the recursive filter. */
   void ComputeNCoefficients(ScalarRealType sigmad,

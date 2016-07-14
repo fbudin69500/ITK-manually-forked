@@ -151,7 +151,8 @@ protected:
   virtual void * BufferPointerCallback() = 0;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VTKImageExportBase);
+  VTKImageExportBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Actual function sent to VTK as a callback.  Casts the user data
    * to a VTKImageExportBase pointer and invokes the corresponding

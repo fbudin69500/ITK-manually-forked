@@ -61,7 +61,8 @@ protected:
   virtual ~GradientDescentOptimizerBasev4ModifyGradientByLearningRateThreaderTemplate() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GradientDescentOptimizerBasev4ModifyGradientByLearningRateThreaderTemplate);
+  GradientDescentOptimizerBasev4ModifyGradientByLearningRateThreaderTemplate( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 };
 
 /** This helps to meet backward compatibility */

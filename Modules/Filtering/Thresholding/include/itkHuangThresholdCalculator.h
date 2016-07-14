@@ -80,7 +80,8 @@ protected:
   typedef typename HistogramType::MeasurementType             MeasurementType;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(HuangThresholdCalculator);
+  HuangThresholdCalculator(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   InstanceIdentifier  m_FirstBin;
   InstanceIdentifier  m_LastBin;

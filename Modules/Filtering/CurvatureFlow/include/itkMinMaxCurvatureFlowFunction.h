@@ -99,7 +99,8 @@ protected:
   void InitializeStencilOperator();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MinMaxCurvatureFlowFunction);
+  MinMaxCurvatureFlowFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   RadiusValueType m_StencilRadius;
 

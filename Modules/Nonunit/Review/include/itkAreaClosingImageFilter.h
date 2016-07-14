@@ -135,7 +135,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(AreaClosingImageFilter);
+  AreaClosingImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool m_UseImageSpacing;
 };

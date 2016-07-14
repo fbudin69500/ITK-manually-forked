@@ -122,7 +122,8 @@ protected:
   TransformPointer                           m_Transform;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TransformParametersAdaptor);
+  TransformParametersAdaptor( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
 }; //class TransformParametersAdaptor
 }  // namespace itk

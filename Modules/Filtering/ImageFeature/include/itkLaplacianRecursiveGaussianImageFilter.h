@@ -129,7 +129,8 @@ protected:
   void EnlargeOutputRequestedRegion(DataObject *output) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LaplacianRecursiveGaussianImageFilter);
+  LaplacianRecursiveGaussianImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   // special binary functor to perform A+B*ConstValue
   //

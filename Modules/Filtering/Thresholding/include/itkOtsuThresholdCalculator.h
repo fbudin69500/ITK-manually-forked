@@ -76,7 +76,8 @@ protected:
   void GenerateData(void) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(OtsuThresholdCalculator);
+  OtsuThresholdCalculator(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
   typename OtsuMultipleThresholdsCalculator<THistogram>::Pointer m_OtsuMultipleThresholdsCalculator;
 };
 

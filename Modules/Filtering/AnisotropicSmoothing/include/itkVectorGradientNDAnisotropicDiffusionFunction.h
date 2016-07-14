@@ -93,7 +93,8 @@ protected:
   ~VectorGradientNDAnisotropicDiffusionFunction() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorGradientNDAnisotropicDiffusionFunction);
+  VectorGradientNDAnisotropicDiffusionFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Inner product function. */
   VectorNeighborhoodInnerProduct< ImageType > m_InnerProduct;

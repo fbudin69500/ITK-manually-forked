@@ -60,7 +60,8 @@ public:
   itkSetStringMacro( Description );
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TestFactory3);
+  TestFactory3(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   TestFactory3()
     {

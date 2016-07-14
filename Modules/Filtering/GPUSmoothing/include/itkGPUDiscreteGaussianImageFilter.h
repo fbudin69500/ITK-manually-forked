@@ -109,7 +109,8 @@ protected:
   void GPUGenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUDiscreteGaussianImageFilter);
+  GPUDiscreteGaussianImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Intermediate 1D Gaussian filters */
   typename FirstFilterType::Pointer                       m_FirstFilter;

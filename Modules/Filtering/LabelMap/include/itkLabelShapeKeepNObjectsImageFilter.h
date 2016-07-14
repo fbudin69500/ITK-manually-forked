@@ -158,7 +158,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LabelShapeKeepNObjectsImageFilter);
+  LabelShapeKeepNObjectsImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   OutputImagePixelType m_BackgroundValue;
   SizeValueType        m_NumberOfObjects;

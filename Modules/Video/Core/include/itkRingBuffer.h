@@ -109,7 +109,8 @@ protected:
   std::vector<ElementPointer> m_PointerVector;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RingBuffer);
+  RingBuffer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };  // end RingBuffer class
 

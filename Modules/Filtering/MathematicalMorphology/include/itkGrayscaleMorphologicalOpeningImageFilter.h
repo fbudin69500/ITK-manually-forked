@@ -136,7 +136,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GrayscaleMorphologicalOpeningImageFilter);
+  GrayscaleMorphologicalOpeningImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   // the filters used internally
   typename HistogramDilateFilterType::Pointer m_HistogramDilateFilter;

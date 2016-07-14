@@ -189,7 +189,8 @@ protected:
   SizeValueType   m_JointHistogramTotalCount;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(JointHistogramMutualInformationImageToImageMetricv4);
+  JointHistogramMutualInformationImageToImageMetricv4(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** The fixed image marginal PDF */
   typename MarginalPDFType::Pointer m_FixedImageMarginalPDF;

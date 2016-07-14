@@ -216,7 +216,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(DiscreteGaussianDerivativeImageFilter);
+  DiscreteGaussianDerivativeImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** The order of the derivatives in each dimensional direction. */
   OrderArrayType m_Order;

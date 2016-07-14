@@ -143,7 +143,8 @@ protected:
   AuxValueContainerPointer m_AuxiliaryTrialValues;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(FastMarchingExtensionImageFilterBase);
+  FastMarchingExtensionImageFilterBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
   AuxImageType * m_AuxImages[VAuxDimension];
 };
 } // namespace itk

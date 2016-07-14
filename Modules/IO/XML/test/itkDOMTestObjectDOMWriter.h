@@ -51,7 +51,8 @@ protected:
   virtual void GenerateData( DOMNodeType* outputdom, const void* ) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(DOMTestObjectDOMWriter);
+  DOMTestObjectDOMWriter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 inline void

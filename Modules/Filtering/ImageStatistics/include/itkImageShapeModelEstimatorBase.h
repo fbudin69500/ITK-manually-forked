@@ -72,7 +72,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageShapeModelEstimatorBase);
+  ImageShapeModelEstimatorBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /**Container for holding the training image */
   InputImagePointer m_InputImage;

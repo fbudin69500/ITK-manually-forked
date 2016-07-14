@@ -142,7 +142,8 @@ protected:
   void ComputeThinImage();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinaryThinningImageFilter);
+  BinaryThinningImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                         // end of BinaryThinningImageFilter
                                            // class
 } //end namespace itk

@@ -81,7 +81,8 @@ protected:
         const ThreadIdType                threadId ) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MeanSquaresImageToImageMetricv4GetValueAndDerivativeThreader);
+  MeanSquaresImageToImageMetricv4GetValueAndDerivativeThreader( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 };
 
 } // end namespace itk

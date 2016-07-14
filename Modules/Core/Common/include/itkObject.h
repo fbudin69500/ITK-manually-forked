@@ -197,7 +197,8 @@ protected:
   virtual void SetTimeStamp( const TimeStamp & time );
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(Object);
+  Object(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Enable/Disable debug messages. */
   mutable bool m_Debug;

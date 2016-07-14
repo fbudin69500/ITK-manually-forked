@@ -107,7 +107,8 @@ protected:
   virtual void GenerateOutputInformation() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AutoCropLabelMapFilter);
+  AutoCropLabelMapFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   SizeType  m_CropBorder;
 };

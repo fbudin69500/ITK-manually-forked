@@ -102,7 +102,8 @@ protected:
   bool m_ChangeBackgroundValue;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ShiftScaleLabelMapFilter);
+  ShiftScaleLabelMapFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                        // end of class
 } // end namespace itk
 

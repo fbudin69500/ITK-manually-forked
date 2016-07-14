@@ -45,7 +45,8 @@ protected:
   virtual ~TextOutput();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TextOutput);
+  TextOutput(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 }
 

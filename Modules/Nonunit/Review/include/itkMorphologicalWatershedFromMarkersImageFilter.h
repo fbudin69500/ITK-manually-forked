@@ -176,7 +176,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MorphologicalWatershedFromMarkersImageFilter);
+  MorphologicalWatershedFromMarkersImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool m_FullyConnected;
 

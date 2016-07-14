@@ -85,7 +85,8 @@ namespace itk
    IterationIdType          m_CurrentIteration;
 
  private:
-   ITK_DISALLOW_COPY_AND_ASSIGN(LevelSetEvolutionStoppingCriterion);
+   LevelSetEvolutionStoppingCriterion( const Self& ) ITK_DELETE_FUNCTION;
+    void operator = ( const Self& ) ITK_DELETE_FUNCTION;
  };
  }
 #ifndef ITK_MANUAL_INSTANTIATION

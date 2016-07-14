@@ -44,7 +44,8 @@ private:
   GPUImageOps();
   virtual ~GPUImageOps();
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUImageOps);
+  GPUImageOps(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };
 

@@ -165,7 +165,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(HessianRecursiveGaussianImageFilter);
+  HessianRecursiveGaussianImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   GaussianFiltersArray      m_SmoothingFilters;
   DerivativeFilterAPointer  m_DerivativeFilterA;

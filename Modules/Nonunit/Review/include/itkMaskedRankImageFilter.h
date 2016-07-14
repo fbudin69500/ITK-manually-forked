@@ -127,7 +127,8 @@ protected:
   void ConfigureHistogram( HistogramType & histogram ) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MaskedRankImageFilter);
+  MaskedRankImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   float m_Rank;
 }; // end of class

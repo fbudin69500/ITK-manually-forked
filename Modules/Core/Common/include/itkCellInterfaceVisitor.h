@@ -72,7 +72,8 @@ protected:
   ~CellInterfaceVisitor() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CellInterfaceVisitor);
+  CellInterfaceVisitor(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 /** \class CellInterfaceVisitorImplementation
@@ -139,7 +140,8 @@ protected:
   ~CellInterfaceVisitorImplementation() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CellInterfaceVisitorImplementation);
+  CellInterfaceVisitorImplementation(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

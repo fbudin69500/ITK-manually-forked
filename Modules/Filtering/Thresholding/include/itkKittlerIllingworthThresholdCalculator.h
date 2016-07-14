@@ -79,7 +79,8 @@ protected:
   typedef typename HistogramType::SizeValueType               SizeValueType;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(KittlerIllingworthThresholdCalculator);
+  KittlerIllingworthThresholdCalculator(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   IndexValueType Mean();
   double A( InstanceIdentifier j);

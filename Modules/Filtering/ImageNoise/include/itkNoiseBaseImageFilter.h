@@ -78,7 +78,8 @@ protected:
   static OutputImagePixelType ClampCast(const double &value);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(NoiseBaseImageFilter);
+  NoiseBaseImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   uint32_t m_Seed;
 

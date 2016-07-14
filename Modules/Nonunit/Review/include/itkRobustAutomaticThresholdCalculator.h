@@ -108,7 +108,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RobustAutomaticThresholdCalculator);
+  RobustAutomaticThresholdCalculator(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool           m_Valid;                      // Have moments been computed
                                                // yet?

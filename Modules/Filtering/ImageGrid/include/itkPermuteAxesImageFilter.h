@@ -121,7 +121,8 @@ protected:
                             ThreadIdType threadId) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PermuteAxesImageFilter);
+  PermuteAxesImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PermuteOrderArrayType m_Order;
   PermuteOrderArrayType m_InverseOrder;

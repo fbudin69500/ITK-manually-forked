@@ -282,7 +282,8 @@ protected:
   void SetContainer( const LevelSetContainerType& iContainer );
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LevelSetContainerBase);
+  LevelSetContainerBase( const Self & ) ITK_DELETE_FUNCTION;
+  void operator = ( const Self & ) ITK_DELETE_FUNCTION;
 
   HeavisideConstPointer         m_Heaviside;
   DomainMapImageFilterPointer   m_DomainMapFilter;

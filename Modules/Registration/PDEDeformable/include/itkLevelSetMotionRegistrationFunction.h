@@ -224,7 +224,8 @@ protected:
   };
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LevelSetMotionRegistrationFunction);
+  LevelSetMotionRegistrationFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Cache fixed image information. */
   SpacingType m_FixedImageSpacing;

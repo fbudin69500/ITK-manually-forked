@@ -110,7 +110,8 @@ protected:
   virtual void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MeanSampleFilter);
+  MeanSampleFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                // end of class
 } // end of namespace Statistics
 } // end of namespace itk

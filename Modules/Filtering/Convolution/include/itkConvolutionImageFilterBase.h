@@ -122,7 +122,8 @@ protected:
   virtual void VerifyInputInformation() ITK_OVERRIDE {};
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ConvolutionImageFilterBase);
+  ConvolutionImageFilterBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool m_Normalize;
 

@@ -147,7 +147,8 @@ protected:
   void PrintSelf(std::ostream& os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AttributeSelectionLabelMapFilter);
+  AttributeSelectionLabelMapFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   AttributeSetType m_AttributeSet;
   bool             m_Exclude;

@@ -117,7 +117,8 @@ protected:
   virtual ~SumProjectionImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SumProjectionImageFilter);
+  SumProjectionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                        // end SumProjectionImageFilter
 } //end namespace itk
 

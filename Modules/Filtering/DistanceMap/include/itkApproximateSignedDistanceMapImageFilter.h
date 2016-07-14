@@ -136,7 +136,8 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ApproximateSignedDistanceMapImageFilter);
+  ApproximateSignedDistanceMapImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   typedef IsoContourDistanceImageFilter< InputImageType, OutputImageType >   IsoContourType;
   typedef FastChamferDistanceImageFilter< OutputImageType, OutputImageType > ChamferType;

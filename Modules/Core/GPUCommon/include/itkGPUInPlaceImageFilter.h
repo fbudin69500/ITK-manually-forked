@@ -97,7 +97,8 @@ protected:
   virtual void ReleaseInputs() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUInPlaceImageFilter);
+  GPUInPlaceImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };
 

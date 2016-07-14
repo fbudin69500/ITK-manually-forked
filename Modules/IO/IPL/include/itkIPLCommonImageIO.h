@@ -173,7 +173,8 @@ protected:
   double hdr2Double(char *hdr);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(IPLCommonImageIO);
+  IPLCommonImageIO(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 #define RAISE_EXCEPTION()                                    \

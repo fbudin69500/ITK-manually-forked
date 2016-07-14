@@ -235,7 +235,8 @@ protected:
   bool                                                            m_AverageMidPointGradients;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SyNImageRegistrationMethod);
+  SyNImageRegistrationMethod( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   RealType                                                        m_GaussianSmoothingVarianceForTheUpdateField;
   RealType                                                        m_GaussianSmoothingVarianceForTheTotalField;

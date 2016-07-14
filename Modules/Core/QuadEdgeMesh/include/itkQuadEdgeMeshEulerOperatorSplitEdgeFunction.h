@@ -88,7 +88,8 @@ protected:
   ~QuadEdgeMeshEulerOperatorSplitEdgeFunction(){}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(QuadEdgeMeshEulerOperatorSplitEdgeFunction);
+  QuadEdgeMeshEulerOperatorSplitEdgeFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   typename SplitVertex::Pointer m_SplitVertex;
 };

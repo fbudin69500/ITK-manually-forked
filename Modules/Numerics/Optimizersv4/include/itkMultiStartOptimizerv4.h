@@ -150,7 +150,8 @@ protected:
   OptimizerPointer              m_LocalOptimizer;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MultiStartOptimizerv4Template);
+  MultiStartOptimizerv4Template( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self& ) ITK_DELETE_FUNCTION;
 
 };
 

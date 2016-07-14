@@ -118,7 +118,8 @@ protected:
   virtual AccumulatorType NewAccumulator( SizeValueType ) const;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ProjectionImageFilter);
+  ProjectionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   unsigned int m_ProjectionDimension;
 };

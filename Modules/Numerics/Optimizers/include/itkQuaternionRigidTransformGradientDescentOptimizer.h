@@ -78,7 +78,8 @@ protected:
   virtual ~QuaternionRigidTransformGradientDescentOptimizer() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(QuaternionRigidTransformGradientDescentOptimizer);
+  QuaternionRigidTransformGradientDescentOptimizer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

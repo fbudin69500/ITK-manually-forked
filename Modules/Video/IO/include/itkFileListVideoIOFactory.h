@@ -62,7 +62,8 @@ protected:
   ~FileListVideoIOFactory();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(FileListVideoIOFactory);
+  FileListVideoIOFactory(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };
 } // end namespace itk

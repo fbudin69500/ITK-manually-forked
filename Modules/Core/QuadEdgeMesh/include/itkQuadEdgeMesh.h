@@ -508,7 +508,8 @@ protected:
   CellsContainerPointer m_EdgeCellsContainer;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(QuadEdgeMesh);
+  QuadEdgeMesh(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   CellIdentifier m_NumberOfFaces;
   CellIdentifier m_NumberOfEdges;

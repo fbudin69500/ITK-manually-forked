@@ -113,7 +113,8 @@ protected:
   virtual void GenerateOutputInformation() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PadImageFilter);
+  PadImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   SizeType m_PadLowerBound;
   SizeType m_PadUpperBound;

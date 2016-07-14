@@ -167,7 +167,8 @@ protected:
   };
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MatchCardinalityImageToImageMetric);
+  MatchCardinalityImageToImageMetric(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool                         m_MeasureMatches;
   std::vector< MeasureType >   m_ThreadMatches;

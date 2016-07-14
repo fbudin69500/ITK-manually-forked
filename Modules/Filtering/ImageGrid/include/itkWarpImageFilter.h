@@ -288,7 +288,8 @@ protected:
   IndexType m_StartIndex, m_EndIndex;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(WarpImageFilter);
+  WarpImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PixelType     m_EdgePaddingValue;
   SpacingType   m_OutputSpacing;

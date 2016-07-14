@@ -71,7 +71,8 @@ protected:
   ~ScalarAnisotropicDiffusionFunction() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarAnisotropicDiffusionFunction);
+  ScalarAnisotropicDiffusionFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

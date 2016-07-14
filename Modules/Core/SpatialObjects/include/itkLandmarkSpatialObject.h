@@ -109,7 +109,8 @@ public:
   bool ComputeLocalBoundingBox(void) const ITK_OVERRIDE;
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LandmarkSpatialObject);
+  LandmarkSpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PointListType m_Points;
 

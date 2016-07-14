@@ -150,7 +150,8 @@ protected:
                                              // incrementing
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BSplineDecompositionImageFilter);
+  BSplineDecompositionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Determines the poles given the Spline Order. */
   virtual void SetPoles();

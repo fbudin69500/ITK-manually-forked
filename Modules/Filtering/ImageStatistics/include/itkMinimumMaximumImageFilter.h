@@ -139,7 +139,8 @@ protected:
   void EnlargeOutputRequestedRegion(DataObject *data) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MinimumMaximumImageFilter);
+  MinimumMaximumImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::vector< PixelType > m_ThreadMin;
   std::vector< PixelType > m_ThreadMax;

@@ -108,7 +108,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CurvatureAnisotropicDiffusionImageFilter);
+  CurvatureAnisotropicDiffusionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namspace itk
 

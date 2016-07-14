@@ -235,7 +235,8 @@ protected:
   SizeValueType  m_InputStencilCurrentFrameIndex;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TemporalProcessObject);
+  TemporalProcessObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };  // end class TemporalProcessObject
 

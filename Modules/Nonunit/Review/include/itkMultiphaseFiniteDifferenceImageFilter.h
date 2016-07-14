@@ -510,7 +510,8 @@ protected:
   virtual void PostProcessOutput() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MultiphaseFiniteDifferenceImageFilter);
+  MultiphaseFiniteDifferenceImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Indicates whether the filter automatically resets to UNINITIALIZED state
       after completing, or whether filter must be manually reset */

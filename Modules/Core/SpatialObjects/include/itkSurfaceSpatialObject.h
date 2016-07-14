@@ -112,7 +112,8 @@ public:
   bool Approximate3DNormals();
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SurfaceSpatialObject);
+  SurfaceSpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PointListType m_Points;
 

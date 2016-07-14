@@ -110,7 +110,8 @@ protected:
   void PrintSelf(std::ostream& os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AttributeOpeningLabelMapFilter);
+  AttributeOpeningLabelMapFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   AttributeValueType m_Lambda;
   bool               m_ReverseOrdering;

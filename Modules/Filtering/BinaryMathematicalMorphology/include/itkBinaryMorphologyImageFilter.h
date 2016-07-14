@@ -224,7 +224,8 @@ protected:
   bool m_BoundaryToForeground;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinaryMorphologyImageFilter);
+  BinaryMorphologyImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Pixel value to dilate */
   InputPixelType m_ForegroundValue;

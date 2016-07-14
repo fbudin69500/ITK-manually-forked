@@ -162,7 +162,8 @@ protected:
   void CloseFile();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(OBJMeshIO);
+  OBJMeshIO(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::ifstream  m_InputFile;
   std::streampos m_PointsStartPosition;  // file position for points rlative to

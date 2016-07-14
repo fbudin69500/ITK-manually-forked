@@ -90,7 +90,8 @@ public:
   }
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PointBasedSpatialObject);
+  PointBasedSpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PointBasedSpatialObject();
   virtual ~PointBasedSpatialObject();

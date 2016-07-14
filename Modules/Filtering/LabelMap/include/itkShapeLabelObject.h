@@ -593,7 +593,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ShapeLabelObject);
+  ShapeLabelObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   RegionType    m_BoundingBox;
   SizeValueType m_NumberOfPixels;

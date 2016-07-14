@@ -144,7 +144,8 @@ protected:
   void ResetArguments(int kernelIdx);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUKernelManager);
+  GPUKernelManager(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&);
 
   cl_program m_Program;
 

@@ -339,7 +339,8 @@ protected:
   virtual ~VectorImage() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorImage);
+  VectorImage(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Length of the "vector pixel" */
   VectorLengthType m_VectorLength;

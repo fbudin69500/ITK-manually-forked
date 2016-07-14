@@ -125,7 +125,7 @@ protected:
 
   private:
     static int m_SemaphoreCount;
-    ThreadSemaphorePair() ITK_DELETED_FUNCTION;
+    ThreadSemaphorePair(); //purposefully not implemented.
   };
 
   ThreadPool();  // Protected so that only the GetThreadPool can create a thread
@@ -133,7 +133,9 @@ protected:
   virtual ~ThreadPool();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ThreadPool);
+  ThreadPool(ThreadPool const &) ITK_DELETE_FUNCTION;
+
+  ThreadPool & operator=(ThreadPool const &) ITK_DELETE_FUNCTION;
 
   /** Set when the thread pool is to be stopped */
   bool m_ScheduleForDestruction;
@@ -211,7 +213,7 @@ public:
     ThreadProcessIdType m_ThreadProcessHandle;
     WinThreadIdType     m_WinThreadId;
 private:
-    ThreadProcessIdentifiers() ITK_DELETED_FUNCTION;
+    ThreadProcessIdentifiers(); //purposefully not implemented.
   };
 
   // the ThreadProcessIdentifiersVector ThreadSemHandlePairingQueue and

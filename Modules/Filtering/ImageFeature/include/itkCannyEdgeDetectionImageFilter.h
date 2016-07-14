@@ -234,7 +234,8 @@ protected:
                                OutputImageType, OutputImageType >       MultiplyImageFilterType;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CannyEdgeDetectionImageFilter);
+  CannyEdgeDetectionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   virtual ~CannyEdgeDetectionImageFilter(){}
 

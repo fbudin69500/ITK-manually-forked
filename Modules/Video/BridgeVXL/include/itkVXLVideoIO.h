@@ -153,7 +153,8 @@ protected:
   bool PixelFormatSupported(vidl_pixel_format fmt);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VXLVideoIO);
+  VXLVideoIO(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Member Variables */
   vidl_pixel_format                         m_PixelFormat;

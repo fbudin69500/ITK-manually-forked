@@ -174,7 +174,8 @@ protected:
   typedef typename AdderType::Pointer              AdderPointer;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(FastSymmetricForcesDemonsRegistrationFilter);
+  FastSymmetricForcesDemonsRegistrationFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Downcast the DifferenceFunction using a dynamic_cast to ensure that it is of the correct type.
    * this method will throw an exception if the function is not of the expected type. */

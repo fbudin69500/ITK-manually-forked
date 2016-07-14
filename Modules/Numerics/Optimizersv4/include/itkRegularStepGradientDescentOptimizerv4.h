@@ -140,7 +140,8 @@ protected:
   MeasureType                  m_CurrentLearningRateRelaxation;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RegularStepGradientDescentOptimizerv4);
+  RegularStepGradientDescentOptimizerv4( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self& ) ITK_DELETE_FUNCTION;
 };
 
 } // end namespace itk

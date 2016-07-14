@@ -110,7 +110,8 @@ protected:
   void Scan();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ArchetypeSeriesFileNames);
+  ArchetypeSeriesFileNames(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** A string for formatting the names of files in the series. */
   std::string m_Archetype;

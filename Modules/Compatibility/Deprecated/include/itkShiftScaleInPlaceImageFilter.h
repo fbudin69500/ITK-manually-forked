@@ -130,7 +130,8 @@ protected:
                              ThreadIdType threadId);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ShiftScaleInPlaceImageFilter);
+  ShiftScaleInPlaceImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   RealType m_Shift;
   RealType m_Scale;

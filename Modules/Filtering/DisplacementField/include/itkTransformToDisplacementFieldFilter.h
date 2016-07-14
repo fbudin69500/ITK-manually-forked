@@ -180,7 +180,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TransformToDisplacementFieldFilter);
+  TransformToDisplacementFieldFilter( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   /** Member variables. */
   SizeType             m_Size;            // size of the output region

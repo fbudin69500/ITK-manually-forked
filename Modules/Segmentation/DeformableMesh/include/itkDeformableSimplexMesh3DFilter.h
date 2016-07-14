@@ -202,7 +202,8 @@ public:
 protected:
   DeformableSimplexMesh3DFilter();
   ~DeformableSimplexMesh3DFilter();
-  ITK_DISALLOW_COPY_AND_ASSIGN(DeformableSimplexMesh3DFilter);
+  DeformableSimplexMesh3DFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 

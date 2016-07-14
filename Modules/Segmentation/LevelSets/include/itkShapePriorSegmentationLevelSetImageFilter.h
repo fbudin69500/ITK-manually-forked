@@ -185,7 +185,8 @@ protected:
   void ExtractActiveRegion(NodeContainerType *ptr);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ShapePriorSegmentationLevelSetImageFilter);
+  ShapePriorSegmentationLevelSetImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ShapeFunctionPointer m_ShapeFunction;
   CostFunctionPointer  m_CostFunction;

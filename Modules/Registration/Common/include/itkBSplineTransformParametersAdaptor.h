@@ -140,7 +140,8 @@ protected:
   void PrintSelf( std::ostream & os, Indent indent ) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BSplineTransformParametersAdaptor);
+  BSplineTransformParametersAdaptor( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   /** Helper function to set m_RequiredFixedParameters */
   void UpdateRequiredFixedParameters();

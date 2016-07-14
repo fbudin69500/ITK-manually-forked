@@ -75,7 +75,8 @@ protected:
   virtual ~DecisionRule();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(DecisionRule);
+  DecisionRule(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                              // end of class
 } // end of namespace Statistics
 } // end of namespace itk

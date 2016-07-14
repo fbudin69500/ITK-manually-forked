@@ -303,7 +303,8 @@ protected:
   };
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RelabelComponentImageFilter);
+  RelabelComponentImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   LabelType      m_NumberOfObjects;
   LabelType      m_NumberOfObjectsToPrint;

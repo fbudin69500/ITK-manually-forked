@@ -112,7 +112,8 @@ protected:
   void * BufferPointerCallback() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VTKImageExport);
+  VTKImageExport(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::string m_ScalarTypeName;
   int         m_WholeExtent[6];

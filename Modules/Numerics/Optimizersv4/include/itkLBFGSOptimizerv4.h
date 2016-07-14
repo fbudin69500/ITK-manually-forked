@@ -89,7 +89,8 @@ protected:
   typedef   vnl_lbfgs           InternalOptimizerType;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LBFGSOptimizerv4);
+  LBFGSOptimizerv4(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool         m_Verbose;
   double       m_LineSearchAccuracy;

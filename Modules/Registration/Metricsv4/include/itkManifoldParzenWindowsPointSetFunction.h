@@ -183,7 +183,8 @@ protected:
   void GenerateData();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ManifoldParzenWindowsPointSetFunction);
+  ManifoldParzenWindowsPointSetFunction( const Self& ) ITK_DELETE_FUNCTION;
+  void operator=( const Self& ) ITK_DELETE_FUNCTION;
 
   typename PointsLocatorType::Pointer           m_PointsLocator;
 

@@ -86,7 +86,8 @@ protected:
   virtual void GPUGenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUMeanImageFilter);
+  GPUMeanImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   int m_MeanFilterGPUKernelHandle;
 };
@@ -129,7 +130,8 @@ public:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUMeanImageFilterFactory);
+  GPUMeanImageFilterFactory(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 #define OverrideMeanFilterTypeMacro(ipt,opt,dm) \
     { \

@@ -277,7 +277,8 @@ protected:
   CellIdentifier m_LastCellId;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SimplexMesh);
+  SimplexMesh(const Self &) ITK_DELETE_FUNCTION;
+  //  void operator=(const Self&) ITK_DELETE_FUNCTION;
 }; // End Class:  SimplexMesh
 } // end namespace itk
 

@@ -108,7 +108,8 @@ private:
 
   GeneratorPointer m_HistogramGenerator;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarImageToHistogramGenerator);
+  ScalarImageToHistogramGenerator(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end of namespace Statistics
 } // end of namespace itk

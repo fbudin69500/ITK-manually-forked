@@ -108,7 +108,8 @@ protected:
 
   virtual ~CannySegmentationLevelSetFunction() {}
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(CannySegmentationLevelSetFunction);
+  CannySegmentationLevelSetFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 private:
   ScalarValueType m_Variance;

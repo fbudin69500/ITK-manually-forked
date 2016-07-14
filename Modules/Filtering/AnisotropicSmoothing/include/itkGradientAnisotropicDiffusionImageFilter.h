@@ -89,7 +89,8 @@ protected:
   ~GradientAnisotropicDiffusionImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GradientAnisotropicDiffusionImageFilter);
+  GradientAnisotropicDiffusionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namspace itk
 

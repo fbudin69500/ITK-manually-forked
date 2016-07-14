@@ -120,7 +120,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinaryFillholeImageFilter);
+  BinaryFillholeImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   InputImagePixelType m_ForegroundValue;
 

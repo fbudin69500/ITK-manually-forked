@@ -115,7 +115,8 @@ protected:
   ~ZeroFluxNeumannPadImageFilter() {};
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ZeroFluxNeumannPadImageFilter);
+  ZeroFluxNeumannPadImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   ZeroFluxNeumannBoundaryCondition< TInputImage, TOutputImage > m_InternalBoundaryCondition;
 };

@@ -107,7 +107,8 @@ protected:
   virtual ~MultiplyImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MultiplyImageFilter);
+  MultiplyImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

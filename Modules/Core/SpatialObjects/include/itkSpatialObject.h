@@ -561,7 +561,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpatialObject);
+  SpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   BoundingBoxPointer       m_Bounds;
   mutable ModifiedTimeType m_BoundsMTime;

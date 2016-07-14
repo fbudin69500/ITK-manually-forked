@@ -152,7 +152,8 @@ protected:
   virtual void GenerateInputRequestedRegion() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MeshSource);
+  MeshSource(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Used by streaming: The requested region of the output being processed
    * by the execute method. Set in the GenerateInputRequestedRegion method. */

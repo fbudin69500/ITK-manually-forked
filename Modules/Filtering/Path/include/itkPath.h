@@ -117,7 +117,8 @@ protected:
   itkGetConstMacro(ZeroIndex, IndexType);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(Path);
+  Path(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   // These "constants" are initialized in the constructor
   OffsetType m_ZeroOffset;  // = 0 for all dimensions

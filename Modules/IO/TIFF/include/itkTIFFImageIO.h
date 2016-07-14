@@ -165,7 +165,8 @@ protected:
   int m_JPEGQuality;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TIFFImageIO);
+  TIFFImageIO(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   void ReadCurrentPage(void *out, size_t pixelOffset);
 

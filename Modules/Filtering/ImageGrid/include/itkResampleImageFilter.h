@@ -337,7 +337,8 @@ protected:
                                                  const ComponentType maxComponent) const;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ResampleImageFilter);
+  ResampleImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   SizeType                m_Size;         // Size of the output image
   InterpolatorPointerType m_Interpolator; // Image function for

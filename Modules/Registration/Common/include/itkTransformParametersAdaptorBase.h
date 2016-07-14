@@ -100,7 +100,8 @@ protected:
   FixedParametersType m_RequiredFixedParameters;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TransformParametersAdaptorBase);
+  TransformParametersAdaptorBase( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
 }; //class TransformParametersAdaptorBase
 }  // namespace itk

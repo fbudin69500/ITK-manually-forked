@@ -158,7 +158,8 @@ protected:
   virtual ~VectorRescaleIntensityImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorRescaleIntensityImageFilter);
+  VectorRescaleIntensityImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   InputRealType m_Scale;
   InputRealType m_Shift;

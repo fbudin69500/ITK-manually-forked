@@ -88,7 +88,8 @@ protected:
   void ThreadedGenerateData(const OutputImageRegionType& outputRegionForThread, ThreadIdType threadId ) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AdditiveGaussianNoiseImageFilter);
+  AdditiveGaussianNoiseImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   double m_Mean;
   double m_StandardDeviation;

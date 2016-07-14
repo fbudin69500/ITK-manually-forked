@@ -19,7 +19,6 @@
 #define itkSmartPointer_h
 
 #include <iostream>
-#include "itkConfigure.h"
 
 namespace itk
 {
@@ -40,6 +39,18 @@ namespace itk
  * \ingroup DataAccess
  * \ingroup ITKCommon
  */
+#if ITK_COMPILED_CXX_VERSION >= 201103L
+// In c++11 there is an explicit nullptr type that introduces a new keyword to
+// serve as a distinguished null pointer constant: nullptr. It is of type
+// nullptr_t, which is implicitly convertible and comparable to any pointer type
+// or pointer-to-member type. It is not implicitly convertible or comparable to
+// integral types, except for bool.
+#define ITK_SP_NULLPTR  nullptr
+#define ITK_SP_NOEXCEPT noexcept
+#else
+#define ITK_SP_NULLPTR  NULL
+#define ITK_SP_NOEXCEPT
+#endif
 template< typename TObjectType >
 class SmartPointer
 {
@@ -48,7 +59,7 @@ public:
 
   /** Constructor  */
   SmartPointer ()
-  { m_Pointer = ITK_NULLPTR; }
+  { m_Pointer = ITK_SP_NULLPTR; }
 
   /** Copy constructor  */
   SmartPointer (const SmartPointer< ObjectType > & p):
@@ -64,7 +75,7 @@ public:
   ~SmartPointer ()
   {
     this->UnRegister();
-    m_Pointer = ITK_NULLPTR;
+    m_Pointer = ITK_SP_NULLPTR;
   }
 
   /** Overload operator ->  */
@@ -77,11 +88,11 @@ public:
 
   /** Test if the pointer is not NULL. */
   bool IsNotNull() const
-  { return m_Pointer != ITK_NULLPTR; }
+  { return m_Pointer != ITK_SP_NULLPTR; }
 
   /** Test if the pointer is NULL. */
   bool IsNull() const
-  { return m_Pointer == ITK_NULLPTR; }
+  { return m_Pointer == ITK_SP_NULLPTR; }
 
   /** Template comparison operators. */
   template< typename TR >
@@ -164,7 +175,7 @@ private:
     if ( m_Pointer ) { m_Pointer->Register(); }
   }
 
-  void UnRegister() ITK_NOEXCEPT
+  void UnRegister() ITK_SP_NOEXCEPT
   {
     if ( m_Pointer ) { m_Pointer->UnRegister(); }
   }
@@ -184,5 +195,12 @@ inline void swap( SmartPointer<T> &a, SmartPointer<T> &b )
 }
 
 } // end namespace itk
+
+#ifdef ITK_SP_NULLPTR
+#undef ITK_SP_NULLPTR
+#endif
+#ifdef ITK_SP_NOEXECPT
+#undef ITK_SP_NOEXCEPT
+#endif
 
 #endif

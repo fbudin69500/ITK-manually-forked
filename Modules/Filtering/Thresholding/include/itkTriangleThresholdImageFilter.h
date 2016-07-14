@@ -105,7 +105,8 @@ protected:
   ~TriangleThresholdImageFilter(){};
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TriangleThresholdImageFilter);
+  TriangleThresholdImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 }; // end of class
 
 } // end namespace itk

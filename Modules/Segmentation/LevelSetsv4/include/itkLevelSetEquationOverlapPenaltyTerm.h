@@ -123,7 +123,8 @@ protected:
                                         const LevelSetDataType& data ) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LevelSetEquationOverlapPenaltyTerm);
+  LevelSetEquationOverlapPenaltyTerm( const Self& ) ITK_DELETE_FUNCTION;
+  void operator = ( const Self& ) ITK_DELETE_FUNCTION;
 
   DomainMapImageFilterType *m_DomainMapImageFilter;
   CacheImageType           *m_CacheImage;

@@ -116,7 +116,8 @@ protected:
                              const KernelIteratorType kernelEnd) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BasicErodeImageFilter);
+  BasicErodeImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   // Default boundary condition for erosion filter, defaults to
   // NumericTraits<PixelType>::max()

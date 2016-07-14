@@ -119,7 +119,8 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GaussianMembershipFunction);
+  GaussianMembershipFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   MeanVectorType       m_Mean;            // mean
   CovarianceMatrixType m_Covariance;      // covariance matrix

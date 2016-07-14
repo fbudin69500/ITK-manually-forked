@@ -213,7 +213,8 @@ protected:
   virtual void BeforeThreadedGenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinaryThresholdImageFilter);
+  BinaryThresholdImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   OutputPixelType m_InsideValue;
   OutputPixelType m_OutsideValue;

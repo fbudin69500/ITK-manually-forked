@@ -190,7 +190,8 @@ protected:
   virtual void GenerateOutputInformation() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinaryFunctorImageFilter);
+  BinaryFunctorImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   FunctorType m_Functor;
 };

@@ -59,7 +59,8 @@ public:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(StdStreamStateSave);
+  StdStreamStateSave(const StdStreamStateSave &) ITK_DELETE_FUNCTION;
+  void operator=(const StdStreamStateSave &) ITK_DELETE_FUNCTION;
 
   std::ios& m_Ios;
   std::ios  m_State;

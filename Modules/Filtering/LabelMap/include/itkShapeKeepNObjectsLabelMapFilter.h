@@ -179,7 +179,8 @@ protected:
   AttributeType m_Attribute;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ShapeKeepNObjectsLabelMapFilter);
+  ShapeKeepNObjectsLabelMapFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                               // end of class
 } // end namespace itk
 

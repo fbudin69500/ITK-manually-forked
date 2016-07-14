@@ -88,7 +88,8 @@ public:
   itkGetMacro(UpperPoint, PointType);
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PlaneSpatialObject);
+  PlaneSpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PlaneSpatialObject();
   ~PlaneSpatialObject();

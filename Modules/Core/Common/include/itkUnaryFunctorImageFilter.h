@@ -124,7 +124,8 @@ protected:
                             ThreadIdType threadId) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(UnaryFunctorImageFilter);
+  UnaryFunctorImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   FunctorType m_Functor;
 };

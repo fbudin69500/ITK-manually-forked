@@ -107,7 +107,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RichardsonLucyDeconvolutionImageFilter);
+  RichardsonLucyDeconvolutionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Filters to compute each iterative update step. */
   typedef MultiplyImageFilter< InternalImageType >                 MultiplyFilterType;

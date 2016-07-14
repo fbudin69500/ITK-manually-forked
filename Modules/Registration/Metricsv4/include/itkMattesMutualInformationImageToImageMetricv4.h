@@ -347,7 +347,8 @@ private:
   mutable std::vector<DerivativeType>              m_LocalDerivativeByParzenBin;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MattesMutualInformationImageToImageMetricv4);
+  MattesMutualInformationImageToImageMetricv4(const Self &) ITK_DELETE_FUNCTION;
+  void operator = (const Self &) ITK_DELETE_FUNCTION;
 
   /** Perform the final step in computing results */
   virtual void ComputeResults() const;

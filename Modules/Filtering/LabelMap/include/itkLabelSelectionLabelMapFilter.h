@@ -126,7 +126,8 @@ protected:
   ~LabelSelectionLabelMapFilter() {};
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LabelSelectionLabelMapFilter);
+  LabelSelectionLabelMapFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 }; // end of class
 

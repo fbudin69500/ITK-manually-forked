@@ -66,7 +66,8 @@ private:
   /** Variable to hold the text string of this node. */
   std::string m_Text;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(DOMTextNode);
+  DOMTextNode(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 } // namespace itk

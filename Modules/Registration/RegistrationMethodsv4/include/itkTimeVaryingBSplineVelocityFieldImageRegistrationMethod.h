@@ -220,7 +220,8 @@ protected:
     const PointSetsContainerType, const TransformBaseType *, const FixedImageMasksContainerType );
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TimeVaryingBSplineVelocityFieldImageRegistrationMethod);
+  TimeVaryingBSplineVelocityFieldImageRegistrationMethod( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   DisplacementFieldTransformPointer                   m_IdentityDisplacementFieldTransform;
 

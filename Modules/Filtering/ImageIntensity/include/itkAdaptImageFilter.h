@@ -169,7 +169,8 @@ protected:
   virtual ~AdaptImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AdaptImageFilter);
+  AdaptImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

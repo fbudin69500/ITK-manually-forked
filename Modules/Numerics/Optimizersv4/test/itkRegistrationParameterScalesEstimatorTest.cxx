@@ -197,7 +197,8 @@ protected:
   ~RegistrationParameterScalesEstimatorTest(){};
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RegistrationParameterScalesEstimatorTest);
+  RegistrationParameterScalesEstimatorTest(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 };
 

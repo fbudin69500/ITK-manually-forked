@@ -127,7 +127,8 @@ protected:
   virtual ~HistogramToEntropyImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(HistogramToEntropyImageFilter);
+  HistogramToEntropyImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

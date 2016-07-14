@@ -98,7 +98,8 @@ protected:
                 const KernelType & kernel) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(DilateObjectMorphologyImageFilter);
+  DilateObjectMorphologyImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   // Default boundary condition for dilation filter, defaults to
   // NumericTraits<PixelType>::NonpositiveMin()

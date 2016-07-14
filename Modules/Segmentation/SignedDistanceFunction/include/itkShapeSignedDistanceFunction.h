@@ -117,7 +117,8 @@ protected:
   ParametersType m_Parameters;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ShapeSignedDistanceFunction);
+  ShapeSignedDistanceFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

@@ -186,7 +186,8 @@ protected:
   GradientImagePointer m_GradientImage;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PointSetToImageMetric);
+  PointSetToImageMetric(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

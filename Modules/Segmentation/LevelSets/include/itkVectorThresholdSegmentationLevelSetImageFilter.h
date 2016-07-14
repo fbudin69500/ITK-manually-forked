@@ -158,7 +158,8 @@ protected:
 
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorThresholdSegmentationLevelSetImageFilter);
+  VectorThresholdSegmentationLevelSetImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 private:
   ThresholdFunctionPointer m_ThresholdFunction;

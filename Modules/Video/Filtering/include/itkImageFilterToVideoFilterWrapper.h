@@ -82,7 +82,8 @@ protected:
   typename ImageFilterType::Pointer m_ImageFilter;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageFilterToVideoFilterWrapper);
+  ImageFilterToVideoFilterWrapper(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 
 };  // end class ImageFilterToVideoFilterWrapper

@@ -293,7 +293,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(OrientImageFilter);
+  OrientImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::string GetMajorAxisFromPatientRelativeDirectionCosine(double x, double y, double z);
 

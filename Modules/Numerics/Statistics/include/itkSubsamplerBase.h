@@ -127,7 +127,8 @@ protected:
   SeedType           m_Seed;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SubsamplerBase);
+  SubsamplerBase(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 }; // end of class SubsamplerBase
 

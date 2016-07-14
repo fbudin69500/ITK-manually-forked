@@ -175,7 +175,8 @@ protected:
                      const std::vector< OffsetValueType >& stride );
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(IsoContourDistanceImageFilter);
+  IsoContourDistanceImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   InputPixelType m_LevelSetValue;
   PixelType      m_FarValue;

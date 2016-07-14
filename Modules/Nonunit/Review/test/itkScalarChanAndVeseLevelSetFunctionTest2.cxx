@@ -68,7 +68,8 @@ protected:
   ~ScalarChanAndVeseLevelSetFunctionTest2Helper() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarChanAndVeseLevelSetFunctionTest2Helper);
+  ScalarChanAndVeseLevelSetFunctionTest2Helper(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 };
 
 }

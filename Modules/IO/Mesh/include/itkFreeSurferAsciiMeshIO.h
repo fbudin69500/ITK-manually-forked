@@ -160,7 +160,8 @@ protected:
   void CloseFile();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(FreeSurferAsciiMeshIO);
+  FreeSurferAsciiMeshIO(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::ifstream m_InputFile;
 };

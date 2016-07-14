@@ -181,7 +181,8 @@ protected:
   void CloseFile();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(OFFMeshIO);
+  OFFMeshIO(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::ifstream    m_InputFile;
   StreamOffsetType m_PointsStartPosition; // file position for points rlative to std::ios::beg

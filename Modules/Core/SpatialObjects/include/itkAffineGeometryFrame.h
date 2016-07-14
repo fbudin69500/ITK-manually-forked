@@ -115,7 +115,8 @@ protected:
   typename TransformType::Pointer m_IndexToWorldTransform;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AffineGeometryFrame);
+  AffineGeometryFrame(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // namespace itk
 

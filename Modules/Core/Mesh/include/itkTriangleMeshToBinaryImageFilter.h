@@ -233,7 +233,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TriangleMeshToBinaryImageFilter);
+  TriangleMeshToBinaryImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   static bool ComparePoints2D(Point2DType a, Point2DType b);
 

@@ -116,7 +116,8 @@ protected:
   bool ComputeStatistics();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpatialObjectToImageStatisticsCalculator);
+  SpatialObjectToImageStatisticsCalculator(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ImageConstPointer    m_Image;
   SpatialObjectPointer m_SpatialObject;

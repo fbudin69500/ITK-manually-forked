@@ -198,7 +198,8 @@ protected:
   InputPixelType m_ThresholdValue;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinaryThresholdProjectionImageFilter);
+  BinaryThresholdProjectionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };  // end BinaryThresholdProjectionImageFilter
 } //end namespace itk
 

@@ -117,7 +117,8 @@ public:
   bool ComputeLocalBoundingBox() const ITK_OVERRIDE;
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BlobSpatialObject);
+  BlobSpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PointListType m_Points;
 

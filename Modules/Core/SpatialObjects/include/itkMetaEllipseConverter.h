@@ -71,7 +71,8 @@ protected:
   ~MetaEllipseConverter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MetaEllipseConverter);
+  MetaEllipseConverter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };
 

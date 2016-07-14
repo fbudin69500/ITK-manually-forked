@@ -161,7 +161,8 @@ protected:
   ConnectivityEnumType m_Connectivity;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ConnectedThresholdImageFilter);
+  ConnectedThresholdImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

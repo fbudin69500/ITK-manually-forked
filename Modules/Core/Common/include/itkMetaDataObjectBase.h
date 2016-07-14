@@ -79,7 +79,8 @@ protected:
   virtual ~MetaDataObjectBase();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MetaDataObjectBase);
+  MetaDataObjectBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 }
 

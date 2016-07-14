@@ -191,7 +191,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(QuasiNewtonOptimizerv4Template);
+  QuasiNewtonOptimizerv4Template(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Threader for Newton step estimation. */
   typename DomainThreader<ThreadedIndexedContainerPartitioner, Self>::Pointer m_EstimateNewtonStepThreader;

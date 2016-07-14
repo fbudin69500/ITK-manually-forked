@@ -68,7 +68,8 @@ protected:
   ~ScalarChanAndVeseLevelSetFunctionTestHelper() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarChanAndVeseLevelSetFunctionTestHelper);
+  ScalarChanAndVeseLevelSetFunctionTestHelper(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 };
 
 template <unsigned int NDimension>

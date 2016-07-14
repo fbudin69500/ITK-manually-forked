@@ -96,7 +96,8 @@ protected:
   vtkSmartPointer< vtkRenderer >          m_Renderer;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VTKVisualizeImageLevelSet);
+  VTKVisualizeImageLevelSet( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   bool                               m_ScreenCapture;
   IdentifierType                     m_CurrentIteration;

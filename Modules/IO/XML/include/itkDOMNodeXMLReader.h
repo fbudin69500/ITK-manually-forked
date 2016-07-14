@@ -119,7 +119,8 @@ protected:
   DOMNodeXMLReader();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(DOMNodeXMLReader);
+  DOMNodeXMLReader(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Variable to hold the input XML file name. */
   std::string m_FileName;

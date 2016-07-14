@@ -108,7 +108,8 @@ protected:
   double m_SigmaThreshold;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VoronoiPartitioningImageFilter);
+  VoronoiPartitioningImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } //end namespace
 

@@ -204,7 +204,8 @@ protected:
                                GradientImageType *gradientImage);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(FastMarchingUpwindGradientImageFilter);
+  FastMarchingUpwindGradientImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   NodeContainerPointer m_TargetPoints;
   NodeContainerPointer m_ReachedTargetPoints;

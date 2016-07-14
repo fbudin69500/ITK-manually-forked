@@ -92,7 +92,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(StatisticsKeepNObjectsLabelMapFilter);
+  StatisticsKeepNObjectsLabelMapFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                                    // end of class
 } // end namespace itk
 

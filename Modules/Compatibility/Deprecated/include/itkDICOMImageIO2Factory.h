@@ -63,7 +63,8 @@ protected:
   ~DICOMImageIO2Factory();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(DICOMImageIO2Factory);
+  DICOMImageIO2Factory(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

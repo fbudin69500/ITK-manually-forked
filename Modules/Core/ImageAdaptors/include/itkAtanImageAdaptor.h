@@ -98,7 +98,8 @@ protected:
   virtual ~AtanImageAdaptor() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AtanImageAdaptor);
+  AtanImageAdaptor(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

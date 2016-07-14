@@ -71,7 +71,8 @@ protected:
   ~MetaArrowConverter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MetaArrowConverter);
+  MetaArrowConverter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };
 

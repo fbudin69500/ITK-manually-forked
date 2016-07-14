@@ -313,7 +313,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VoronoiDiagram2D);
+  VoronoiDiagram2D(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   SeedsType                         m_Seeds;
   unsigned int                      m_NumberOfSeeds;

@@ -74,7 +74,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BSplineKernelFunction);
+  BSplineKernelFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Structures to control overloaded versions of Evaluate */
   struct DispatchBase {};

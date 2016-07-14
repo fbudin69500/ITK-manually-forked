@@ -79,7 +79,8 @@ protected:
   LevelSetPointer         m_LevelSet;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinaryImageToLevelSetImageAdaptorBase);
+  BinaryImageToLevelSetImageAdaptorBase( const Self& ) ITK_DELETE_FUNCTION;
+  void operator = ( const Self& ) ITK_DELETE_FUNCTION;
 
 };
 }

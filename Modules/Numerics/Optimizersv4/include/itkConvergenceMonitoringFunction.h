@@ -116,7 +116,8 @@ protected:
   EnergyValueContainerType          m_EnergyValues;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ConvergenceMonitoringFunction);
+  ConvergenceMonitoringFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };
 } // end namespace function

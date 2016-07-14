@@ -177,7 +177,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AntiAliasBinaryImageFilter);
+  AntiAliasBinaryImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   BinaryValueType m_UpperBinaryValue;
   BinaryValueType m_LowerBinaryValue;

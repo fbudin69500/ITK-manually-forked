@@ -245,7 +245,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(SPSAOptimizer);
+  SPSAOptimizer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Settings.*/
   SizeValueType m_MinimumNumberOfIterations;

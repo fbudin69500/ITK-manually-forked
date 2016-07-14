@@ -91,7 +91,8 @@ protected:
   virtual DataObjectPointer MakeOutput(DataObjectPointerArraySizeType idx) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SampleToSubsampleFilter);
+  SampleToSubsampleFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                       // end of class
 } // end of namespace Statistics
 } // end of namespace itk

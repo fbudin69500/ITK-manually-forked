@@ -224,7 +224,8 @@ protected:
                             ThreadIdType threadId) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorResampleImageFilter);
+  VectorResampleImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   SizeType                m_Size;       // Size of the output image
   TransformPointerType    m_Transform;  // Coordinate transform to use

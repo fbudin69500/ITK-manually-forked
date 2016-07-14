@@ -139,7 +139,8 @@ protected:
   //void ComputeInternalFileName(unsigned long slice);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RawImageIO);
+  RawImageIO(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::string m_InternalFileName;
 
@@ -189,7 +190,8 @@ protected:
   const myProductType *m_MyProduct;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RawImageIOFactory);
+  RawImageIOFactory(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // namespace itk
 

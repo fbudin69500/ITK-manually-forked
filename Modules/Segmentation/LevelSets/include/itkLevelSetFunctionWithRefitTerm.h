@@ -149,7 +149,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LevelSetFunctionWithRefitTerm);
+  LevelSetFunctionWithRefitTerm(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** The sparse image that contains the target curvature information. */
   typename SparseImageType::Pointer m_SparseTargetImage;

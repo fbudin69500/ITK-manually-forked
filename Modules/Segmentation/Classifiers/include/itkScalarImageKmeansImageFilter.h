@@ -167,7 +167,8 @@ protected:
   virtual void VerifyPreconditions() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarImageKmeansImageFilter);
+  ScalarImageKmeansImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   typedef std::vector< RealPixelType > MeansContainer;
 

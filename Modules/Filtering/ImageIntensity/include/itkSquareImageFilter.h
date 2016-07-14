@@ -99,7 +99,8 @@ protected:
   virtual ~SquareImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SquareImageFilter);
+  SquareImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

@@ -111,7 +111,8 @@ protected:
   virtual ~MedianProjectionImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MedianProjectionImageFilter);
+  MedianProjectionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                           // end MedianProjectionImageFilter
 } //end namespace itk
 

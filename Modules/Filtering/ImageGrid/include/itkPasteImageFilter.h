@@ -160,7 +160,8 @@ protected:
   InputImageIndexType m_DestinationIndex;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PasteImageFilter);
+  PasteImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

@@ -123,7 +123,8 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CenteredEuler3DTransform);
+  CenteredEuler3DTransform(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };                                        // class CenteredEuler3DTransform
 }  // namespace itk

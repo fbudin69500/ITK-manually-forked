@@ -71,7 +71,8 @@ protected:
   ~VTKImageIOFactory();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VTKImageIOFactory);
+  VTKImageIOFactory(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

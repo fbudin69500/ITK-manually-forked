@@ -211,7 +211,8 @@ protected:
   void ThreadedGenerateData( const OutputImageRegionType &, ThreadIdType ) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BSplineControlPointImageFilter);
+  BSplineControlPointImageFilter( const Self& ) ITK_DELETE_FUNCTION;
+  void operator=( const Self& ) ITK_DELETE_FUNCTION;
 
 
   /**

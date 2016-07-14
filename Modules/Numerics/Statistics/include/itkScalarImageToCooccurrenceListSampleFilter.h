@@ -113,7 +113,8 @@ protected:
   virtual void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScalarImageToCooccurrenceListSampleFilter);
+  ScalarImageToCooccurrenceListSampleFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   OffsetTable m_OffsetTable;
 };  // end of class ScalarImageToListSampleFilter

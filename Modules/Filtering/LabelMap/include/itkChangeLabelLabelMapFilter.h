@@ -103,7 +103,8 @@ protected:
   ChangeMapType m_MapOfLabelToBeReplaced;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ChangeLabelLabelMapFilter);
+  ChangeLabelLabelMapFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                         // end of class
 } // end namespace itk
 

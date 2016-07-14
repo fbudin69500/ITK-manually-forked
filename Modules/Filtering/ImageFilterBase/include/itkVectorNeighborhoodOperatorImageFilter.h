@@ -155,7 +155,8 @@ protected:
   { Superclass::PrintSelf(os, indent);  }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorNeighborhoodOperatorImageFilter);
+  VectorNeighborhoodOperatorImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Pointer to the internal operator used to filter the image. */
   Neighborhood< ScalarValueType, itkGetStaticConstMacro(ImageDimension) > m_Operator;

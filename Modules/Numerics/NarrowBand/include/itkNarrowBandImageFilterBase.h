@@ -280,7 +280,8 @@ protected:
   typename Barrier::Pointer m_Barrier;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(NarrowBandImageFilterBase);
+  NarrowBandImageFilterBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Structure for passing information into static callback methods.  Used in
    * the subclasses' threading mechanisms. */

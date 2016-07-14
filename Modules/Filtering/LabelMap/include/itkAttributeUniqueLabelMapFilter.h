@@ -109,7 +109,8 @@ protected:
   bool m_ReverseOrdering;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AttributeUniqueLabelMapFilter);
+  AttributeUniqueLabelMapFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   struct LineOfLabelObject
     {

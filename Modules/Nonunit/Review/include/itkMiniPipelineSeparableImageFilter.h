@@ -106,7 +106,8 @@ protected:
   typename CastType::Pointer m_Cast;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MiniPipelineSeparableImageFilter);
+  MiniPipelineSeparableImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 }
 

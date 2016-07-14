@@ -233,7 +233,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(Similarity2DTransform);
+  Similarity2DTransform(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ScaleType m_Scale;
 }; // class Similarity2DTransform

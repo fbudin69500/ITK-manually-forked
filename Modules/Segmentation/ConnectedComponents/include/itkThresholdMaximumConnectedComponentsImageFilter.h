@@ -175,7 +175,8 @@ private:
 
   typedef typename FilterImageType::Pointer FilterImagePointer;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(ThresholdMaximumConnectedComponentsImageFilter);
+  ThresholdMaximumConnectedComponentsImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   //
   // Binary Threshold Filter

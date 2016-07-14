@@ -417,7 +417,8 @@ protected:
   static VectorType m_ZeroVectorConstant;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RegionBasedLevelSetFunction);
+  RegionBasedLevelSetFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

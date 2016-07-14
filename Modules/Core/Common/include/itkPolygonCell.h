@@ -138,7 +138,8 @@ protected:
   std::vector< PointIdentifier > m_PointIds;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PolygonCell);
+  PolygonCell(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } //end namespace
 

@@ -488,7 +488,8 @@ private:
 
   typename ImageBaseType::ConstPointer m_RealValuedInputImage;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorGradientMagnitudeImageFilter);
+  VectorGradientMagnitudeImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

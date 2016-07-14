@@ -205,7 +205,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageMomentsCalculator);
+  ImageMomentsCalculator(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool       m_Valid;                // Have moments been computed yet?
   ScalarType m_M0;                   // Zeroth moment

@@ -66,7 +66,8 @@ protected:
   virtual ~VectorToRGBImageAdaptor() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorToRGBImageAdaptor);
+  VectorToRGBImageAdaptor(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

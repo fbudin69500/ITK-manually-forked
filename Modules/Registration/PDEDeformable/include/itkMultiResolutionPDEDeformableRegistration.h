@@ -272,7 +272,8 @@ protected:
   virtual void VerifyInputInformation() ITK_OVERRIDE {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MultiResolutionPDEDeformableRegistration);
+  MultiResolutionPDEDeformableRegistration(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   RegistrationPointer       m_RegistrationFilter;
   FixedImagePyramidPointer  m_FixedImagePyramid;

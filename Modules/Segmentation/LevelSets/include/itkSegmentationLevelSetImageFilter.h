@@ -501,7 +501,8 @@ protected:
   bool m_AutoGenerateSpeedAdvection;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SegmentationLevelSetImageFilter);
+  SegmentationLevelSetImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   SegmentationFunctionType *m_SegmentationFunction;
 };

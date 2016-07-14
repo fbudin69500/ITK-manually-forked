@@ -163,7 +163,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageRegionSplitter);
+  ImageRegionSplitter(const ImageRegionSplitter &) ITK_DELETE_FUNCTION;
+  void operator=(const ImageRegionSplitter &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

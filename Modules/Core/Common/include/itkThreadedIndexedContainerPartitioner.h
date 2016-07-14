@@ -86,7 +86,8 @@ protected:
   virtual ~ThreadedIndexedContainerPartitioner();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ThreadedIndexedContainerPartitioner);
+  ThreadedIndexedContainerPartitioner(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 };
 

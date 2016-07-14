@@ -286,7 +286,8 @@ protected:
   virtual ~SpecialCoordinatesImage() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpecialCoordinatesImage);
+  SpecialCoordinatesImage(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Memory for the current buffer. */
   PixelContainerPointer m_Buffer;

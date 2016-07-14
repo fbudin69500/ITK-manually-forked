@@ -85,7 +85,8 @@ public:
                              MetaConverterBaseType *converter);
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpatialObjectReader);
+  SpatialObjectReader(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::string m_FileName;
 

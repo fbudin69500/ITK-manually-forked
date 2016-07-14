@@ -46,7 +46,8 @@ protected:
   ~CreateObjectFunctionBase();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CreateObjectFunctionBase);
+  CreateObjectFunctionBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 /** \class CreateObjectFunction
@@ -73,7 +74,8 @@ protected:
   ~CreateObjectFunction() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CreateObjectFunction);
+  CreateObjectFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

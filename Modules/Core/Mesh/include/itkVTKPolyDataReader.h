@@ -108,7 +108,8 @@ protected:
   /** Filename to read */
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VTKPolyDataReader);
+  VTKPolyDataReader(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::string m_FileName;
   std::string m_Header;

@@ -111,7 +111,8 @@ private:
   /** Callback function for the Command Observer */
   void IterationReport(const EventObject & event);
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(SingleValuedNonLinearVnlOptimizer);
+  SingleValuedNonLinearVnlOptimizer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   CostFunctionAdaptorType *m_CostFunctionAdaptor;
 

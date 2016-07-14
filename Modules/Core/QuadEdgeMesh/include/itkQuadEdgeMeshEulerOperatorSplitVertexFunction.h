@@ -76,7 +76,8 @@ protected:
   ~QuadEdgeMeshEulerOperatorSplitVertexFunction(){}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(QuadEdgeMeshEulerOperatorSplitVertexFunction);
+  QuadEdgeMeshEulerOperatorSplitVertexFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PointIdentifier m_NewPoint; // stock newly created point ID for user.
 };

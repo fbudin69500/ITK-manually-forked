@@ -158,7 +158,8 @@ protected:
   void MovePointFromPlus2();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(UpdateWhitakerSparseLevelSet);
+  UpdateWhitakerSparseLevelSet( const Self& ) ITK_DELETE_FUNCTION;
+  void operator = ( const Self& ) ITK_DELETE_FUNCTION;
 
   LevelSetOutputType m_TimeStep;
   LevelSetOutputType m_RMSChangeAccumulator;

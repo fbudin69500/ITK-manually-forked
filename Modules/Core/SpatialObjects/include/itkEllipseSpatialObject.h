@@ -100,7 +100,8 @@ public:
   void CopyInformation(const DataObject *data) ITK_OVERRIDE;
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(EllipseSpatialObject);
+  EllipseSpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   EllipseSpatialObject();
   ~EllipseSpatialObject();

@@ -167,7 +167,8 @@ protected:
   virtual void GenerateOutputInformation() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VTKImageImport);
+  VTKImageImport(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   void *                            m_CallbackUserData;
   UpdateInformationCallbackType     m_UpdateInformationCallback;

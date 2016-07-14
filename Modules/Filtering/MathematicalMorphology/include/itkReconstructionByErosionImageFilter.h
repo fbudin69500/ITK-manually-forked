@@ -111,7 +111,8 @@ protected:
   virtual ~ReconstructionByErosionImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ReconstructionByErosionImageFilter);
+  ReconstructionByErosionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                                  // end
                                                     //
                                                     //

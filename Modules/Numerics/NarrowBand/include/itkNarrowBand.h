@@ -168,7 +168,8 @@ protected:
   float m_InnerRadius;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(NarrowBand);
+  NarrowBand(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   NodeContainerType m_NodeContainer;
 };

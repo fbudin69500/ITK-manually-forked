@@ -335,7 +335,8 @@ private:
   /** Construct control point grid size from transform domain information */
   virtual void SetCoefficientImageInformationFromFixedParameters() ITK_OVERRIDE;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(BSplineDeformableTransform);
+  BSplineDeformableTransform( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   /** Check if a continuous index is inside the valid region. */
   virtual bool InsideValidRegion( ContinuousIndexType & ) const ITK_OVERRIDE;

@@ -190,7 +190,8 @@ protected:
   PixelRealType m_ScaleCoefficients[ImageDimension];
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(FiniteDifferenceFunction);
+  FiniteDifferenceFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

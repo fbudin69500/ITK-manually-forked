@@ -263,7 +263,8 @@ protected:
   void drawVDline(VDImagePointer result, PointType p1, PointType p2, unsigned char color);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VoronoiSegmentationImageFilterBase);
+  VoronoiSegmentationImageFilterBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } //end namespace
 

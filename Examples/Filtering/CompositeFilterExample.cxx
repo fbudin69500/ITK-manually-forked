@@ -128,7 +128,9 @@ protected:
   void PrintSelf( std::ostream& os, Indent indent ) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CompositeExampleImageFilter);
+
+  CompositeExampleImageFilter(Self&);   // purposely not implemented
+  void operator=(const Self&);          // purposely not implemented
 
 //  Software Guide : BeginLatex
 //

@@ -120,7 +120,8 @@ protected:
   virtual void UpdateSwarm() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(InitializationBiasedParticleSwarmOptimizer);
+  InitializationBiasedParticleSwarmOptimizer(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   ParametersType::ValueType                    m_InertiaCoefficient;
   ParametersType::ValueType                    m_PersonalCoefficient;

@@ -127,7 +127,8 @@ private:
 
   Array2DDataObjectPointer   m_Array2DDataObject;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(CSVArray2DFileReader);
+  CSVArray2DFileReader(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 } //end namespace itk

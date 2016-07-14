@@ -132,7 +132,8 @@ protected:
   virtual void GenerateOutputInformation() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageToListSampleFilter);
+  ImageToListSampleFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   MaskPixelType m_MaskValue;
 };  // end of class ImageToListSampleFilter

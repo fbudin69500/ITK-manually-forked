@@ -93,7 +93,8 @@ protected:
                                               OutputPointType & result) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ThinPlateR2LogRSplineKernelTransform);
+  ThinPlateR2LogRSplineKernelTransform(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // namespace itk
 

@@ -74,7 +74,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageRegionSplitterDirection);
+  ImageRegionSplitterDirection(const ImageRegionSplitterDirection &) ITK_DELETE_FUNCTION;
+  void operator=(const ImageRegionSplitterDirection &) ITK_DELETE_FUNCTION;
 
   unsigned int m_Direction;
 };

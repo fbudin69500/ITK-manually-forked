@@ -90,7 +90,8 @@ protected:
   virtual ~SpatialObjectFactoryBase();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpatialObjectFactoryBase);
+  SpatialObjectFactoryBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   static ITKSpatialObjectExport SpatialObjectFactoryBase *m_Factory;
 };

@@ -125,7 +125,8 @@ protected:
   { Superclass::PrintSelf(os, indent); }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(HardConnectedComponentImageFilter);
+  HardConnectedComponentImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ListType m_Seeds;
 };

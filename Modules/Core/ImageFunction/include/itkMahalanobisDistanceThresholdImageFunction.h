@@ -155,7 +155,8 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MahalanobisDistanceThresholdImageFunction);
+  MahalanobisDistanceThresholdImageFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   double m_Threshold;
 

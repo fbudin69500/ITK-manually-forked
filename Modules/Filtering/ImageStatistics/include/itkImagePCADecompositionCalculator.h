@@ -138,7 +138,8 @@ protected:
 private:
   typedef typename BasisImageType::SizeType BasisSizeType;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImagePCADecompositionCalculator);
+  ImagePCADecompositionCalculator(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   BasisVectorType         m_Projection;
   BasisVectorType         m_ImageAsVector;

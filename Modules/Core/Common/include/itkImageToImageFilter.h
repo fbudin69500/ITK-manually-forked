@@ -357,7 +357,8 @@ protected:
   { Superclass::PushFrontInput(input); }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageToImageFilter);
+  ImageToImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
   /**
    *  Tolerances for checking whether input images are defined to
    *  occupy the same physical space.

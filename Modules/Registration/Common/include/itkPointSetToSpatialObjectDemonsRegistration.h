@@ -106,7 +106,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PointSetToSpatialObjectDemonsRegistration);
+  PointSetToSpatialObjectDemonsRegistration(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   MovingSpatialObjectConstPointer m_MovingSpatialObject;
   FixedPointSetConstPointer       m_FixedPointSet;

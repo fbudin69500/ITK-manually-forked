@@ -203,7 +203,8 @@ protected:
   virtual ~RescaleIntensityImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RescaleIntensityImageFilter);
+  RescaleIntensityImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   RealType m_Scale;
   RealType m_Shift;

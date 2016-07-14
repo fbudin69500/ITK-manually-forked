@@ -81,7 +81,8 @@ private:
   ArrayType  m_Center;
   ScalarType m_Radius;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(RadialBasisFunctionBase);
+  RadialBasisFunctionBase(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 };
 
 } // end namespace Statistics

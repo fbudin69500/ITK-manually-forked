@@ -260,7 +260,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SparseFieldLayer);
+  SparseFieldLayer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** The anchor node of the list.  m_HeadNode->Next is the first node in the
    *  list. If m_HeadNode->Next == m_HeadNode, then the list is empty. */

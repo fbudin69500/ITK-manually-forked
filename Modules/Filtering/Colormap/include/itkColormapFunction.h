@@ -146,7 +146,8 @@ protected:
     }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ColormapFunction);
+  ColormapFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ScalarType m_MinimumInputValue;
   ScalarType m_MaximumInputValue;

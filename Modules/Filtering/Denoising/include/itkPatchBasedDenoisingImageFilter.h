@@ -460,7 +460,8 @@ protected:
   typename ListAdaptorType::Pointer m_SearchSpaceList;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PatchBasedDenoisingImageFilter);
+  PatchBasedDenoisingImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   /** This callback method uses ImageSource::SplitRequestedRegion to acquire an
    * output region that it passes to ComputeSigma for processing. */

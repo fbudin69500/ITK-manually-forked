@@ -72,7 +72,8 @@ protected:
   ~RegionBasedLevelSetFunctionTestHelper() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RegionBasedLevelSetFunctionTestHelper);
+  RegionBasedLevelSetFunctionTestHelper(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 };
 
 template <unsigned int NDimension>

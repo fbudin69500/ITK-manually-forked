@@ -157,7 +157,8 @@ public:
   bool ComputeLocalBoundingBox(void) const ITK_OVERRIDE;
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ContourSpatialObject);
+  ContourSpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ControlPointListType      m_ControlPoints;
   InterpolatedPointListType m_InterpolatedPoints;

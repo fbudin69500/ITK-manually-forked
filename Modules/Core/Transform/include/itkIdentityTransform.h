@@ -253,7 +253,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(IdentityTransform);
+  IdentityTransform(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   JacobianType m_IdentityJacobian;
 };

@@ -525,7 +525,8 @@ protected:
   bool m_InterpolateSurfaceLocation;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MultiphaseSparseFiniteDifferenceImageFilter);
+  MultiphaseSparseFiniteDifferenceImageFilter(const Self &);
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   unsigned int m_CurrentFunctionIndex;
 

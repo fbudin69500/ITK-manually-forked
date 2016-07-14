@@ -317,7 +317,8 @@ protected:
   bool m_Initialized_invert;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MINCTransformAdapter );
+  MINCTransformAdapter ( const Self & ) ITK_DELETE_FUNCTION;
+  void operator= ( const Self & ) ITK_DELETE_FUNCTION;
 };
 
 }

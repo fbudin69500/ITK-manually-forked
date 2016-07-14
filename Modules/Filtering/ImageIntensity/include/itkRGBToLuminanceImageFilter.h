@@ -97,7 +97,8 @@ protected:
   virtual ~RGBToLuminanceImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RGBToLuminanceImageFilter);
+  RGBToLuminanceImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

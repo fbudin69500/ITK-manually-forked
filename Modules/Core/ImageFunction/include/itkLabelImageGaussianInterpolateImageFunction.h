@@ -112,7 +112,8 @@ protected:
   ~LabelImageGaussianInterpolateImageFunction(){};
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LabelImageGaussianInterpolateImageFunction);
+  LabelImageGaussianInterpolateImageFunction( const Self& ) ITK_DELETE_FUNCTION;
+  void operator=( const Self& ) ITK_DELETE_FUNCTION;
 
   /**
    * Evaluate function value at the given index

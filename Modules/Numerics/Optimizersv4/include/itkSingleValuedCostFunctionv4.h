@@ -86,7 +86,8 @@ protected:
   virtual ~SingleValuedCostFunctionv4Template() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SingleValuedCostFunctionv4Template);
+  SingleValuedCostFunctionv4Template(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 /** This helps to meet backward compatibility */

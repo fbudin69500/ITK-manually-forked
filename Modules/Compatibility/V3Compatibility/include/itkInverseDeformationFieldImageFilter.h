@@ -194,7 +194,8 @@ protected:
   void PrepareKernelBaseSpline();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(InverseDeformationFieldImageFilter);
+  InverseDeformationFieldImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   SizeType                   m_Size;                 // Size of the output image
   KernelTransformPointerType m_KernelTransform;      // Coordinate transform to

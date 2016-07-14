@@ -123,7 +123,8 @@ protected:
   AlignedJointHistogramMIPerThreadStruct * m_JointHistogramMIPerThreadVariables;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(JointHistogramMutualInformationGetValueAndDerivativeThreader);
+  JointHistogramMutualInformationGetValueAndDerivativeThreader( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   /** Internal pointer to the metric object in use by this threader.
    *  This will avoid costly dynamic casting in tight loops. */

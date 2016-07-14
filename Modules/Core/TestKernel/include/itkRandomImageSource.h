@@ -136,7 +136,8 @@ protected:
   virtual void GenerateOutputInformation() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RandomImageSource);
+  RandomImageSource(const RandomImageSource &) ITK_DELETE_FUNCTION;
+  void operator=(const RandomImageSource &) ITK_DELETE_FUNCTION;
 
   SizeType      m_Size;      //size of the output image
   SpacingType   m_Spacing;   //spacing

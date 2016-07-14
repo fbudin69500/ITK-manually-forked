@@ -335,7 +335,8 @@ protected:
   MaterialContainerPointer m_MaterialContainer;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(FEMObject);
+  FEMObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   void AddNextLoadInternal(Load *l);
 };  // End Class: FEMObject

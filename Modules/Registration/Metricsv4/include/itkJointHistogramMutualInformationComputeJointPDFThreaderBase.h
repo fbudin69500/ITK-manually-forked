@@ -90,7 +90,8 @@ protected:
   AlignedJointHistogramMIPerThreadStruct * m_JointHistogramMIPerThreadVariables;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(JointHistogramMutualInformationComputeJointPDFThreaderBase);
+  JointHistogramMutualInformationComputeJointPDFThreaderBase( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 };
 
 } // end namespace itk

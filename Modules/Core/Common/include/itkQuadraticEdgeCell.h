@@ -108,7 +108,8 @@ protected:
   PointIdentifier m_PointIds[NumberOfPoints];
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(QuadraticEdgeCell);
+  QuadraticEdgeCell(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

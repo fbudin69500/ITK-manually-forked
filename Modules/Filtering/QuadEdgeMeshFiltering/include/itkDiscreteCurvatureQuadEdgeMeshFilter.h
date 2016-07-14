@@ -116,7 +116,8 @@ protected:
 private:
   /** Cache output pointer to avoid calls in inner loop to GetOutput() */
   OutputMeshType *m_OutputMesh;
-  ITK_DISALLOW_COPY_AND_ASSIGN(DiscreteCurvatureQuadEdgeMeshFilter);
+  DiscreteCurvatureQuadEdgeMeshFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

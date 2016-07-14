@@ -89,7 +89,8 @@ protected:
   void CopyInputMeshToOutputMeshCellData();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MeshToMeshFilter);
+  MeshToMeshFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

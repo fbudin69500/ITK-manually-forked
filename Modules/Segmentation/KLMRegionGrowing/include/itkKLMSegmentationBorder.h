@@ -184,7 +184,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(KLMSegmentationBorder);
+  KLMSegmentationBorder(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   double                 m_Lambda;
   KLMSegmentationRegion *m_Region1;

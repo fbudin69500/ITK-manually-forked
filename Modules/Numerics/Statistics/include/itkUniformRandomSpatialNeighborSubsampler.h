@@ -155,7 +155,8 @@ protected:
   bool                         m_UseClockForSeed;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(UniformRandomSpatialNeighborSubsampler);
+  UniformRandomSpatialNeighborSubsampler(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 }; // end of class UniformRandomSpatialNeighborSubsampler
 

@@ -133,7 +133,8 @@ protected:
   std::vector< PointIdentifier > m_PointIds;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TriangleCell);
+  TriangleCell(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Computes the SQUARED distance between a point and a line segment defined
    * by two other points */

@@ -104,7 +104,8 @@ protected:
   TParametersValueType m_Alpha;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ElasticBodyReciprocalSplineKernelTransform);
+  ElasticBodyReciprocalSplineKernelTransform(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // namespace itk
 

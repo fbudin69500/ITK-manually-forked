@@ -364,7 +364,8 @@ protected:
   typename WeightsFunctionType::Pointer m_WeightsFunction;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BSplineBaseTransform);
+  BSplineBaseTransform( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   static CoefficientImageArray ArrayOfImagePointerGeneratorHelper();
 }; // class BSplineBaseTransform

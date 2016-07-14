@@ -183,7 +183,8 @@ protected:
   virtual void ApplyUpdate(const TimeStepType& dt);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CurvatureRegistrationFilter);
+  CurvatureRegistrationFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   unsigned int m_FixedImageDimensions[ImageDimension];
 

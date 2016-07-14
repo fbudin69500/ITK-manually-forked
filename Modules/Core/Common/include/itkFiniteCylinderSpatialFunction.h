@@ -98,7 +98,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(FiniteCylinderSpatialFunction);
+  FiniteCylinderSpatialFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** The center of the cylinder. */
   InputType m_Center;

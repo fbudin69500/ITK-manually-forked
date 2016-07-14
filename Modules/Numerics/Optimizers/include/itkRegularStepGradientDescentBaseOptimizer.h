@@ -128,7 +128,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RegularStepGradientDescentBaseOptimizer);
+  RegularStepGradientDescentBaseOptimizer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 protected:
   DerivativeType m_Gradient;

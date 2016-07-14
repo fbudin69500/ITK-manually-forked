@@ -76,7 +76,8 @@ protected:
   virtual void GenerateData();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PyImageFilter);
+  PyImageFilter(const Self&); //purposely not implemented
+  void operator=(const Self&); //purposely not implemented
   PyObject *m_Object;
 
 };

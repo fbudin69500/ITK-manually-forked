@@ -191,7 +191,8 @@ protected:
   bool m_UseStreaming;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageSeriesReader);
+  ImageSeriesReader(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   typedef ImageFileReader< TOutputImage > ReaderType;
 

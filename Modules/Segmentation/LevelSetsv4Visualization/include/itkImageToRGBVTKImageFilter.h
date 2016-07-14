@@ -71,7 +71,8 @@ protected:
   virtual ~ImageToRGBVTKImageFilter();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageToRGBVTKImageFilter);
+  ImageToRGBVTKImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   InputImagePointer               m_Input;
   vtkSmartPointer< vtkImageData > m_Output;

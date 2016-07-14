@@ -166,7 +166,8 @@ protected:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageToImageMetricv4TestMetric);
+  ImageToImageMetricv4TestMetric(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 }; // Metric ///////////////////////////////////////////////////
 

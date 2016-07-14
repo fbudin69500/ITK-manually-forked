@@ -161,7 +161,8 @@ protected:
   SizeValueType m_PixelsPerTranslation;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MovingHistogramImageFilterBase);
+  MovingHistogramImageFilterBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   class DirectionCost
   {

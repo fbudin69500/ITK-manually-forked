@@ -104,7 +104,8 @@ private:
   bool                              m_AppendMode;
   typename TransformIOType::Pointer m_TransformIO;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(TransformFileWriterTemplate);
+  TransformFileWriterTemplate(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 /** This helps to meet backward compatibility */

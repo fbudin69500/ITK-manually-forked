@@ -150,7 +150,8 @@ protected:
   FeatureImagePointer m_FeatureImage;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ShapePriorMAPCostFunctionBase);
+  ShapePriorMAPCostFunctionBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

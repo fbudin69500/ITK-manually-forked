@@ -196,7 +196,8 @@ private:
 
   void AllocateUpdateBuffer();
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(MultiScaleHessianBasedMeasureImageFilter);
+  MultiScaleHessianBasedMeasureImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool m_NonNegativeHessianBasedMeasure;
 

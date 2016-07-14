@@ -208,7 +208,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ScaleTransform);
+  ScaleTransform(const Self & other) ITK_DELETE_FUNCTION;
+  const Self & operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ScaleType m_Scale;    // Scales of the transformation
 

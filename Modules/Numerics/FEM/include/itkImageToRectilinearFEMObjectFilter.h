@@ -154,7 +154,8 @@ protected:
   void Generate3DRectilinearMesh();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageToRectilinearFEMObjectFilter);
+  ImageToRectilinearFEMObjectFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   vnl_vector<unsigned int> m_NumberOfElements;
   vnl_vector<unsigned int> m_PixelsPerElement;

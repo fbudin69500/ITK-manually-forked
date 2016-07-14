@@ -146,7 +146,8 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ShapePriorMAPCostFunction);
+  ShapePriorMAPCostFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ArrayType   m_ShapeParameterMeans;
   ArrayType   m_ShapeParameterStandardDeviations;

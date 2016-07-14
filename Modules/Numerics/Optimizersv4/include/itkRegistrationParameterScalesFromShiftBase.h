@@ -97,7 +97,8 @@ protected:
   virtual void ComputeSampleShifts(const ParametersType &deltaParameters, ScalesType &localShifts) = 0;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(RegistrationParameterScalesFromShiftBase);
+  RegistrationParameterScalesFromShiftBase(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   //A small variation of parameters
   ParametersValueType  m_SmallParameterVariation;

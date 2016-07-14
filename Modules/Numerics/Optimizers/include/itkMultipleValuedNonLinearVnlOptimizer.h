@@ -112,7 +112,8 @@ protected:
   typedef ReceptorMemberCommand< Self > CommandType;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MultipleValuedNonLinearVnlOptimizer);
+  MultipleValuedNonLinearVnlOptimizer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Callback function for the Command Observer */
   void IterationReport(const EventObject & event);

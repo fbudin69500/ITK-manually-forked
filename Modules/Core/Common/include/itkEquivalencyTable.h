@@ -137,7 +137,8 @@ public:
 protected:
   EquivalencyTable()  {}
   virtual ~EquivalencyTable() {}
-  ITK_DISALLOW_COPY_AND_ASSIGN(EquivalencyTable);
+  EquivalencyTable(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 

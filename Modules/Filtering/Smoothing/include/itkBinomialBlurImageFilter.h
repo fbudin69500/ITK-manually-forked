@@ -110,7 +110,8 @@ protected:
   void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinomialBlurImageFilter);
+  BinomialBlurImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** How many times should we apply the blur? */
   unsigned int m_Repetitions;

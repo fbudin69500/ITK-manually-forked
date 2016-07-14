@@ -159,7 +159,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImagePCAShapeModelEstimator);
+  ImagePCAShapeModelEstimator(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Local variable typedefs */
   typedef std::vector< InputImageConstPointer >  InputImagePointerArray;

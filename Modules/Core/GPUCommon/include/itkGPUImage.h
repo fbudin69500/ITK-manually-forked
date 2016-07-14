@@ -184,7 +184,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUImage);
+  GPUImage(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   typename GPUImageDataManager< GPUImage >::Pointer m_DataManager;
 };
@@ -220,7 +221,8 @@ public:
   }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUImageFactory);
+  GPUImageFactory(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 #define OverrideImageTypeMacro(pt,dm)    this->RegisterOverride( \
     typeid(itk::Image<pt,dm>).name(), \

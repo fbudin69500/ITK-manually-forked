@@ -105,7 +105,8 @@ protected:
   double m_Squareness2;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SphereMeshSource);
+  SphereMeshSource(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 #ifndef ITK_MANUAL_INSTANTIATION

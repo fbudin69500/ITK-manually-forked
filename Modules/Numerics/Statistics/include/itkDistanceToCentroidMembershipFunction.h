@@ -105,7 +105,8 @@ protected:
   virtual typename LightObject::Pointer InternalClone() const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(DistanceToCentroidMembershipFunction);
+  DistanceToCentroidMembershipFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   DistanceMetricPointer m_DistanceMetric;
 };

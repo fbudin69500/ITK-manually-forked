@@ -186,7 +186,8 @@ protected:
   virtual void BeforeThreadedGenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorExpandImageFilter);
+  VectorExpandImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ExpandFactorsArrayType   m_ExpandFactors;
   InterpolatorPointer      m_Interpolator;

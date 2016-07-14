@@ -160,7 +160,8 @@ protected:
   itkGetConstMacro(RunningInPlace,bool);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(InPlaceImageFilter);
+  InPlaceImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   // the type are different we can't run in place
   void InternalAllocateOutputs( const FalseType& )

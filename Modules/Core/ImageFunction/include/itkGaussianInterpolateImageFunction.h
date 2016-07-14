@@ -173,7 +173,8 @@ protected:
   ArrayType                                 m_CutoffDistance;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GaussianInterpolateImageFunction);
+  GaussianInterpolateImageFunction( const Self& ) ITK_DELETE_FUNCTION;
+  void operator=( const Self& ) ITK_DELETE_FUNCTION;
 
   /**
    * Evaluate function value

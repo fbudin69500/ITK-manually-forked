@@ -156,7 +156,8 @@ protected:
   friend class LBFGSBOptimizerHelperv4;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LBFGSOptimizerBasev4);
+  LBFGSOptimizerBasev4(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };
 } // end namespace itk

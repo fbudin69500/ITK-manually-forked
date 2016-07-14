@@ -246,7 +246,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUFiniteDifferenceImageFilter);
+  GPUFiniteDifferenceImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Initialize the values of the Function coefficients. This function will
    * also take care of checking whether the image spacing should be taken into

@@ -102,7 +102,8 @@ protected:
   void EnlargeOutputRequestedRegion( DataObject *itkNotUsed(output) );
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(HalfHermitianToRealInverseFFTImageFilter);
+  HalfHermitianToRealInverseFFTImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

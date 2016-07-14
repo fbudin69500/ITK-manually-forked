@@ -217,7 +217,8 @@ protected:
   bool                m_MaskOutput;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(HistogramThresholdImageFilter);
+  HistogramThresholdImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 }; // end of class
 

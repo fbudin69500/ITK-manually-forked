@@ -147,7 +147,8 @@ protected:
   void ComputeMatrixParameters() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(Similarity3DTransform);
+  Similarity3DTransform(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ScaleType m_Scale;
 }; // class Similarity3DTransform

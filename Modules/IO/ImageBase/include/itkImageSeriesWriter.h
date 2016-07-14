@@ -215,7 +215,8 @@ protected:
   bool m_UserSpecifiedImageIO;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageSeriesWriter);
+  ImageSeriesWriter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** A list of filenames to be processed. */
   FileNamesContainer m_FileNames;

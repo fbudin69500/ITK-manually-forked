@@ -61,7 +61,8 @@ public:
   typedef TElement           Element;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MapContainer);
+  MapContainer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Quick access to the STL map type that was inherited. */
   typedef std::map< ElementIdentifier, Element > MapType;

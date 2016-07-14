@@ -90,7 +90,8 @@ public:
                              MetaConverterBaseType *converter);
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpatialObjectWriter);
+  SpatialObjectWriter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   std::string m_FileName;
   bool        m_BinaryPoints;

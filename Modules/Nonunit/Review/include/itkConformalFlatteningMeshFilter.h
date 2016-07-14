@@ -118,7 +118,8 @@ protected:
   virtual void GenerateData() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ConformalFlatteningMeshFilter);
+  ConformalFlatteningMeshFilter(const ConformalFlatteningMeshFilter &) ITK_DELETE_FUNCTION;
+  void operator=(const ConformalFlatteningMeshFilter &) ITK_DELETE_FUNCTION;
 
   typedef vnl_vector< CoordRepType >        VectorCoordType;
   typedef vnl_sparse_matrix< CoordRepType > SparseMatrixCoordType;

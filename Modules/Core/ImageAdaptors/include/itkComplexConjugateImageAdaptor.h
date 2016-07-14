@@ -90,7 +90,8 @@ protected:
   virtual ~ComplexConjugateImageAdaptor() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ComplexConjugateImageAdaptor);
+  ComplexConjugateImageAdaptor(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

@@ -103,7 +103,8 @@ protected:
                                const NodeType& iNode );
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(FastMarchingUpwindGradientImageFilterBase);
+  FastMarchingUpwindGradientImageFilterBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 /* this class was made in the case where isotropic and anisotropic fast

@@ -68,7 +68,8 @@ protected:
   virtual ~AddImageAdaptor() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(AddImageAdaptor);
+  AddImageAdaptor(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

@@ -137,7 +137,8 @@ protected:
   virtual ~VectorConnectedComponentImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VectorConnectedComponentImageFilter);
+  VectorConnectedComponentImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

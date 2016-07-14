@@ -130,7 +130,8 @@ protected:
   bool               m_ReaderOpen;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VideoIOBase);
+  VideoIOBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
 };
 

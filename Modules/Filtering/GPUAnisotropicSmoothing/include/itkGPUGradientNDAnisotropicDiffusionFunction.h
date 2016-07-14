@@ -126,7 +126,8 @@ protected:
   static double m_MIN_NORM;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GPUGradientNDAnisotropicDiffusionFunction);
+  GPUGradientNDAnisotropicDiffusionFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

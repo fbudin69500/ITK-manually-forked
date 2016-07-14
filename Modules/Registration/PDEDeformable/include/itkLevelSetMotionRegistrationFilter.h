@@ -196,7 +196,8 @@ protected:
   virtual bool Halt() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LevelSetMotionRegistrationFilter);
+  LevelSetMotionRegistrationFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

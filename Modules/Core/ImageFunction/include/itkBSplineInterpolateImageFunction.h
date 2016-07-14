@@ -366,7 +366,8 @@ protected:
   typename CoefficientImageType::ConstPointer m_Coefficients;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BSplineInterpolateImageFunction);
+  BSplineInterpolateImageFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Determines the weights for interpolation of the value x */
   void SetInterpolationWeights(const ContinuousIndexType & x,

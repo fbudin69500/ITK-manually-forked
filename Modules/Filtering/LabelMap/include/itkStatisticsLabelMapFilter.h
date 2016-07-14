@@ -141,7 +141,8 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(StatisticsLabelMapFilter);
+  StatisticsLabelMapFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   FeatureImagePixelType m_Minimum;
   FeatureImagePixelType m_Maximum;

@@ -164,7 +164,8 @@ protected:
     MovedGradientImageType, MovedGradientImageType > MovedSobelFilter;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GradientDifferenceImageToImageMetric);
+  GradientDifferenceImageToImageMetric(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** The variance of the moving image gradients. */
   mutable MovedGradientPixelType m_Variance[FixedImageDimension];

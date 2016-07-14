@@ -157,7 +157,8 @@ public:
   virtual int GetColorTableSize() const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(Octree);
+  Octree(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   OctreeNodeBranch * maskToOctree(const TPixel *Mask, unsigned width, unsigned x,
                                   unsigned y, unsigned z, unsigned xsize,

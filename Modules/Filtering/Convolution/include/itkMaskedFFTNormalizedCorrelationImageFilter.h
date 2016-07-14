@@ -316,7 +316,8 @@ protected:
   double CalculatePrecisionTolerance( LocalInputImageType * inputImage );
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MaskedFFTNormalizedCorrelationImageFilter);
+  MaskedFFTNormalizedCorrelationImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   /** Larger values zero-out pixels on a larger border around the correlation image.
    * Thus, larger values remove less stable computations but also limit the capture range.

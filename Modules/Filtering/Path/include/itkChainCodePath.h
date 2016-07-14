@@ -145,7 +145,8 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ChainCodePath);
+  ChainCodePath(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   IndexType     m_Start;            // origin image index for the path
   ChainCodeType m_Chain;            // the chain code (vector of offsets)

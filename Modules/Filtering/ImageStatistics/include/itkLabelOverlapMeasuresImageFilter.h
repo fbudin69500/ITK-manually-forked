@@ -200,7 +200,8 @@ protected:
   void EnlargeOutputRequestedRegion( DataObject *data ) ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LabelOverlapMeasuresImageFilter);
+  LabelOverlapMeasuresImageFilter( const Self& ) ITK_DELETE_FUNCTION;
+  void operator=( const Self& ) ITK_DELETE_FUNCTION;
 
   std::vector<MapType> m_LabelSetMeasuresPerThread;
   MapType              m_LabelSetMeasures;

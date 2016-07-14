@@ -59,7 +59,8 @@ protected:
   virtual ~QuasiNewtonOptimizerv4EstimateNewtonStepThreaderTemplate() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(QuasiNewtonOptimizerv4EstimateNewtonStepThreaderTemplate);
+  QuasiNewtonOptimizerv4EstimateNewtonStepThreaderTemplate( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 };
 
 /** This helps to meet backward compatibility */

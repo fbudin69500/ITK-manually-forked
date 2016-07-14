@@ -105,7 +105,8 @@ protected:
   ~MaximumEntropyThresholdImageFilter(){};
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MaximumEntropyThresholdImageFilter);
+  MaximumEntropyThresholdImageFilter(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 }; // end of class
 
 } // end namespace itk

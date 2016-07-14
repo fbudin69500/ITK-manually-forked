@@ -83,7 +83,8 @@ protected:
   static int Initialize();
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(Win32OutputWindow);
+  Win32OutputWindow(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   static HWND m_OutputWindow;
 };

@@ -114,7 +114,8 @@ protected:
   InputPointSetConstPointer                             m_PointSet;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PointSetFunction);
+  PointSetFunction(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
 };
 

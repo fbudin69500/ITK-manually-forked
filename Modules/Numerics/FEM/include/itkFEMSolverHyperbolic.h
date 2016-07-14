@@ -123,7 +123,8 @@ protected:
   unsigned int   m_NumberOfIterations;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SolverHyperbolic);
+  SolverHyperbolic(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 } // end namespace fem

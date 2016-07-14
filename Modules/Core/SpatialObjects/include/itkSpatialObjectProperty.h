@@ -86,7 +86,8 @@ protected:
   void Modified(void){ m_MTime++; }
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpatialObjectProperty);
+  SpatialObjectProperty(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   PixelType     m_Color;
   StringType    m_Name;

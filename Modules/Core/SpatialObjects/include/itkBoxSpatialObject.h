@@ -85,7 +85,8 @@ public:
   virtual bool ComputeLocalBoundingBox() const ITK_OVERRIDE;
 
 protected:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BoxSpatialObject);
+  BoxSpatialObject(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   BoxSpatialObject();
   ~BoxSpatialObject();

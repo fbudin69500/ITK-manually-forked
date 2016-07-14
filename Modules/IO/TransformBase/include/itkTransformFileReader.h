@@ -93,7 +93,8 @@ protected:
   std::string                       m_FileName;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TransformFileReaderTemplate);
+  TransformFileReaderTemplate(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 /** This helps to meet backward compatibility */

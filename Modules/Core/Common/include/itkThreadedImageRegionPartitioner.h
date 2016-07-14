@@ -91,7 +91,8 @@ protected:
   typedef ImageRegionSplitterSlowDimension ImageRegionSplitterType;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ThreadedImageRegionPartitioner);
+  ThreadedImageRegionPartitioner(const Self&) ITK_DELETE_FUNCTION;
+  void operator=(const Self&) ITK_DELETE_FUNCTION;
 
   ImageRegionSplitterType::Pointer m_ImageRegionSplitter;
 };

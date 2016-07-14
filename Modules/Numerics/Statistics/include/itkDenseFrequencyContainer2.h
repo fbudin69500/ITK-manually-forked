@@ -110,7 +110,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(DenseFrequencyContainer2);
+  DenseFrequencyContainer2(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Internal storage */
   FrequencyContainerPointer  m_FrequencyContainer;

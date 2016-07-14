@@ -251,7 +251,8 @@ protected:
   itkSetMacro(CurrentLevel, SizeValueType);
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(MultiResolutionImageRegistrationMethod);
+  MultiResolutionImageRegistrationMethod(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   MetricPointer          m_Metric;
   OptimizerType::Pointer m_Optimizer;

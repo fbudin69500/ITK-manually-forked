@@ -113,7 +113,8 @@ protected:
   virtual ~TensorRelativeAnisotropyImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(TensorRelativeAnisotropyImageFilter);
+  TensorRelativeAnisotropyImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

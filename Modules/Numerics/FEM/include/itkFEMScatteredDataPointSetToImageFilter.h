@@ -277,7 +277,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(FEMScatteredDataPointSetToImageFilter);
+  FEMScatteredDataPointSetToImageFilter( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 
   typename FEMObjectType::Pointer      m_FEMObject;
   typename FEMSolverType::Pointer      m_FEMSolver;

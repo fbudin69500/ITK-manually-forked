@@ -81,7 +81,8 @@ protected:
   RMSChangeAccumulatorPerThreadType m_RMSChangeAccumulatorPerThread;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(LevelSetEvolutionUpdateLevelSetsThreader);
+  LevelSetEvolutionUpdateLevelSetsThreader( const Self & ) ITK_DELETE_FUNCTION;
+  void operator=( const Self & ) ITK_DELETE_FUNCTION;
 };
 
 } // end namespace itk

@@ -444,7 +444,8 @@ protected:
   UsingCellsContainer m_UsingCells;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(CellInterface);
+  CellInterface(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 
 /** \class CellTraitsInfo

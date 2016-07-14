@@ -112,7 +112,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(JPEG2000ImageIO);
+  JPEG2000ImageIO(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   AutoPointer< JPEG2000ImageIOInternal >  m_Internal;
 

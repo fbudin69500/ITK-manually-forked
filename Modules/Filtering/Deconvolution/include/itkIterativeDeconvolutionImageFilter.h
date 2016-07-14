@@ -137,7 +137,8 @@ protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(IterativeDeconvolutionImageFilter);
+  IterativeDeconvolutionImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Number of iterations to run. */
   unsigned int m_NumberOfIterations;

@@ -124,7 +124,8 @@ protected:
   virtual void InitializeIteration() ITK_OVERRIDE;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(BinaryMinMaxCurvatureFlowImageFilter);
+  BinaryMinMaxCurvatureFlowImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   double m_Threshold;
 };

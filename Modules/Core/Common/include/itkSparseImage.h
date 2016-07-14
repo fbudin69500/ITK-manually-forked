@@ -145,7 +145,8 @@ private:
 
   typename NodeStoreType::Pointer m_NodeStore;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(SparseImage);
+  SparseImage(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

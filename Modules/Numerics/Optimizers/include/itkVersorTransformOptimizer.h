@@ -79,7 +79,8 @@ protected:
   virtual ~VersorTransformOptimizer() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(VersorTransformOptimizer);
+  VersorTransformOptimizer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

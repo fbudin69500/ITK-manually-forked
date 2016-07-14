@@ -150,7 +150,8 @@ protected:
   virtual ~ImageClassifierFilter() {}
   void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageClassifierFilter);
+  ImageClassifierFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Starts the classification process */
   void GenerateData() ITK_OVERRIDE;

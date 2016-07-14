@@ -103,7 +103,8 @@ protected:
   virtual ~ValuedRegionalMaximaImageFilter() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ValuedRegionalMaximaImageFilter);
+  ValuedRegionalMaximaImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };                                               // end
                                                  // ValuedRegionalMaximaImageFilter
 } //end namespace itk

@@ -431,7 +431,7 @@ public:
   template <typename TPixel>
     struct MapPixelType
   {
-    static ITK_CONSTEXPR_VAR IOComponentType CType =
+    static ITK_CONSTEXPR IOComponentType CType =
       UNKNOWNCOMPONENTTYPE;
   };
   template <typename TPixel>
@@ -680,7 +680,8 @@ protected:
                                                                const ImageIORegion & pasteRegion) const;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(ImageIOBase);
+  ImageIOBase(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   ArrayOfExtensionsType m_SupportedReadExtensions;
   ArrayOfExtensionsType m_SupportedWriteExtensions;
@@ -689,7 +690,7 @@ private:
 #define IMAGEIOBASE_TYPEMAP(type,ctype)                         \
   template <> struct ImageIOBase::MapPixelType<type>    \
   {                                                     \
-    static ITK_CONSTEXPR_VAR IOComponentType CType = ctype; \
+    static ITK_CONSTEXPR IOComponentType CType = ctype; \
   }
 
 // the following typemaps are not platform independent

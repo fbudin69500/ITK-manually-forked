@@ -126,7 +126,8 @@ protected:
   // virtual ~PowImageFilter() {} default implementation OK
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PowImageFilter);
+  PowImageFilter(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

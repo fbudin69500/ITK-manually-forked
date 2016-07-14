@@ -66,7 +66,8 @@ protected:
   ~SpringColormapFunction() {}
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SpringColormapFunction);
+  SpringColormapFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace functor
 } // end namespace itk

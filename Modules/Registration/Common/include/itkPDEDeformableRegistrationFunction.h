@@ -147,7 +147,8 @@ protected:
   mutable double m_GradientStep;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(PDEDeformableRegistrationFunction);
+  PDEDeformableRegistrationFunction(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 };
 } // end namespace itk
 

@@ -199,7 +199,8 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(TransformToDisplacementFieldSource);
+  TransformToDisplacementFieldSource(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   /** Member variables. */
   RegionType           m_OutputRegion;    // region of the output image

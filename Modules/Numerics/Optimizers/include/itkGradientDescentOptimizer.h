@@ -136,7 +136,8 @@ protected:
   double m_LearningRate;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(GradientDescentOptimizer);
+  GradientDescentOptimizer(const Self &) ITK_DELETE_FUNCTION;
+  void operator=(const Self &) ITK_DELETE_FUNCTION;
 
   bool               m_Stop;
   double             m_Value;
