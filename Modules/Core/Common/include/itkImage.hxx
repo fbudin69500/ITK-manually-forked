@@ -101,15 +101,29 @@ Image< TPixel, VImageDimension >
     }
 }
 
+template< typename TPixel, unsigned int VImageDimension >
+void
+Image< TPixel, VImageDimension >
+::Graft(const Self *image)
+{
+  // call the superclass' implementation
+  Superclass::Graft(image);
+
+  if ( image )
+    {
+      // Now copy anything remaining that is needed
+      this->SetPixelContainer( const_cast< PixelContainer * >
+                               ( image->GetPixelContainer() ) );
+    }
+}
+
+
 
 template< typename TPixel, unsigned int VImageDimension >
 void
 Image< TPixel, VImageDimension >
 ::Graft(const DataObject *data)
 {
-  // call the superclass' implementation
-  Superclass::Graft(data);
-
   if ( data )
     {
     // Attempt to cast data to an Image
@@ -117,9 +131,7 @@ Image< TPixel, VImageDimension >
 
     if ( imgData != ITK_NULLPTR )
       {
-      // Now copy anything remaining that is needed
-      this->SetPixelContainer( const_cast< PixelContainer * >
-                               ( imgData->GetPixelContainer() ) );
+        this->Graft(imgData);
       }
     else
       {
