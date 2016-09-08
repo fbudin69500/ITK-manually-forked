@@ -776,6 +776,12 @@ int HashTestImage( const char *testImageFilename,
     case itk::ImageIOBase::ULONG:
       testMD5 = ComputeHash< itk::VectorImage<unsigned long, ITK_TEST_DIMENSION_MAX> >( testImageFilename );
       break;
+    case itk::ImageIOBase::LONGLONG:
+      testMD5 = ComputeHash< itk::VectorImage<long long, ITK_TEST_DIMENSION_MAX> >( testImageFilename );
+      break;
+    case itk::ImageIOBase::ULONGLONG:
+      testMD5 = ComputeHash< itk::VectorImage<unsigned long long, ITK_TEST_DIMENSION_MAX> >( testImageFilename );
+      break;
     case itk::ImageIOBase::FLOAT:
     case itk::ImageIOBase::DOUBLE:
       std::cerr << "Hashing is not supporting for float and double images." << std::endl;

@@ -130,13 +130,21 @@ PredTypeToComponentType(H5::DataType &type)
     {
     return ImageIOBase::INT;
     }
-  else if(type ==  H5::PredType::NATIVE_ULLONG)
+  else if(type ==  H5::PredType::NATIVE_ULONG)
     {
     return ImageIOBase::ULONG;
     }
-  else if(type ==  H5::PredType::NATIVE_LLONG)
+  else if(type ==  H5::PredType::NATIVE_LONG)
     {
     return ImageIOBase::LONG;
+    }
+  else if(type ==  H5::PredType::NATIVE_LLONG)
+    {
+    return ImageIOBase::LONGLONG;
+    }
+  else if(type ==  H5::PredType::NATIVE_LLONG)
+    {
+    return ImageIOBase::ULONGLONG;
     }
   else if(type ==  H5::PredType::NATIVE_FLOAT)
     {
@@ -145,28 +153,6 @@ PredTypeToComponentType(H5::DataType &type)
   else if(type ==  H5::PredType::NATIVE_DOUBLE)
     {
     return ImageIOBase::DOUBLE;
-    }
-  else if(type ==  H5::PredType::NATIVE_ULONG)
-    {
-    if(sizeof(unsigned int) == sizeof(unsigned long))
-      {
-      return ImageIOBase::UINT;
-      }
-    else if(sizeof(unsigned int) == sizeof(unsigned long long))
-      {
-      return ImageIOBase::ULONG;
-      }
-    }
-  else if(type ==  H5::PredType::NATIVE_LONG)
-    {
-    if(sizeof(int) == sizeof(long))
-      {
-      return ImageIOBase::INT;
-      }
-    else if(sizeof(int) == sizeof(long long))
-      {
-      return ImageIOBase::LONG;
-      }
     }
   itkGenericExceptionMacro(<< "unsupported data type "
                            << type.fromClass());
@@ -193,6 +179,10 @@ ComponentToPredType(ImageIOBase::IOComponentType cType)
       return H5::PredType::NATIVE_ULONG;
     case ImageIOBase::LONG:
       return H5::PredType::NATIVE_LONG;
+    case ImageIOBase::ULONGLONG:
+      return H5::PredType::NATIVE_ULLONG;
+    case ImageIOBase::LONGLONG:
+      return H5::PredType::NATIVE_LLONG;
     case ImageIOBase::FLOAT:
       return H5::PredType::NATIVE_FLOAT;
     case ImageIOBase::DOUBLE:
@@ -235,6 +225,12 @@ ComponentToString(ImageIOBase::IOComponentType cType)
       break;
     case ImageIOBase::LONG:
       rval = "LONG";
+      break;
+    case ImageIOBase::ULONGLONG:
+      rval = "ULONGLONG";
+      break;
+    case ImageIOBase::LONGLONG:
+      rval = "LONGLONG";
       break;
     case ImageIOBase::FLOAT:
       rval = "FLOAT";

@@ -192,6 +192,10 @@ const std::type_info & ImageIOBase::GetComponentTypeInfo() const
       return typeid( unsigned long );
     case LONG:
       return typeid( long );
+    case ULONGLONG:
+      return typeid( unsigned long long );
+    case LONGLONG:
+      return typeid( long long);
     case FLOAT:
       return typeid( float );
     case DOUBLE:
@@ -358,6 +362,10 @@ unsigned int ImageIOBase::GetComponentSize() const
       return sizeof( unsigned long );
     case LONG:
       return sizeof( long );
+    case ULONGLONG:
+      return sizeof( unsigned long long );
+    case LONGLONG:
+      return sizeof( long long );
     case FLOAT:
       return sizeof( float );
     case DOUBLE:
@@ -417,6 +425,10 @@ std::string ImageIOBase::GetComponentTypeAsString(IOComponentType t)
       return std::string( "unsigned_long" );
     case LONG:
       return std::string( "long" );
+    case ULONGLONG:
+      return std::string( "unsigned_long_long" );
+    case LONGLONG:
+      return std::string( "long_long" );
     case FLOAT:
       return std::string( "float" );
     case DOUBLE:
@@ -461,6 +473,14 @@ ImageIOBase::IOComponentType ImageIOBase::GetComponentTypeFromString(const std::
   else if(typeString.compare("long") == 0)
     {
     return LONG;
+    }
+  else if(typeString.compare("unsigned_long_long") == 0)
+    {
+    return ULONGLONG;
+    }
+  else if(typeString.compare("long_long") == 0)
+    {
+    return LONGLONG;
     }
   else if(typeString.compare("float") == 0)
     {
