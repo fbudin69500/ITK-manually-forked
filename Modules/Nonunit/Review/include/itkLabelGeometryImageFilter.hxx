@@ -22,7 +22,6 @@
 
 #include "itkImageRegionConstIterator.h"
 #include "itkImageRegionConstIteratorWithIndex.h"
-#include "itkCastImageFilter.h"
 
 #include "itkAffineTransform.h"
 #include "itkResampleImageFilter.h"
@@ -119,39 +118,35 @@ CalculateOrientedImage(
   transform->SetTranslation(translation);
   transform->SetMatrix(rotationMatrix);
 
-  typedef itk::ResampleImageFilter< TGenericImage, TGenericImage > ResampleFilterType;
-  typename ResampleFilterType::Pointer resampler = ResampleFilterType::New();
-
-  // The m_OrientedBoundingBoxSize is specified to float precision.
-  // Here we need an integer size large enough to contain all of the points, so
-  // we take the ceil of it.
-  // We also need to ensure that that bounding box is not outside of
-  // the image bounds.
-  typename ResampleFilterType::SizeType boundingBoxSize;
-  for ( unsigned int i = 0; i < TLabelImage::ImageDimension; i++ )
-    {
-    boundingBoxSize[i] = ( typename ResampleFilterType::SizeType::SizeValueType )std::ceil(
-      labelGeometry.m_OrientedBoundingBoxSize[i]);
-    }
-
-  resampler->SetTransform(transform);
-  resampler->SetSize(boundingBoxSize);
-  resampler->SetOutputSpacing( filter->GetInput()->GetSpacing() );
-  resampler->SetOutputOrigin( origin );
 
   if ( useLabelImage )
     {
     // Set up the interpolator.
     // Use a nearest neighbor interpolator since these are labeled images.
-    typedef itk::NearestNeighborInterpolateImageFunction< TGenericImage, double > InterpolatorType;
+    typedef itk::NearestNeighborInterpolateImageFunction< TLabelImage, double > InterpolatorType;
     typename InterpolatorType::Pointer interpolator  = InterpolatorType::New();
+    typedef itk::ResampleImageFilter< TLabelImage, TLabelImage > ResampleFilterType;
+    typename ResampleFilterType::Pointer resampler = ResampleFilterType::New();
+
+    // The m_OrientedBoundingBoxSize is specified to float precision.
+    // Here we need an integer size large enough to contain all of the points, so
+    // we take the ceil of it.
+    // We also need to ensure that that bounding box is not outside of
+    // the image bounds.
+    typename ResampleFilterType::SizeType boundingBoxSize;
+    for ( unsigned int i = 0; i < TLabelImage::ImageDimension; i++ )
+      {
+      boundingBoxSize[i] = ( typename ResampleFilterType::SizeType::SizeValueType )std::ceil(
+      labelGeometry.m_OrientedBoundingBoxSize[i]);
+      }
+
+    resampler->SetTransform(transform);
+    resampler->SetSize(boundingBoxSize);
+    resampler->SetOutputSpacing( filter->GetInput()->GetSpacing() );
+    resampler->SetOutputOrigin( origin );
     resampler->SetInterpolator(interpolator);
 
-    // Cast the type to enable compilation.
-    typedef itk::CastImageFilter< TLabelImage, TGenericImage > CastType;
-    typename CastType::Pointer caster = CastType::New();
-    caster->SetInput( filter->GetInput() );
-    resampler->SetInput( caster->GetOutput() );
+    resampler->SetInput( filter->GetInput() );
     resampler->Update();
     labelGeometry.m_OrientedLabelImage->Graft( resampler->GetOutput() );
     }
@@ -162,18 +157,33 @@ CalculateOrientedImage(
       {
       return true;
       }
-
     // Set up the interpolator.
     // Use a linear interpolator since these are intensity images.
-    typedef itk::LinearInterpolateImageFunction< TGenericImage, double > InterpolatorType;
+    typedef itk::LinearInterpolateImageFunction< TIntensityImage, double > InterpolatorType;
     typename InterpolatorType::Pointer interpolator  = InterpolatorType::New();
+
+    typedef itk::ResampleImageFilter< TIntensityImage, TIntensityImage > ResampleFilterType;
+    typename ResampleFilterType::Pointer resampler = ResampleFilterType::New();
+
+    // The m_OrientedBoundingBoxSize is specified to float precision.
+    // Here we need an integer size large enough to contain all of the points, so
+    // we take the ceil of it.
+    // We also need to ensure that that bounding box is not outside of
+    // the image bounds.
+    typename ResampleFilterType::SizeType boundingBoxSize;
+    for ( unsigned int i = 0; i < TLabelImage::ImageDimension; i++ )
+      {
+      boundingBoxSize[i] = ( typename ResampleFilterType::SizeType::SizeValueType )std::ceil(
+        labelGeometry.m_OrientedBoundingBoxSize[i]);
+      }
+
+    resampler->SetTransform(transform);
+    resampler->SetSize(boundingBoxSize);
+    resampler->SetOutputSpacing( filter->GetInput()->GetSpacing() );
+    resampler->SetOutputOrigin( origin );
     resampler->SetInterpolator(interpolator);
 
-    // Cast the type to enable compilation.
-    typedef itk::CastImageFilter< TIntensityImage, TGenericImage > CastType;
-    typename CastType::Pointer caster = CastType::New();
-    caster->SetInput( filter->GetIntensityInput() );
-    resampler->SetInput( caster->GetOutput() );
+    resampler->SetInput( filter->GetIntensityInput() );
     resampler->Update();
     labelGeometry.m_OrientedIntensityImage->Graft( resampler->GetOutput() );
     }
