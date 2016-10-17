@@ -19,9 +19,6 @@ enable_language(C)
 enable_language(CXX)
 
 include(CMakeDependentOption)
-#
-# use ExternalProject
-include(ExternalProject)
 
 if( CMAKE_HOST_WIN32 AND NOT ITK_SKIP_PATH_LENGTH_CHECKS )
 
@@ -66,7 +63,9 @@ include(ITKModuleMacros)
 include(ITKExternalData)
 include(ITKModuleTest)
 include(itkCheckSourceTree)
-
+#
+# use ExternalProject backported to ITK
+include(ExternalProject)
 
 set(main_project_name ${_ITKModuleMacros_DEFAULT_LABEL})
 
