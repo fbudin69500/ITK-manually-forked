@@ -2,402 +2,402 @@
 # file Copyright.txt or https://cmake.org/licensing for details.
 
 #[=======================================================================[.rst:
-ExternalProject
----------------
+#ExternalProject
+#---------------
 
-Create custom targets to build projects in external trees
+#Create custom targets to build projects in external trees
 
-.. command:: ExternalProject_Add
+#.. command:: ExternalProject_Add
 
-  The ``ExternalProject_Add`` function creates a custom target to drive
-  download, update/patch, configure, build, install and test steps of an
-  external project::
+#  The ``ExternalProject_Add`` function creates a custom target to drive
+#  download, update/patch, configure, build, install and test steps of an
+#  external project::
 
-   ExternalProject_Add(<name> [<option>...])
+#   ExternalProject_Add(<name> [<option>...])
 
-  General options are:
+#  General options are:
 
-  ``DEPENDS <projects>...``
-    Targets on which the project depends
-  ``PREFIX <dir>``
-    Root dir for entire project
-  ``LIST_SEPARATOR <sep>``
-    Sep to be replaced by ; in cmd lines
-  ``TMP_DIR <dir>``
-    Directory to store temporary files
-  ``STAMP_DIR <dir>``
-    Directory to store step timestamps
-  ``EXCLUDE_FROM_ALL 1``
-    The "all" target does not depend on this
+#  ``DEPENDS <projects>...``
+#    Targets on which the project depends
+#  ``PREFIX <dir>``
+#    Root dir for entire project
+#  ``LIST_SEPARATOR <sep>``
+#    Sep to be replaced by ; in cmd lines
+#  ``TMP_DIR <dir>``
+#    Directory to store temporary files
+#  ``STAMP_DIR <dir>``
+#    Directory to store step timestamps
+#  ``EXCLUDE_FROM_ALL 1``
+#    The "all" target does not depend on this
 
-  Download step options are:
+#  Download step options are:
 
-  ``DOWNLOAD_NAME <fname>``
-    File name to store (if not end of URL)
-  ``DOWNLOAD_DIR <dir>``
-    Directory to store downloaded files
-  ``DOWNLOAD_COMMAND <cmd>...``
-    Command to download source tree
-  ``DOWNLOAD_NO_PROGRESS 1``
-    Disable download progress reports
-  ``CVS_REPOSITORY <cvsroot>``
-    CVSROOT of CVS repository
-  ``CVS_MODULE <mod>``
-    Module to checkout from CVS repo
-  ``CVS_TAG <tag>``
-    Tag to checkout from CVS repo
-  ``SVN_REPOSITORY <url>``
-    URL of Subversion repo
-  ``SVN_REVISION -r<rev>``
-    Revision to checkout from Subversion repo
-  ``SVN_USERNAME <username>``
-    Username for Subversion checkout and update
-  ``SVN_PASSWORD <password>``
-    Password for Subversion checkout and update
-  ``SVN_TRUST_CERT 1``
-    Trust the Subversion server site certificate
-  ``GIT_REPOSITORY <url>``
-    URL of git repo
-  ``GIT_TAG <tag>``
-    Git branch name, commit id or tag
-  ``GIT_REMOTE_NAME <name>``
-    The optional name of the remote, default to ``origin``
-  ``GIT_SUBMODULES <module>...``
-    Git submodules that shall be updated, all if empty
-  ``GIT_SHALLOW 1``
-    Tell Git to clone with ``--depth 1``.   Use when ``GIT_TAG`` is not
-    specified or when it names a branch in order to download only the
-    tip of the branch without the rest of its history.
-  ``HG_REPOSITORY <url>``
-    URL of mercurial repo
-  ``HG_TAG <tag>``
-    Mercurial branch name, commit id or tag
-  ``URL /.../src.tgz [/.../src.tgz]...``
-    Full path or URL(s) of source.  Multiple URLs are allowed as mirrors.
-  ``URL_HASH ALGO=value``
-    Hash of file at URL
-  ``URL_MD5 md5``
-    Equivalent to URL_HASH MD5=md5
-  ``HTTP_USERNAME <username>``
-    Username for download operation
-  ``HTTP_PASSWORD <username>``
-    Password for download operation
-  ``HTTP_HEADER <header>``
-    HTTP header for download operation. Suboption can be repeated several times.
-  ``TLS_VERIFY <bool>``
-    Should certificate for https be checked
-  ``TLS_CAINFO <file>``
-    Path to a certificate authority file
-  ``TIMEOUT <seconds>``
-    Time allowed for file download operations
-  ``DOWNLOAD_NO_EXTRACT 1``
-    Just download the file and do not extract it; the full path to the
-    downloaded file is available as ``<DOWNLOADED_FILE>``.
+#  ``DOWNLOAD_NAME <fname>``
+#    File name to store (if not end of URL)
+#  ``DOWNLOAD_DIR <dir>``
+#    Directory to store downloaded files
+#  ``DOWNLOAD_COMMAND <cmd>...``
+#    Command to download source tree
+#  ``DOWNLOAD_NO_PROGRESS 1``
+#    Disable download progress reports
+#  ``CVS_REPOSITORY <cvsroot>``
+#    CVSROOT of CVS repository
+#  ``CVS_MODULE <mod>``
+#    Module to checkout from CVS repo
+#  ``CVS_TAG <tag>``
+#    Tag to checkout from CVS repo
+#  ``SVN_REPOSITORY <url>``
+#    URL of Subversion repo
+#  ``SVN_REVISION -r<rev>``
+#    Revision to checkout from Subversion repo
+#  ``SVN_USERNAME <username>``
+#    Username for Subversion checkout and update
+#  ``SVN_PASSWORD <password>``
+#    Password for Subversion checkout and update
+#  ``SVN_TRUST_CERT 1``
+#    Trust the Subversion server site certificate
+#  ``GIT_REPOSITORY <url>``
+#    URL of git repo
+#  ``GIT_TAG <tag>``
+#    Git branch name, commit id or tag
+#  ``GIT_REMOTE_NAME <name>``
+#    The optional name of the remote, default to ``origin``
+#  ``GIT_SUBMODULES <module>...``
+#    Git submodules that shall be updated, all if empty
+#  ``GIT_SHALLOW 1``
+#    Tell Git to clone with ``--depth 1``.   Use when ``GIT_TAG`` is not
+#    specified or when it names a branch in order to download only the
+#    tip of the branch without the rest of its history.
+#  ``HG_REPOSITORY <url>``
+#    URL of mercurial repo
+#  ``HG_TAG <tag>``
+#    Mercurial branch name, commit id or tag
+#  ``URL /.../src.tgz [/.../src.tgz]...``
+#    Full path or URL(s) of source.  Multiple URLs are allowed as mirrors.
+#  ``URL_HASH ALGO=value``
+#    Hash of file at URL
+#  ``URL_MD5 md5``
+#    Equivalent to URL_HASH MD5=md5
+#  ``HTTP_USERNAME <username>``
+#    Username for download operation
+#  ``HTTP_PASSWORD <username>``
+#    Password for download operation
+#  ``HTTP_HEADER <header>``
+#    HTTP header for download operation. Suboption can be repeated several times.
+#  ``TLS_VERIFY <bool>``
+#    Should certificate for https be checked
+#  ``TLS_CAINFO <file>``
+#    Path to a certificate authority file
+#  ``TIMEOUT <seconds>``
+#    Time allowed for file download operations
+#  ``DOWNLOAD_NO_EXTRACT 1``
+#    Just download the file and do not extract it; the full path to the
+#    downloaded file is available as ``<DOWNLOADED_FILE>``.
 
-  Update/Patch step options are:
+#  Update/Patch step options are:
 
-  ``UPDATE_COMMAND <cmd>...``
-    Source work-tree update command
-  ``UPDATE_DISCONNECTED 1``
-    Never update automatically from the remote repository
-  ``PATCH_COMMAND <cmd>...``
-    Command to patch downloaded source
+#  ``UPDATE_COMMAND <cmd>...``
+#    Source work-tree update command
+#  ``UPDATE_DISCONNECTED 1``
+#    Never update automatically from the remote repository
+#  ``PATCH_COMMAND <cmd>...``
+#    Command to patch downloaded source
 
-  Configure step options are:
+#  Configure step options are:
 
-  ``SOURCE_DIR <dir>``
-    Source dir to be used for build
-  ``SOURCE_SUBDIR <dir>``
-    Path to source CMakeLists.txt relative to ``SOURCE_DIR``
-  ``CONFIGURE_COMMAND <cmd>...``
-    Build tree configuration command
-  ``CMAKE_COMMAND /.../cmake``
-    Specify alternative cmake executable
-  ``CMAKE_GENERATOR <gen>``
-    Specify generator for native build
-  ``CMAKE_GENERATOR_PLATFORM <platform>``
-    Generator-specific platform name
-  ``CMAKE_GENERATOR_TOOLSET <toolset>``
-    Generator-specific toolset name
-  ``CMAKE_ARGS <arg>...``
-    Arguments to CMake command line.
-    These arguments are passed to CMake command line, and can contain
-    arguments other than cache values, see also
-    :manual:`CMake Options <cmake(1)>`. Arguments in the form
-    ``-Dvar:string=on`` are always passed to the command line, and
-    therefore cannot be changed by the user.
-    Arguments may use
-    :manual:`generator expressions <cmake-generator-expressions(7)>`.
-  ``CMAKE_CACHE_ARGS <arg>...``
-    Initial cache arguments, of the form ``-Dvar:string=on``.
-    These arguments are written in a pre-load a script that populates
-    CMake cache, see also :manual:`cmake -C <cmake(1)>`. This allows one to
-    overcome command line length limits.
-    These arguments are :command:`set` using the ``FORCE`` argument,
-    and therefore cannot be changed by the user.
-    Arguments may use
-    :manual:`generator expressions <cmake-generator-expressions(7)>`.
-  ``CMAKE_CACHE_DEFAULT_ARGS <arg>...``
-    Initial default cache arguments, of the form ``-Dvar:string=on``.
-    These arguments are written in a pre-load a script that populates
-    CMake cache, see also :manual:`cmake -C <cmake(1)>`. This allows one to
-    overcome command line length limits.
-    These arguments can be used as default value that will be set if no
-    previous value is found in the cache, and that the user can change
-    later.
-    Arguments may use
-    :manual:`generator expressions <cmake-generator-expressions(7)>`.
+#  ``SOURCE_DIR <dir>``
+#    Source dir to be used for build
+#  ``SOURCE_SUBDIR <dir>``
+#    Path to source CMakeLists.txt relative to ``SOURCE_DIR``
+#  ``CONFIGURE_COMMAND <cmd>...``
+#    Build tree configuration command
+#  ``CMAKE_COMMAND /.../cmake``
+#    Specify alternative cmake executable
+#  ``CMAKE_GENERATOR <gen>``
+#    Specify generator for native build
+#  ``CMAKE_GENERATOR_PLATFORM <platform>``
+#    Generator-specific platform name
+#  ``CMAKE_GENERATOR_TOOLSET <toolset>``
+#    Generator-specific toolset name
+#  ``CMAKE_ARGS <arg>...``
+#    Arguments to CMake command line.
+#    These arguments are passed to CMake command line, and can contain
+#    arguments other than cache values, see also
+#    :manual:`CMake Options <cmake(1)>`. Arguments in the form
+#    ``-Dvar:string=on`` are always passed to the command line, and
+#    therefore cannot be changed by the user.
+#    Arguments may use
+#    :manual:`generator expressions <cmake-generator-expressions(7)>`.
+#  ``CMAKE_CACHE_ARGS <arg>...``
+#    Initial cache arguments, of the form ``-Dvar:string=on``.
+#    These arguments are written in a pre-load a script that populates
+#    CMake cache, see also :manual:`cmake -C <cmake(1)>`. This allows one to
+#    overcome command line length limits.
+#    These arguments are :command:`set` using the ``FORCE`` argument,
+#    and therefore cannot be changed by the user.
+#    Arguments may use
+#    :manual:`generator expressions <cmake-generator-expressions(7)>`.
+#  ``CMAKE_CACHE_DEFAULT_ARGS <arg>...``
+#    Initial default cache arguments, of the form ``-Dvar:string=on``.
+#    These arguments are written in a pre-load a script that populates
+#    CMake cache, see also :manual:`cmake -C <cmake(1)>`. This allows one to
+#    overcome command line length limits.
+#    These arguments can be used as default value that will be set if no
+#    previous value is found in the cache, and that the user can change
+#    later.
+#    Arguments may use
+#    :manual:`generator expressions <cmake-generator-expressions(7)>`.
 
-  Build step options are:
+#  Build step options are:
 
-  ``BINARY_DIR <dir>``
-    Specify build dir location
-  ``BUILD_COMMAND <cmd>...``
-    Command to drive the native build
-  ``BUILD_IN_SOURCE 1``
-    Use source dir for build dir
-  ``BUILD_ALWAYS 1``
-    No stamp file, build step always runs
-  ``BUILD_BYPRODUCTS <file>...``
-    Files that will be generated by the build command but may or may
-    not have their modification time updated by subsequent builds.
+#  ``BINARY_DIR <dir>``
+#    Specify build dir location
+#  ``BUILD_COMMAND <cmd>...``
+#    Command to drive the native build
+#  ``BUILD_IN_SOURCE 1``
+#    Use source dir for build dir
+#  ``BUILD_ALWAYS 1``
+#    No stamp file, build step always runs
+#  ``BUILD_BYPRODUCTS <file>...``
+#    Files that will be generated by the build command but may or may
+#    not have their modification time updated by subsequent builds.
 
-  Install step options are:
+#  Install step options are:
 
-  ``INSTALL_DIR <dir>``
-    Installation prefix
-  ``INSTALL_COMMAND <cmd>...``
-    Command to drive install after build
+#  ``INSTALL_DIR <dir>``
+#    Installation prefix
+#  ``INSTALL_COMMAND <cmd>...``
+#    Command to drive install after build
 
-  Test step options are:
+#  Test step options are:
 
-  ``TEST_BEFORE_INSTALL 1``
-    Add test step executed before install step
-  ``TEST_AFTER_INSTALL 1``
-    Add test step executed after install step
-  ``TEST_EXCLUDE_FROM_MAIN 1``
-    Main target does not depend on the test step
-  ``TEST_COMMAND <cmd>...``
-    Command to drive test
+#  ``TEST_BEFORE_INSTALL 1``
+#    Add test step executed before install step
+#  ``TEST_AFTER_INSTALL 1``
+#    Add test step executed after install step
+#  ``TEST_EXCLUDE_FROM_MAIN 1``
+#    Main target does not depend on the test step
+#  ``TEST_COMMAND <cmd>...``
+#    Command to drive test
 
-  Output logging options are:
+#  Output logging options are:
 
-  ``LOG_DOWNLOAD 1``
-    Wrap download in script to log output
-  ``LOG_UPDATE 1``
-    Wrap update in script to log output
-  ``LOG_CONFIGURE 1``
-    Wrap configure in script to log output
-  ``LOG_BUILD 1``
-    Wrap build in script to log output
-  ``LOG_TEST 1``
-    Wrap test in script to log output
-  ``LOG_INSTALL 1``
-    Wrap install in script to log output
+#  ``LOG_DOWNLOAD 1``
+#    Wrap download in script to log output
+#  ``LOG_UPDATE 1``
+#    Wrap update in script to log output
+#  ``LOG_CONFIGURE 1``
+#    Wrap configure in script to log output
+#  ``LOG_BUILD 1``
+#    Wrap build in script to log output
+#  ``LOG_TEST 1``
+#    Wrap test in script to log output
+#  ``LOG_INSTALL 1``
+#    Wrap install in script to log output
 
-  Steps can be given direct access to the terminal if possible.  With
-  the :generator:`Ninja` generator, this places the steps in the
-  ``console`` :prop_gbl:`pool <JOB_POOLS>`.  Options are:
+#  Steps can be given direct access to the terminal if possible.  With
+#  the :generator:`Ninja` generator, this places the steps in the
+#  ``console`` :prop_gbl:`pool <JOB_POOLS>`.  Options are:
 
-  ``USES_TERMINAL_DOWNLOAD 1``
-    Give download terminal access.
-  ``USES_TERMINAL_UPDATE 1``
-    Give update terminal access.
-  ``USES_TERMINAL_CONFIGURE 1``
-    Give configure terminal access.
-  ``USES_TERMINAL_BUILD 1``
-    Give build terminal access.
-  ``USES_TERMINAL_TEST 1``
-    Give test terminal access.
-  ``USES_TERMINAL_INSTALL 1``
-    Give install terminal access.
+#  ``USES_TERMINAL_DOWNLOAD 1``
+#    Give download terminal access.
+#  ``USES_TERMINAL_UPDATE 1``
+#    Give update terminal access.
+#  ``USES_TERMINAL_CONFIGURE 1``
+#    Give configure terminal access.
+#  ``USES_TERMINAL_BUILD 1``
+#    Give build terminal access.
+#  ``USES_TERMINAL_TEST 1``
+#    Give test terminal access.
+#  ``USES_TERMINAL_INSTALL 1``
+#    Give install terminal access.
 
-  Other options are:
+#  Other options are:
 
-  ``STEP_TARGETS <step-target>...``
-    Generate custom targets for these steps
-  ``INDEPENDENT_STEP_TARGETS <step-target>...``
-    Generate custom targets for these steps that do not depend on other
-    external projects even if a dependency is set
+#  ``STEP_TARGETS <step-target>...``
+#    Generate custom targets for these steps
+#  ``INDEPENDENT_STEP_TARGETS <step-target>...``
+#    Generate custom targets for these steps that do not depend on other
+#    external projects even if a dependency is set
 
-  The ``*_DIR`` options specify directories for the project, with default
-  directories computed as follows.  If the ``PREFIX`` option is given to
-  ``ExternalProject_Add()`` or the ``EP_PREFIX`` directory property is set,
-  then an external project is built and installed under the specified prefix::
+#  The ``*_DIR`` options specify directories for the project, with default
+#  directories computed as follows.  If the ``PREFIX`` option is given to
+#  ``ExternalProject_Add()`` or the ``EP_PREFIX`` directory property is set,
+#  then an external project is built and installed under the specified prefix::
 
-   TMP_DIR      = <prefix>/tmp
-   STAMP_DIR    = <prefix>/src/<name>-stamp
-   DOWNLOAD_DIR = <prefix>/src
-   SOURCE_DIR   = <prefix>/src/<name>
-   BINARY_DIR   = <prefix>/src/<name>-build
-   INSTALL_DIR  = <prefix>
+#   TMP_DIR      = <prefix>/tmp
+#   STAMP_DIR    = <prefix>/src/<name>-stamp
+#   DOWNLOAD_DIR = <prefix>/src
+#   SOURCE_DIR   = <prefix>/src/<name>
+#   BINARY_DIR   = <prefix>/src/<name>-build
+#   INSTALL_DIR  = <prefix>
 
-  Otherwise, if the ``EP_BASE`` directory property is set then components
-  of an external project are stored under the specified base::
+#  Otherwise, if the ``EP_BASE`` directory property is set then components
+#  of an external project are stored under the specified base::
 
-   TMP_DIR      = <base>/tmp/<name>
-   STAMP_DIR    = <base>/Stamp/<name>
-   DOWNLOAD_DIR = <base>/Download/<name>
-   SOURCE_DIR   = <base>/Source/<name>
-   BINARY_DIR   = <base>/Build/<name>
-   INSTALL_DIR  = <base>/Install/<name>
+#   TMP_DIR      = <base>/tmp/<name>
+#   STAMP_DIR    = <base>/Stamp/<name>
+#   DOWNLOAD_DIR = <base>/Download/<name>
+#   SOURCE_DIR   = <base>/Source/<name>
+#   BINARY_DIR   = <base>/Build/<name>
+#   INSTALL_DIR  = <base>/Install/<name>
 
-  If no ``PREFIX``, ``EP_PREFIX``, or ``EP_BASE`` is specified then the
-  default is to set ``PREFIX`` to ``<name>-prefix``.  Relative paths are
-  interpreted with respect to the build directory corresponding to the
-  source directory in which ``ExternalProject_Add`` is invoked.
+#  If no ``PREFIX``, ``EP_PREFIX``, or ``EP_BASE`` is specified then the
+#  default is to set ``PREFIX`` to ``<name>-prefix``.  Relative paths are
+#  interpreted with respect to the build directory corresponding to the
+#  source directory in which ``ExternalProject_Add`` is invoked.
 
-  If ``SOURCE_SUBDIR`` is set and no ``CONFIGURE_COMMAND`` is specified, the
-  configure command will run CMake using the ``CMakeLists.txt`` located in the
-  relative path specified by ``SOURCE_SUBDIR``, relative to the ``SOURCE_DIR``.
-  If no ``SOURCE_SUBDIR`` is given, ``SOURCE_DIR`` is used.
+#  If ``SOURCE_SUBDIR`` is set and no ``CONFIGURE_COMMAND`` is specified, the
+#  configure command will run CMake using the ``CMakeLists.txt`` located in the
+#  relative path specified by ``SOURCE_SUBDIR``, relative to the ``SOURCE_DIR``.
+#  If no ``SOURCE_SUBDIR`` is given, ``SOURCE_DIR`` is used.
 
-  If ``SOURCE_DIR`` is explicitly set to an existing directory the project
-  will be built from it.  Otherwise a download step must be specified
-  using one of the ``DOWNLOAD_COMMAND``, ``CVS_*``, ``SVN_*``, or ``URL``
-  options.  The ``URL`` option may refer locally to a directory or source
-  tarball, or refer to a remote tarball (e.g. ``http://.../src.tgz``).
+#  If ``SOURCE_DIR`` is explicitly set to an existing directory the project
+#  will be built from it.  Otherwise a download step must be specified
+#  using one of the ``DOWNLOAD_COMMAND``, ``CVS_*``, ``SVN_*``, or ``URL``
+#  options.  The ``URL`` option may refer locally to a directory or source
+#  tarball, or refer to a remote tarball (e.g. ``http://.../src.tgz``).
 
-  If ``UPDATE_DISCONNECTED`` is set, the update step is not executed
-  automatically when building the main target. The update step can still
-  be added as a step target and called manually. This is useful if you
-  want to allow one to build the project when you are disconnected from the
-  network (you might still need the network for the download step).
-  This is disabled by default.
-  The directory property ``EP_UPDATE_DISCONNECTED`` can be used to change
-  the default value for all the external projects in the current
-  directory and its subdirectories.
+#  If ``UPDATE_DISCONNECTED`` is set, the update step is not executed
+#  automatically when building the main target. The update step can still
+#  be added as a step target and called manually. This is useful if you
+#  want to allow one to build the project when you are disconnected from the
+#  network (you might still need the network for the download step).
+#  This is disabled by default.
+#  The directory property ``EP_UPDATE_DISCONNECTED`` can be used to change
+#  the default value for all the external projects in the current
+#  directory and its subdirectories.
 
-.. command:: ExternalProject_Add_Step
+#.. command:: ExternalProject_Add_Step
 
-  The ``ExternalProject_Add_Step`` function adds a custom step to an
-  external project::
+#  The ``ExternalProject_Add_Step`` function adds a custom step to an
+#  external project::
 
-   ExternalProject_Add_Step(<name> <step> [<option>...])
+#   ExternalProject_Add_Step(<name> <step> [<option>...])
 
-  Options are:
+#  Options are:
 
-  ``COMMAND <cmd>...``
-    Command line invoked by this step
-  ``COMMENT "<text>..."``
-    Text printed when step executes
-  ``DEPENDEES <step>...``
-    Steps on which this step depends
-  ``DEPENDERS <step>...``
-    Steps that depend on this step
-  ``DEPENDS <file>...``
-    Files on which this step depends
-  ``BYPRODUCTS <file>...``
-    Files that will be generated by this step but may or may not
-    have their modification time updated by subsequent builds.
-  ``ALWAYS 1``
-    No stamp file, step always runs
-  ``EXCLUDE_FROM_MAIN 1``
-    Main target does not depend on this step
-  ``WORKING_DIRECTORY <dir>``
-    Working directory for command
-  ``LOG 1``
-    Wrap step in script to log output
-  ``USES_TERMINAL 1``
-    Give the step direct access to the terminal if possible.
+#  ``COMMAND <cmd>...``
+#    Command line invoked by this step
+#  ``COMMENT "<text>..."``
+#    Text printed when step executes
+#  ``DEPENDEES <step>...``
+#    Steps on which this step depends
+#  ``DEPENDERS <step>...``
+#    Steps that depend on this step
+#  ``DEPENDS <file>...``
+#    Files on which this step depends
+#  ``BYPRODUCTS <file>...``
+#    Files that will be generated by this step but may or may not
+#    have their modification time updated by subsequent builds.
+#  ``ALWAYS 1``
+#    No stamp file, step always runs
+#  ``EXCLUDE_FROM_MAIN 1``
+#    Main target does not depend on this step
+#  ``WORKING_DIRECTORY <dir>``
+#    Working directory for command
+#  ``LOG 1``
+#    Wrap step in script to log output
+#  ``USES_TERMINAL 1``
+#    Give the step direct access to the terminal if possible.
 
-  The command line, comment, working directory, and byproducts of every
-  standard and custom step are processed to replace tokens ``<SOURCE_DIR>``,
-  ``<SOURCE_SUBDIR>``,  ``<BINARY_DIR>``, ``<INSTALL_DIR>``, and ``<TMP_DIR>``
-  with corresponding property values.
+#  The command line, comment, working directory, and byproducts of every
+#  standard and custom step are processed to replace tokens ``<SOURCE_DIR>``,
+#  ``<SOURCE_SUBDIR>``,  ``<BINARY_DIR>``, ``<INSTALL_DIR>``, and ``<TMP_DIR>``
+#  with corresponding property values.
 
-Any builtin step that specifies a ``<step>_COMMAND cmd...`` or custom
-step that specifies a ``COMMAND cmd...`` may specify additional command
-lines using the form ``COMMAND cmd...``.  At build time the commands
-will be executed in order and aborted if any one fails.  For example::
+#Any builtin step that specifies a ``<step>_COMMAND cmd...`` or custom
+#step that specifies a ``COMMAND cmd...`` may specify additional command
+#lines using the form ``COMMAND cmd...``.  At build time the commands
+#will be executed in order and aborted if any one fails.  For example::
 
- ... BUILD_COMMAND make COMMAND echo done ...
+# ... BUILD_COMMAND make COMMAND echo done ...
 
-specifies to run ``make`` and then ``echo done`` during the build step.
-Whether the current working directory is preserved between commands is
-not defined.  Behavior of shell operators like ``&&`` is not defined.
+#specifies to run ``make`` and then ``echo done`` during the build step.
+#Whether the current working directory is preserved between commands is
+#not defined.  Behavior of shell operators like ``&&`` is not defined.
 
-Arguments to ``<step>_COMMAND`` or ``COMMAND`` options may use
-:manual:`generator expressions <cmake-generator-expressions(7)>`.
+#Arguments to ``<step>_COMMAND`` or ``COMMAND`` options may use
+#:manual:`generator expressions <cmake-generator-expressions(7)>`.
 
-.. command:: ExternalProject_Get_Property
+#.. command:: ExternalProject_Get_Property
 
-  The ``ExternalProject_Get_Property`` function retrieves external project
-  target properties::
+#  The ``ExternalProject_Get_Property`` function retrieves external project
+#  target properties::
 
-    ExternalProject_Get_Property(<name> [prop1 [prop2 [...]]])
+#    ExternalProject_Get_Property(<name> [prop1 [prop2 [...]]])
 
-  It stores property values in variables of the same name.  Property
-  names correspond to the keyword argument names of
-  ``ExternalProject_Add``.
+#  It stores property values in variables of the same name.  Property
+#  names correspond to the keyword argument names of
+#  ``ExternalProject_Add``.
 
-.. command:: ExternalProject_Add_StepTargets
+#.. command:: ExternalProject_Add_StepTargets
 
-  The ``ExternalProject_Add_StepTargets`` function generates custom
-  targets for the steps listed::
+#  The ``ExternalProject_Add_StepTargets`` function generates custom
+#  targets for the steps listed::
 
-    ExternalProject_Add_StepTargets(<name> [NO_DEPENDS] [step1 [step2 [...]]])
+#    ExternalProject_Add_StepTargets(<name> [NO_DEPENDS] [step1 [step2 [...]]])
 
-If ``NO_DEPENDS`` is set, the target will not depend on the
-dependencies of the complete project. This is usually safe to use for
-the download, update, and patch steps that do not require that all the
-dependencies are updated and built.  Using ``NO_DEPENDS`` for other
-of the default steps might break parallel builds, so you should avoid,
-it.  For custom steps, you should consider whether or not the custom
-commands requires that the dependencies are configured, built and
-installed.
+#If ``NO_DEPENDS`` is set, the target will not depend on the
+#dependencies of the complete project. This is usually safe to use for
+#the download, update, and patch steps that do not require that all the
+#dependencies are updated and built.  Using ``NO_DEPENDS`` for other
+#of the default steps might break parallel builds, so you should avoid,
+#it.  For custom steps, you should consider whether or not the custom
+#commands requires that the dependencies are configured, built and
+#installed.
 
-If ``STEP_TARGETS`` or ``INDEPENDENT_STEP_TARGETS`` is set then
-``ExternalProject_Add_StepTargets`` is automatically called at the end
-of matching calls to ``ExternalProject_Add_Step``.  Pass
-``STEP_TARGETS`` or ``INDEPENDENT_STEP_TARGETS`` explicitly to
-individual ``ExternalProject_Add`` calls, or implicitly to all
-``ExternalProject_Add`` calls by setting the directory properties
-``EP_STEP_TARGETS`` and ``EP_INDEPENDENT_STEP_TARGETS``.  The
-``INDEPENDENT`` version of the argument and of the property will call
-``ExternalProject_Add_StepTargets`` with the ``NO_DEPENDS`` argument.
+#If ``STEP_TARGETS`` or ``INDEPENDENT_STEP_TARGETS`` is set then
+#``ExternalProject_Add_StepTargets`` is automatically called at the end
+#of matching calls to ``ExternalProject_Add_Step``.  Pass
+#``STEP_TARGETS`` or ``INDEPENDENT_STEP_TARGETS`` explicitly to
+#individual ``ExternalProject_Add`` calls, or implicitly to all
+#``ExternalProject_Add`` calls by setting the directory properties
+#``EP_STEP_TARGETS`` and ``EP_INDEPENDENT_STEP_TARGETS``.  The
+#``INDEPENDENT`` version of the argument and of the property will call
+#``ExternalProject_Add_StepTargets`` with the ``NO_DEPENDS`` argument.
 
-If ``STEP_TARGETS`` and ``INDEPENDENT_STEP_TARGETS`` are not set,
-clients may still manually call ``ExternalProject_Add_StepTargets``
-after calling ``ExternalProject_Add`` or ``ExternalProject_Add_Step``.
+#If ``STEP_TARGETS`` and ``INDEPENDENT_STEP_TARGETS`` are not set,
+#clients may still manually call ``ExternalProject_Add_StepTargets``
+#after calling ``ExternalProject_Add`` or ``ExternalProject_Add_Step``.
 
-This functionality is provided to make it easy to drive the steps
-independently of each other by specifying targets on build command
-lines.  For example, you may be submitting to a sub-project based
-dashboard, where you want to drive the configure portion of the build,
-then submit to the dashboard, followed by the build portion, followed
-by tests.  If you invoke a custom target that depends on a step
-halfway through the step dependency chain, then all the previous steps
-will also run to ensure everything is up to date.
+#This functionality is provided to make it easy to drive the steps
+#independently of each other by specifying targets on build command
+#lines.  For example, you may be submitting to a sub-project based
+#dashboard, where you want to drive the configure portion of the build,
+#then submit to the dashboard, followed by the build portion, followed
+#by tests.  If you invoke a custom target that depends on a step
+#halfway through the step dependency chain, then all the previous steps
+#will also run to ensure everything is up to date.
 
-For example, to drive configure, build and test steps independently
-for each ``ExternalProject_Add`` call in your project, write the following
-line prior to any ``ExternalProject_Add`` calls in your ``CMakeLists.txt``
-file::
+#For example, to drive configure, build and test steps independently
+#for each ``ExternalProject_Add`` call in your project, write the following
+#line prior to any ``ExternalProject_Add`` calls in your ``CMakeLists.txt``
+#file::
 
- set_property(DIRECTORY PROPERTY EP_STEP_TARGETS configure build test)
+# set_property(DIRECTORY PROPERTY EP_STEP_TARGETS configure build test)
 
-.. command:: ExternalProject_Add_StepDependencies
+#.. command:: ExternalProject_Add_StepDependencies
 
-  The ``ExternalProject_Add_StepDependencies`` function add some
-  dependencies for some external project step::
+#  The ``ExternalProject_Add_StepDependencies`` function add some
+#  dependencies for some external project step::
 
-    ExternalProject_Add_StepDependencies(<name> <step> [target1 [target2 [...]]])
+#    ExternalProject_Add_StepDependencies(<name> <step> [target1 [target2 [...]]])
 
-  This function takes care to set both target and file level
-  dependencies, and will ensure that parallel builds will not break.
-  It should be used instead of :command:`add_dependencies()` when adding
-  a dependency for some of the step targets generated by
-  ``ExternalProject``.
+#  This function takes care to set both target and file level
+#  dependencies, and will ensure that parallel builds will not break.
+#  It should be used instead of :command:`add_dependencies()` when adding
+#  a dependency for some of the step targets generated by
+#  ``ExternalProject``.
 #]=======================================================================]
 
 # Pre-compute a regex to match documented keywords for each command.
 math(EXPR _ep_documentation_line_count "${CMAKE_CURRENT_LIST_LINE} - 16")
 file(STRINGS "${CMAKE_CURRENT_LIST_FILE}" lines
      LIMIT_COUNT ${_ep_documentation_line_count}
-     REGEX "^\\.\\. command:: [A-Za-z0-9_]+|^  ``[A-Z0-9_]+ .*``$")
+     REGEX "^#\\.\\. command:: [A-Za-z0-9_]+|^#  ``[A-Z0-9_]+ .*``$")
 foreach(line IN LISTS lines)
-  if("${line}" MATCHES "^\\.\\. command:: ([A-Za-z0-9_]+)")
+  if("${line}" MATCHES "^#\\.\\. command:: ([A-Za-z0-9_]+)")
     if(_ep_func)
       set(_ep_keywords_${_ep_func} "${_ep_keywords_${_ep_func}})$")
     endif()
@@ -405,7 +405,7 @@ foreach(line IN LISTS lines)
     #message("function [${_ep_func}]")
     set(_ep_keywords_${_ep_func} "^(")
     set(_ep_keyword_sep)
-  elseif("${line}" MATCHES "^  ``([A-Z0-9_]+) .*``$")
+  elseif("${line}" MATCHES "^#  ``([A-Z0-9_]+) .*``$")
     set(_ep_key "${CMAKE_MATCH_1}")
     #message("  keyword [${_ep_key}]")
     set(_ep_keywords_${_ep_func}
