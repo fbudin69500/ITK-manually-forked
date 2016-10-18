@@ -1263,7 +1263,7 @@ function(_ep_get_build_command name step cmd_var)
             message(AUTHOR_WARNING "CMAKE_CFG_INTDIR should not be set by project code.\n"
               "To get a non-default build command, use the BUILD_COMMAND option.")
           else()
-            set(config $<CONFIG>)
+            set(config $<CONFIGURATION>)
           endif()
           list(APPEND args --config ${config})
         endif()
