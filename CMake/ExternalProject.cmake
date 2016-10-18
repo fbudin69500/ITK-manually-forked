@@ -1177,7 +1177,10 @@ function(_ep_write_initial_cache target_name script_filename script_initial_cach
   # Replace location tags.
   _ep_replace_location_tags(${target_name} script_initial_cache)
   # Write out the initial cache file to the location specified.
-  file(GENERATE OUTPUT "${script_filename}" CONTENT "${script_initial_cache}")
+  if(NOT EXISTS "${script_filename}.in")
+    file(WRITE "${script_filename}.in" "\@script_initial_cache\@\n")
+  endif()
+  configure_file("${script_filename}.in" "${script_filename}")
 endfunction()
 
 
@@ -2214,7 +2217,7 @@ function(_ep_add_configure_command name)
     get_property(cmake_cache_default_args TARGET ${name} PROPERTY _EP_CMAKE_CACHE_DEFAULT_ARGS)
 
     if(cmake_cache_args OR cmake_cache_default_args)
-      set(_ep_cache_args_script "${tmp_dir}/${name}-cache-$<CONFIG>.cmake")
+      set(_ep_cache_args_script "${tmp_dir}/${name}-cache.cmake")
       if(cmake_cache_args)
         _ep_command_line_to_initial_cache(script_initial_cache_force "${cmake_cache_args}" 1)
       endif()
