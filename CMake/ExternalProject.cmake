@@ -1373,14 +1373,14 @@ endif()
       endif()
     endforeach()
     string(APPEND code "set(command \"${cmd}\")${code_execute_process}")
-    file(GENERATE OUTPUT "${stamp_dir}/${name}-${step}-$<CONFIG>-impl.cmake" CONTENT "${code}")
-    set(command ${CMAKE_COMMAND} "-Dmake=\${make}" "-Dconfig=\${config}" -P ${stamp_dir}/${name}-${step}-$<CONFIG>-impl.cmake)
+    file(WRITE ${stamp_dir}/${name}-${step}-impl.cmake "${code}")
+    set(command ${CMAKE_COMMAND} "-Dmake=\${make}" "-Dconfig=\${config}" -P ${stamp_dir}/${name}-${step}-impl.cmake)
   endif()
 
   # Wrap the command in a script to log output to files.
-  set(script ${stamp_dir}/${name}-${step}-$<CONFIG>.cmake)
+  set(script ${stamp_dir}/${name}-${step}.cmake)
   set(logbase ${stamp_dir}/${name}-${step})
-  set(code "
+  file(WRITE ${script} "
 ${code_cygpath_make}
 set(command \"${command}\")
 execute_process(
@@ -1401,7 +1401,6 @@ else()
   message(STATUS \"\${msg}\")
 endif()
 ")
-  file(GENERATE OUTPUT "${script}" CONTENT "${code}")
   set(command ${CMAKE_COMMAND} ${make} ${config} -P ${script})
   set(${cmd_var} "${command}" PARENT_SCOPE)
 endfunction()
