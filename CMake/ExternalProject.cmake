@@ -1914,19 +1914,15 @@ function(_ep_add_download_command name)
       if("${url}" MATCHES "^[a-z]+://")
         # TODO: Should download and extraction be different steps?
         if("x${fname}" STREQUAL "x")
-          set(fname "${url}")
+          string(REGEX MATCH "[^/\\?]*$" fname "${url}")
         endif()
-        if("${fname}" MATCHES [[([^/\?#]+(\.|=)(7z|tar|tar\.bz2|tar\.gz|tar\.xz|tbz2|tgz|txz|zip))([/?#].*)?$]])
-          set(fname "${CMAKE_MATCH_1}")
-        elseif(no_extract)
-          get_filename_component(fname "${fname}" NAME)
-        else()
-          # Fall back to a default file name.  The actual file name does not
-          # matter because it is used only internally and our extraction tool
-          # inspects the file content directly.  If it turns out the wrong URL
-          # was given that will be revealed during the build which is an easier
-          # place for users to diagnose than an error here anyway.
-          set(fname "archive.tar")
+        if(NOT "${fname}" MATCHES "(\\.|=)(7z|tar|tar\\.bz2|tar\\.gz|tar\\.xz|tbz2|tgz|txz|zip)$")
+          string(REGEX MATCH "([^/\\?]+(\\.|=)(7z|tar|tar\\.bz2|tar\\.gz|tar\\.xz|tbz2|tgz|txz|zip))/.*$" match_result "${url}")
+        endif()
+        if (no_extract)
+          get_filename_component(fname "${url}" NAME)
+        elseif(NOT "${fname}" MATCHES "(\\.|=)(7z|tar|tar\\.bz2|tar\\.gz|tar\\.xz|tbz2|tgz|txz|zip)$")
+          message(FATAL_ERROR "Could not extract tarball filename from url:\n  ${url}")
         endif()
         string(REPLACE ";" "-" fname "${fname}")
         set(file ${download_dir}/${fname})
