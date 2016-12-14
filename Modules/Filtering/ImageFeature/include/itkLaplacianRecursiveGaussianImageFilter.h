@@ -135,7 +135,7 @@ private:
   //
   // Where A is the cumulativeImage, B is the last filter, and
   // ConstValue is the spacing scalling
-  class AddMultConstFunctor
+  class ITK_TEMPLATE_EXPORT AddMultConstFunctor
   {
   public:
     typedef AddMultConstFunctor Self;

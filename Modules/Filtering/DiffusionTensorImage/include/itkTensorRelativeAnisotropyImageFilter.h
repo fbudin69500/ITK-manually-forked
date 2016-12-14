@@ -28,7 +28,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput >
-class TensorRelativeAnisotropyFunction
+class ITK_TEMPLATE_EXPORT TensorRelativeAnisotropyFunction
 {
 public:
   typedef typename TInput::RealValueType RealValueType;
@@ -69,7 +69,7 @@ public:
 template< typename  TInputImage, typename  TOutputImage = Image<
     typename NumericTraits< typename TInputImage::PixelType::ValueType >::RealType,
     TInputImage::Dimension > >
-class TensorRelativeAnisotropyImageFilter:
+class ITK_TEMPLATE_EXPORT TensorRelativeAnisotropyImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::TensorRelativeAnisotropyFunction<

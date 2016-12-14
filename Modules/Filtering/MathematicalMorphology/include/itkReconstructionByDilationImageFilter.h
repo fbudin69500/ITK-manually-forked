@@ -60,7 +60,7 @@ OpeningByReconstructionImageFilter, ClosingByReconstructionImageFilter, Reconstr
  */
 
 template< typename TInputImage, typename TOutputImage >
-class ReconstructionByDilationImageFilter:
+class ITK_TEMPLATE_EXPORT ReconstructionByDilationImageFilter:
   public ReconstructionImageFilter< TInputImage, TOutputImage, std::greater< typename TOutputImage::PixelType > >
 {
 public:

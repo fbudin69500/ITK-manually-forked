@@ -25,7 +25,7 @@
 namespace itk
 {
 
-class DOMTestObjectDOMReader : public DOMReader<DOMTestObject>
+class ITK_TEMPLATE_EXPORT DOMTestObjectDOMReader : public DOMReader<DOMTestObject>
 {
 public:
   /** Standard class typedefs. */

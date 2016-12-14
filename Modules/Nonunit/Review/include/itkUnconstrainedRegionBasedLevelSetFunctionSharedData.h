@@ -58,7 +58,7 @@ namespace itk
  * \ingroup ITKReview
  */
 template< typename TInputImage, typename TFeatureImage, typename TSingleData >
-class UnconstrainedRegionBasedLevelSetFunctionSharedData:
+class ITK_TEMPLATE_EXPORT UnconstrainedRegionBasedLevelSetFunctionSharedData:
   public RegionBasedLevelSetFunctionSharedData< TInputImage, TFeatureImage, TSingleData >
 {
 public:

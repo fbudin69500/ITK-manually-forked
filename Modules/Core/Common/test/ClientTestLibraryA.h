@@ -26,7 +26,7 @@
 namespace LibraryA
 {
 
-class ClientTestLibraryA_EXPORT ITKObjectProducer
+class ITK_TEMPLATE_EXPORT ClientTestLibraryA_EXPORT ITKObjectProducer
 {
 public:
   ITKObjectProducer();

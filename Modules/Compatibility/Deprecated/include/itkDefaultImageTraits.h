@@ -36,7 +36,7 @@ namespace itk
 template< typename TPixelType,
           unsigned int VImageDimension,
           typename TPixelContainer = ValarrayImageContainer< SizeValueType, TPixelType > >
-class DefaultImageTraits
+class ITK_TEMPLATE_EXPORT DefaultImageTraits
 {
 public:
   /** The pixel type of the image. */

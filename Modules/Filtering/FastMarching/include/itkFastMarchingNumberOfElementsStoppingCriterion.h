@@ -38,7 +38,7 @@ namespace itk
  * \ingroup ITKFastMarching
  */
 template< typename TInput, typename TOutput >
-class FastMarchingNumberOfElementsStoppingCriterion :
+class ITK_TEMPLATE_EXPORT FastMarchingNumberOfElementsStoppingCriterion :
 public FastMarchingStoppingCriterionBase< TInput, TOutput >
 {
 public:

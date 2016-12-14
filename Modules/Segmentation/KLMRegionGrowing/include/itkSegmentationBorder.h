@@ -43,7 +43,7 @@ namespace itk
  * \ingroup RegionGrowingSegmentation
  * \ingroup ITKKLMRegionGrowing
  */
-class ITKKLMRegionGrowing_EXPORT SegmentationBorder:public Object
+class ITK_TEMPLATE_EXPORT ITKKLMRegionGrowing_EXPORT SegmentationBorder:public Object
 {
 public:
   /** Standard class typedefs. */

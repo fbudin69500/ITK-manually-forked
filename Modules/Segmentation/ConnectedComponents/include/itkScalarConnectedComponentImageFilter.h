@@ -50,7 +50,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput >
-class SimilarPixelsFunctor
+class ITK_TEMPLATE_EXPORT SimilarPixelsFunctor
 {
 public:
   SimilarPixelsFunctor()
@@ -107,7 +107,7 @@ protected:
 } // end namespace Functor
 
 template< typename TInputImage, typename TOutputImage, typename TMaskImage = TInputImage >
-class ScalarConnectedComponentImageFilter:
+class ITK_TEMPLATE_EXPORT ScalarConnectedComponentImageFilter:
   public ConnectedComponentFunctorImageFilter< TInputImage, TOutputImage,
                                                Functor::SimilarPixelsFunctor< typename TInputImage::ValueType >,
                                                TMaskImage >

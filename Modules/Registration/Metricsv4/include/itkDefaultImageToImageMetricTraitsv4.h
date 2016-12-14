@@ -44,7 +44,7 @@ template<
   typename    TVirtualImageType,
   typename TCoordRep = double
   >
-class DefaultImageToImageMetricTraitsv4
+class ITK_TEMPLATE_EXPORT DefaultImageToImageMetricTraitsv4
 {
 public:
   /** Standard class typedefs. */

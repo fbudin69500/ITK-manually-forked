@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Sin
+class ITK_TEMPLATE_EXPORT Sin
 {
 public:
   Sin() {}
@@ -64,7 +64,7 @@ public:
  * \endwiki
  */
 template< typename TInputImage, typename TOutputImage >
-class SinImageFilter:
+class ITK_TEMPLATE_EXPORT SinImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Sin<

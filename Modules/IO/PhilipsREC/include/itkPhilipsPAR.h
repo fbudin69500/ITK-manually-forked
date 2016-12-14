@@ -209,7 +209,7 @@ struct par_parameter  //par_parameter
  *
  * \ingroup ITKIOPhilipsREC
  */
-class ITKIOPhilipsREC_EXPORT PhilipsPAR:public LightProcessObject
+class ITK_TEMPLATE_EXPORT ITKIOPhilipsREC_EXPORT PhilipsPAR:public LightProcessObject
 {
 public:
   /** Standard class typedefs. */

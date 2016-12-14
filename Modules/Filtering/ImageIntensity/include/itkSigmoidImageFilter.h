@@ -48,7 +48,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class Sigmoid
+class ITK_TEMPLATE_EXPORT Sigmoid
 {
 public:
   Sigmoid()
@@ -136,7 +136,7 @@ private:
 }
 
 template< typename TInputImage, typename TOutputImage >
-class SigmoidImageFilter:
+class ITK_TEMPLATE_EXPORT SigmoidImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Sigmoid<

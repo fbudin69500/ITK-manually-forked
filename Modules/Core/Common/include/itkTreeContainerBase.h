@@ -31,7 +31,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename TValue >
-class TreeContainerBase:public Object
+class ITK_TEMPLATE_EXPORT TreeContainerBase:public Object
 {
 public:
 

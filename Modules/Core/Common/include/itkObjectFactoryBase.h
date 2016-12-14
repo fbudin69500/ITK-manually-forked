@@ -187,7 +187,7 @@ public:
    * \brief Internal implementation class for ObjectFactorBase.
    * \ingroup ITKCommon
    */
-  struct OverrideInformation {
+  struct ITK_TEMPLATE_EXPORT OverrideInformation {
     std::string m_Description;
     std::string m_OverrideWithName;
     bool m_EnabledFlag;

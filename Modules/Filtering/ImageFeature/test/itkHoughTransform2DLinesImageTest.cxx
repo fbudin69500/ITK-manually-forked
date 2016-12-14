@@ -33,7 +33,7 @@
  */
 
 /** Hough Point structure */
-struct houghPoint
+struct ITK_TEMPLATE_EXPORT houghPoint
 {
   double radius;
   double angle;

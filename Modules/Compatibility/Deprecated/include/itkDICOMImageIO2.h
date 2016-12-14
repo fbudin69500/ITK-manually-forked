@@ -33,7 +33,7 @@ namespace itk
  * \deprecated
  * \ingroup ITKDeprecated
  */
-class DICOMImageIO2:public ImageIOBase
+class ITK_TEMPLATE_EXPORT DICOMImageIO2:public ImageIOBase
 {
 public:
   /** Standard class typedefs. */

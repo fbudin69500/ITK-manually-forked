@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Round
+class ITK_TEMPLATE_EXPORT Round
 {
 public:
   Round() {}
@@ -62,7 +62,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class RoundImageFilter:
+class ITK_TEMPLATE_EXPORT RoundImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Round< typename TInputImage::PixelType,

@@ -182,7 +182,7 @@ public:
   typedef typename Superclass::IndexValueType                    IndexValueType;
 
   /** An  iterator for the ShapedNeighborhood classes. */
-  struct Iterator:public ConstIterator {
+  struct ITK_TEMPLATE_EXPORT Iterator:public ConstIterator {
     Iterator() {}
     Iterator(Self *s):ConstIterator(s) {}
 

@@ -31,7 +31,7 @@ namespace Statistics
  */
 
 template<typename TMeasurementVector, typename TTargetVector>
-class InputFunctionBase : public FunctionBase<TMeasurementVector, TTargetVector>
+class ITK_TEMPLATE_EXPORT InputFunctionBase : public FunctionBase<TMeasurementVector, TTargetVector>
 {
 public:
 

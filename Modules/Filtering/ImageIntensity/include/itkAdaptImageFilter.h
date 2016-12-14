@@ -35,7 +35,7 @@ namespace Functor
    * \ingroup ITKImageIntensity
    */
 template< typename TInput, typename TAccessor >
-class AccessorFunctor
+class ITK_TEMPLATE_EXPORT AccessorFunctor
 {
 public:
   /** Standard class typedefs. */
@@ -120,7 +120,7 @@ private:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage, typename TAccessor >
-class AdaptImageFilter:
+class ITK_TEMPLATE_EXPORT AdaptImageFilter:
   public UnaryFunctorImageFilter< TInputImage, TOutputImage,
                                   Functor::AccessorFunctor< typename TInputImage::PixelType, TAccessor > >
 {

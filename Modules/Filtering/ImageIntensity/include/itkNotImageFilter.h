@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput = TInput >
-class NOT
+class ITK_TEMPLATE_EXPORT NOT
 {
 public:
   NOT() {}
@@ -77,7 +77,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class NotImageFilter:
+class ITK_TEMPLATE_EXPORT NotImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::NOT<

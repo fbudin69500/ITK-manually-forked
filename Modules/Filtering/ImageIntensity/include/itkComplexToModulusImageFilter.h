@@ -32,7 +32,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class ComplexToModulus
+class ITK_TEMPLATE_EXPORT ComplexToModulus
 {
 public:
   ComplexToModulus() {}
@@ -56,7 +56,7 @@ public:
 }
 
 template< typename TInputImage, typename TOutputImage >
-class ComplexToModulusImageFilter:
+class ITK_TEMPLATE_EXPORT ComplexToModulusImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::ComplexToModulus<

@@ -37,7 +37,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class EdgePotential
+class ITK_TEMPLATE_EXPORT EdgePotential
 {
 public:
   EdgePotential() {}
@@ -60,7 +60,7 @@ public:
 }
 
 template< typename TInputImage, typename TOutputImage >
-class EdgePotentialImageFilter:
+class ITK_TEMPLATE_EXPORT EdgePotentialImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::EdgePotential<

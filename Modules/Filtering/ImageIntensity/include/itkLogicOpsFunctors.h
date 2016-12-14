@@ -56,7 +56,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
 */
 template< typename TInput1, typename TInput2=TInput1, typename TOutput=TInput1 >
-class LogicOpBase
+class ITK_TEMPLATE_EXPORT LogicOpBase
 {
 public:
   typedef LogicOpBase Self;
@@ -112,7 +112,7 @@ protected:
 */
 
 template< typename TInput1, typename TInput2=TInput1, typename TOutput=TInput1 >
-class Equal : public LogicOpBase<TInput1, TInput2, TOutput>
+class ITK_TEMPLATE_EXPORT Equal : public LogicOpBase<TInput1, TInput2, TOutput>
 {
 public:
   typedef Equal Self;
@@ -150,7 +150,7 @@ public:
 */
 
 template< typename TInput1, typename TInput2=TInput1, typename TOutput=TInput1 >
-class NotEqual : public LogicOpBase<TInput1, TInput2, TOutput>
+class ITK_TEMPLATE_EXPORT NotEqual : public LogicOpBase<TInput1, TInput2, TOutput>
 {
 public:
   typedef NotEqual Self;
@@ -186,7 +186,7 @@ public:
 */
 
 template< typename TInput1, typename TInput2=TInput1, typename TOutput=TInput1 >
-class GreaterEqual : public LogicOpBase<TInput1, TInput2, TOutput>
+class ITK_TEMPLATE_EXPORT GreaterEqual : public LogicOpBase<TInput1, TInput2, TOutput>
 {
 public:
   typedef GreaterEqual Self;
@@ -221,7 +221,7 @@ public:
 */
 
 template< typename TInput1, typename TInput2=TInput1, typename TOutput=TInput1 >
-class Greater : public LogicOpBase<TInput1, TInput2, TOutput>
+class ITK_TEMPLATE_EXPORT Greater : public LogicOpBase<TInput1, TInput2, TOutput>
 {
 public:
   typedef Greater Self;
@@ -254,7 +254,7 @@ public:
 */
 
 template< typename TInput1, typename TInput2=TInput1, typename TOutput=TInput1 >
-class LessEqual : public LogicOpBase<TInput1, TInput2, TOutput>
+class ITK_TEMPLATE_EXPORT LessEqual : public LogicOpBase<TInput1, TInput2, TOutput>
 {
 public:
   typedef LessEqual Self;
@@ -289,7 +289,7 @@ public:
 */
 
 template< typename TInput1, typename TInput2=TInput1, typename TOutput=TInput1 >
-class Less : public LogicOpBase<TInput1, TInput2, TOutput>
+class ITK_TEMPLATE_EXPORT Less : public LogicOpBase<TInput1, TInput2, TOutput>
 {
 public:
   typedef Less Self;

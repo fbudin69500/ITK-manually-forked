@@ -36,7 +36,7 @@ namespace itk
  *  \ingroup ITKLevelSetsv4
  */
 template< typename TIdentifier, typename TLevelSet >
-class LevelSetContainer :
+class ITK_TEMPLATE_EXPORT LevelSetContainer :
 public LevelSetContainerBase< TIdentifier, TLevelSet >
 {
 public:
@@ -93,7 +93,7 @@ private:
  *  \ingroup ITKLevelSetsv4
  */
 template< typename TIdentifier, typename TImage >
-class LevelSetContainer< TIdentifier, LevelSetDenseImage< TImage > > :
+class ITK_TEMPLATE_EXPORT LevelSetContainer< TIdentifier, LevelSetDenseImage< TImage > > :
 public LevelSetContainerBase< TIdentifier, LevelSetDenseImage< TImage > >
 {
 public:

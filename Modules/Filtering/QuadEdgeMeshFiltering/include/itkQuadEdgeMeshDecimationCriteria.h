@@ -34,7 +34,7 @@ template< typename TMesh,
           typename TPriorityQueueWrapper =
             MinPriorityQueueElementWrapper< typename TMesh::QEType *,
                                             std::pair< bool, TMeasure > > >
-class QuadEdgeMeshDecimationCriterion:public Object
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshDecimationCriterion:public Object
 {
 public:
   typedef QuadEdgeMeshDecimationCriterion Self;
@@ -120,7 +120,7 @@ template< typename TMesh,
           typename TPriorityQueueWrapper =
             MinPriorityQueueElementWrapper< typename TMesh::QEType *,
                                             std::pair< bool, TMeasure > > >
-class NumberOfPointsCriterion:
+class ITK_TEMPLATE_EXPORT NumberOfPointsCriterion:
   public QuadEdgeMeshDecimationCriterion< TMesh, TElement,
                                           TMeasure, TPriorityQueueWrapper >
 {
@@ -170,7 +170,7 @@ template< typename TMesh,
           typename TPriorityQueueWrapper =
             MinPriorityQueueElementWrapper< typename TMesh::QEType *,
                                             std::pair< bool, TMeasure > > >
-class NumberOfFacesCriterion:
+class ITK_TEMPLATE_EXPORT NumberOfFacesCriterion:
   public QuadEdgeMeshDecimationCriterion< TMesh, TElement,
                                           TMeasure, TPriorityQueueWrapper >
 {
@@ -221,7 +221,7 @@ template< typename TMesh,
           typename TPriorityQueueWrapper =
             MinPriorityQueueElementWrapper< typename TMesh::QEType *,
                                             std::pair< bool, TMeasure > > >
-class MaxMeasureBoundCriterion:
+class ITK_TEMPLATE_EXPORT MaxMeasureBoundCriterion:
   public QuadEdgeMeshDecimationCriterion< TMesh, TElement,
                                           TMeasure, TPriorityQueueWrapper >
 {
@@ -272,7 +272,7 @@ template< typename TMesh,
           typename TPriorityQueueWrapper =
             MaxPriorityQueueElementWrapper< typename TMesh::QEType *,
                                             std::pair< bool, TMeasure > > >
-class MinMeasureBoundCriterion:
+class ITK_TEMPLATE_EXPORT MinMeasureBoundCriterion:
   public QuadEdgeMeshDecimationCriterion< TMesh, TElement,
                                           TMeasure, TPriorityQueueWrapper >
 {

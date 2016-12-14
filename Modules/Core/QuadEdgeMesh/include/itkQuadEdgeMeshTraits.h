@@ -42,7 +42,7 @@ namespace itk
 template< typename TPixel, unsigned int VPointDimension,
           typename TPData, typename TDData,
           typename TCoordRep = float, typename TInterpolationWeight = float >
-class QuadEdgeMeshTraits
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshTraits
 {
 public:
   /** Basic types for a mesh trait class. */

@@ -46,7 +46,7 @@ namespace fem
  * \ingroup ITKFEM
  */
 template <typename T>
-class FEMP
+class ITK_TEMPLATE_EXPORT FEMP
 {
 public:
 

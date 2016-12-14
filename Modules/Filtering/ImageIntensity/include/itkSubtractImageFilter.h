@@ -30,7 +30,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2 = TInput1, typename TOutput = TInput1 >
-class Sub2
+class ITK_TEMPLATE_EXPORT Sub2
 {
 public:
   Sub2() {}
@@ -90,7 +90,7 @@ public:
  * \endwiki
  */
 template< typename TInputImage1, typename TInputImage2 = TInputImage1, typename TOutputImage = TInputImage1 >
-class SubtractImageFilter:
+class ITK_TEMPLATE_EXPORT SubtractImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::Sub2<

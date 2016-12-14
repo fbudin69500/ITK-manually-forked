@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Acos
+class ITK_TEMPLATE_EXPORT Acos
 {
 public:
   Acos() {}
@@ -76,7 +76,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class AcosImageFilter:
+class ITK_TEMPLATE_EXPORT AcosImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Acos<

@@ -30,7 +30,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Abs
+class ITK_TEMPLATE_EXPORT Abs
 {
 public:
   Abs() {}
@@ -66,7 +66,7 @@ public:
  * \endwiki
  */
 template< typename TInputImage, typename TOutputImage >
-class AbsImageFilter:
+class ITK_TEMPLATE_EXPORT AbsImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Abs<

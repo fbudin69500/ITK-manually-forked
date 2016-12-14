@@ -28,7 +28,7 @@ namespace itk
 namespace Function
 {
 template< typename TInputPixel, typename TCompare >
-class MorphologyHistogram
+class ITK_TEMPLATE_EXPORT MorphologyHistogram
 {
 public:
 
@@ -110,7 +110,7 @@ public:
 };
 
 template< typename TInputPixel, typename TCompare >
-class VectorMorphologyHistogram
+class ITK_TEMPLATE_EXPORT VectorMorphologyHistogram
 {
 public:
 
@@ -196,19 +196,19 @@ public:
 // as base class
 
 template< typename TCompare >
-class MorphologyHistogram<unsigned char, TCompare>:
+class ITK_TEMPLATE_EXPORT MorphologyHistogram<unsigned char, TCompare>:
   public VectorMorphologyHistogram<unsigned char, TCompare>
 {
 };
 
 template< typename TCompare >
-class MorphologyHistogram<signed char, TCompare>:
+class ITK_TEMPLATE_EXPORT MorphologyHistogram<signed char, TCompare>:
   public VectorMorphologyHistogram<signed char, TCompare>
 {
 };
 
 template< typename TCompare >
-class MorphologyHistogram<bool, TCompare>:
+class ITK_TEMPLATE_EXPORT MorphologyHistogram<bool, TCompare>:
   public VectorMorphologyHistogram<bool, TCompare>
 {
 };

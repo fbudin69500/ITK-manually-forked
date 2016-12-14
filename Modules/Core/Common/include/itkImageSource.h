@@ -339,7 +339,7 @@ protected:
 
   /** Internal structure used for passing image data into the threading library
     */
-  struct ThreadStruct {
+  struct ITK_TEMPLATE_EXPORT ThreadStruct {
     Pointer Filter;
   };
 

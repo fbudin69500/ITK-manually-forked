@@ -41,7 +41,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename TMutex >
-class MutexLockHolder
+class ITK_TEMPLATE_EXPORT MutexLockHolder
 {
 public:
   typedef MutexLockHolder Self;

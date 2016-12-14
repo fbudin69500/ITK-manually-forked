@@ -43,7 +43,7 @@ namespace itk
  * \ingroup ITKLabelMap
  */
 template< typename TImage >
-class RelabelLabelMapFilter:
+class ITK_TEMPLATE_EXPORT RelabelLabelMapFilter:
   public AttributeRelabelLabelMapFilter< TImage, typename Functor::LabelLabelObjectAccessor<typename TImage::LabelObjectType> >
 {
 public:

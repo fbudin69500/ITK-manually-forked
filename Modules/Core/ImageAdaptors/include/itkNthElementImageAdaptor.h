@@ -45,7 +45,7 @@ namespace itk
 // parse the templates for the NthElementImageAdaptor.
 // This is used to define the Super class.  for NthElementImageAdaptor
 template< typename TImage, typename TOutputPixelType >
-class NthElementImageAdaptorHelper
+class ITK_TEMPLATE_EXPORT NthElementImageAdaptorHelper
 {
 public:
   typedef  NthElementPixelAccessor<
@@ -56,7 +56,7 @@ public:
 };
 
 template< typename TImage, typename TOutputPixelType >
-class NthElementImageAdaptor:
+class ITK_TEMPLATE_EXPORT NthElementImageAdaptor:
   public NthElementImageAdaptorHelper< TImage, TOutputPixelType >::Super
 {
 public:

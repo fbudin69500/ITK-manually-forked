@@ -30,7 +30,7 @@ namespace itk
  * \ingroup ITKQuadEdgeMeshFiltering
  */
 template< typename TInputMesh, typename TOutputMesh=TInputMesh >
-class DiscreteMinimumCurvatureQuadEdgeMeshFilter:
+class ITK_TEMPLATE_EXPORT DiscreteMinimumCurvatureQuadEdgeMeshFilter:
   public DiscretePrincipalCurvaturesQuadEdgeMeshFilter< TInputMesh, TOutputMesh >
 {
 public:

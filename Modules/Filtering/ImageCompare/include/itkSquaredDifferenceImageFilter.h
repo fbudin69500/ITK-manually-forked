@@ -53,7 +53,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput1, typename TInput2, typename TOutput >
-class SquaredDifference2
+class ITK_TEMPLATE_EXPORT SquaredDifference2
 {
 public:
   SquaredDifference2() {}
@@ -81,7 +81,7 @@ public:
 }
 
 template< typename TInputImage1, typename TInputImage2, typename TOutputImage >
-class SquaredDifferenceImageFilter:
+class ITK_TEMPLATE_EXPORT SquaredDifferenceImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::SquaredDifference2<

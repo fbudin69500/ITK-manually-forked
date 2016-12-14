@@ -171,7 +171,7 @@ extern ITKCommon_EXPORT std::ostream & operator<<(std::ostream & os, const Image
  * \ingroup ITKCommon
  */
 template< unsigned int VDimension >
-class ImageIORegionAdaptor
+class ITK_TEMPLATE_EXPORT ImageIORegionAdaptor
 {
 public:
   typedef ImageRegion< VDimension > ImageRegionType;

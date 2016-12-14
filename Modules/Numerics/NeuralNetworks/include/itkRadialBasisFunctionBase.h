@@ -32,7 +32,7 @@ namespace Statistics
  */
 
 template<typename ScalarType>
-class RadialBasisFunctionBase : public FunctionBase<ScalarType,ScalarType>
+class ITK_TEMPLATE_EXPORT RadialBasisFunctionBase : public FunctionBase<ScalarType,ScalarType>
 {
 public:
 

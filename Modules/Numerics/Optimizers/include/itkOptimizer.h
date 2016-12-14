@@ -35,7 +35,7 @@ namespace itk
  * \ingroup Numerics Optimizers
  * \ingroup ITKOptimizers
  */
-class ITKOptimizers_EXPORT Optimizer:public Object
+class ITK_TEMPLATE_EXPORT ITKOptimizers_EXPORT Optimizer:public Object
 {
 public:
   /** Standard class typedefs. */

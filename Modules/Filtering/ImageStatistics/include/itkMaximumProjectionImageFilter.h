@@ -46,7 +46,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInputPixel >
-class MaximumAccumulator
+class ITK_TEMPLATE_EXPORT MaximumAccumulator
 {
 public:
   MaximumAccumulator( SizeValueType ) {}
@@ -72,7 +72,7 @@ public:
 } // end namespace Function
 
 template< typename TInputImage, typename TOutputImage >
-class MaximumProjectionImageFilter:
+class ITK_TEMPLATE_EXPORT MaximumProjectionImageFilter:
   public ProjectionImageFilter< TInputImage, TOutputImage,
                                 Functor::MaximumAccumulator< typename TInputImage::PixelType > >
 {

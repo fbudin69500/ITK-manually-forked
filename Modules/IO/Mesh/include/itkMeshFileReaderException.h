@@ -29,7 +29,7 @@ namespace itk
  * \brief Base exception class for IO conflicts.
  * \ingroup ITKIOMesh
  */
-class ITKIOMesh_EXPORT MeshFileReaderException:public ExceptionObject
+class ITK_TEMPLATE_EXPORT ITKIOMesh_EXPORT MeshFileReaderException:public ExceptionObject
 {
 public:
   /** Has to have empty throw(). */

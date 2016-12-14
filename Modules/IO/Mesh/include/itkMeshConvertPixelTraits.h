@@ -42,7 +42,7 @@ namespace itk
  *  \ingroup ITKIOMesh
  */
 template<typename PixelType>
-class MeshConvertPixelTraits
+class ITK_TEMPLATE_EXPORT MeshConvertPixelTraits
 {
 public:
   /** Determine the pixel data type. */
@@ -71,7 +71,7 @@ public:
 
 #define ITK_DEFAULTCONVERTTRAITS_NATIVE_SPECIAL(type)                     \
 template<>                                                                \
-  class MeshConvertPixelTraits<type>                                      \
+  class ITK_TEMPLATE_EXPORT MeshConvertPixelTraits<type>                                      \
   {                                                                       \
   public:                                                                 \
   typedef type ComponentType;                                             \
@@ -118,7 +118,7 @@ template<>                                                                \
 
 #define ITK_MESH_DEFAULTCONVERTTRAITS_OFFSET_TYPE(dimension)                       \
   template<>                                                                       \
-  class MeshConvertPixelTraits< Offset<dimension> >                                \
+  class ITK_TEMPLATE_EXPORT MeshConvertPixelTraits< Offset<dimension> >                                \
   {                                                                                \
   public:                                                                          \
   typedef Offset<dimension>  TargetType;                                           \
@@ -159,7 +159,7 @@ template<>                                                                \
 
 #define ITK_MESH_DEFAULTCONVERTTRAITS_FIXEDARRAY_TYPE(type,componenttype, dimension) \
   template<>                                                                         \
-  class MeshConvertPixelTraits< type< componenttype, dimension> >                    \
+  class ITK_TEMPLATE_EXPORT MeshConvertPixelTraits< type< componenttype, dimension> >                    \
   {                                                                                  \
   public:                                                                            \
   typedef type< componenttype, dimension >  TargetType;                              \
@@ -230,7 +230,7 @@ template<>                                                                \
 
 #define ITK_MESH_DEFAULTCONVERTTRAITS_MATRIX_TYPE(type,componenttype,rows,cols)    \
 template<>                                                                         \
-  class MeshConvertPixelTraits< type< componenttype, rows, cols > >                \
+  class ITK_TEMPLATE_EXPORT MeshConvertPixelTraits< type< componenttype, rows, cols > >                \
   {                                                                                \
   public:                                                                          \
   typedef type< componenttype, rows, cols >  TargetType;                           \
@@ -304,7 +304,7 @@ template<>                                                                      
 
 #define ITK_MESH_DEFAULTCONVERTTRAITS_COMPLEX_TYPE( componenttype )                \
 template<>                                                                         \
-  class MeshConvertPixelTraits< ::std::complex< componenttype > >                  \
+  class ITK_TEMPLATE_EXPORT MeshConvertPixelTraits< ::std::complex< componenttype > >                  \
   {                                                                                \
   public:                                                                          \
   typedef ::std::complex< componenttype>  TargetType;                              \
@@ -350,7 +350,7 @@ template<>                                                                      
 
 #define ITK_MESH_DEFAULTCONVERTTRAITS_ARRAY_TYPE(type,componenttype)               \
 template<>                                                                         \
-  class MeshConvertPixelTraits< type< componenttype> >                             \
+  class ITK_TEMPLATE_EXPORT MeshConvertPixelTraits< type< componenttype> >                             \
   {                                                                                \
   public:                                                                          \
   typedef type< componenttype >             TargetType;                            \

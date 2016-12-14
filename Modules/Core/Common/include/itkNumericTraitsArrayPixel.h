@@ -27,7 +27,7 @@ namespace itk
  * \tparam T type of the array component
  */
 template< typename T >
-class NumericTraits< Array< T > >
+class ITK_TEMPLATE_EXPORT NumericTraits< Array< T > >
 {
 private:
 

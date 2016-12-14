@@ -27,7 +27,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput >
-class Compose2DCovariantVector
+class ITK_TEMPLATE_EXPORT Compose2DCovariantVector
 {
 public:
   typedef CovariantVector< TInput, 2 > OutputType;
@@ -71,7 +71,7 @@ template< typename TInputImage,
           typename TOutputImage =
             Image< CovariantVector< typename TInputImage::PixelType, 2 >,
                    TInputImage::ImageDimension > >
-class Compose2DCovariantVectorImageFilter:
+class ITK_TEMPLATE_EXPORT Compose2DCovariantVectorImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage, TInputImage,
                             TOutputImage,

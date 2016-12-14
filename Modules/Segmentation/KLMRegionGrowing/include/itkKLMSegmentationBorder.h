@@ -41,7 +41,7 @@ namespace itk
  */
 
 template< typename TBorder >
-class KLMDynamicBorderArray
+class ITK_TEMPLATE_EXPORT KLMDynamicBorderArray
 {
 public:
   /** Greater than operators defined to work with both static objects

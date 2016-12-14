@@ -46,7 +46,7 @@ class JPEG2000ImageIOInternal;
  *  \ingroup IOFilters
  * \ingroup ITKReview
  */
-class JPEG2000ImageIO:public StreamingImageIOBase
+class ITK_TEMPLATE_EXPORT JPEG2000ImageIO:public StreamingImageIOBase
 {
 public:
   /** Standard class typedefs. */

@@ -79,7 +79,7 @@ namespace itk
  * \ingroup ITKQuadEdgeMesh
  */
 template< typename TQuadEdge >
-class QuadEdgeMeshBaseIterator
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshBaseIterator
 {
 public:
   // Hierarchy typedefs & values.
@@ -242,7 +242,7 @@ protected:
  * \ingroup ITKQuadEdgeMesh
  */
 template< typename TQuadEdge >
-class QuadEdgeMeshIterator:
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshIterator:
   public QuadEdgeMeshBaseIterator< TQuadEdge >
 {
 public:
@@ -271,7 +271,7 @@ public:
  * \ingroup ITKQuadEdgeMesh
  */
 template< typename TGeometricalQuadEdge >
-class QuadEdgeMeshIteratorGeom:
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshIteratorGeom:
   public QuadEdgeMeshIterator< TGeometricalQuadEdge >
 {
 public:
@@ -297,7 +297,7 @@ public:
  * \ingroup ITKQuadEdgeMesh
  */
 template< typename TQuadEdge >
-class QuadEdgeMeshConstIterator:
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshConstIterator:
   public QuadEdgeMeshBaseIterator< TQuadEdge >
 {
 public:
@@ -335,7 +335,7 @@ public:
  * \ingroup ITKQuadEdgeMesh
  */
 template< typename TGeometricalQuadEdge >
-class QuadEdgeMeshConstIteratorGeom:
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshConstIteratorGeom:
   public QuadEdgeMeshConstIterator< TGeometricalQuadEdge >
 {
 public:

@@ -33,7 +33,7 @@ namespace itk
  *
  * \ingroup ITKOptimizersv4
  */
-class SingleValuedVnlCostFunctionAdaptorv4:
+class ITK_TEMPLATE_EXPORT SingleValuedVnlCostFunctionAdaptorv4:
   public vnl_cost_function
 {
 public:

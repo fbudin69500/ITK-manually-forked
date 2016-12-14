@@ -27,7 +27,7 @@
 // that controls a MultiResolutionImageRegistrationMethod process
 
 template <typename TRegistrator>
-class SimpleMultiResolutionImageRegistrationUI
+class ITK_TEMPLATE_EXPORT SimpleMultiResolutionImageRegistrationUI
 {
 public:
   SimpleMultiResolutionImageRegistrationUI( TRegistrator * ptr ):
@@ -70,7 +70,7 @@ protected:
 // This UI allows the number of iterations and learning rate
 // to be changes at each resolution level.
 template <typename TRegistration>
-class SimpleMultiResolutionImageRegistrationUI2 :
+class ITK_TEMPLATE_EXPORT SimpleMultiResolutionImageRegistrationUI2 :
   public SimpleMultiResolutionImageRegistrationUI<TRegistration>
 {
 public:

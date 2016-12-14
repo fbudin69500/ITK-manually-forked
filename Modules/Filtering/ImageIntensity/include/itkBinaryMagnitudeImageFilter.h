@@ -30,7 +30,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2, typename TOutput >
-class Modulus2
+class ITK_TEMPLATE_EXPORT Modulus2
 {
 public:
   Modulus2() {}
@@ -81,7 +81,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage1, typename TInputImage2, typename TOutputImage >
-class BinaryMagnitudeImageFilter:
+class ITK_TEMPLATE_EXPORT BinaryMagnitudeImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::Modulus2<

@@ -26,7 +26,7 @@
 #include "vnl/vnl_random.h"
 namespace itk
 {
-class IOTestHelper
+class ITK_TEMPLATE_EXPORT IOTestHelper
 {
 public:
   template <typename TImage>

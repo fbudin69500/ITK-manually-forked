@@ -43,7 +43,7 @@ namespace itk
  * \ingroup ITKDeprecated
  * \ingroup IOFilters
  */
-class DICOMSeriesFileNames:public Object
+class ITK_TEMPLATE_EXPORT DICOMSeriesFileNames:public Object
 {
 public:
   /** Standard class typedefs. */

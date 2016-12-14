@@ -59,7 +59,7 @@ OpeningByReconstructionImageFilter, ClosingByReconstructionImageFilter, Reconstr
  */
 
 template< typename TInputImage, typename TOutputImage >
-class ReconstructionByErosionImageFilter:
+class ITK_TEMPLATE_EXPORT ReconstructionByErosionImageFilter:
   public ReconstructionImageFilter< TInputImage, TOutputImage, std::less< typename TOutputImage::PixelType > >
 {
 public:

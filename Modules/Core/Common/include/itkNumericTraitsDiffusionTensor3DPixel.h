@@ -42,7 +42,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename T >
-class NumericTraits< DiffusionTensor3D< T > >
+class ITK_TEMPLATE_EXPORT NumericTraits< DiffusionTensor3D< T > >
 {
 private:
 

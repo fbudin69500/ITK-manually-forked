@@ -39,7 +39,7 @@ namespace itk
 namespace Function
 {
 template< typename TInput, typename TOutput = SizeValueType >
-class HistogramIntensityFunction
+class ITK_TEMPLATE_EXPORT HistogramIntensityFunction
 {
 public:
 
@@ -72,7 +72,7 @@ private:
 }
 
 template< typename THistogram, typename TImage=Image< SizeValueType, 3 > >
-class HistogramToIntensityImageFilter:
+class ITK_TEMPLATE_EXPORT HistogramToIntensityImageFilter:
   public HistogramToImageFilter< THistogram, TImage,
                                  Function::HistogramIntensityFunction< SizeValueType, typename TImage::PixelType > >
 {

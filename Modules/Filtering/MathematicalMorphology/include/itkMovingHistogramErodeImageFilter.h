@@ -39,7 +39,7 @@ namespace itk
  */
 
 template< typename TInputImage, typename TOutputImage, typename TKernel >
-class MovingHistogramErodeImageFilter:
+class ITK_TEMPLATE_EXPORT MovingHistogramErodeImageFilter:
   public MovingHistogramMorphologyImageFilter< TInputImage, TOutputImage, TKernel,
                                                typename Function::MorphologyHistogram< typename TInputImage::PixelType,
                                                                                        typename std::less< typename

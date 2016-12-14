@@ -39,7 +39,7 @@ namespace itk
  */
 
 template <typename T>
-class FEMFactory : public FEMFactoryBase
+class ITK_TEMPLATE_EXPORT FEMFactory : public FEMFactoryBase
 {
 public:
   static void RegisterType()

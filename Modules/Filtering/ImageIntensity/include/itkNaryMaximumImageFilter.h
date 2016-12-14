@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Maximum1
+class ITK_TEMPLATE_EXPORT Maximum1
 {
 public:
   typedef typename NumericTraits< TOutput >::ValueType OutputValueType;
@@ -101,7 +101,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class NaryMaximumImageFilter:
+class ITK_TEMPLATE_EXPORT NaryMaximumImageFilter:
   public
   NaryFunctorImageFilter< TInputImage, TOutputImage,
                           Functor::Maximum1<  typename TInputImage::PixelType,

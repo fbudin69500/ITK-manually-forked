@@ -27,7 +27,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput >
-class ComposeRGB
+class ITK_TEMPLATE_EXPORT ComposeRGB
 {
 public:
   typedef RGBPixel< TInput > OutputType;
@@ -71,7 +71,7 @@ template< typename TInputImage,
           typename TOutputImage =
             Image< RGBPixel< typename TInputImage::PixelType >,
                    TInputImage::ImageDimension > >
-class ComposeRGBImageFilter:
+class ITK_TEMPLATE_EXPORT ComposeRGBImageFilter:
   public
   TernaryFunctorImageFilter< TInputImage, TInputImage,
                              TInputImage, TOutputImage,

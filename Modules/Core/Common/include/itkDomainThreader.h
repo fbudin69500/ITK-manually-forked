@@ -149,7 +149,7 @@ private:
   void StartThreadingSequence();
 
   /** This contains the object passed to the threading library. */
-  struct ThreadStruct
+  struct ITK_TEMPLATE_EXPORT ThreadStruct
     {
     DomainThreader     * domainThreader;
     };

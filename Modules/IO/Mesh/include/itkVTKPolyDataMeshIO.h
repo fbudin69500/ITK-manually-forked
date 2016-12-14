@@ -37,7 +37,7 @@ namespace itk
  * \ingroup IOFilters
  * \ingroup ITKIOMesh
  */
-class ITKIOMesh_EXPORT VTKPolyDataMeshIO:public MeshIOBase
+class ITK_TEMPLATE_EXPORT ITKIOMesh_EXPORT VTKPolyDataMeshIO:public MeshIOBase
 {
 public:
   /** Standard "Self" typedef. */

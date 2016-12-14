@@ -116,7 +116,7 @@ public:
   typedef ImageBoundaryCondition< ImageType > *ImageBoundaryConditionPointerType;
 
   /** Const Interator */
-  struct ConstIterator {
+  struct ITK_TEMPLATE_EXPORT ConstIterator {
     ConstIterator() { m_NeighborhoodIterator = ITK_NULLPTR; }
     ConstIterator(Self *s)
     {

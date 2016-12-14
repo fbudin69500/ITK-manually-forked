@@ -30,7 +30,7 @@ namespace Functor
  *
  * \ingroup ITKGPUCommon
  */
-class GPUFunctorBase
+class ITK_TEMPLATE_EXPORT GPUFunctorBase
 {
 public:
 

@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Sqrt
+class ITK_TEMPLATE_EXPORT Sqrt
 {
 public:
   Sqrt() {}
@@ -62,7 +62,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class SqrtImageFilter:
+class ITK_TEMPLATE_EXPORT SqrtImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Sqrt< typename TInputImage::PixelType,

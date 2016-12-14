@@ -38,7 +38,7 @@ namespace itk
  */
 
 template< typename T >
-class TransformFactory:public TransformFactoryBase
+class ITK_TEMPLATE_EXPORT TransformFactory:public TransformFactoryBase
 {
 public:
   static void RegisterTransform()

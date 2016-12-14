@@ -40,7 +40,7 @@ namespace itk
  *
  * \ingroup ITKGPUCommon
  */
-class GPUDataManager : public Object   //DataObject//
+class ITK_TEMPLATE_EXPORT GPUDataManager : public Object   //DataObject//
 {
   /** allow GPUKernelManager to access GPU buffer pointer */
   friend class GPUKernelManager;

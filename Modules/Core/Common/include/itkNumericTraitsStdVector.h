@@ -53,7 +53,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename T >
-class NumericTraits< std::vector< T > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::vector< T > >
 {
 public:
 

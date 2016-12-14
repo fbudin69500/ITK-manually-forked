@@ -70,7 +70,7 @@ namespace itk
  * (http://www.cs.unc.edu/~styner/docs/StynerTR97.pdf)
  * \ingroup ITKBiasCorrection
  */
-class TargetClass
+class ITK_TEMPLATE_EXPORT TargetClass
 {
 public:
   /** Constructor. */
@@ -93,7 +93,7 @@ private:
   double m_Sigma;
 }; // end of class
 
-class ITKBiasCorrection_EXPORT CompositeValleyFunction:public CacheableScalarFunction
+class ITK_TEMPLATE_EXPORT ITKBiasCorrection_EXPORT CompositeValleyFunction:public CacheableScalarFunction
 {
 public:
 

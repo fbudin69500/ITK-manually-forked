@@ -44,7 +44,7 @@ namespace Accessor
  * \ingroup ITKImageAdaptors
  */
 template< typename TType >
-class VectorImageToImagePixelAccessor
+class ITK_TEMPLATE_EXPORT VectorImageToImagePixelAccessor
   : private DefaultVectorPixelAccessor< TType >
 {
 public:
@@ -139,7 +139,7 @@ private:
  * \endwiki
  */
 template< typename TPixelType, unsigned int Dimension >
-class VectorImageToImageAdaptor:public
+class ITK_TEMPLATE_EXPORT VectorImageToImageAdaptor:public
   ImageAdaptor< VectorImage< TPixelType, Dimension >,
                 Accessor::VectorImageToImagePixelAccessor< TPixelType > >
 {

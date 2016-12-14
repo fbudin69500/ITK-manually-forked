@@ -51,7 +51,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename T >
-class NumericTraits< VariableLengthVector< T > >
+class ITK_TEMPLATE_EXPORT NumericTraits< VariableLengthVector< T > >
 {
 public:
 

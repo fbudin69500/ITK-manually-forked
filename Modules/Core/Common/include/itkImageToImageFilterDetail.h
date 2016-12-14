@@ -313,7 +313,7 @@ void ImageToImageFilterDefaultCopyRegion(const typename
  * \ingroup ITKCommon
  */
 template< unsigned int D1, unsigned int D2 >
-class ImageRegionCopier
+class ITK_TEMPLATE_EXPORT ImageRegionCopier
 {
 public:
   virtual void operator()(ImageRegion< D1 > & destRegion,

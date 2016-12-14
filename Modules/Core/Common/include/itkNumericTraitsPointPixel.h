@@ -29,7 +29,7 @@ namespace itk
  * \tparam D Dimension of the space
  */
 template< typename T, unsigned int D >
-class NumericTraits< Point< T , D > >
+class ITK_TEMPLATE_EXPORT NumericTraits< Point< T , D > >
 {
 private:
 

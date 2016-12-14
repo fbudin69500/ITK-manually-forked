@@ -32,7 +32,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TMask, typename TOutput = TInput >
-class MaskNegatedInput
+class ITK_TEMPLATE_EXPORT MaskNegatedInput
 {
 public:
   typedef typename NumericTraits< TInput >::AccumulateType AccumulatorType;
@@ -127,7 +127,7 @@ private:
  * \endwiki
  */
 template< typename TInputImage, typename TMaskImage, typename TOutputImage = TInputImage >
-class MaskNegatedImageFilter:
+class ITK_TEMPLATE_EXPORT MaskNegatedImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage, TMaskImage, TOutputImage,
                             Functor::MaskNegatedInput<

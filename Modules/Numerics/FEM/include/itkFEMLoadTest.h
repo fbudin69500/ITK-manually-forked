@@ -35,7 +35,7 @@ namespace fem
  * \ingroup ITKFEM
  */
 template <typename TClass>
-class LoadTest : public LoadElement
+class ITK_TEMPLATE_EXPORT LoadTest : public LoadElement
 {
 public:
   /** Standard class typedefs. */

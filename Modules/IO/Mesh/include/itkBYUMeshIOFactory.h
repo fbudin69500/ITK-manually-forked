@@ -28,7 +28,7 @@ namespace itk
    * \brief Create instances of BYUMeshIO objects using an object factory.
    * \ingroup ITKIOMesh
    */
-class ITKIOMesh_EXPORT BYUMeshIOFactory:public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT ITKIOMesh_EXPORT BYUMeshIOFactory:public ObjectFactoryBase
 {
 public:
   /** Standard class typedefs. */

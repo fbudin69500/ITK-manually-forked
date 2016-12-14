@@ -25,7 +25,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class MatrixIndexSelection
+class ITK_TEMPLATE_EXPORT MatrixIndexSelection
 {
 public:
   MatrixIndexSelection() { m_I = m_J = 0; }
@@ -78,7 +78,7 @@ private:
  */
 
 template< typename TInputImage, typename TOutputImage >
-class MatrixIndexSelectionImageFilter:
+class ITK_TEMPLATE_EXPORT MatrixIndexSelectionImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::MatrixIndexSelection< typename TInputImage::PixelType,

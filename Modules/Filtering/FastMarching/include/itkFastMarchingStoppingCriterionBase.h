@@ -32,7 +32,7 @@ namespace itk
   \ingroup ITKFastMarching
   */
 template< typename TInput, typename TOutput >
-class FastMarchingStoppingCriterionBase : public StoppingCriterionBase
+class ITK_TEMPLATE_EXPORT FastMarchingStoppingCriterionBase : public StoppingCriterionBase
 {
 public:
   typedef FastMarchingStoppingCriterionBase      Self;

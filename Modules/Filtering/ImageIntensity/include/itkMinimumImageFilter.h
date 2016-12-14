@@ -30,7 +30,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2 = TInput1, typename TOutput = TInput1 >
-class Minimum
+class ITK_TEMPLATE_EXPORT Minimum
 {
 public:
   Minimum() {}
@@ -68,7 +68,7 @@ public:
  * \endwiki
  */
 template< typename TInputImage1, typename TInputImage2 = TInputImage1, typename TOutputImage = TInputImage1 >
-class MinimumImageFilter:
+class ITK_TEMPLATE_EXPORT MinimumImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::Minimum<

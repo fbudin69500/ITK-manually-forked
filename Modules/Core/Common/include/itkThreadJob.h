@@ -36,7 +36,7 @@ namespace itk
  * \ingroup OSSystemObjects
  * \ingroup ITKCommon
  */
-struct ThreadJob
+struct ITK_TEMPLATE_EXPORT ThreadJob
 {
 public:
   typedef int JobIdType;

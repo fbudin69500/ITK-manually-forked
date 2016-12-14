@@ -33,7 +33,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename TVector >
-class CrossHelper
+class ITK_TEMPLATE_EXPORT CrossHelper
 {
 public:
   typedef TVector                        VectorType;

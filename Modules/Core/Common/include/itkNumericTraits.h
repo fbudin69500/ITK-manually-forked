@@ -75,7 +75,7 @@ template< typename TValue, unsigned int VLength>  class FixedArray;
  * \endwiki
  */
 template< typename T >
-class NumericTraits:public std::numeric_limits< T >
+class ITK_TEMPLATE_EXPORT NumericTraits:public std::numeric_limits< T >
 {
 public:
   /** The type of this limits trait object. */
@@ -233,7 +233,7 @@ public:
  */
 
 template< >
-class NumericTraits< bool > :public std::numeric_limits< bool >
+class ITK_TEMPLATE_EXPORT NumericTraits< bool > :public std::numeric_limits< bool >
 {
 public:
   typedef bool                     ValueType;
@@ -290,7 +290,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< char > :public std::numeric_limits< char >
+class ITK_TEMPLATE_EXPORT NumericTraits< char > :public std::numeric_limits< char >
 {
 public:
   typedef char                     ValueType;
@@ -354,7 +354,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< signed char > :public std::numeric_limits< signed char >
+class ITK_TEMPLATE_EXPORT NumericTraits< signed char > :public std::numeric_limits< signed char >
 {
 public:
   typedef signed char              ValueType;
@@ -410,7 +410,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< unsigned char > :public std::numeric_limits< unsigned char >
+class ITK_TEMPLATE_EXPORT NumericTraits< unsigned char > :public std::numeric_limits< unsigned char >
 {
 public:
   typedef unsigned char            ValueType;
@@ -463,7 +463,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< short > :public std::numeric_limits< short >
+class ITK_TEMPLATE_EXPORT NumericTraits< short > :public std::numeric_limits< short >
 {
 public:
   typedef short                    ValueType;
@@ -516,7 +516,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< unsigned short > :public std::numeric_limits< unsigned short >
+class ITK_TEMPLATE_EXPORT NumericTraits< unsigned short > :public std::numeric_limits< unsigned short >
 {
 public:
   typedef unsigned short           ValueType;
@@ -568,7 +568,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< int > :public std::numeric_limits< int >
+class ITK_TEMPLATE_EXPORT NumericTraits< int > :public std::numeric_limits< int >
 {
 public:
   typedef int                      ValueType;
@@ -621,7 +621,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< unsigned int > :public std::numeric_limits< unsigned int >
+class ITK_TEMPLATE_EXPORT NumericTraits< unsigned int > :public std::numeric_limits< unsigned int >
 {
 public:
   typedef unsigned int             ValueType;
@@ -677,7 +677,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< long > :public std::numeric_limits< long >
+class ITK_TEMPLATE_EXPORT NumericTraits< long > :public std::numeric_limits< long >
 {
 public:
   typedef long                     ValueType;
@@ -730,7 +730,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< unsigned long > :public std::numeric_limits< unsigned long >
+class ITK_TEMPLATE_EXPORT NumericTraits< unsigned long > :public std::numeric_limits< unsigned long >
 {
 public:
   typedef unsigned long            ValueType;
@@ -783,7 +783,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< float > :public std::numeric_limits< float >
+class ITK_TEMPLATE_EXPORT NumericTraits< float > :public std::numeric_limits< float >
 {
 public:
   typedef float                    ValueType;
@@ -837,7 +837,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< double > :public std::numeric_limits< double >
+class ITK_TEMPLATE_EXPORT NumericTraits< double > :public std::numeric_limits< double >
 {
 public:
   typedef double                   ValueType;
@@ -890,7 +890,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< long double > :public std::numeric_limits< long double >
+class ITK_TEMPLATE_EXPORT NumericTraits< long double > :public std::numeric_limits< long double >
 {
 public:
   typedef long double ValueType;
@@ -952,7 +952,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< long long > :
+class ITK_TEMPLATE_EXPORT NumericTraits< long long > :
   public std::numeric_limits< long long >
 {
 public:
@@ -1006,7 +1006,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< unsigned long long > :
+class ITK_TEMPLATE_EXPORT NumericTraits< unsigned long long > :
   public std::numeric_limits< unsigned long long >
 {
 public:
@@ -1061,7 +1061,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< char > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< char > >
 {
 public:
   typedef std::complex< char >   Self;
@@ -1130,7 +1130,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< unsigned char > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< unsigned char > >
 {
 public:
   typedef std::complex< unsigned char >   Self;
@@ -1193,7 +1193,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< short > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< short > >
 {
 public:
   typedef std::complex< short >  Self;
@@ -1256,7 +1256,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< unsigned short > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< unsigned short > >
 {
 public:
   typedef std::complex< unsigned short >  Self;
@@ -1319,7 +1319,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< int > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< int > >
 {
 public:
   typedef std::complex< int >    Self;
@@ -1382,7 +1382,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< unsigned int > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< unsigned int > >
 {
 public:
   typedef std::complex< unsigned int >  Self;
@@ -1445,7 +1445,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< long > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< long > >
 {
 public:
   typedef std::complex< long >    Self;
@@ -1508,7 +1508,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< unsigned long > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< unsigned long > >
 {
 public:
   typedef std::complex< unsigned long >  Self;
@@ -1571,7 +1571,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< float > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< float > >
 {
 public:
   typedef std::complex< float >  Self;
@@ -1634,7 +1634,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< double > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< double > >
 {
 public:
   typedef std::complex< double > Self;
@@ -1697,7 +1697,7 @@ public:
  * \ingroup ITKCommon
  */
 template< >
-class NumericTraits< std::complex< long double > >
+class ITK_TEMPLATE_EXPORT NumericTraits< std::complex< long double > >
 {
 public:
   typedef std::complex< long double > Self;

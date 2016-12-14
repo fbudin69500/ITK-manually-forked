@@ -45,7 +45,7 @@ namespace itk
  */
 template< typename TInputImage, typename TOutputImage, typename TParentImageFilter =
             GradientAnisotropicDiffusionImageFilter< TInputImage, TOutputImage > >
-class GPUGradientAnisotropicDiffusionImageFilter :
+class ITK_TEMPLATE_EXPORT GPUGradientAnisotropicDiffusionImageFilter :
   public GPUAnisotropicDiffusionImageFilter< TInputImage, TOutputImage, TParentImageFilter >
 {
 public:
@@ -97,7 +97,7 @@ private:
  *
  * \ingroup ITKGPUAnisotropicSmoothing
  */
-class GPUGradientAnisotropicDiffusionImageFilterFactory : public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT GPUGradientAnisotropicDiffusionImageFilterFactory : public ObjectFactoryBase
 {
 public:
   typedef GPUGradientAnisotropicDiffusionImageFilterFactory Self;

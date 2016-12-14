@@ -38,7 +38,7 @@ namespace Functor
  * \ingroup ITKLabelMap
  */
 template< typename TLabelObjectLine >
-class LabelObjectLineComparator
+class ITK_TEMPLATE_EXPORT LabelObjectLineComparator
 {
 public:
   bool operator()(TLabelObjectLine const & l1, TLabelObjectLine const & l2) const

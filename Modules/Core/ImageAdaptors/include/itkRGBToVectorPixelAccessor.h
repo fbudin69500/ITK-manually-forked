@@ -40,7 +40,7 @@ namespace Accessor
  */
 
 template< typename T >
-class RGBToVectorPixelAccessor
+class ITK_TEMPLATE_EXPORT RGBToVectorPixelAccessor
 {
 public:
   /** Standard class typedefs. */

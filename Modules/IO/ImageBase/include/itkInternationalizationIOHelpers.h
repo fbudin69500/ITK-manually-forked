@@ -180,7 +180,7 @@ inline FILE * I18nFopen(const std::string & str, const std::string & mode)
 }
 
 #if LOCAL_USE_FDSTREAM
-class I18nOfstream:public std::ostream
+class ITK_TEMPLATE_EXPORT I18nOfstream:public std::ostream
 {
 public:
   I18nOfstream(const char *str,
@@ -208,7 +208,7 @@ private:
   itk::fdoutbuf m_buf;
 };
 
-class I18nIfstream:public std::istream
+class ITK_TEMPLATE_EXPORT I18nIfstream:public std::istream
 {
 public:
   I18nIfstream(const char *str,
@@ -237,7 +237,7 @@ private:
   itk::fdinbuf m_buf;
 };
 #elif LOCAL_USE_WIN32_WOPEN
-class I18nOfstream:public std::ofstream
+class ITK_TEMPLATE_EXPORT I18nOfstream:public std::ofstream
 {
 public:
   I18nOfstream(const char *str, std::ios_base::openmode mode = std::ios_base::out):
@@ -245,7 +245,7 @@ public:
   {}
 };
 
-class I18nIfstream:public std::ifstream
+class ITK_TEMPLATE_EXPORT I18nIfstream:public std::ifstream
 {
 public:
   I18nIfstream(const char *str, std::ios_base::openmode mode = std::ios_base::in):

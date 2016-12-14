@@ -37,7 +37,7 @@ namespace itk
  * \ingroup ITKImageFunction
  */
 template< typename TInputImage, typename TCoordRep = float >
-class NearestNeighborExtrapolateImageFunction:
+class ITK_TEMPLATE_EXPORT NearestNeighborExtrapolateImageFunction:
   public ExtrapolateImageFunction< TInputImage, TCoordRep >
 {
 public:

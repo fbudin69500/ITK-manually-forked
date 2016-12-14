@@ -52,7 +52,7 @@ namespace itk
 namespace Function
 {
 template< typename TInput, typename TOutput = double >
-class HistogramEntropyFunction
+class ITK_TEMPLATE_EXPORT HistogramEntropyFunction
 {
 public:
 
@@ -99,7 +99,7 @@ private:
 }
 
 template< typename THistogram, typename TImage=Image< double, 3> >
-class HistogramToEntropyImageFilter:
+class ITK_TEMPLATE_EXPORT HistogramToEntropyImageFilter:
   public HistogramToImageFilter< THistogram, TImage,
                                  Function::HistogramEntropyFunction< SizeValueType, typename TImage::PixelType > >
 {

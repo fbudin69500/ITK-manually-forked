@@ -49,7 +49,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInputPixel >
-class MedianAccumulator
+class ITK_TEMPLATE_EXPORT MedianAccumulator
 {
 public:
   MedianAccumulator( SizeValueType size)
@@ -82,7 +82,7 @@ public:
 } // end namespace Function
 
 template< typename TInputImage, typename TOutputImage >
-class MedianProjectionImageFilter:public
+class ITK_TEMPLATE_EXPORT MedianProjectionImageFilter:public
   ProjectionImageFilter< TInputImage, TOutputImage,
                          Functor::MedianAccumulator< typename TInputImage::PixelType > >
 {

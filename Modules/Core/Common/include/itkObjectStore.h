@@ -132,7 +132,7 @@ protected:
   /** Returns a new size to grow. */
   SizeValueType GetGrowthSize();
 
-  struct MemoryBlock {
+  struct ITK_TEMPLATE_EXPORT MemoryBlock {
     MemoryBlock():Size(0), Begin(0) {}
 
     MemoryBlock(SizeValueType n):Size(n)

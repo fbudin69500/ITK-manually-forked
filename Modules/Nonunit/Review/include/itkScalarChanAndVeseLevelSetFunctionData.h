@@ -58,7 +58,7 @@ namespace itk
  * \ingroup ITKReview
  */
 template< typename TInputImage, typename TFeatureImage >
-class ScalarChanAndVeseLevelSetFunctionData:
+class ITK_TEMPLATE_EXPORT ScalarChanAndVeseLevelSetFunctionData:
   public RegionBasedLevelSetFunctionData< TInputImage, TFeatureImage >
 {
 public:

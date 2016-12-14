@@ -46,7 +46,7 @@ template<
   unsigned int NumberOfComponents,
   typename TCoordRep = typename ObjectToObjectMetricBase::CoordinateRepresentationType
   >
-class VectorImageToImageMetricTraitsv4
+class ITK_TEMPLATE_EXPORT VectorImageToImageMetricTraitsv4
 {
 public:
   /** Standard class typedefs. */

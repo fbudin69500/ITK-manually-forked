@@ -47,7 +47,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInputPixel, typename TOutputPixel >
-class BinaryAccumulator
+class ITK_TEMPLATE_EXPORT BinaryAccumulator
 {
 public:
   BinaryAccumulator( SizeValueType ) {}
@@ -87,7 +87,7 @@ public:
 } // end namespace Function
 
 template< typename TInputImage, typename TOutputImage >
-class BinaryProjectionImageFilter:
+class ITK_TEMPLATE_EXPORT BinaryProjectionImageFilter:
   public ProjectionImageFilter< TInputImage, TOutputImage,
                                 Functor::BinaryAccumulator<
                                   typename TInputImage::PixelType,

@@ -107,7 +107,7 @@ public:
   bool WaitForJobOnThreadHandle(ThreadProcessIdType handle);
 
 protected:
-  class ThreadSemaphorePair
+  class ITK_TEMPLATE_EXPORT ThreadSemaphorePair
   {
   public:
     ThreadSemaphorePair(const ThreadProcessIdType & tph);
@@ -190,7 +190,7 @@ private:
    * thread id, the PThreads/Win Thread Id, and on Windows,
    * the DWORD thread Id.
    */
-  class ThreadProcessIdentifiers
+  class ITK_TEMPLATE_EXPORT ThreadProcessIdentifiers
   {
 public:
 #if defined(ITK_USE_WIN32_THREADS)

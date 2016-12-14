@@ -25,7 +25,7 @@ namespace itk
 {
 
 template< typename TFilterType >
-class DeconvolutionIterationCommand : public itk::Command
+class ITK_TEMPLATE_EXPORT DeconvolutionIterationCommand : public itk::Command
 {
 public:
   typedef DeconvolutionIterationCommand  Self;

@@ -39,7 +39,7 @@ namespace Accessor
  */
 
 template< typename TInternalType, typename TExternalType >
-class AtanPixelAccessor
+class ITK_TEMPLATE_EXPORT AtanPixelAccessor
 {
 public:
 
@@ -71,7 +71,7 @@ public:
  * \ingroup ITKImageAdaptors
  */
 template< typename TImage, typename TOutputPixelType >
-class AtanImageAdaptor:public
+class ITK_TEMPLATE_EXPORT AtanImageAdaptor:public
   ImageAdaptor< TImage,
                 Accessor::AtanPixelAccessor<
                   typename TImage::PixelType,

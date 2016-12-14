@@ -42,7 +42,7 @@ namespace itk
  * \ingroup PathObjects
  * \ingroup ITKPath
  */
-class ITKPath_EXPORT_INHERIT_TEMPLATE
+class ITK_TEMPLATE_EXPORT ITKPath_EXPORT_INHERIT_TEMPLATE
   OrthogonallyCorrected2DParametricPath:public
   ParametricPath< 2 >
 {

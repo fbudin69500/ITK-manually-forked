@@ -35,7 +35,7 @@ namespace itk
  * \ingroup ITKGPUAnisotropicSmoothing
  */
 template< typename TImage >
-class GPUAnisotropicDiffusionFunction :
+class ITK_TEMPLATE_EXPORT GPUAnisotropicDiffusionFunction :
   public GPUFiniteDifferenceFunction< TImage >
 {
 public:

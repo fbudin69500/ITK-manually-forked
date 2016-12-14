@@ -26,7 +26,7 @@ namespace itk
 namespace Function
 {
 template< typename TInputPixel >
-class MorphologicalGradientHistogram
+class ITK_TEMPLATE_EXPORT MorphologicalGradientHistogram
 {
 public:
   MorphologicalGradientHistogram()
@@ -96,7 +96,7 @@ public:
 
 
 template< typename TInputPixel >
-class VectorMorphologicalGradientHistogram
+class ITK_TEMPLATE_EXPORT VectorMorphologicalGradientHistogram
 {
 public:
   VectorMorphologicalGradientHistogram()
@@ -185,19 +185,19 @@ public:
 // as base class
 
 template<>
-class MorphologicalGradientHistogram<unsigned char>:
+class ITK_TEMPLATE_EXPORT MorphologicalGradientHistogram<unsigned char>:
   public VectorMorphologicalGradientHistogram<unsigned char>
 {
 };
 
 template<>
-class MorphologicalGradientHistogram<signed char>:
+class ITK_TEMPLATE_EXPORT MorphologicalGradientHistogram<signed char>:
   public VectorMorphologicalGradientHistogram<signed char>
 {
 };
 
 template<>
-class MorphologicalGradientHistogram<bool>:
+class ITK_TEMPLATE_EXPORT MorphologicalGradientHistogram<bool>:
   public VectorMorphologicalGradientHistogram<bool>
 {
 };
@@ -222,7 +222,7 @@ class MorphologicalGradientHistogram<bool>:
  */
 
 template< typename TInputImage, typename TOutputImage, typename TKernel >
-class MovingHistogramMorphologicalGradientImageFilter:
+class ITK_TEMPLATE_EXPORT MovingHistogramMorphologicalGradientImageFilter:
   public MovingHistogramImageFilter< TInputImage, TOutputImage, TKernel,
                                      typename  Function::MorphologicalGradientHistogram< typename TInputImage::
                                                                                          PixelType > >

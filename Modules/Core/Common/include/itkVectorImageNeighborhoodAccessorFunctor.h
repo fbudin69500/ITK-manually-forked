@@ -38,7 +38,7 @@ namespace itk
   * \ingroup ITKCommon
  */
 template< typename TImage >
-class VectorImageNeighborhoodAccessorFunctor
+class ITK_TEMPLATE_EXPORT VectorImageNeighborhoodAccessorFunctor
 {
 public:
   typedef TImage                                ImageType;

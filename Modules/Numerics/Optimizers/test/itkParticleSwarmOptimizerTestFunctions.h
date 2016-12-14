@@ -34,7 +34,7 @@ namespace itk
  *
  * Minima are at -2 and 2 with function values of -4 and -8 respectively.
  */
-class ParticleSwarmTestF1 : public SingleValuedCostFunction
+class ITK_TEMPLATE_EXPORT ParticleSwarmTestF1 : public SingleValuedCostFunction
 {
 public:
 
@@ -93,7 +93,7 @@ public:
  *             [-2 ]
  *
  */
-class ParticleSwarmTestF2 : public SingleValuedCostFunction
+class ITK_TEMPLATE_EXPORT ParticleSwarmTestF2 : public SingleValuedCostFunction
 {
 public:
 
@@ -153,7 +153,7 @@ private:
  * The Rosenbrock function f(x,y) = (1-x)^2 + 100(y-x^2)^2
  * minimum is at (1,1) with f(x,y) = 0.
  */
-class ParticleSwarmTestF3 : public SingleValuedCostFunction
+class ITK_TEMPLATE_EXPORT ParticleSwarmTestF3 : public SingleValuedCostFunction
 {
 public:
 
@@ -192,7 +192,7 @@ public:
 
 };
 
-class CommandIterationUpdateParticleSwarm : public Command
+class ITK_TEMPLATE_EXPORT CommandIterationUpdateParticleSwarm : public Command
 {
 public:
   typedef  CommandIterationUpdateParticleSwarm Self;

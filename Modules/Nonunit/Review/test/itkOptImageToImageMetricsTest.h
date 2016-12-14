@@ -29,7 +29,7 @@ template <typename FixedImageType,
           typename TransformType,
           typename MetricType,
           typename MetricInitializerType >
-class OptImageToImageMetricsTest
+class ITK_TEMPLATE_EXPORT OptImageToImageMetricsTest
 {
 public:
 
@@ -131,7 +131,7 @@ public:
 };
 
 template <typename FixedImageType, typename MovingImageType>
-class MeanSquaresMetricInitializer
+class ITK_TEMPLATE_EXPORT MeanSquaresMetricInitializer
 {
 public:
   typedef itk::MeanSquaresImageToImageMetric< FixedImageType,
@@ -155,7 +155,7 @@ protected:
 };
 
 template <typename FixedImageType, typename MovingImageType>
-class MattesMIMetricInitializer
+class ITK_TEMPLATE_EXPORT MattesMIMetricInitializer
 {
 public:
   typedef itk::MattesMutualInformationImageToImageMetric< FixedImageType,
@@ -180,7 +180,7 @@ protected:
 };
 
 template <typename FixedImageType, typename MovingImageType>
-class MIMetricInitializer
+class ITK_TEMPLATE_EXPORT MIMetricInitializer
 {
 public:
   typedef itk::MutualInformationImageToImageMetric< FixedImageType,

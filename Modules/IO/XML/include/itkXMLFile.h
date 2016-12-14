@@ -89,7 +89,7 @@ private:
  * \ingroup ITKIOXML
  */
 template< typename T >
-class XMLReader: public XMLReaderBase
+class ITK_TEMPLATE_EXPORT XMLReader: public XMLReaderBase
 {
 public:
   typedef XMLReader Self;

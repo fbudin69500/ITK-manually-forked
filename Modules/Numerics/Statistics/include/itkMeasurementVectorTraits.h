@@ -38,7 +38,7 @@ namespace Statistics
  * \ingroup ITKStatistics
  */
 
-class MeasurementVectorTraits
+class ITK_TEMPLATE_EXPORT MeasurementVectorTraits
 {
 public:
 
@@ -405,14 +405,14 @@ public:
  */
 
 template< typename TMeasurementVector >
-class MeasurementVectorTraitsTypes
+class ITK_TEMPLATE_EXPORT MeasurementVectorTraitsTypes
 {
 public:
   typedef typename TMeasurementVector::ValueType ValueType;
 };
 
 template< typename T >
-class MeasurementVectorTraitsTypes< std::vector< T > >
+class ITK_TEMPLATE_EXPORT MeasurementVectorTraitsTypes< std::vector< T > >
 {
 public:
   typedef T ValueType;
@@ -422,7 +422,7 @@ public:
  * particular pixel type. */
 
 template< typename TPixelType >
-class MeasurementVectorPixelTraits
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits
 {
 public:
   /* type of the vector that matches this pixel type */
@@ -435,91 +435,91 @@ public:
  * \ingroup ITKStatistics
  */
 template< >
-class MeasurementVectorPixelTraits< char >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< char >
 {
 public:
   typedef FixedArray< char, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< unsigned char >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< unsigned char >
 {
 public:
   typedef FixedArray< unsigned char, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< signed char >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< signed char >
 {
 public:
   typedef FixedArray< signed char, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< unsigned short >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< unsigned short >
 {
 public:
   typedef FixedArray< unsigned short, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< signed short >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< signed short >
 {
 public:
   typedef FixedArray< signed short, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< unsigned int >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< unsigned int >
 {
 public:
   typedef FixedArray< unsigned int, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< signed int >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< signed int >
 {
 public:
   typedef FixedArray< signed int, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< unsigned long >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< unsigned long >
 {
 public:
   typedef FixedArray< unsigned long, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< signed long >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< signed long >
 {
 public:
   typedef FixedArray< signed long, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< unsigned long long >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< unsigned long long >
 {
 public:
   typedef FixedArray< unsigned long long, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< signed long long >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< signed long long >
 {
 public:
   typedef FixedArray< signed long long, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< float >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< float >
 {
 public:
   typedef FixedArray< float, 1 > MeasurementVectorType;
 };
 
 template< >
-class MeasurementVectorPixelTraits< double >
+class ITK_TEMPLATE_EXPORT MeasurementVectorPixelTraits< double >
 {
 public:
   typedef FixedArray< double, 1 > MeasurementVectorType;

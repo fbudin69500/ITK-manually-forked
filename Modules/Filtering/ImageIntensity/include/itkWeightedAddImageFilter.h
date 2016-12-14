@@ -32,7 +32,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2, typename TOutput >
-class WeightedAdd2
+class ITK_TEMPLATE_EXPORT WeightedAdd2
 {
 public:
   typedef typename NumericTraits< TInput1 >::AccumulateType AccumulatorType;
@@ -111,7 +111,7 @@ private:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage1, typename TInputImage2, typename TOutputImage >
-class WeightedAddImageFilter:
+class ITK_TEMPLATE_EXPORT WeightedAddImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::WeightedAdd2<

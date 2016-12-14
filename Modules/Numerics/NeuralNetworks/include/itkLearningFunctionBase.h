@@ -36,7 +36,7 @@ namespace Statistics
  */
 
 template<typename LayerType, typename TTargetVector>
-class LearningFunctionBase : public LightProcessObject
+class ITK_TEMPLATE_EXPORT LearningFunctionBase : public LightProcessObject
 {
 public:
 

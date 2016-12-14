@@ -31,7 +31,7 @@ namespace Statistics
  */
 
 template<typename TMeasurementVector>
-class NNetDistanceMetricBase : public FunctionBase<TMeasurementVector, double>
+class ITK_TEMPLATE_EXPORT NNetDistanceMetricBase : public FunctionBase<TMeasurementVector, double>
 {
 public:
 

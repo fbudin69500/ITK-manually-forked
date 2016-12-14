@@ -47,7 +47,7 @@ template<
   typename TPixelType,
   typename TCellTraits
   >
-class CellInterfaceVisitor:public LightObject
+class ITK_TEMPLATE_EXPORT CellInterfaceVisitor:public LightObject
 {
 public:
   /** Standard class typedefs. */
@@ -107,7 +107,7 @@ template<
   typename CellTopology,
   typename UserVisitor
   >
-class CellInterfaceVisitorImplementation:
+class ITK_TEMPLATE_EXPORT CellInterfaceVisitorImplementation:
   public CellInterfaceVisitor< TPixelType, TCellTraits >, public UserVisitor
 {
 public:

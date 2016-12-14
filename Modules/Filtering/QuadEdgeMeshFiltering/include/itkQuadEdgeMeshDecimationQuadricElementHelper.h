@@ -29,7 +29,7 @@ namespace itk
 {
 ///TODO explicit specification for VDimension=3!!!
 template< typename TPoint >
-class QuadEdgeMeshDecimationQuadricElementHelper
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshDecimationQuadricElementHelper
 {
 public:
 

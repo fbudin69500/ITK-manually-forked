@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2 = TInput1, typename TOutput = TInput1 >
-class Pow
+class ITK_TEMPLATE_EXPORT Pow
 {
 public:
   ;
@@ -89,7 +89,7 @@ public:
  *
  */
 template< typename TInputImage1, typename TInputImage2 = TInputImage1, typename TOutputImage = TInputImage1 >
-class PowImageFilter:
+class ITK_TEMPLATE_EXPORT PowImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::Pow<

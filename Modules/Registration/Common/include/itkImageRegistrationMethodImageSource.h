@@ -40,7 +40,7 @@ namespace testhelper
 template< typename TFixedPixelType,
           typename TMovingPixelType,
           unsigned int NDimension     >
-class ImageRegistrationMethodImageSource : public itk::Object
+class ITK_TEMPLATE_EXPORT ImageRegistrationMethodImageSource : public itk::Object
 {
 public:
 

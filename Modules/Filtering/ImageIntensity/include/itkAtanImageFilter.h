@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Atan
+class ITK_TEMPLATE_EXPORT Atan
 {
 public:
   Atan() {}
@@ -72,7 +72,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class AtanImageFilter:
+class ITK_TEMPLATE_EXPORT AtanImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Atan<

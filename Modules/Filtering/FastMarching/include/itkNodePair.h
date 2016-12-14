@@ -30,7 +30,7 @@ namespace itk
 \ingroup ITKFastMarching
 */
 template<typename TNode, typename TOutputPixel>
-class NodePair : private std::pair< TNode, TOutputPixel >
+class ITK_TEMPLATE_EXPORT NodePair : private std::pair< TNode, TOutputPixel >
   {
 public:
   typedef NodePair                         Self;

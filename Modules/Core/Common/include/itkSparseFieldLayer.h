@@ -179,7 +179,7 @@ public:
   typedef ConstSparseFieldLayerIterator< NodeType > ConstIterator;
 
   /** Regions used for multithreading */
-  struct RegionType {
+  struct ITK_TEMPLATE_EXPORT RegionType {
     ConstIterator first;
     ConstIterator last;  // this is one past the actual last element
   };

@@ -34,7 +34,7 @@ namespace itk
  *
  * \ingroup ITKReview
  */
-class VoxBoCUBImageIOFactory:public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT VoxBoCUBImageIOFactory:public ObjectFactoryBase
 {
 public:
   /** Standard class typedefs. */

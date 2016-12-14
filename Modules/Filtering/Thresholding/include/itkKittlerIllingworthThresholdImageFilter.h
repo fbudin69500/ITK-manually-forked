@@ -48,7 +48,7 @@ namespace itk {
  */
 
 template<typename TInputImage, typename TOutputImage, typename TMaskImage=TOutputImage>
-class KittlerIllingworthThresholdImageFilter :
+class ITK_TEMPLATE_EXPORT KittlerIllingworthThresholdImageFilter :
     public HistogramThresholdImageFilter<TInputImage, TOutputImage, TMaskImage>
 {
 public:

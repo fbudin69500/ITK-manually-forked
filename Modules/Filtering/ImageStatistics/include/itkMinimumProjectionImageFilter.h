@@ -45,7 +45,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInputPixel >
-class MinimumAccumulator
+class ITK_TEMPLATE_EXPORT MinimumAccumulator
 {
 public:
   MinimumAccumulator( SizeValueType ) {}
@@ -71,7 +71,7 @@ public:
 } // end namespace Function
 
 template< typename TInputImage, typename TOutputImage >
-class MinimumProjectionImageFilter:public
+class ITK_TEMPLATE_EXPORT MinimumProjectionImageFilter:public
   ProjectionImageFilter< TInputImage, TOutputImage,
                          Functor::MinimumAccumulator< typename TInputImage::PixelType > >
 {

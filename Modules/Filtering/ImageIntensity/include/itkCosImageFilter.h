@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Cos
+class ITK_TEMPLATE_EXPORT Cos
 {
 public:
   Cos() {}
@@ -74,7 +74,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class CosImageFilter:
+class ITK_TEMPLATE_EXPORT CosImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Cos<

@@ -35,7 +35,7 @@ namespace itk
    *
    * \ingroup ITKIOImageBase
    */
-class ITKIOImageBase_EXPORT IOCommon
+class ITK_TEMPLATE_EXPORT ITKIOImageBase_EXPORT IOCommon
 {
 public:
   typedef enum {

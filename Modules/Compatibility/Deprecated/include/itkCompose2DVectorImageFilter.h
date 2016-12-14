@@ -27,7 +27,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput >
-class Compose2DVector
+class ITK_TEMPLATE_EXPORT Compose2DVector
 {
 public:
   typedef Vector< TInput, 2 > OutputType;
@@ -71,7 +71,7 @@ template< typename TInputImage,
           typename TOutputImage =
             Image< Vector< typename TInputImage::PixelType, 2 >,
                    TInputImage::ImageDimension > >
-class Compose2DVectorImageFilter:
+class ITK_TEMPLATE_EXPORT Compose2DVectorImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage, TInputImage,
                             TOutputImage,

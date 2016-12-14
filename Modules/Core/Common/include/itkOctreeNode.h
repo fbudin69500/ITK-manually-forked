@@ -120,7 +120,7 @@ private:
   OctreeBase *      m_Parent;
 };
 
-class OctreeNodeBranch
+class ITK_TEMPLATE_EXPORT OctreeNodeBranch
 {
 public:
   OctreeNodeBranch() {}

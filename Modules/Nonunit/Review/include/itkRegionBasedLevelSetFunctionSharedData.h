@@ -65,7 +65,7 @@ namespace itk
  * \ingroup ITKReview
  */
 template< typename TInputImage, typename TFeatureImage, typename TSingleData >
-class RegionBasedLevelSetFunctionSharedData:public LightObject
+class ITK_TEMPLATE_EXPORT RegionBasedLevelSetFunctionSharedData:public LightObject
 {
 public:
 

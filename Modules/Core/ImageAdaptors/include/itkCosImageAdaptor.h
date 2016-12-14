@@ -37,7 +37,7 @@ namespace Accessor
  * \ingroup ITKImageAdaptors
  */
 template< typename TInternalType, typename TExternalType >
-class CosPixelAccessor
+class ITK_TEMPLATE_EXPORT CosPixelAccessor
 {
 public:
   /** External typedef. It defines the external aspect
@@ -66,7 +66,7 @@ public:
  * \ingroup ITKImageAdaptors
  */
 template< typename TImage, typename TOutputPixelType >
-class CosImageAdaptor:public
+class ITK_TEMPLATE_EXPORT CosImageAdaptor:public
   ImageAdaptor< TImage, Accessor::CosPixelAccessor<
                   typename TImage::PixelType,
                   TOutputPixelType >   >

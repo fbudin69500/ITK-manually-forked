@@ -43,7 +43,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename TObjectType >
-class AutoPointer
+class ITK_TEMPLATE_EXPORT AutoPointer
 {
 public:
   /** Extract information from template parameter. */

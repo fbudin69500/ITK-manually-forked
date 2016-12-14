@@ -49,7 +49,7 @@ namespace itk
  * \endwiki
  */
 template< unsigned int VDimension = 2 >
-class Size
+class ITK_TEMPLATE_EXPORT Size
 {
 public:
   /** Standard class typedefs. */

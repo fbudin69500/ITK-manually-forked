@@ -68,7 +68,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template <typename T>
-class AtomicInt
+class ITK_TEMPLATE_EXPORT AtomicInt
 {
 private:
   typedef Detail::AtomicOps<sizeof(T)> Impl;
@@ -153,7 +153,7 @@ private:
 
 
 template <typename T>
-class AtomicInt<T*>
+class ITK_TEMPLATE_EXPORT AtomicInt<T*>
 {
 private:
   typedef Detail::AtomicOps<sizeof(T*)> Impl;

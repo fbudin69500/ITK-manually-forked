@@ -42,7 +42,7 @@ namespace itk
  * \ingroup ITKFastMarching
  */
 template< typename TPixel, unsigned int VSetDimension = 2 >
-class LevelSetNode
+class ITK_TEMPLATE_EXPORT LevelSetNode
 {
 public:
   /** Standard class typedefs. */

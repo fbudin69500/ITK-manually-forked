@@ -52,7 +52,7 @@ namespace itk
  */
 
 template< typename TInputImage, typename TOutputImage >
-class ValuedRegionalMinimaImageFilter:
+class ITK_TEMPLATE_EXPORT ValuedRegionalMinimaImageFilter:
   public
   ValuedRegionalExtremaImageFilter< TInputImage, TOutputImage,
                                     std::less< typename TInputImage::PixelType >,

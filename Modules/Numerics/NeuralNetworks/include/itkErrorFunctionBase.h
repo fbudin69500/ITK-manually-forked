@@ -32,7 +32,7 @@ namespace Statistics
  */
 
 template<typename TMeasurementVector, typename TTargetVector>
-class ErrorFunctionBase : public FunctionBase<TMeasurementVector, TTargetVector>
+class ITK_TEMPLATE_EXPORT ErrorFunctionBase : public FunctionBase<TMeasurementVector, TTargetVector>
 {
 public:
   /** Standard class typedefs. */

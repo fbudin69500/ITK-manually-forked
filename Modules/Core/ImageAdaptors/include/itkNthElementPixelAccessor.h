@@ -49,7 +49,7 @@ namespace itk
  */
 
 template< typename T, typename TContainer >
-class NthElementPixelAccessor
+class ITK_TEMPLATE_EXPORT NthElementPixelAccessor
 {
 public:
   /** Standard class typedefs. */
@@ -105,7 +105,7 @@ private:
 
 
 template< typename TOutputPixelType, typename TPixelType >
-class NthElementPixelAccessor< TOutputPixelType, itk::VariableLengthVector<TPixelType> >
+class ITK_TEMPLATE_EXPORT NthElementPixelAccessor< TOutputPixelType, itk::VariableLengthVector<TPixelType> >
   : private DefaultVectorPixelAccessor< TPixelType >
 {
 public:

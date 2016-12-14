@@ -47,7 +47,7 @@ namespace itk
 namespace Function
 {
 template< typename TInput, typename TOutput = double >
-class HistogramLogProbabilityFunction
+class ITK_TEMPLATE_EXPORT HistogramLogProbabilityFunction
 {
 public:
 
@@ -94,7 +94,7 @@ private:
 }
 
 template< typename THistogram, typename TImage=Image< double, 3 > >
-class HistogramToLogProbabilityImageFilter:
+class ITK_TEMPLATE_EXPORT HistogramToLogProbabilityImageFilter:
   public HistogramToImageFilter< THistogram, TImage,
                                  Function::HistogramLogProbabilityFunction< SizeValueType, typename TImage::PixelType > >
 {

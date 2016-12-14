@@ -24,7 +24,7 @@
 namespace itk
 {
 template< typename TPixel >
-class MaxFunctor
+class ITK_TEMPLATE_EXPORT MaxFunctor
 {
 public:
   MaxFunctor(){}
@@ -36,7 +36,7 @@ public:
 };
 
 template< typename TImage, typename TKernel >
-class VanHerkGilWermanDilateImageFilter:
+class ITK_TEMPLATE_EXPORT VanHerkGilWermanDilateImageFilter:
   public VanHerkGilWermanErodeDilateImageFilter< TImage, TKernel, MaxFunctor< typename TImage::PixelType > >
 {
 public:

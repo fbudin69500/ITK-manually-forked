@@ -30,7 +30,7 @@ namespace itk
  * \deprecated
  * \ingroup ITKDeprecated
  */
-class DicomImageIOFactory:public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT DicomImageIOFactory:public ObjectFactoryBase
 {
 public:
   /** Standard class typedefs. */

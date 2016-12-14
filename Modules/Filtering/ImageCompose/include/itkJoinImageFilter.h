@@ -45,7 +45,7 @@ namespace Functor
  * \ingroup ITKImageCompose
  */
 template< typename TPixel1, typename TPixel2 >
-class JoinFunctor
+class ITK_TEMPLATE_EXPORT JoinFunctor
 {
 public:
   JoinFunctor() {}
@@ -201,7 +201,7 @@ struct MakeJoin {
  * \endwiki
  */
 template< typename TInputImage1, typename TInputImage2 >
-class JoinImageFilter:
+class ITK_TEMPLATE_EXPORT JoinImageFilter:
   public BinaryFunctorImageFilter< TInputImage1,
                                    TInputImage2,
                                    typename

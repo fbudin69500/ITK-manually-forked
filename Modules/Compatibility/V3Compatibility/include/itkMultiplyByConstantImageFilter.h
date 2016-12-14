@@ -48,7 +48,7 @@ namespace itk
  * \sa MultiplyImageFilter
  */
 template <typename TInputImage, typename TConstant, typename TOutputImage>
-class MultiplyByConstantImageFilter :
+class ITK_TEMPLATE_EXPORT MultiplyByConstantImageFilter :
       public
 MultiplyImageFilter<TInputImage, Image<TConstant, TInputImage::ImageDimension>, TOutputImage>
 {

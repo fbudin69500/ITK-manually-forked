@@ -45,7 +45,7 @@ typedef QuaternionRigidTransform< double > TransformType;
 typedef TransformType::Pointer             TransformPointerType;
 }
 template< int VDimension >
-class QuaternionOrientationAdapter:
+class ITK_TEMPLATE_EXPORT QuaternionOrientationAdapter:
   public OrientationAdapterBase< QuaternionOrientationAdapterClasses::TransformPointerType, VDimension >
 {
 public:

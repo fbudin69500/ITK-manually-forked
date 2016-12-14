@@ -40,7 +40,7 @@ namespace bio
  *
  * \ingroup ITKBioCell
  */
-class ITKBioCell_EXPORT Gene
+class ITK_TEMPLATE_EXPORT ITKBioCell_EXPORT Gene
 {
 public:
   typedef   std::string                          NameType;

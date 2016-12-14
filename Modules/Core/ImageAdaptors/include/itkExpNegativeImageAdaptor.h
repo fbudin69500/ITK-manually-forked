@@ -37,7 +37,7 @@ namespace Accessor
  * \ingroup ITKImageAdaptors
  */
 template< typename TInternalType, typename TExternalType >
-class ExpNegativePixelAccessor
+class ITK_TEMPLATE_EXPORT ExpNegativePixelAccessor
 {
 public:
   /** External typedef. It defines the external aspect
@@ -66,7 +66,7 @@ public:
  * \ingroup ITKImageAdaptors
  */
 template< typename TImage, typename TOutputPixelType >
-class ExpNegativeImageAdaptor:public
+class ITK_TEMPLATE_EXPORT ExpNegativeImageAdaptor:public
   ImageAdaptor< TImage, Accessor::ExpNegativePixelAccessor<
                   typename TImage::PixelType,
                   TOutputPixelType >   >

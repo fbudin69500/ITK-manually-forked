@@ -34,7 +34,7 @@ namespace itk
  *
  * \ingroup ITKReview
  */
-class Bruker2DSEQImageIOFactory:public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT Bruker2DSEQImageIOFactory:public ObjectFactoryBase
 {
 public:
   /** Standard class typedefs. */

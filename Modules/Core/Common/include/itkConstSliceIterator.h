@@ -48,7 +48,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename TPixel, typename TContainer >
-class ConstSliceIterator
+class ITK_TEMPLATE_EXPORT ConstSliceIterator
 {
 public:
   /** Constructor. */

@@ -52,7 +52,7 @@ template<
 class ImageBase;
 
 template< unsigned int NImageDimension, unsigned int NLoop >
-class ImageHelper
+class ITK_TEMPLATE_EXPORT ImageHelper
 {
 public:
   typedef ImageBase< NImageDimension >              ImageType;

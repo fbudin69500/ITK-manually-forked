@@ -164,7 +164,7 @@ private:
   void operator = ( const Self& );
 
   /** types to support the run length encoding of lines */
-  struct RunLength
+  struct ITK_TEMPLATE_EXPORT RunLength
   {
     /** run length information - may be a more type safe way of doing this */
     SizeValueType length;

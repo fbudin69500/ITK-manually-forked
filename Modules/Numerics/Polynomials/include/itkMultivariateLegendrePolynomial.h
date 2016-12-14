@@ -72,7 +72,7 @@ namespace itk
  * \ingroup ITKPolynomials
  */
 
-class ITKPolynomials_EXPORT MultivariateLegendrePolynomial
+class ITK_TEMPLATE_EXPORT ITKPolynomials_EXPORT MultivariateLegendrePolynomial
 {
 public:
   typedef MultivariateLegendrePolynomial Self;
@@ -124,7 +124,7 @@ public:
    * \brief Exception object.
    * \ingroup ITKPolynomials
    */
-  class CoefficientVectorSizeMismatch
+  class ITK_TEMPLATE_EXPORT CoefficientVectorSizeMismatch
   {
 public:
     CoefficientVectorSizeMismatch(int given, int required)
@@ -211,7 +211,7 @@ public:
    * SimpleImageRegionIterator.
    * \ingroup ITKPolynomials
    */
-  class SimpleForwardIterator
+  class ITK_TEMPLATE_EXPORT SimpleForwardIterator
   {
 public:
     SimpleForwardIterator (MultivariateLegendrePolynomial *polynomial) :

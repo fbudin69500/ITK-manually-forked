@@ -32,7 +32,7 @@ namespace itk
   * \ingroup ITKFastMarching
   */
 template< typename TInput, typename TOutput >
-class FastMarchingThresholdStoppingCriterion :
+class ITK_TEMPLATE_EXPORT FastMarchingThresholdStoppingCriterion :
 public FastMarchingStoppingCriterionBase< TInput, TOutput >
 {
 public:

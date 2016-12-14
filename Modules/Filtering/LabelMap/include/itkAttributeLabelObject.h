@@ -28,7 +28,7 @@ namespace itk
 namespace Functor {
 
 template< typename TLabelObject >
-class AttributeLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT AttributeLabelObjectAccessor
 {
 public:
   typedef TLabelObject                                 LabelObjectType;
@@ -67,7 +67,7 @@ public:
  * \ingroup ITKLabelMap
  */
 template < typename TLabel, unsigned int VImageDimension, typename TAttributeValue >
-class AttributeLabelObject : public LabelObject< TLabel, VImageDimension >
+class ITK_TEMPLATE_EXPORT AttributeLabelObject : public LabelObject< TLabel, VImageDimension >
 {
 public:
   /** Standard class typedefs */

@@ -42,7 +42,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename TCoordRep = double, unsigned int VIndexDimension = 2 >
-class ContinuousIndex:public Point< TCoordRep, VIndexDimension >
+class ITK_TEMPLATE_EXPORT ContinuousIndex:public Point< TCoordRep, VIndexDimension >
 {
 public:
   /** Standard class typedefs. */

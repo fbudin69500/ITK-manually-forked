@@ -54,7 +54,7 @@ namespace itk
 namespace Functor {
 
 template< typename TPixel >
-class BinaryNot
+class ITK_TEMPLATE_EXPORT BinaryNot
 {
 public:
   BinaryNot() {};
@@ -83,7 +83,7 @@ public:
 
 }
 template <typename TImage>
-class BinaryNotImageFilter :
+class ITK_TEMPLATE_EXPORT BinaryNotImageFilter :
     public UnaryFunctorImageFilter< TImage, TImage, Functor::BinaryNot< typename TImage::PixelType > >
 {
 public:

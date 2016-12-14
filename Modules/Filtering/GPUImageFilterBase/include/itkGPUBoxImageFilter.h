@@ -37,7 +37,7 @@ namespace itk
  */
 
 template< typename TInputImage, typename TOutputImage, typename TParentImageFilter = BoxImageFilter< TInputImage, TOutputImage > >
-class GPUBoxImageFilter :
+class ITK_TEMPLATE_EXPORT GPUBoxImageFilter :
   public GPUImageToImageFilter< TInputImage, TOutputImage, TParentImageFilter >
 {
 public:

@@ -27,7 +27,7 @@ namespace itk
  * \author Gaetan Lehmann. Biologie du Developpement et de la Reproduction, INRA de Jouy-en-Josas, France.
  * \ingroup ITKCommon
  */
-class InputDataObjectIterator: public DataObjectIterator
+class ITK_TEMPLATE_EXPORT InputDataObjectIterator: public DataObjectIterator
 {
 public:
 

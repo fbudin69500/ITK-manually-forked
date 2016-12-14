@@ -47,7 +47,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInputPixel, typename TOuputPixel >
-class SumAccumulator
+class ITK_TEMPLATE_EXPORT SumAccumulator
 {
 public:
   SumAccumulator( SizeValueType ) {}
@@ -73,7 +73,7 @@ public:
 } // end namespace Function
 
 template< typename TInputImage, typename TOutputImage >
-class SumProjectionImageFilter:
+class ITK_TEMPLATE_EXPORT SumProjectionImageFilter:
   public
   ProjectionImageFilter< TInputImage, TOutputImage,
                          Functor::SumAccumulator<

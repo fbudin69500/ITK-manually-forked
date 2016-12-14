@@ -111,7 +111,7 @@ protected:
 private:
   ITK_DISALLOW_COPY_AND_ASSIGN(AttributeUniqueLabelMapFilter);
 
-  struct LineOfLabelObject
+  struct ITK_TEMPLATE_EXPORT LineOfLabelObject
     {
     typedef typename LabelObjectType::LineType LineType;
 
@@ -124,7 +124,7 @@ private:
     LabelObjectType * labelObject;
     };
 
-  class LineOfLabelObjectComparator
+  class ITK_TEMPLATE_EXPORT LineOfLabelObjectComparator
     {
     public:
       bool operator()( const LineOfLabelObject & lla, const LineOfLabelObject & llb )

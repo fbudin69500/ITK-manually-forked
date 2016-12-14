@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Add1
+class ITK_TEMPLATE_EXPORT Add1
 {
 public:
   typedef typename NumericTraits< TInput >::AccumulateType AccumulatorType;
@@ -94,7 +94,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class NaryAddImageFilter:
+class ITK_TEMPLATE_EXPORT NaryAddImageFilter:
   public
   NaryFunctorImageFilter< TInputImage, TOutputImage,
                           Functor::Add1< typename TInputImage::PixelType,  typename TInputImage::PixelType > >

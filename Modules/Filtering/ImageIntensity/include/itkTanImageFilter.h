@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Tan
+class ITK_TEMPLATE_EXPORT Tan
 {
 public:
   Tan() {}
@@ -60,7 +60,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class TanImageFilter:
+class ITK_TEMPLATE_EXPORT TanImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Tan< typename TInputImage::PixelType,

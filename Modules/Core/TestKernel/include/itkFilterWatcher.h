@@ -23,7 +23,7 @@
 #include <ctime>
 // The following class is a convenience  to watch the progress of a filter
 
-class FilterWatcher
+class ITK_TEMPLATE_EXPORT FilterWatcher
 {
 public:
   FilterWatcher(itk::ProcessObject* o, const char *comment="")

@@ -47,7 +47,7 @@ namespace Functor
  */
 
 template< typename TInput >
-class SimilarVectorsFunctor
+class ITK_TEMPLATE_EXPORT SimilarVectorsFunctor
 {
 public:
   SimilarVectorsFunctor()
@@ -95,7 +95,7 @@ protected:
  * \ingroup ITKConnectedComponents
  */
 template< typename TInputImage, typename TOutputImage, typename TMaskImage = TInputImage >
-class VectorConnectedComponentImageFilter:
+class ITK_TEMPLATE_EXPORT VectorConnectedComponentImageFilter:
   public ConnectedComponentFunctorImageFilter< TInputImage, TOutputImage,
                                                Functor::SimilarVectorsFunctor< typename TInputImage::ValueType >,
                                                TMaskImage >

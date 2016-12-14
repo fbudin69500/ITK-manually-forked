@@ -38,7 +38,7 @@ namespace itk
  */
 
 template< typename T >
-class SpatialObjectFactory:public SpatialObjectFactoryBase
+class ITK_TEMPLATE_EXPORT SpatialObjectFactory:public SpatialObjectFactoryBase
 {
 public:
 

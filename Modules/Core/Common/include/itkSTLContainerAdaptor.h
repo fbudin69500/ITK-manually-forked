@@ -40,7 +40,7 @@ namespace itk
  */
 
 template< typename TContainer >
-class STLContainerAdaptor
+class ITK_TEMPLATE_EXPORT STLContainerAdaptor
 {
 public:
 

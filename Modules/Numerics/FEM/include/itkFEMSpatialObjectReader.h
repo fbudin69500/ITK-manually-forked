@@ -33,7 +33,7 @@ template< unsigned int NDimensions = 3,
           typename PixelType = unsigned char,
           typename TMeshTraits = DefaultStaticMeshTraits< PixelType, NDimensions, NDimensions >
           >
-class FEMSpatialObjectReader : public SpatialObjectReader<NDimensions,PixelType,TMeshTraits>
+class ITK_TEMPLATE_EXPORT FEMSpatialObjectReader : public SpatialObjectReader<NDimensions,PixelType,TMeshTraits>
 {
 public:
   typedef FEMSpatialObjectReader                                 Self;

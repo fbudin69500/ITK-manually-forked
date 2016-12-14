@@ -465,7 +465,7 @@ protected:
    * \ingroup ITKCommon
    */
   template< typename TDomainPartitioner, typename TAssociate >
-  class ProcessObjectDomainThreader: public DomainThreader< TDomainPartitioner, TAssociate >
+  class ITK_TEMPLATE_EXPORT ProcessObjectDomainThreader: public DomainThreader< TDomainPartitioner, TAssociate >
   {
   public:
     /** Standard class typedefs. */

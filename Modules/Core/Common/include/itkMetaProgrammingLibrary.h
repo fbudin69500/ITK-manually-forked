@@ -35,7 +35,7 @@ namespace mpl {
  * \ingroup MetaProgrammingLibrary
  * \ingroup ITKCommon
  */
-struct TrueType
+struct ITK_TEMPLATE_EXPORT TrueType
 {
   typedef bool     ValueType;
   typedef TrueType Type;
@@ -48,7 +48,7 @@ struct TrueType
  * \ingroup MetaProgrammingLibrary
  * \ingroup ITKCommon
  */
-struct FalseType
+struct ITK_TEMPLATE_EXPORT FalseType
 {
   typedef bool      ValueType;
   typedef FalseType Type;

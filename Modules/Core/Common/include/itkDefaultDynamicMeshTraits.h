@@ -62,7 +62,7 @@ template<
   typename TInterpolationWeight = float,
   typename TCellPixelType = TPixelType
   >
-class DefaultDynamicMeshTraits
+class ITK_TEMPLATE_EXPORT DefaultDynamicMeshTraits
 {
 public:
   /** Standard class typedefs. */

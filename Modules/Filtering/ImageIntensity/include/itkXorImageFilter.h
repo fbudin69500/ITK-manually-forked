@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2 = TInput1, typename TOutput = TInput1 >
-class XOR
+class ITK_TEMPLATE_EXPORT XOR
 {
 public:
   XOR() {}
@@ -80,7 +80,7 @@ public:
  * \endwiki
  */
 template< typename TInputImage1, typename TInputImage2 = TInputImage1, typename TOutputImage = TInputImage1 >
-class XorImageFilter:
+class ITK_TEMPLATE_EXPORT XorImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::XOR<

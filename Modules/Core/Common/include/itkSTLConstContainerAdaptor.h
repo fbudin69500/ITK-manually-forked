@@ -43,7 +43,7 @@ namespace itk
  */
 
 template< typename TContainer >
-class STLConstContainerAdaptor
+class ITK_TEMPLATE_EXPORT STLConstContainerAdaptor
 {
 public:
 

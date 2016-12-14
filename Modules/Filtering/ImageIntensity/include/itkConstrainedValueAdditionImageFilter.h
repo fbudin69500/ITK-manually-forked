@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2, typename TOutput >
-class ConstrainedValueAddition
+class ITK_TEMPLATE_EXPORT ConstrainedValueAddition
 {
 public:
   ConstrainedValueAddition() {}
@@ -92,7 +92,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage1, typename TInputImage2, typename TOutputImage >
-class ConstrainedValueAdditionImageFilter:
+class ITK_TEMPLATE_EXPORT ConstrainedValueAdditionImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::ConstrainedValueAddition<

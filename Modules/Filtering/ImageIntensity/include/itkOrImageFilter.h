@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2 = TInput1, typename TOutput = TInput1 >
-class OR
+class ITK_TEMPLATE_EXPORT OR
 {
 public:
   OR() {}
@@ -80,7 +80,7 @@ public:
  * \endwiki
  */
 template< typename TInputImage1, typename TInputImage2 = TInputImage1, typename TOutputImage = TInputImage1 >
-class OrImageFilter:
+class ITK_TEMPLATE_EXPORT OrImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::OR<

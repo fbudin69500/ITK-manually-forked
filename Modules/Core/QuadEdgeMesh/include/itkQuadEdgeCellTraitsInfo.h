@@ -45,7 +45,7 @@ template< int VPointDimension,
           typename TPointsContainer = MapContainer< TPointIdentifier, TPoint >,
           typename TUsingCellsContainer = std::set< TPointIdentifier >,
           typename TQE = GeometricalQuadEdge< unsigned long, unsigned long, bool, bool, true > >
-class QuadEdgeMeshCellTraitsInfo
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshCellTraitsInfo
 {
 public:
   itkStaticConstMacro(PointDimension, unsigned int, VPointDimension);

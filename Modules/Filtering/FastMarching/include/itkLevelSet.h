@@ -37,7 +37,7 @@ namespace itk
  * \ingroup ITKFastMarching
  */
 template< typename TLevelSet >
-class LevelSetTypeDefault
+class ITK_TEMPLATE_EXPORT LevelSetTypeDefault
 {
 public:
   /** LevelSetType typedef support. */
@@ -86,7 +86,7 @@ template<
   unsigned int VAuxDimension = 1,
   unsigned int VSetDimension = 2
   >
-class AuxVarTypeDefault
+class ITK_TEMPLATE_EXPORT AuxVarTypeDefault
 {
 public:
   /** Standard typedefs */

@@ -42,7 +42,7 @@ namespace itk
  * \ingroup ITKTransform
  */
 template<typename TParametersValueType>
-class TransformBaseTemplate:public Object
+class ITK_TEMPLATE_EXPORT TransformBaseTemplate:public Object
 {
 public:
   /** Standard class typedefs. */

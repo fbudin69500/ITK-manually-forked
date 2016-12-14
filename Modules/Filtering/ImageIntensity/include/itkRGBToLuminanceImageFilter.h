@@ -36,7 +36,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class RGBToLuminance
+class ITK_TEMPLATE_EXPORT RGBToLuminance
 {
 public:
   typedef typename TInput::ComponentType                         ComponentType;
@@ -60,7 +60,7 @@ public:
 }
 
 template< typename TInputImage, typename TOutputImage >
-class RGBToLuminanceImageFilter:
+class ITK_TEMPLATE_EXPORT RGBToLuminanceImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::RGBToLuminance<

@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Log
+class ITK_TEMPLATE_EXPORT Log
 {
 public:
   Log() {}
@@ -60,7 +60,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class LogImageFilter:
+class ITK_TEMPLATE_EXPORT LogImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Log< typename TInputImage::PixelType,

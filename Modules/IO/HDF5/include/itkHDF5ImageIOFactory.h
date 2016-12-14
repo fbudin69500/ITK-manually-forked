@@ -31,7 +31,7 @@ namespace itk
    * factory.
    * \ingroup ITKIOHDF5
    */
-class ITKIOHDF5_EXPORT HDF5ImageIOFactory:public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT ITKIOHDF5_EXPORT HDF5ImageIOFactory:public ObjectFactoryBase
 {
 public:
   /** Standard class typedefs. */

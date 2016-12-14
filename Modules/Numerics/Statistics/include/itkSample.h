@@ -58,7 +58,7 @@ namespace Statistics
  */
 
 template< typename TMeasurementVector >
-class Sample:public DataObject
+class ITK_TEMPLATE_EXPORT Sample:public DataObject
 {
 public:
   /** Standard class typedefs */

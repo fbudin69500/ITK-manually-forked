@@ -55,7 +55,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput1, typename TInput2, typename TOutput >
-class MagnitudeAndPhaseToComplex
+class ITK_TEMPLATE_EXPORT MagnitudeAndPhaseToComplex
 {
 public:
   MagnitudeAndPhaseToComplex() {}
@@ -81,7 +81,7 @@ template< typename TInputImage1,
           typename TInputImage2 = TInputImage1,
           typename TOutputImage = itk::Image< std::complex< typename TInputImage1::PixelType >,
                                            TInputImage1::ImageDimension > >
-class MagnitudeAndPhaseToComplexImageFilter:
+class ITK_TEMPLATE_EXPORT MagnitudeAndPhaseToComplexImageFilter:
   public BinaryFunctorImageFilter<
     TInputImage1,
     TInputImage2,

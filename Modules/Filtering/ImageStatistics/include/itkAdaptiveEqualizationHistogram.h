@@ -37,7 +37,7 @@ namespace Function
  * \ingroup ITKImageStatistics
  */
 template< class TInputPixel, class TOutputPixel >
-class AdaptiveEqualizationHistogram
+class ITK_TEMPLATE_EXPORT AdaptiveEqualizationHistogram
 {
 public:
 

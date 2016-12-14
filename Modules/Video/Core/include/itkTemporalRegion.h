@@ -39,7 +39,7 @@ namespace itk
  *
  * \ingroup ITKVideoCore
  */
-class ITKVideoCore_EXPORT TemporalRegion : public Region
+class ITK_TEMPLATE_EXPORT ITKVideoCore_EXPORT TemporalRegion : public Region
 {
 public:
 

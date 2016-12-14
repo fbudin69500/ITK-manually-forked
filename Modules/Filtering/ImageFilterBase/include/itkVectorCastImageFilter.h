@@ -42,7 +42,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class VectorCast
+class ITK_TEMPLATE_EXPORT VectorCast
 {
 public:
   VectorCast() {}
@@ -72,7 +72,7 @@ public:
 }
 
 template< typename TInputImage, typename TOutputImage >
-class VectorCastImageFilter:
+class ITK_TEMPLATE_EXPORT VectorCastImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::VectorCast< typename TInputImage::PixelType,

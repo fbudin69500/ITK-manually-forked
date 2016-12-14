@@ -44,7 +44,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 
-class StdStreamStateSave
+class ITK_TEMPLATE_EXPORT StdStreamStateSave
 {
 public:
   explicit StdStreamStateSave(std::ios& stream) :

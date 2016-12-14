@@ -164,7 +164,7 @@ private:
   void operator = ( const Self &);        //Purposefully not implemented
 
   // types to support the run length encoding of lines
-  struct runLength
+  struct ITK_TEMPLATE_EXPORT runLength
   {
     runLength( const OffsetValueType& iLength, const IndexType& iWhere ) :
       m_Length( iLength ), m_Where( iWhere ) {}

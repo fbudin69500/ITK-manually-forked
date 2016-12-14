@@ -28,7 +28,7 @@ namespace itk
    * \brief Create instances of VTKPolyDataMeshIO objects using an object factory.
    * \ingroup ITKIOMesh
    */
-class ITKIOMesh_EXPORT VTKPolyDataMeshIOFactory:public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT ITKIOMesh_EXPORT VTKPolyDataMeshIOFactory:public ObjectFactoryBase
 {
 public:
   /** Standard class typedefs. */

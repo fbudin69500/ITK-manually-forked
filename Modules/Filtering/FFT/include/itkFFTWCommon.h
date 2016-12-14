@@ -48,7 +48,7 @@ namespace fftw
  * \ingroup ITKFFT
  */
 template< typename TPixel >
-class Proxy
+class ITK_TEMPLATE_EXPORT Proxy
 {
   // empty -- only double and float specializations work
 
@@ -60,7 +60,7 @@ protected:
 #if defined( ITK_USE_FFTWF )
 
 template< >
-class Proxy< float >
+class ITK_TEMPLATE_EXPORT Proxy< float >
 {
 public:
   typedef float         PixelType;
@@ -364,7 +364,7 @@ public:
 
 #if defined( ITK_USE_FFTWD )
 template< >
-class Proxy< double >
+class ITK_TEMPLATE_EXPORT Proxy< double >
 {
 public:
   typedef double        PixelType;

@@ -58,7 +58,7 @@
 // the argument may contain commas.
 #define itkConceptConstraintsMacro()    \
   template< void (Constraints::*) ( ) > \
-  struct Enforcer {};                   \
+  struct ITK_TEMPLATE_EXPORT Enforcer {};                   \
   typedef Enforcer< & Constraints::constraints > EnforcerInstantiation
 #define itkConceptMacro(name, concept) enum { name = sizeof concept }
 
@@ -103,13 +103,13 @@ namespace Concept
 namespace Detail
 {
 template< typename T >
-struct UniqueType {};
+struct ITK_TEMPLATE_EXPORT UniqueType {};
 template< int >
-struct UniqueType_int {};
+struct ITK_TEMPLATE_EXPORT UniqueType_int {};
 template< unsigned int >
-struct UniqueType_unsigned_int {};
+struct ITK_TEMPLATE_EXPORT UniqueType_unsigned_int {};
 template< bool >
-struct UniqueType_bool {};
+struct ITK_TEMPLATE_EXPORT UniqueType_bool {};
 
 /**
  * Concept checks may require a variable to be declared but not used.
@@ -135,8 +135,8 @@ void RequireBooleanExpression(const T & t)
 
 /** Concept requiring T to have a default constructor. (BOOST) */
 template< typename T >
-struct DefaultConstructible {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT DefaultConstructible {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       T a;
@@ -150,8 +150,8 @@ struct DefaultConstructible {
 
 /** Concept requiring T to have a copy constructor. (BOOST) */
 template< typename T >
-struct CopyConstructible {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT CopyConstructible {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       T  a(b);
@@ -178,8 +178,8 @@ struct CopyConstructible {
 
 /** Concept requiring T1 to be convertible to T2. (BOOST) */
 template< typename T1, typename T2 >
-struct Convertible {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT Convertible {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       T2 b = static_cast< T2 >( a );
@@ -194,8 +194,8 @@ struct Convertible {
 
 /** Concept requiring T to have operator =.  (BOOST) */
 template< typename T >
-struct Assignable {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT Assignable {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a = a;
@@ -216,8 +216,8 @@ struct Assignable {
 /** Concept requiring T1 to have operators < and <= with a right-hand operator
     of type T2.  (BOOST) */
 template< typename T1, typename T2 = T1 >
-struct LessThanComparable {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT LessThanComparable {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       Detail::RequireBooleanExpression(a < b);
@@ -234,8 +234,8 @@ struct LessThanComparable {
 /** Concept requiring T1 to have operators > and >= with a right-hand operator
     of type T2.  (BOOST) */
 template< typename T1, typename T2 = T1 >
-struct GreaterThanComparable {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT GreaterThanComparable {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       Detail::RequireBooleanExpression(a > b);
@@ -252,8 +252,8 @@ struct GreaterThanComparable {
 /** Concept requiring T1 to have operators == and != with a right-hand operator
     of type T2.  (BOOST) */
 template< typename T1, typename T2 = T1 >
-struct EqualityComparable {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT EqualityComparable {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
 CLANG_PRAGMA_PUSH
@@ -273,8 +273,8 @@ CLANG_PRAGMA_POP
 /** Concept requiring T1 to have operators <, >, <=, >=, ==, != with a
     right-hand operator of type T2. (BOOST) */
 template< typename T1, typename T2 = T1 >
-struct Comparable {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT Comparable {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       Detail::RequireBooleanExpression(a < b);
@@ -298,8 +298,8 @@ CLANG_PRAGMA_POP
 /** Concept requiring T1 to have operators +, -, in the form
     T1 op T2 = T3.  */
 template< typename T1, typename T2 = T1, typename T3 = T1 >
-struct AdditiveOperators {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT AdditiveOperators {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a = static_cast< T3 >( b + c );
@@ -325,8 +325,8 @@ struct AdditiveOperators {
 /** Concept requiring T1 to have operators +=, -= in the form
     T2 op= T1.  */
 template< typename T1, typename T2 = T1>
-struct AdditiveAndAssignOperators {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT AdditiveAndAssignOperators {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a += c;
@@ -349,8 +349,8 @@ struct AdditiveAndAssignOperators {
 
 /** Concept requiring T to have operator * in the form T1 op T2 = T3. */
 template< typename T1, typename T2 = T1, typename T3 = T1 >
-struct MultiplyOperator {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT MultiplyOperator {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a = static_cast< T3 >( b * c );
@@ -371,8 +371,8 @@ struct MultiplyOperator {
 
 /** Concept requiring T to have operator  *= in the form T2 op= T1. */
 template< typename T1, typename T2 = T1 >
-struct MultiplyAndAssignOperator {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT MultiplyAndAssignOperator {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a *= b;
@@ -393,8 +393,8 @@ struct MultiplyAndAssignOperator {
 
 /** Concept requiring T to have operators / the form T1 op T2 = T3. */
 template< typename T1, typename T2 = T1, typename T3 = T1 >
-struct DivisionOperators {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT DivisionOperators {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a = static_cast< T3 >( b / c );
@@ -417,8 +417,8 @@ struct DivisionOperators {
 
 /** Concept requiring T to have operators /= in the form T2 op= T1. */
 template< typename T1, typename T2 = T1 >
-struct DivisionAndAssignOperators {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT DivisionAndAssignOperators {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a /= c;
@@ -441,8 +441,8 @@ struct DivisionAndAssignOperators {
 /** Concept requiring T1 to have operators &, |, and ^ in the form
     T1 op T2 = T3.  */
 template< typename T1, typename T2 = T1, typename T3 = T1 >
-struct BitwiseOperators {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT BitwiseOperators {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a = static_cast< T3 >( b & c );
@@ -474,8 +474,8 @@ struct BitwiseOperators {
 
 /** Concept requiring T1 to have operators []  in the form T1 [] T2 = T3.  */
 template< typename T1, typename T2 = T1, typename T3 = T1 >
-struct BracketOperator {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT BracketOperator {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a = static_cast< T3 >( b[c] );
@@ -497,8 +497,8 @@ struct BracketOperator {
 
 /** Concept requiring T to have operator !.  */
 template< typename T >
-struct NotOperator {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT NotOperator {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a = !a;
@@ -512,8 +512,8 @@ struct NotOperator {
 
 /** Concept requiring T to have operators ++ and --.  */
 template< typename T >
-struct IncrementDecrementOperators {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT IncrementDecrementOperators {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       a++;
@@ -530,8 +530,8 @@ struct IncrementDecrementOperators {
 
 /** Concept requiring T to be writable to an ostream.  */
 template< typename T >
-struct OStreamWritable {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT OStreamWritable {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       std::cout << a;
@@ -545,10 +545,10 @@ struct OStreamWritable {
 
 /** Concept requiring T to be signed. */
 template< typename T >
-struct Signed {
+struct ITK_TEMPLATE_EXPORT Signed {
   typedef Signed Self;
   itkStaticConstMacro(IsSigned, bool, NumericTraits< T >::is_signed);
-  struct Constraints {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_bool< true >                             TrueT;
     typedef Detail::UniqueType_bool< itkGetStaticConstMacro(IsSigned) > SignedT;
     void constraints()
@@ -564,8 +564,8 @@ struct Signed {
 
 /** Concept requiring T1 and T2 to be the same type. */
 template< typename T1, typename T2 >
-struct SameType {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT SameType {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       Detail::UniqueType< T1 > a = Detail::UniqueType< T2 >();
@@ -577,8 +577,8 @@ struct SameType {
 
 /** Concept requiring D1 and D2 to be the same dimension. */
 template< unsigned int D1, unsigned int D2 >
-struct SameDimension {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT SameDimension {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_unsigned_int< D1 > DT1;
     typedef Detail::UniqueType_unsigned_int< D2 > DT2;
     void constraints()
@@ -593,8 +593,8 @@ struct SameDimension {
 
 /** Concept requiring T to have NumericTraits */
 template< typename T >
-struct HasNumericTraits {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT HasNumericTraits {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       Detail::UniqueType< typename NumericTraits< T >::ValueType >();
@@ -627,8 +627,8 @@ struct HasNumericTraits {
 
 /** Concept requiring T to have PixelTraits */
 template< typename T >
-struct HasPixelTraits {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT HasPixelTraits {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       Detail::UniqueType< typename PixelTraits< T >::ValueType >();
@@ -642,8 +642,8 @@ struct HasPixelTraits {
 
 /** Concept requiring T to have a trait called ValueType */
 template< typename T >
-struct HasValueType {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT HasValueType {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       Detail::UniqueType< typename T::ValueType >();
@@ -655,8 +655,8 @@ struct HasValueType {
 
 /** Concept requiring T to have Zero */
 template< typename T >
-struct HasZero {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT HasZero {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       T a;
@@ -671,8 +671,8 @@ struct HasZero {
 
 /** Concept requiring T to have JoinTraits */
 template< typename T1, typename T2 >
-struct HasJoinTraits {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT HasJoinTraits {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     void constraints()
     {
       Detail::UniqueType< typename JoinTraits< T1, T2 >::ValueType >();
@@ -684,8 +684,8 @@ struct HasJoinTraits {
 
 /** Concept requiring D1 and D2 to be the same dimension or D2-1 = D1. */
 template< unsigned int D1, unsigned int D2 >
-struct SameDimensionOrMinusOne {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT SameDimensionOrMinusOne {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_unsigned_int< D1 >     Type1;
     typedef Detail::UniqueType_unsigned_int< D1 - 1 > Type2;
 
@@ -703,8 +703,8 @@ struct SameDimensionOrMinusOne {
 
 /** Concept requiring D1 and D2 to be the same dimension or D2-1 = D1. */
 template< unsigned int D1, unsigned int D2 >
-struct SameDimensionOrMinusOneOrTwo {
-  struct Constraints {
+struct ITK_TEMPLATE_EXPORT SameDimensionOrMinusOneOrTwo {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_unsigned_int< D1 >     Type1;
     typedef Detail::UniqueType_unsigned_int< D1 - 1 > Type2;
     typedef Detail::UniqueType_unsigned_int< D1 - 2 > Type3;
@@ -724,10 +724,10 @@ struct SameDimensionOrMinusOneOrTwo {
 
 /** Concept requiring T to be integer. */
 template< typename T >
-struct IsInteger {
+struct ITK_TEMPLATE_EXPORT IsInteger {
   typedef IsInteger Self;
   itkStaticConstMacro(Integral, bool, NumericTraits< T >::is_integer);
-  struct Constraints {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_bool< true >                             TrueT;
     typedef Detail::UniqueType_bool< itkGetStaticConstMacro(Integral) > IntegralT;
     void constraints()
@@ -744,10 +744,10 @@ struct IsInteger {
 
 /** Concept requiring T to be an unsigned integer. */
 template< typename T >
-struct IsUnsignedInteger {
+struct ITK_TEMPLATE_EXPORT IsUnsignedInteger {
   typedef IsUnsignedInteger Self;
   itkStaticConstMacro(Unsigned, bool, !NumericTraits< T >::is_signed);
-  struct Constraints {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_bool< true >                             TrueT;
     typedef Detail::UniqueType_bool< itkGetStaticConstMacro(Unsigned) > UnsignedT;
     void constraints()
@@ -764,10 +764,10 @@ struct IsUnsignedInteger {
 
 /** Concept requiring T to be non-integer. */
 template< typename T >
-struct IsNonInteger {
+struct ITK_TEMPLATE_EXPORT IsNonInteger {
   typedef IsNonInteger Self;
   itkStaticConstMacro(NonIntegral, bool, NumericTraits< T >::is_integer);
-  struct Constraints {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_bool< false >                               FalseT;
     typedef Detail::UniqueType_bool< itkGetStaticConstMacro(NonIntegral) > NonIntegralT;
     void constraints()
@@ -783,11 +783,11 @@ struct IsNonInteger {
 
 /** Concept requiring T to be floating point. */
 template< typename T >
-struct IsFloatingPoint {
+struct ITK_TEMPLATE_EXPORT IsFloatingPoint {
   typedef IsFloatingPoint Self;
   itkStaticConstMacro(Integral, bool, NumericTraits< T >::is_integer);
   itkStaticConstMacro(IsExact, bool, NumericTraits< T >::is_exact);
-  struct Constraints {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_bool< false >                            FalseT;
     typedef Detail::UniqueType_bool< itkGetStaticConstMacro(Integral) > IntegralT;
     typedef Detail::UniqueType_bool< itkGetStaticConstMacro(IsExact) >  ExactT;
@@ -806,11 +806,11 @@ struct IsFloatingPoint {
 
 /** Concept requiring T to be fixed point. */
 template< typename T >
-struct IsFixedPoint {
+struct ITK_TEMPLATE_EXPORT IsFixedPoint {
   typedef IsFixedPoint Self;
   itkStaticConstMacro(Integral, bool, NumericTraits< T >::is_integer);
   itkStaticConstMacro(IsExact, bool, NumericTraits< T >::is_exact);
-  struct Constraints {
+  struct ITK_TEMPLATE_EXPORT Constraints {
     typedef Detail::UniqueType_bool< true >                             TrueT;
     typedef Detail::UniqueType_bool< false >                            FalseT;
     typedef Detail::UniqueType_bool< itkGetStaticConstMacro(Integral) > IntegralT;

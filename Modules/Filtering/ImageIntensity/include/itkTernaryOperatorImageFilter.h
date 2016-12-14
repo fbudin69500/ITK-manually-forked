@@ -30,7 +30,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2, typename TInput3, typename TOutput >
-class TernaryOperator
+class ITK_TEMPLATE_EXPORT TernaryOperator
 {
 public:
   TernaryOperator() {}
@@ -99,7 +99,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TMask, typename TImage >
-class TernaryOperatorImageFilter:
+class ITK_TEMPLATE_EXPORT TernaryOperatorImageFilter:
   public
   TernaryFunctorImageFilter< TMask, TImage, TImage, TImage,
                              Functor::TernaryOperator< typename TMask::PixelType,

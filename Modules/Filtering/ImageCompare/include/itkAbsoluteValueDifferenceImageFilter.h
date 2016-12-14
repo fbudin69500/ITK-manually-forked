@@ -54,7 +54,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput1, typename TInput2, typename TOutput >
-class AbsoluteValueDifference2
+class ITK_TEMPLATE_EXPORT AbsoluteValueDifference2
 {
 public:
   AbsoluteValueDifference2() {}
@@ -83,7 +83,7 @@ public:
 }
 
 template< typename TInputImage1, typename TInputImage2, typename TOutputImage >
-class AbsoluteValueDifferenceImageFilter:
+class ITK_TEMPLATE_EXPORT AbsoluteValueDifferenceImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::AbsoluteValueDifference2<

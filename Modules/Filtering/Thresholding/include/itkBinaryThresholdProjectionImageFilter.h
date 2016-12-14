@@ -49,7 +49,7 @@ namespace itk
 namespace Function
 {
 template< typename TInputPixel, typename TOutputPixel >
-class BinaryThresholdAccumulator
+class ITK_TEMPLATE_EXPORT BinaryThresholdAccumulator
 {
 public:
   BinaryThresholdAccumulator(SizeValueType) {}
@@ -89,7 +89,7 @@ public:
 } // end namespace Function
 
 template< typename TInputImage, typename TOutputImage >
-class BinaryThresholdProjectionImageFilter:
+class ITK_TEMPLATE_EXPORT BinaryThresholdProjectionImageFilter:
   public ProjectionImageFilter< TInputImage, TOutputImage,
                                 Function::BinaryThresholdAccumulator<
                                   typename TInputImage::PixelType,

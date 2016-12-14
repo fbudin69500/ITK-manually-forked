@@ -35,7 +35,7 @@ namespace itk
 namespace Functor
 {
 template< typename TLabelObject >
-class LabelLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT LabelLabelObjectAccessor
 {
 public:
   typedef TLabelObject                        LabelObjectType;
@@ -48,7 +48,7 @@ public:
 };
 
 template< typename TLabelObject >
-class NumberOfLinesLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT NumberOfLinesLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -61,7 +61,7 @@ public:
 };
 
 template< typename TLabelObject, typename TAttributeAccessor >
-class LabelObjectComparator
+class ITK_TEMPLATE_EXPORT LabelObjectComparator
 {
 public:
   typedef TLabelObject       LabelObjectType;
@@ -82,7 +82,7 @@ private:
 };
 
 template< typename TLabelObject, typename TAttributeAccessor >
-class LabelObjectReverseComparator
+class ITK_TEMPLATE_EXPORT LabelObjectReverseComparator
 {
 public:
   typedef TLabelObject       LabelObjectType;

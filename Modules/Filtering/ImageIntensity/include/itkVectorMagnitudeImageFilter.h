@@ -44,7 +44,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class VectorMagnitude
+class ITK_TEMPLATE_EXPORT VectorMagnitude
 {
 public:
   VectorMagnitude() {}
@@ -68,7 +68,7 @@ public:
 }
 
 template< typename TInputImage, typename TOutputImage >
-class VectorMagnitudeImageFilter:
+class ITK_TEMPLATE_EXPORT VectorMagnitudeImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::VectorMagnitude< typename TInputImage::PixelType,

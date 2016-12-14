@@ -28,7 +28,7 @@ namespace itk
  * \tparam D Space dimension (Dimension of Vector)
  */
 template< typename T, unsigned int D >
-class NumericTraits< Vector< T, D > >
+class ITK_TEMPLATE_EXPORT NumericTraits< Vector< T, D > >
 {
 private:
 

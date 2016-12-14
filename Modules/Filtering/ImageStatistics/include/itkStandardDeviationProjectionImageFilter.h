@@ -47,7 +47,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInputPixel, typename TAccumulate >
-class StandardDeviationAccumulator
+class ITK_TEMPLATE_EXPORT StandardDeviationAccumulator
 {
 public:
   typedef typename NumericTraits< TInputPixel >::RealType RealType;
@@ -102,7 +102,7 @@ template< typename TInputImage,
           typename TAccumulate = typename
                               NumericTraits< typename TOutputImage::PixelType >
                               ::AccumulateType >
-class StandardDeviationProjectionImageFilter:
+class ITK_TEMPLATE_EXPORT StandardDeviationProjectionImageFilter:
   public
   ProjectionImageFilter< TInputImage, TOutputImage,
                          Functor::StandardDeviationAccumulator< typename

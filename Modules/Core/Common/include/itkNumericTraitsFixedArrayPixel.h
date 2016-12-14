@@ -41,7 +41,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename T, unsigned int D >
-class NumericTraits< FixedArray< T, D > >
+class ITK_TEMPLATE_EXPORT NumericTraits< FixedArray< T, D > >
 {
 private:
 

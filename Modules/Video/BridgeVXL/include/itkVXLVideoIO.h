@@ -42,7 +42,7 @@ namespace itk
  * \ingroup ITKVideoBridgeVXL
  *
  */
-class VXLVideoIO:public VideoIOBase
+class ITK_TEMPLATE_EXPORT VXLVideoIO:public VideoIOBase
 {
 public:
   /** Standard class typedefs. */

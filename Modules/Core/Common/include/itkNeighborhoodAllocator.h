@@ -38,7 +38,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename TPixel >
-class NeighborhoodAllocator
+class ITK_TEMPLATE_EXPORT NeighborhoodAllocator
 {
 public:
   /** Standard class typedefs. */

@@ -36,7 +36,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class Square
+class ITK_TEMPLATE_EXPORT Square
 {
 public:
   typedef typename NumericTraits< TInput >::RealType RealType;
@@ -61,7 +61,7 @@ public:
 };
 }
 template< typename TInputImage, typename TOutputImage >
-class SquareImageFilter:
+class ITK_TEMPLATE_EXPORT SquareImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Square< typename TInputImage::PixelType,

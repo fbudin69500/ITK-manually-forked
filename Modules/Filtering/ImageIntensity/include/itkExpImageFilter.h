@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Exp
+class ITK_TEMPLATE_EXPORT Exp
 {
 public:
   Exp() {}
@@ -63,7 +63,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class ExpImageFilter:
+class ITK_TEMPLATE_EXPORT ExpImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Exp<

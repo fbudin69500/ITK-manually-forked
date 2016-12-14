@@ -25,7 +25,7 @@
 namespace itk
 {
 
-class DOMTestObject : public Object
+class ITK_TEMPLATE_EXPORT DOMTestObject : public Object
 {
 public:
   /** Standard class typedefs. */

@@ -34,7 +34,7 @@ namespace itk
 namespace Functor
 {
 template< typename TLabelObject >
-class MinimumLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT MinimumLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -47,7 +47,7 @@ public:
 };
 
 template< typename TLabelObject >
-class MaximumLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT MaximumLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -60,7 +60,7 @@ public:
 };
 
 template< typename TLabelObject >
-class MeanLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT MeanLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -73,7 +73,7 @@ public:
 };
 
 template< typename TLabelObject >
-class SumLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT SumLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -86,7 +86,7 @@ public:
 };
 
 template< typename TLabelObject >
-class StandardDeviationLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT StandardDeviationLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -99,7 +99,7 @@ public:
 };
 
 template< typename TLabelObject >
-class VarianceLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT VarianceLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -112,7 +112,7 @@ public:
 };
 
 template< typename TLabelObject >
-class MedianLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT MedianLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -125,7 +125,7 @@ public:
 };
 
 template< typename TLabelObject >
-class MaximumIndexLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT MaximumIndexLabelObjectAccessor
 {
 public:
   typedef TLabelObject                        LabelObjectType;
@@ -138,7 +138,7 @@ public:
 };
 
 template< typename TLabelObject >
-class MinimumIndexLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT MinimumIndexLabelObjectAccessor
 {
 public:
   typedef TLabelObject                        LabelObjectType;
@@ -151,7 +151,7 @@ public:
 };
 
 template< typename TLabelObject >
-class CenterOfGravityLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT CenterOfGravityLabelObjectAccessor
 {
 public:
   typedef TLabelObject                        LabelObjectType;
@@ -165,7 +165,7 @@ public:
 
 /*
 template< typename TLabelObject >
-class CentralMomentsLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT CentralMomentsLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -179,7 +179,7 @@ public:
 */
 
 template< typename TLabelObject >
-class WeightedPrincipalMomentsLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT WeightedPrincipalMomentsLabelObjectAccessor
 {
 public:
   typedef TLabelObject                         LabelObjectType;
@@ -192,7 +192,7 @@ public:
 };
 
 template< typename TLabelObject >
-class WeightedPrincipalAxesLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT WeightedPrincipalAxesLabelObjectAccessor
 {
 public:
   typedef TLabelObject                         LabelObjectType;
@@ -205,7 +205,7 @@ public:
 };
 
 template< typename TLabelObject >
-class KurtosisLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT KurtosisLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -218,7 +218,7 @@ public:
 };
 
 template< typename TLabelObject >
-class SkewnessLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT SkewnessLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -231,7 +231,7 @@ public:
 };
 
 template< typename TLabelObject >
-class WeightedElongationLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT WeightedElongationLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -244,7 +244,7 @@ public:
 };
 
 template< typename TLabelObject >
-class HistogramLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT HistogramLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;
@@ -258,7 +258,7 @@ public:
 };
 
 template< typename TLabelObject >
-class WeightedFlatnessLabelObjectAccessor
+class ITK_TEMPLATE_EXPORT WeightedFlatnessLabelObjectAccessor
 {
 public:
   typedef TLabelObject LabelObjectType;

@@ -136,7 +136,7 @@ void ExtractImageFilterCopyRegion(const typename
   * \ingroup ITKCommon
   */
 template< unsigned int T1, unsigned int T2 >
-class ExtractImageFilterRegionCopier:
+class ITK_TEMPLATE_EXPORT ExtractImageFilterRegionCopier:
   public ImageRegionCopier< T1, T2 >
 {
 public:

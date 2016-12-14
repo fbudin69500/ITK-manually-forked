@@ -46,7 +46,7 @@ namespace itk
  *
  * \ingroup ITKVideoIO
  */
-class ITKVideoIO_EXPORT VideoIOBase : public ImageIOBase
+class ITK_TEMPLATE_EXPORT ITKVideoIO_EXPORT VideoIOBase : public ImageIOBase
 {
 public:
   /** Standard class typedefs. */

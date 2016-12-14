@@ -26,7 +26,7 @@
 namespace itk
 {
 
-class DOMTestObjectDOMWriter : public DOMWriter<DOMTestObject>
+class ITK_TEMPLATE_EXPORT DOMTestObjectDOMWriter : public DOMWriter<DOMTestObject>
 {
 public:
   /** Standard class typedefs. */

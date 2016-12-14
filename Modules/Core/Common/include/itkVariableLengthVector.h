@@ -123,7 +123,7 @@ public:
    * \ingroup ITKCommon
    * \ingroup DataRepresentation
    */
-  struct AlwaysReallocate : AllocateRootPolicy
+  struct ITK_TEMPLATE_EXPORT AlwaysReallocate : AllocateRootPolicy
     {
     bool operator()(unsigned int itkNotUsed(newSize), unsigned int itkNotUsed(oldSize)) const ITK_NOEXCEPT
       {
@@ -149,7 +149,7 @@ public:
    * \ingroup ITKCommon
    * \ingroup DataRepresentation
    */
-  struct NeverReallocate : AllocateRootPolicy
+  struct ITK_TEMPLATE_EXPORT NeverReallocate : AllocateRootPolicy
     {
     bool operator()(unsigned int newSize, unsigned int oldSize) const ITK_NOEXCEPT
       {
@@ -177,7 +177,7 @@ public:
    * \ingroup ITKCommon
    * \ingroup DataRepresentation
    */
-  struct ShrinkToFit : AllocateRootPolicy
+  struct ITK_TEMPLATE_EXPORT ShrinkToFit : AllocateRootPolicy
     {
     bool operator()(unsigned int newSize, unsigned int oldSize) const ITK_NOEXCEPT
       { return newSize != oldSize; }
@@ -209,7 +209,7 @@ public:
    * \ingroup ITKCommon
    * \ingroup DataRepresentation
    */
-  struct DontShrinkToFit : AllocateRootPolicy
+  struct ITK_TEMPLATE_EXPORT DontShrinkToFit : AllocateRootPolicy
     {
     bool operator()(unsigned int newSize, unsigned int oldSize) const ITK_NOEXCEPT
       { return newSize > oldSize; }
@@ -256,7 +256,7 @@ public:
    * \ingroup ITKCommon
    * \ingroup DataRepresentation
    */
-  struct KeepOldValues : KeepValuesRootPolicy
+  struct ITK_TEMPLATE_EXPORT KeepOldValues : KeepValuesRootPolicy
     {
     template <typename TValue2>
       void operator()(
@@ -286,7 +286,7 @@ public:
    * \ingroup ITKCommon
    * \ingroup DataRepresentation
    */
-  struct DumpOldValues : KeepValuesRootPolicy
+  struct ITK_TEMPLATE_EXPORT DumpOldValues : KeepValuesRootPolicy
     {
     template <typename TValue2>
       void operator()(
@@ -1128,7 +1128,7 @@ struct CanBeDivided
  * \ingroup ITKCommon
  */
 template <typename TExpr1, typename TExpr2, typename TBinaryOp>
-struct VariableLengthVectorExpression
+struct ITK_TEMPLATE_EXPORT VariableLengthVectorExpression
 {
   VariableLengthVectorExpression(TExpr1 const& lhs, TExpr2 const& rhs) ITK_NOEXCEPT
     : m_lhs(lhs), m_rhs(rhs)

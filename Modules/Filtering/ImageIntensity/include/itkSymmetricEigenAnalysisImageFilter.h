@@ -34,7 +34,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class SymmetricEigenAnalysisFunction
+class ITK_TEMPLATE_EXPORT SymmetricEigenAnalysisFunction
 {
 public:
   typedef typename TInput::RealValueType RealValueType;
@@ -120,7 +120,7 @@ private:
  * \ingroup ITKImageIntensity
  */
 template< typename  TInputImage, typename  TOutputImage = TInputImage >
-class SymmetricEigenAnalysisImageFilter:
+class ITK_TEMPLATE_EXPORT SymmetricEigenAnalysisImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::SymmetricEigenAnalysisFunction<

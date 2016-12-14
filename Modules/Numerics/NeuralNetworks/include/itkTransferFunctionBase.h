@@ -32,7 +32,7 @@ namespace Statistics
  */
 
 template<typename ScalarType>
-class TransferFunctionBase : public FunctionBase<ScalarType, ScalarType>
+class ITK_TEMPLATE_EXPORT TransferFunctionBase : public FunctionBase<ScalarType, ScalarType>
 {
 public:
 

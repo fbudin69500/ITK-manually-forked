@@ -29,7 +29,7 @@ namespace itk
  *  \ingroup ITKCommon
  */
 template< typename TObjectType >
-class TreeIteratorClone
+class ITK_TEMPLATE_EXPORT TreeIteratorClone
 {
 public:
 

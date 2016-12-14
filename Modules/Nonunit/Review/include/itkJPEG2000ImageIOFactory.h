@@ -39,7 +39,7 @@ namespace itk
  *
  * \ingroup ITKReview
  */
-class JPEG2000ImageIOFactory:public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT JPEG2000ImageIOFactory:public ObjectFactoryBase
 {
 public:
   /** Standard class typedefs. */

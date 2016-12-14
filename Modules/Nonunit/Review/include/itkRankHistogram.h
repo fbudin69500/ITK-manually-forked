@@ -52,7 +52,7 @@ namespace Function
 
 
 template< typename TInputPixel >
-class RankHistogram
+class ITK_TEMPLATE_EXPORT RankHistogram
 {
 public:
 
@@ -261,7 +261,7 @@ private:
 
 
 template< typename TInputPixel >
-class VectorRankHistogram
+class ITK_TEMPLATE_EXPORT VectorRankHistogram
 {
 public:
   typedef std::less< TInputPixel > TCompare;
@@ -376,19 +376,19 @@ private:
 /// \cond HIDE_SPECIALIZATION_DOCUMENTATION
 
 template<>
-class RankHistogram<unsigned char>:
+class ITK_TEMPLATE_EXPORT RankHistogram<unsigned char>:
   public VectorRankHistogram<unsigned char>
 {
 };
 
 template<>
-class RankHistogram<signed char>:
+class ITK_TEMPLATE_EXPORT RankHistogram<signed char>:
   public VectorRankHistogram<signed char>
 {
 };
 
 template<>
-class RankHistogram<bool>:
+class ITK_TEMPLATE_EXPORT RankHistogram<bool>:
   public VectorRankHistogram<bool>
 {
 };

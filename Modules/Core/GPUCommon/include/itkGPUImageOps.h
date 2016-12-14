@@ -31,7 +31,7 @@ itkGPUKernelClassMacro(GPUImageOpsKernel);
  *
  * \ingroup ITKGPUCommon
  */
-class GPUImageOps
+class ITK_TEMPLATE_EXPORT GPUImageOps
 {
 public:
   /** Standard class typedefs. */

@@ -47,7 +47,7 @@ class GenericCUBFileAdaptor;
  *
  * \ingroup ITKReview
  */
-class VoxBoCUBImageIO:public ImageIOBase
+class ITK_TEMPLATE_EXPORT VoxBoCUBImageIO:public ImageIOBase
 {
 public:
   /** Standard class typedefs. */

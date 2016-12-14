@@ -44,7 +44,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class BoundedReciprocal
+class ITK_TEMPLATE_EXPORT BoundedReciprocal
 {
 public:
   BoundedReciprocal() {}
@@ -67,7 +67,7 @@ public:
 }
 
 template< typename TInputImage, typename TOutputImage >
-class BoundedReciprocalImageFilter:
+class ITK_TEMPLATE_EXPORT BoundedReciprocalImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::BoundedReciprocal<

@@ -37,7 +37,7 @@ namespace itk
  * \ingroup ITKIOMesh
  */
 
-class ITKIOMesh_EXPORT GiftiMeshIO:public MeshIOBase
+class ITK_TEMPLATE_EXPORT ITKIOMesh_EXPORT GiftiMeshIO:public MeshIOBase
 {
 public:
   /** Standard class typedefs. */

@@ -37,8 +37,7 @@ namespace itk
  * \ingroup ITKTransformFactory
  */
 
-class
-TransformFactoryBase:public ObjectFactoryBase
+class TransformFactoryBase:public ObjectFactoryBase
 {
 public:
   /** Standard class typedefs. */

@@ -55,7 +55,7 @@ namespace Statistics
  * \ingroup ITKStatistics
  */
 
-class ITKStatistics_EXPORT MaximumRatioDecisionRule : public DecisionRule
+class ITK_TEMPLATE_EXPORT ITKStatistics_EXPORT MaximumRatioDecisionRule : public DecisionRule
 {
 public:
   /** Standard class typedefs */

@@ -32,7 +32,7 @@ namespace itk
  * \ingroup ITKIOMesh
  */
 
-class ITKIOMesh_EXPORT OBJMeshIO:public MeshIOBase
+class ITK_TEMPLATE_EXPORT ITKIOMesh_EXPORT OBJMeshIO:public MeshIOBase
 {
 public:
   /** Standard class typedefs. */

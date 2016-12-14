@@ -157,7 +157,7 @@ public:
 #ifdef ThreadInfoStruct
 #undef ThreadInfoStruct
 #endif
-  struct ThreadInfoStruct
+  struct ITK_TEMPLATE_EXPORT ThreadInfoStruct
     {
     ThreadIdType ThreadID;
     ThreadIdType NumberOfThreads;

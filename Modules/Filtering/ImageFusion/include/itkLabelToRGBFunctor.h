@@ -47,7 +47,7 @@ namespace Functor
  * \ingroup ITKImageFusion
  */
 template< typename TLabel, typename TRGBPixel >
-class LabelToRGBFunctor
+class ITK_TEMPLATE_EXPORT LabelToRGBFunctor
 {
 public:
 

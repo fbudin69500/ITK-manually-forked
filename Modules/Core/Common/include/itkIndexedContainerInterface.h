@@ -50,7 +50,7 @@ namespace itk
  */
 
 template< typename TElementIdentifier, typename TElement >
-class IndexedContainerInterface:public Object
+class ITK_TEMPLATE_EXPORT IndexedContainerInterface:public Object
 {
 public:
   /** Standard class typedefs. */

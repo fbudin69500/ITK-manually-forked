@@ -35,7 +35,7 @@ namespace itk
  * \ingroup ITKQuadEdgeMeshFiltering
  */
 template< typename TInputMesh, typename TOutputMesh=TInputMesh >
-class DiscreteGaussianCurvatureQuadEdgeMeshFilter:
+class ITK_TEMPLATE_EXPORT DiscreteGaussianCurvatureQuadEdgeMeshFilter:
   public DiscreteCurvatureQuadEdgeMeshFilter< TInputMesh, TOutputMesh >
 {
 public:

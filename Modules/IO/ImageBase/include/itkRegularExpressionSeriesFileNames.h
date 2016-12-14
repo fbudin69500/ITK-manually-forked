@@ -68,7 +68,7 @@ namespace itk
  *
  * \ingroup ITKIOImageBase
  */
-class ITKIOImageBase_EXPORT RegularExpressionSeriesFileNames:public Object
+class ITK_TEMPLATE_EXPORT ITKIOImageBase_EXPORT RegularExpressionSeriesFileNames:public Object
 {
 public:
   /** Standard class typedefs. */

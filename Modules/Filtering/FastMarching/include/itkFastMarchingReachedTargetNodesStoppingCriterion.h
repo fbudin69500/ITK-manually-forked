@@ -34,7 +34,7 @@ namespace itk
  * \ingroup ITKFastMarching
  */
 template< typename TInput, typename TOutput >
-class FastMarchingReachedTargetNodesStoppingCriterion :
+class ITK_TEMPLATE_EXPORT FastMarchingReachedTargetNodesStoppingCriterion :
 public FastMarchingStoppingCriterionBase< TInput, TOutput >
 {
 public:

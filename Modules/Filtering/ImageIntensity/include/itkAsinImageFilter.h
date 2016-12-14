@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class Asin
+class ITK_TEMPLATE_EXPORT Asin
 {
 public:
   Asin() {}
@@ -79,7 +79,7 @@ public:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class AsinImageFilter:
+class ITK_TEMPLATE_EXPORT AsinImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::Asin<

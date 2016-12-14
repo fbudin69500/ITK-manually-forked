@@ -49,7 +49,7 @@ namespace itk
  * \sa SubtractImageFilter
  */
 template <typename TInputImage, typename TConstant, typename TOutputImage>
-class SubtractConstantFromImageFilter :
+class ITK_TEMPLATE_EXPORT SubtractConstantFromImageFilter :
       public
 SubtractImageFilter<TInputImage, Image<TConstant, TInputImage::ImageDimension>, TOutputImage>
 {

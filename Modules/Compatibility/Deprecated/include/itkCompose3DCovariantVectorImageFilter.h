@@ -27,7 +27,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput >
-class Compose3DCovariantVector
+class ITK_TEMPLATE_EXPORT Compose3DCovariantVector
 {
 public:
   typedef CovariantVector< TInput, 3 > OutputType;
@@ -78,7 +78,7 @@ template< typename TInputImage,
           typename TOutputImage =
             Image< CovariantVector< typename TInputImage::PixelType, 3 >,
                    TInputImage::ImageDimension > >
-class Compose3DCovariantVectorImageFilter:
+class ITK_TEMPLATE_EXPORT Compose3DCovariantVectorImageFilter:
   public
   TernaryFunctorImageFilter< TInputImage, TInputImage,
                              TInputImage, TOutputImage,

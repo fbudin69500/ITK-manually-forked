@@ -239,7 +239,7 @@ private:
   virtual ~CannyEdgeDetectionImageFilter(){}
 
   /** Thread-Data Structure   */
-  struct CannyThreadStruct
+  struct ITK_TEMPLATE_EXPORT CannyThreadStruct
   {
     CannyEdgeDetectionImageFilter *Filter;
   };

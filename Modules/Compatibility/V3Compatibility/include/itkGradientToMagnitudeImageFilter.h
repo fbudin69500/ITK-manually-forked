@@ -48,7 +48,7 @@ namespace itk
  */
 
 template< typename TInputImage, typename TOutputImage >
-class GradientToMagnitudeImageFilter:
+class ITK_TEMPLATE_EXPORT GradientToMagnitudeImageFilter:
   public
   VectorMagnitudeImageFilter< TInputImage, TOutputImage>
 {

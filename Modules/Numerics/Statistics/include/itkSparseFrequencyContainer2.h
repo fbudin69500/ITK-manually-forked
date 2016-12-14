@@ -38,7 +38,7 @@ namespace Statistics
  * \ingroup ITKStatistics
  */
 
-class ITKStatistics_EXPORT SparseFrequencyContainer2:public Object
+class ITK_TEMPLATE_EXPORT ITKStatistics_EXPORT SparseFrequencyContainer2:public Object
 {
 public:
   /** Standard class typedefs. */

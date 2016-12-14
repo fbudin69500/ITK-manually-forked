@@ -37,7 +37,7 @@ namespace fem
  * \ingroup ITKFEM
  */
 template <typename T>
-class FEMPArray : public std::vector<FEMP<T> >
+class ITK_TEMPLATE_EXPORT FEMPArray : public std::vector<FEMP<T> >
 {
 public:
   /**

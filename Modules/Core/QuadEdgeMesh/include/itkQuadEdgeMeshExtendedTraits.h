@@ -68,7 +68,7 @@ template<
   typename TPData = bool,
   typename TDData = bool
   >
-class QuadEdgeMeshExtendedTraits
+class ITK_TEMPLATE_EXPORT QuadEdgeMeshExtendedTraits
 {
 public:
   typedef QuadEdgeMeshExtendedTraits Self;

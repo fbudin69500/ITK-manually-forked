@@ -32,9 +32,9 @@ namespace itk
  * \ingroup ITKSpatialObjects
  */
 #if (METAIO_USE_NAMESPACE)
-class MetaEvent : public METAIO_NAMESPACE::MetaEvent
+class ITK_TEMPLATE_EXPORT MetaEvent : public METAIO_NAMESPACE::MetaEvent
 #else
-class MetaEvent : public ::MetaEvent
+class ITK_TEMPLATE_EXPORT MetaEvent : public ::MetaEvent
 #endif
 {
 public:

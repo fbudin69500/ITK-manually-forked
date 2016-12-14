@@ -40,7 +40,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename T >
-class NumericTraits< RGBPixel< T > >
+class ITK_TEMPLATE_EXPORT NumericTraits< RGBPixel< T > >
 {
 private:
 

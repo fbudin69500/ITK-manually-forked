@@ -144,7 +144,7 @@ private:
   // |e1|<=|e2|<=...<=|eN|
   //
   // Returns ( abs(a) <= abs(b) )
-  struct AbsLessEqualCompare {
+  struct ITK_TEMPLATE_EXPORT AbsLessEqualCompare {
     bool operator()(EigenValueType a, EigenValueType b)
     {
       return itk::Math::abs(a) <= itk::Math::abs(b);

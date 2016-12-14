@@ -31,7 +31,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput1, typename TInput2 = TInput1, typename TOutput = TInput1 >
-class AND
+class ITK_TEMPLATE_EXPORT AND
 {
 public:
   AND() {}
@@ -78,7 +78,7 @@ public:
  * \endwiki
  */
 template< typename TInputImage1, typename TInputImage2 = TInputImage1, typename TOutputImage = TInputImage1 >
-class AndImageFilter:
+class ITK_TEMPLATE_EXPORT AndImageFilter:
   public
   BinaryFunctorImageFilter< TInputImage1, TInputImage2, TOutputImage,
                             Functor::AND<

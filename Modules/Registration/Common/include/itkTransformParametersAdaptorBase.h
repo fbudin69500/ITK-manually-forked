@@ -52,7 +52,7 @@ namespace itk
  * \ingroup ITKRegistrationCommon
  */
 template<typename TTransform>
-class TransformParametersAdaptorBase
+class ITK_TEMPLATE_EXPORT TransformParametersAdaptorBase
 : public Object
 {
 public:

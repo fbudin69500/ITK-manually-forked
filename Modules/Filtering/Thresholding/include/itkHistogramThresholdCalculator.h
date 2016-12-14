@@ -43,7 +43,7 @@ namespace itk
  * \ingroup ITKThresholding
  */
 template <typename THistogram, typename TOutput>
-class HistogramThresholdCalculator : public ProcessObject
+class ITK_TEMPLATE_EXPORT HistogramThresholdCalculator : public ProcessObject
 {
 public:
   /** Standard class typedefs. */

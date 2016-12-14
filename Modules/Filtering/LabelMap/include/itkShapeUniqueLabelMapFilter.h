@@ -321,7 +321,7 @@ private:
   ITK_DISALLOW_COPY_AND_ASSIGN(ShapeUniqueLabelMapFilter);
 
   bool m_ReverseOrdering;
-  struct LineOfLabelObject {
+  struct ITK_TEMPLATE_EXPORT LineOfLabelObject {
     typedef typename LabelObjectType::LineType LineType;
     LineOfLabelObject(const LineType _line, LabelObjectType *_lo)
     {

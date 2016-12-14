@@ -45,7 +45,7 @@ namespace itk
   * \ingroup ITKIOTransformMINC
   */
 template<typename TParametersValueType=double, unsigned int NInputDimensions=3,unsigned int NOutputDimensions=3>
-  class MINCTransformAdapter : public Transform<TParametersValueType, NInputDimensions, NOutputDimensions>
+  class ITK_TEMPLATE_EXPORT MINCTransformAdapter : public Transform<TParametersValueType, NInputDimensions, NOutputDimensions>
 {
 public:
   /** Standard class typedefs. */

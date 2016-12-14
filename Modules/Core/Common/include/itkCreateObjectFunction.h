@@ -57,7 +57,7 @@ private:
  * \ingroup ITKCommon
  */
 template< typename T >
-class CreateObjectFunction:public CreateObjectFunctionBase
+class ITK_TEMPLATE_EXPORT CreateObjectFunction:public CreateObjectFunctionBase
 {
 public:
   /** Standard class typedefs. */

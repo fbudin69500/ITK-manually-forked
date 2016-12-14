@@ -27,7 +27,7 @@ template< typename TTreeType >
 class LeafTreeIterator;
 
 template< typename TTreeType >
-class PreOrderTreeIterator:public TreeIteratorBase< TTreeType >
+class ITK_TEMPLATE_EXPORT PreOrderTreeIterator:public TreeIteratorBase< TTreeType >
 {
 public:
 

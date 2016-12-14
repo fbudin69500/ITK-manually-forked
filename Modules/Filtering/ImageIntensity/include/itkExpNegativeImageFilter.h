@@ -32,7 +32,7 @@ namespace Functor
  * \ingroup ITKImageIntensity
  */
 template< typename TInput, typename TOutput >
-class ExpNegative
+class ITK_TEMPLATE_EXPORT ExpNegative
 {
 public:
   ExpNegative() { m_Factor = 1.0; }
@@ -85,7 +85,7 @@ private:
  * \ingroup ITKImageIntensity
  */
 template< typename TInputImage, typename TOutputImage >
-class ExpNegativeImageFilter:
+class ITK_TEMPLATE_EXPORT ExpNegativeImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::ExpNegative<

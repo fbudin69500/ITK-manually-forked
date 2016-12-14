@@ -25,7 +25,7 @@ namespace itk
 namespace Functor
 {
 template< typename TInput, typename TOutput >
-class VectorIndexSelectionCast
+class ITK_TEMPLATE_EXPORT VectorIndexSelectionCast
 {
 public:
   VectorIndexSelectionCast() { m_Index = 0; }
@@ -82,7 +82,7 @@ private:
  */
 
 template< typename TInputImage, typename TOutputImage >
-class VectorIndexSelectionCastImageFilter:
+class ITK_TEMPLATE_EXPORT VectorIndexSelectionCastImageFilter:
   public
   UnaryFunctorImageFilter< TInputImage, TOutputImage,
                            Functor::VectorIndexSelectionCast< typename TInputImage::PixelType,
