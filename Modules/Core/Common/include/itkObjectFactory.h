@@ -52,7 +52,7 @@ namespace itk
  */
 
 template< typename T >
-class ObjectFactory:public ObjectFactoryBase
+class ITK_TEMPLATE_EXPORT ObjectFactory:public ObjectFactoryBase
 {
 public:
   static typename T::Pointer Create()

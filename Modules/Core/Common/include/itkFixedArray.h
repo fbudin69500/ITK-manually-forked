@@ -74,7 +74,7 @@ public:
    * \brief A reverse iterator through an array.
    * \ingroup ITKCommon
    */
-  class ReverseIterator
+  class ITK_TEMPLATE_EXPORT ReverseIterator
   {
   public:
     explicit ReverseIterator(Iterator i):m_Iterator(i) {}
@@ -96,7 +96,7 @@ public:
    * \brief A const reverse iterator through an array.
    * \ingroup ITKCommon
    */
-  class ConstReverseIterator
+  class ITK_TEMPLATE_EXPORT ConstReverseIterator
   {
   public:
     explicit ConstReverseIterator(ConstIterator i):m_Iterator(i) {}
