@@ -147,10 +147,17 @@ ScalarImageKmeansImageFilter< TInputImage, TOutputImage >
   membershipFunctionsObject->Set(membershipFunctions);
   classifier->SetMembershipFunctions(membershipFunctionsObject);
 
+  typename ClassifierType::MembershipFunctionNotVectorObjectPointer membershipFunctionsObject2 =
+    ClassifierType::MembershipFunctionNotVectorObjectType::New();
+
+
   typedef typename ClassifierType::ClassLabelVectorObjectType ClassLabelVectorObjectType;
   typename ClassLabelVectorObjectType::Pointer classLabelsObject = ClassLabelVectorObjectType::New();
   classLabelsObject->Set( classLabels );
   classifier->SetClassLabels( classLabelsObject );
+
+  typedef typename ClassifierType::ClassLabelNotVectorObjectType ClassLabelNotVectorObjectType;
+  typename ClassLabelNotVectorObjectType::Pointer classLabelsObject2 = ClassLabelNotVectorObjectType::New();
 
   // Execute the actual classification
   classifier->Update();

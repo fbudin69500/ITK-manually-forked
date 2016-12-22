@@ -75,6 +75,12 @@ public:
   typedef typename
   MembershipFunctionVectorObjectType::Pointer MembershipFunctionVectorObjectPointer;
 
+  typedef SimpleDataObjectDecorator<
+    MembershipFunctionPointer >                        MembershipFunctionNotVectorObjectType;
+  typedef typename
+  MembershipFunctionNotVectorObjectType::Pointer MembershipFunctionNotVectorObjectPointer;
+
+
   /** typedef for membership functions weight proprtion */
   typedef Array< double > MembershipFunctionsWeightsArrayType;
 
@@ -88,6 +94,10 @@ public:
   typedef SimpleDataObjectDecorator<
     ClassLabelVectorType >                            ClassLabelVectorObjectType;
   typedef ClassLabelVectorObjectType::Pointer ClassLabelVectorObjectPointer;
+
+  typedef SimpleDataObjectDecorator<
+    ClassLabelType >                            ClassLabelNotVectorObjectType;
+  typedef ClassLabelNotVectorObjectType::Pointer ClassLabelNotVectorObjectPointer;
 
   /** type of the decision rule */
   typedef DecisionRule                   DecisionRuleType;
