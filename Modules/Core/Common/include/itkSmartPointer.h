@@ -41,7 +41,7 @@ namespace itk
  * \ingroup ITKCommon
  */
 template< typename TObjectType >
-class SmartPointer
+class ITK_TEMPLATE_EXPORT SmartPointer
 {
 public:
   typedef TObjectType ObjectType;

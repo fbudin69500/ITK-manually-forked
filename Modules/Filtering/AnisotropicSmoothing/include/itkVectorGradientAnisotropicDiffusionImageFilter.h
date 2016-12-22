@@ -58,7 +58,7 @@ namespace itk
  * \endwiki
  */
 template< typename TInputImage, typename TOutputImage >
-class VectorGradientAnisotropicDiffusionImageFilter:
+class ITK_TEMPLATE_EXPORT VectorGradientAnisotropicDiffusionImageFilter:
   public AnisotropicDiffusionImageFilter< TInputImage, TOutputImage >
 {
 public:
