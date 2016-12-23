@@ -74,13 +74,43 @@ SimpleDataObjectDecorator< T >
  *
  */
 template< typename T >
+std::string
+SimpleDataObjectDecorator< T >
+::GetTypeIDName(const itk::LightObject &itkNotUsed(o)) const
+{
+  // use typeid, we should always have correct visibility of ITK types
+  return typeid( this->m_Component ).name();
+}
+
+// may need one for itk::SmartPointer too, but check what's instantiated
+
+/**
+ *
+ */
+
+template<typename T>
+std::string
+SimpleDataObjectDecorator< T >
+::GetTypeIDName(const T &itkNotUsed(o)) const
+{
+// use preprocessor to disable as needed
+#if defined(ITK_TEMPLATE_VISIBILITY_DEFAULT) && !defined(ITK_BUILD_SHARED_LIBS)
+  return typeid( this->m_Component ).name();
+#else
+  return "unknown";
+#endif
+}
+
+/**
+ *
+ */
+template< typename T >
 void
 SimpleDataObjectDecorator< T >
 ::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-
-  os << indent << "Component  : " << typeid( this->m_Component ).name() << std::endl;
+  os << indent << "Component  : " << this->GetTypeIDName(this->Get()) << std::endl;
   os << indent << "Initialized: " << this->m_Initialized << std::endl;
 }
 } // end namespace itk

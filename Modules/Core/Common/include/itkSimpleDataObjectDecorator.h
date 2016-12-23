@@ -92,7 +92,8 @@ protected:
   SimpleDataObjectDecorator();
   ~SimpleDataObjectDecorator();
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
-
+  std::string GetTypeIDName(const itk::LightObject &itkNotUsed(o)) const;
+  std::string GetTypeIDName(const T &itkNotUsed(o)) const;
 protected:
 
 private:
