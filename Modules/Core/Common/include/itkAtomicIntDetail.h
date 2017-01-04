@@ -38,8 +38,12 @@
 #include "itkSimpleFastMutexLock.h"
 #include "itkConceptChecking.h"
 
-
-#if defined(__APPLE__)
+#if defined(ITK_HAVE_SYNC_BUILTINS)
+# define ITK_GCC_ATOMICS_32
+# define ITK_GCC_ATOMICS_64
+#elif ITK_COMPILER_CXX_ATOMIC
+# include <atomic>
+#elif defined(__APPLE__)
 # include <libkern/OSAtomic.h>
 # define ITK_APPLE_ATOMICS_32
 # if ITK_SIZEOF_VOID_P == 8 || defined(__i386__)
@@ -50,11 +54,7 @@
 # if ITK_SIZEOF_VOID_P == 8
 #   define ITK_WINDOWS_ATOMICS_64
 # endif
-#elif defined(ITK_HAVE_SYNC_BUILTINS)
-# define ITK_GCC_ATOMICS_32
-# define ITK_GCC_ATOMICS_64
 #endif
-
 
 namespace itk
 {
@@ -63,6 +63,7 @@ namespace Detail
 {
 
 template <size_t VSize> class AtomicOps;
+
 
 #if defined ITK_HAVE_SYNC_BUILTINS
 
@@ -117,7 +118,63 @@ public:
   }
 };
 
-#endif // defined ITK_HAVE_SYNC_BUILTINS
+#elif ITK_COMPILER_CXX_ATOMIC
+
+template <size_t VSize> struct BaseType;
+
+template <size_t VSize> class AtomicOps
+{
+public:
+  typedef typename BaseType<VSize>::Type AtomicType;
+  typedef typename BaseType<VSize>::Type ValueType;
+
+  static ValueType AddAndFetch(ValueType *ref, ValueType val)
+  {
+    std::atomic<ValueType> atom_ref(ref);
+    return atom_ref += val;
+  }
+
+  static ValueType SubAndFetch(ValueType *ref, ValueType val)
+  {
+    std::atomic<ValueType> atom_ref(ref);
+    return atom_ref -= val;
+  }
+
+  static ValueType PreIncrement(ValueType *ref)
+  {
+    std::atomic<ValueType> atom_ref(ref);
+    return ++atom_ref;
+  }
+
+  static ValueType PreDecrement(ValueType *ref)
+  {
+    std::atomic<ValueType> atom_ref(ref);
+    return --atom_ref;
+  }
+
+  static ValueType PostIncrement(ValueType *ref)
+  {
+    return std::atomic_fetch_add(ref, 1);
+  }
+
+  static ValueType PostDecrement(ValueType *ref)
+  {
+    return std::atomic_fetch_sub(ref, 1);
+  }
+
+  static ValueType Load(const ValueType *ref)
+  {
+    std::atomic_thread_fence(std::memory_order_seq_cst);
+    return *static_cast<const volatile ValueType *>(ref);
+  }
+
+  static void Store(ValueType *ref, ValueType val)
+  {
+    *static_cast<volatile ValueType*>(ref) = val;
+    std::atomic_thread_fence(std::memory_order_seq_cst);
+  }
+};
+#endif // defined ITK_COMPILER_CXX_ATOMIC
 
 #if defined(ITK_GCC_ATOMICS_64)
 template<> struct BaseType<8>
