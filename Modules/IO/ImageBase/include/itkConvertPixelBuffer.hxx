@@ -23,6 +23,27 @@
 
 #include <cstddef>
 
+namespace
+{
+template<class ComponentType>
+struct DefaultAlphaValue
+{
+  static ComponentType Alpha() {return std::numeric_limits<ComponentType>::max();}
+};
+
+template<>
+struct DefaultAlphaValue<float>
+{
+  static float Alpha() {return 1.f;}
+};
+
+template<>
+struct DefaultAlphaValue<double>
+{
+  static float Alpha() {return 1.0;}
+};
+}
+
 namespace itk
 {
 template< typename InputPixelType,
@@ -445,9 +466,7 @@ ConvertPixelBuffer< InputPixelType, OutputPixelType, OutputConvertTraits >
     OutputConvertTraits::SetNthComponent( 2, *outputData,
                                           static_cast< OutputComponentType >
                                           ( *inputData ) );
-    OutputConvertTraits::SetNthComponent( 3, *outputData,
-                                          static_cast< OutputComponentType >
-                                          ( 1 ) );
+    OutputConvertTraits::SetNthComponent( 3, *outputData,DefaultAlphaValue<OutputComponentType>::Alpha());
     inputData++;
     outputData++;
     }
@@ -476,8 +495,8 @@ ConvertPixelBuffer< InputPixelType, OutputPixelType, OutputConvertTraits >
                                           static_cast< OutputComponentType >
                                           ( *( inputData + 2 ) ) );
     OutputConvertTraits::SetNthComponent( 3, *outputData,
-                                          static_cast< OutputComponentType >
-                                          ( 1 ) );
+DefaultAlphaValue<OutputComponentType>::Alpha());
+
     inputData += 3;
     outputData++;
     }
