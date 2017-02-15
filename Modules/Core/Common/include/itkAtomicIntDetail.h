@@ -40,6 +40,8 @@
 
 #if ITK_COMPILER_CXX_ATOMIC
 # include <atomic>
+# define ITK_GCC_ATOMICS_32
+# define ITK_GCC_ATOMICS_64
 #elif defined(ITK_HAVE_SYNC_BUILTINS)
 # define ITK_GCC_ATOMICS_32
 # define ITK_GCC_ATOMICS_64
