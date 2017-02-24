@@ -25,6 +25,10 @@
 #include "itkTestingMacros.h"
 #include "itkGDCMImageIO.h"
 #include "itkGDCMSeriesFileNames.h"
+#include "gdcmDict.h"
+#include "gdcmGlobal.h"
+#include "gdcmDicts.h"
+#include "gdcmStringFilter.h"
 
 int itkGDCMImageReadSeriesWriteTest( int argc, char* argv[] )
 {
@@ -67,6 +71,9 @@ int itkGDCMImageReadSeriesWriteTest( int argc, char* argv[] )
 
   itk::MetaDataDictionary & dict = gdcmIO->GetMetaDataDictionary();
   std::string tagkey, value;
+  tagkey = "0x0010, 0x0010"; //Patient name
+  value = "Wes Turner";
+  itk::EncapsulateMetaData<std::string>(dict, tagkey, value );
   tagkey = "0008|0060"; // Modality
   value = "MR";
   itk::EncapsulateMetaData<std::string>(dict, tagkey, value );
@@ -101,9 +108,60 @@ int itkGDCMImageReadSeriesWriteTest( int argc, char* argv[] )
 
 
   // Now read back in and write out as 3D image for comparison with the input.
+  gdcm::Global &      g = gdcm::Global::GetInstance();
+  const gdcm::Dicts & dicts = g.GetDicts();
+  const gdcm::Dict &  pubdict = dicts.GetPublicDict();
   typedef itk::ImageSeriesReader< ImageType > SeriesReaderType;
   SeriesReaderType::Pointer seriesReader = SeriesReaderType::New();
   seriesReader->SetFileNames( namesGenerator->GetFileNames() );
+  dict = reader->GetOutput()->GetMetaDataDictionary();
+  itk::MetaDataDictionary::ConstIterator itr = dict.Begin();
+  const itk::MetaDataDictionary::ConstIterator end = dict.End();
+  while ( itr != end )
+    {
+    const std::string & key = itr->first;
+    itk::ExposeMetaData< std::string >( dict, key, value );
+    std::cout<<key<<" " << value<<std::endl;
+    // Convert DICOM name to DICOM (group,element)
+    gdcm::Tag            tag;
+    bool b = tag.ReadFromPipeSeparatedString( key.c_str() );
+              std::cerr << "key:"<<key << std::endl;
+    // Anything that has been changed in the MetaData Dict will be pushed
+    // into the DICOM header:
+    if ( b /*tag != gdcm::Tag(0xffff,0xffff)*/ /*dictEntry*/ )
+      {
+      const gdcm::DictEntry & dictEntry = pubdict.GetDictEntry(tag);
+      gdcm::VR::VRType        vrtype = dictEntry.GetVR();
+      if ( dictEntry.GetVR() == gdcm::VR::SQ )
+        {
+        // How did we reach here ?
+        }
+      else if ( vrtype & ( gdcm::VR::OB | gdcm::VR::OF | gdcm::VR::OW | gdcm::VR::UN ) )
+        {
+        }
+      else // VRASCII
+        {
+        if ( false)//vrtype & ( gdcm::VR::UI ) )
+          {
+          }
+        else
+          {
+          gdcm::StringFilter sf;
+          std::string si = sf.FromString( tag, value.c_str(), value.size() );
+          for(std::string::iterator itsi = si.begin(); itsi != si.end(); ++itsi)
+            {
+            if(*itsi == '\0')
+              {
+              std::cerr << "DICOM tag should not be padded with '\0' but with spaces" << std::endl;
+              std::cerr << vrtype << std::endl;
+              return EXIT_FAILURE;
+              }
+            }
+          }
+        }
+      }
+      ++itr;
+    }
 
   typedef itk::ImageFileWriter< ImageType > SingleWriterType;
   SingleWriterType::Pointer singleWriter = SingleWriterType::New();
