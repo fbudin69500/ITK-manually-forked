@@ -75,7 +75,7 @@ int itkGDCMImageReadSeriesWriteTest( int argc, char* argv[] )
   value = "Wes Turner";
   itk::EncapsulateMetaData<std::string>(dict, tagkey, value );
   tagkey = "0008|0060"; // Modality
-  value = "MR";
+  value = "RTIMAGE";
   itk::EncapsulateMetaData<std::string>(dict, tagkey, value );
   tagkey = "0008|0008"; // Image Type
   value = "DERIVED\\SECONDARY";
@@ -84,7 +84,7 @@ int itkGDCMImageReadSeriesWriteTest( int argc, char* argv[] )
   value = "DV";
   itk::EncapsulateMetaData<std::string>(dict, tagkey, value);
 
-
+  reader->SetMetaDataDictionary(dict);
   SeriesWriterType::Pointer seriesWriter = SeriesWriterType::New();
   seriesWriter->SetInput( reader->GetOutput() );
   seriesWriter->SetImageIO( gdcmIO );
@@ -114,14 +114,14 @@ int itkGDCMImageReadSeriesWriteTest( int argc, char* argv[] )
   typedef itk::ImageSeriesReader< ImageType > SeriesReaderType;
   SeriesReaderType::Pointer seriesReader = SeriesReaderType::New();
   seriesReader->SetFileNames( namesGenerator->GetFileNames() );
-  dict = reader->GetOutput()->GetMetaDataDictionary();
+  seriesReader->Update();
+  dict = gdcmIO->GetMetaDataDictionary();
   itk::MetaDataDictionary::ConstIterator itr = dict.Begin();
   const itk::MetaDataDictionary::ConstIterator end = dict.End();
   while ( itr != end )
     {
     const std::string & key = itr->first;
     itk::ExposeMetaData< std::string >( dict, key, value );
-    std::cout<<key<<" " << value<<std::endl;
     // Convert DICOM name to DICOM (group,element)
     gdcm::Tag            tag;
     bool b = tag.ReadFromPipeSeparatedString( key.c_str() );
@@ -141,8 +141,9 @@ int itkGDCMImageReadSeriesWriteTest( int argc, char* argv[] )
         }
       else // VRASCII
         {
-        if ( false)//vrtype & ( gdcm::VR::UI ) )
+        if ( gdcm::VR::UI )
           {
+          // No gdcm::VR::UI
           }
         else
           {
