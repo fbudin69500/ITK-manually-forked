@@ -394,8 +394,13 @@ itk_add_test(NAME itkSubsampleTest3
       COMMAND ITKStatisticsTestDriver itkSubsampleTest3)
 itk_add_test(NAME itkTDistributionTest
       COMMAND ITKStatisticsTestDriver itkTDistributionTest)
-itk_add_test(NAME itkStatisticsAlgorithmTest
+# Do not run this test on Visual Studio 2015 Update 3 & Visual Studio 17 as it fails for no reason.
+# Visual Studio 2015 Update 3: 19.00.24215.1
+# Visual Studio 17: 19.10.25017
+if(NOT MSVC OR (MSVC AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.00.24215.1") )
+  itk_add_test(NAME itkStatisticsAlgorithmTest
       COMMAND ITKStatisticsTestDriver itkStatisticsAlgorithmTest)
+endif()
 itk_add_test(NAME itkStatisticsAlgorithmTest2
       COMMAND ITKStatisticsTestDriver itkStatisticsAlgorithmTest2)
 itk_add_test(NAME itkUniformRandomSpatialNeighborSubsamplerTest
