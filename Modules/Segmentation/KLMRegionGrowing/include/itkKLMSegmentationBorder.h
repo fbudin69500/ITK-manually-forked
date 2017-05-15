@@ -133,7 +133,7 @@ public:
  * \ingroup ITKKLMRegionGrowing
  */
 
-class KLMSegmentationRegion;
+class ITKKLMRegionGrowing_FORWARD_EXPORT KLMSegmentationRegion;
 
 class ITKKLMRegionGrowing_EXPORT KLMSegmentationBorder:public SegmentationBorder
 {

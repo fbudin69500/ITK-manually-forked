@@ -34,7 +34,7 @@
 namespace itk
 {
 
-class ProgressReporter;
+class ITKCommon_FORWARD_EXPORT ProgressReporter;
 
 /** \class BSplineCenteredResampleImageFilterBase
  * \brief Evaluates the Centered B-Spline interpolation of an image.  Spline order may be from 0 to 5.

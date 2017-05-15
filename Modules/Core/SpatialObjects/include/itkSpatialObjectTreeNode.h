@@ -24,14 +24,8 @@
 namespace itk
 {
 
-#ifdef __APPLE__
 template< unsigned int VDimension >
-class ITK_TEMPLATE_EXPORT SpatialObject;
-#else
-template< unsigned int VDimension >
-class SpatialObject;
-#endif
-
+class ITK_TEMPLATE_FORWARD_EXPORT SpatialObject;
 
 /** \class SpatialObjectTreeNode
  * \brief TODO

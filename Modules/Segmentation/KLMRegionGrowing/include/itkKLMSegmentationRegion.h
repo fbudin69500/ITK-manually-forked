@@ -85,7 +85,7 @@ namespace itk
  * \ingroup RegionGrowingSegmentation
  * \ingroup ITKKLMRegionGrowing
  */
-class KLMSegmentationBorder;
+class ITKKLMRegionGrowing_FORWARD_EXPORT KLMSegmentationBorder;
 
 class ITKKLMRegionGrowing_EXPORT KLMSegmentationRegion:public SegmentationRegion
 {

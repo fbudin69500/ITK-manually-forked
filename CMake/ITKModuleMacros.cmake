@@ -223,7 +223,9 @@ macro(itk_module_impl)
         EXPORT_FILE_NAME ${_export_header_file}
         EXPORT_MACRO_NAME ${itk-module}_EXPORT
         TEMPLATE_EXPORT_MACRO_NAME ${itk-module}_TEMPLATE_EXPORT
+        FORWARD_EXPORT_MACRO_NAME ${itk-module}_FORWARD_EXPORT
         NO_EXPORT_MACRO_NAME ${itk-module}_HIDDEN
+        FORWARD_NO_EXPORT_MACRO_NAME ${itk-module}_FORWARD_HIDDEN
         STATIC_DEFINE ITK_STATIC )
       install(FILES
         ${_export_header_file}

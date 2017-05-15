@@ -188,6 +188,14 @@ namespace itk
   #endif
 #endif
 
+#ifndef ITK_TEMPLATE_FORWARD_EXPORT
+  #if defined(ITK_TEMPLATE_VISIBILITY_DEFAULT) && defined(__APPLE__)
+    #define ITK_TEMPLATE_FORWARD_EXPORT __attribute__ ((visibility ("default")))
+  #else
+    #define ITK_TEMPLATE_FORWARD_EXPORT
+  #endif
+#endif
+
 #if ITK_COMPILED_CXX_STANDARD_VERSION >= 201103L
   #define ITK_HAS_CXX11_RVREF
 #endif

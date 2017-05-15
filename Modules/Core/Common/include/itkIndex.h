@@ -29,7 +29,7 @@ namespace itk
 namespace Functor
 {
 template< unsigned int VIndexDimension >
-class IndexLexicographicCompare;
+class ITK_TEMPLATE_FORWARD_EXPORT IndexLexicographicCompare;
 }
 
 /** \class Index
@@ -68,7 +68,7 @@ class IndexLexicographicCompare;
  */
 
 template< unsigned int VIndexDimension = 2 >
-class Index
+class ITK_TEMPLATE_EXPORT Index
 {
 public:
   /** Standard class typedefs. */
@@ -346,7 +346,7 @@ namespace Functor
  * \ingroup ITKCommon
  */
 template< unsigned int VIndexDimension >
-class IndexLexicographicCompare
+class ITK_TEMPLATE_EXPORT IndexLexicographicCompare
 {
 public:
   bool operator()(Index< VIndexDimension > const & l,

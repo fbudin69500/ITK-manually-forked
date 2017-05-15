@@ -26,8 +26,7 @@ namespace itk
 {
 
 /** Forward declarations */
-class Region;
-class TemporalDataObject;
+class ITKVideoCore_FORWARD_EXPORT TemporalDataObject;
 
 /** \class TemporalProcessObject
  * \brief TemporalProcessObject implements a ProcessObject for the itk pipeline

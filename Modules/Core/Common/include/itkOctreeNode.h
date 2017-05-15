@@ -23,8 +23,8 @@ namespace itk
 enum LeafIdentifier { ZERO = 0, ONE = 1, TWO = 2, THREE = 3, FOUR = 4, FIVE = 5, SIX = 6, SEVEN = 7 };
 
 //A forward-declaration
-class OctreeNodeBranch;
-class OctreeBase;
+class ITKCommon_FORWARD_EXPORT OctreeNodeBranch;
+class ITKCommon_FORWARD_EXPORT OctreeBase;
 
 /**
  * \class OctreeNode
@@ -120,7 +120,7 @@ private:
   OctreeBase *      m_Parent;
 };
 
-class OctreeNodeBranch
+class ITKCommon_EXPORT OctreeNodeBranch
 {
 public:
   OctreeNodeBranch() {}

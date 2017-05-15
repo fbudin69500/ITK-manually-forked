@@ -27,7 +27,7 @@ namespace itk
 {
 namespace bio
 {
-class CellBase;
+class ITKBioCell_FORWARD_EXPORT CellBase;
 
 /** \class CellularAggregateBase
  * \brief Base class for the CellularAggregates.

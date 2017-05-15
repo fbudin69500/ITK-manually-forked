@@ -24,7 +24,7 @@ namespace itk
 {
 
 template< typename TIterator >
-class ThreadedIteratorRangePartitioner;
+class ITK_TEMPLATE_FORWARD_EXPORT ThreadedIteratorRangePartitioner;
 
 /** \class ThreadedIteratorRangePartitionerDomain
  * \brief Domain type for the ThreadedIteratorRangePartitioner.

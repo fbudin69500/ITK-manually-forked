@@ -35,8 +35,8 @@
 
 namespace itk
 {
-class ProcessObject;
-class DataObject;
+class ITKCommon_FORWARD_EXPORT ProcessObject;
+class ITKCommon_FORWARD_EXPORT DataObject;
 
 /*--------------------Data Object Exceptions---------------------------*/
 

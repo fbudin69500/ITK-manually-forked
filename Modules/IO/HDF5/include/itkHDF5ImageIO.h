@@ -44,8 +44,8 @@ class DataSet;
 
 namespace itk
 {
-class MetaDataObjectBase;
-class MetaDataDictionary;
+class ITKCommon_FORWARD_EXPORT MetaDataObjectBase;
+class ITKCommon_FORWARD_EXPORT MetaDataDictionary;
 /** \class HDF5ImageIO
  *
  * \author Kent Williams

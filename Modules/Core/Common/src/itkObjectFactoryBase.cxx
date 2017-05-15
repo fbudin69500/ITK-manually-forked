@@ -61,7 +61,7 @@ bool              m_Initialized;
 
 namespace
 {
-class CleanUpObjectFactory
+class ITKCommon_HIDDEN CleanUpObjectFactory
 {
 public:
 
@@ -100,7 +100,7 @@ StringOverMapType;
 /** \class OverRideMap
  * \brief Internal implementation class for ObjectFactorBase.
  */
-class OverRideMap:public StringOverMapType
+class ITKCommon_HIDDEN OverRideMap:public StringOverMapType
 {
 public:
 };

@@ -36,7 +36,7 @@ namespace itk
  * \ingroup ITKOptimizersv4
  */
 template< typename TInternalVnlOptimizerType >
-class  LBFGSOptimizerBaseHelperv4;
+class  ITK_TEMPLATE_EXPORT LBFGSOptimizerBaseHelperv4;
 
 /** \class LBFGSOptimizerBasev4
  * \brief Abstract base for vnl lbfgs algorithm optimizers in ITKv4 registration framework.

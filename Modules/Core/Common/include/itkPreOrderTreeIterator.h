@@ -24,7 +24,7 @@ namespace itk
 {
 
 template< typename TTreeType >
-class LeafTreeIterator;
+class ITK_TEMPLATE_FORWARD_EXPORT LeafTreeIterator;
 
 template< typename TTreeType >
 class PreOrderTreeIterator:public TreeIteratorBase< TTreeType >

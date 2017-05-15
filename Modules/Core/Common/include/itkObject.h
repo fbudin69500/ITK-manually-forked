@@ -34,8 +34,8 @@
 
 namespace itk
 {
-class SubjectImplementation;
-class Command;
+class ITKCommon_FORWARD_HIDDEN SubjectImplementation;
+class ITKCommon_FORWARD_EXPORT Command;
 
 /** \class Object
  * \brief Base class for most ITK classes.
