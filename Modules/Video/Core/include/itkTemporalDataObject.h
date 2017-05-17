@@ -39,7 +39,7 @@ namespace itk
  *
  * \ingroup ITKVideoCore
  */
-class ITKVideoCore_EXPORT TemporalDataObject : public DataObject
+class ITKCommon_FORCE_EXPORT TemporalDataObject : public DataObject
 {
 public:
 
