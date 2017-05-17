@@ -35,6 +35,7 @@ namespace itk
  *
  * \ingroup ITKOptimizersv4
  */
+// Forward reference because of circular dependencies
 template< typename TInternalVnlOptimizerType >
 class  ITK_TEMPLATE_EXPORT LBFGSOptimizerBaseHelperv4;
 

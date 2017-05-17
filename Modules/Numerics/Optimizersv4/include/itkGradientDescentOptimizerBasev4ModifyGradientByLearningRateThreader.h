@@ -20,12 +20,9 @@
 
 #include "itkDomainThreader.h"
 #include "itkThreadedIndexedContainerPartitioner.h"
-
+#include "itkGradientDescentOptimizerBasev4.h"
 namespace itk
 {
-template<typename TInternalComputationValueType>
-class ITK_TEMPLATE_FORWARD_EXPORT GradientDescentOptimizerBasev4Template;
-
 /** \class GradientDescentOptimizerBasev4ModifyGradientByLearningRateThreaderTemplate
  * \brief Modify the gradient by the learning rate for
  * GradientDescentOptimizerBasev4.

@@ -34,7 +34,9 @@
 
 namespace itk
 {
+// Forward reference because of private implementation
 class ITKCommon_FORWARD_HIDDEN SubjectImplementation;
+// Forward reference because of circular dependencies
 class ITKCommon_FORWARD_EXPORT Command;
 
 /** \class Object

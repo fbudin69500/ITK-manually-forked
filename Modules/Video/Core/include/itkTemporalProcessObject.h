@@ -25,7 +25,7 @@
 namespace itk
 {
 
-/** Forward declarations */
+// Forward reference because of circular dependencies
 class ITKVideoCore_FORWARD_EXPORT TemporalDataObject;
 
 /** \class TemporalProcessObject

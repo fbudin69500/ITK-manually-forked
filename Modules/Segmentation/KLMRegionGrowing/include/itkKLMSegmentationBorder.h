@@ -133,6 +133,7 @@ public:
  * \ingroup ITKKLMRegionGrowing
  */
 
+// Forward reference because of circular dependencies
 class ITKKLMRegionGrowing_FORWARD_EXPORT KLMSegmentationRegion;
 
 class ITKKLMRegionGrowing_EXPORT KLMSegmentationBorder:public SegmentationBorder

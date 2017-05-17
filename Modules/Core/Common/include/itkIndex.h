@@ -28,6 +28,7 @@ namespace itk
 {
 namespace Functor
 {
+// Forward reference because of circular dependencies
 template< unsigned int VIndexDimension >
 class ITK_TEMPLATE_FORWARD_EXPORT IndexLexicographicCompare;
 }

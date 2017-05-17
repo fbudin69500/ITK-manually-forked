@@ -33,6 +33,7 @@ namespace itk
  *
  * \ingroup ITKOptimizersv4
  */
+// Forward reference because of private implementation
 class ITKOptimizersv4_FORWARD_EXPORT LBFGSBOptimizerHelperv4;
 
 /** \class LBFGSBOptimizerv4

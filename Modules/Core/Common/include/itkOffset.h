@@ -26,6 +26,7 @@ namespace itk
 {
 namespace Functor
 {
+// Forward reference because of circular dependencies
 template< unsigned int VOffsetDimension >
 class ITK_TEMPLATE_FORWARD_EXPORT OffsetLexicographicCompare;
 }

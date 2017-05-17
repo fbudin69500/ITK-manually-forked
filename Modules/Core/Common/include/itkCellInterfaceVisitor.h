@@ -23,7 +23,7 @@
 
 namespace itk
 {
-// forward reference CellInterface
+// Forward reference of CellInterface because of circular #include dependencies
 template<
   typename TPixelType,
   typename TCellTraits

@@ -23,6 +23,7 @@
 namespace itk
 {
 
+// Forward reference because of circular dependencies
 template< typename TIterator >
 class ITK_TEMPLATE_FORWARD_EXPORT ThreadedIteratorRangePartitioner;
 

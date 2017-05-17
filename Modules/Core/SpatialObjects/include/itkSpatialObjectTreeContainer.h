@@ -24,6 +24,7 @@
 namespace itk
 {
 
+// Forward reference because of circular dependencies
 template< unsigned int TDimension >
 class ITK_TEMPLATE_FORWARD_EXPORT SpatialObject;
 

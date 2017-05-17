@@ -85,6 +85,8 @@ namespace itk
  * \ingroup RegionGrowingSegmentation
  * \ingroup ITKKLMRegionGrowing
  */
+
+// Forward reference because of circular dependencies
 class ITKKLMRegionGrowing_FORWARD_EXPORT KLMSegmentationBorder;
 
 class ITKKLMRegionGrowing_EXPORT KLMSegmentationRegion:public SegmentationRegion
