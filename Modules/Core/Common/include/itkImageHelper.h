@@ -45,11 +45,11 @@ namespace itk
  * \ingroup ITKCommon
  */
 
-// Forward reference ImageBase
+// Forward reference because of circular dependencies
 template<
   unsigned int NImageDimension
   >
-class ITK_TEMPLATE_EXPORT ImageBase;
+class ITK_TEMPLATE_FORWARD_EXPORT ImageBase;
 
 template< unsigned int NImageDimension, unsigned int NLoop >
 class ImageHelper

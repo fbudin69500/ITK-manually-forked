@@ -35,8 +35,9 @@
 
 namespace itk
 {
-class ProcessObject;
-class DataObject;
+// Forward reference because of circular dependencies
+class ITKCommon_FORWARD_EXPORT ProcessObject;
+class ITKCommon_FORCE_EXPORT DataObject;
 
 /*--------------------Data Object Exceptions---------------------------*/
 
@@ -272,7 +273,7 @@ protected:
  * \ingroup ITKSystemObjects
  * \ingroup ITKCommon
  */
-class ITKCommon_EXPORT DataObject:public Object
+class ITKCommon_FORCE_EXPORT DataObject:public Object
 {
 public:
   /** Standard class typedefs. */

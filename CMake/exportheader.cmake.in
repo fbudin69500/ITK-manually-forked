@@ -4,8 +4,10 @@
 
 #ifdef @STATIC_DEFINE@
 #  define @EXPORT_MACRO_NAME@
+#  define @FORWARD_EXPORT_MACRO_NAME@
 #  define @TEMPLATE_EXPORT_MACRO_NAME@
 #  define @NO_EXPORT_MACRO_NAME@
+#  define @FORWARD_NO_EXPORT_MACRO_NAME@
 #else
 #  ifndef @EXPORT_MACRO_NAME@
 #    ifdef @EXPORT_IMPORT_CONDITION@
@@ -27,8 +29,25 @@
 #    endif
 #  endif
 
+#  ifndef @FORWARD_EXPORT_MACRO_NAME@
+#    ifdef @EXPORT_IMPORT_CONDITION@
+        /* We are building this library */
+#      define @FORWARD_EXPORT_MACRO_NAME@ @DEFINE_FORWARD_EXPORT@
+#    else
+        /* We are using this library */
+#      define @FORWARD_EXPORT_MACRO_NAME@ @DEFINE_FORWARD_IMPORT@
+#    endif
+#  endif
+
 #  ifndef @NO_EXPORT_MACRO_NAME@
 #    define @NO_EXPORT_MACRO_NAME@ @DEFINE_NO_EXPORT@
+#  endif
+
+#  ifndef @FORWARD_NO_EXPORT_MACRO_NAME@
+#    ifdef @NO_EXPORT_MACRO_NAME@
+        /* We are building this library */
+#      define @FORWARD_NO_EXPORT_MACRO_NAME@ @DEFINE_FORWARD_NO_EXPORT@
+#    endif
 #  endif
 #endif
 

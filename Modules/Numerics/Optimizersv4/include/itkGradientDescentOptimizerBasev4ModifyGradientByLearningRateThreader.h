@@ -23,9 +23,8 @@
 
 namespace itk
 {
-
 template<typename TInternalComputationValueType>
-class GradientDescentOptimizerBasev4Template;
+class ITK_TEMPLATE_FORWARD_EXPORT GradientDescentOptimizerBasev4Template;
 
 /** \class GradientDescentOptimizerBasev4ModifyGradientByLearningRateThreaderTemplate
  * \brief Modify the gradient by the learning rate for

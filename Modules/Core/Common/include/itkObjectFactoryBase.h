@@ -53,7 +53,8 @@ namespace itk
  * \ingroup ITKCommon
  */
 
-class OverRideMap;
+// Forward reference because of private implementation
+class ITKCommon_FORWARD_HIDDEN OverRideMap;
 
 class ITKCommon_EXPORT ObjectFactoryBase:public Object
 {
