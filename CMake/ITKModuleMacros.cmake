@@ -65,6 +65,7 @@ macro(itk_module _name)
   set(ITK_MODULE_${itk-module}_DESCRIPTION "description")
   set(ITK_MODULE_${itk-module}_EXCLUDE_FROM_DEFAULT 0)
   set(ITK_MODULE_${itk-module}_ENABLE_SHARED 0)
+  set(ITK_MODULE_${itk-module}_NO_HIDDEN 0)
   foreach(arg ${ARGN})
     ### Parse itk_module named options
     if("${arg}" MATCHES "^((|COMPILE_|PRIVATE_|TEST_|)DEPENDS|DESCRIPTION|DEFAULT)$")
@@ -79,6 +80,9 @@ macro(itk_module _name)
     elseif("${arg}" MATCHES "^ENABLE_SHARED$")
       set(_doing "")
       set(ITK_MODULE_${itk-module}_ENABLE_SHARED 1)
+    elseif("${arg}" MATCHES "^NO_HIDDEN$")
+      set(_doing "")
+      set(ITK_MODULE_${itk-module}_NO_HIDDEN 1)
     elseif("${arg}" MATCHES "^[A-Z][A-Z][A-Z]$")
       set(_doing "")
       message(AUTHOR_WARNING "Unknown argument [${arg}]")
@@ -208,10 +212,9 @@ macro(itk_module_impl)
     add_subdirectory(src)
   endif()
 
-
-  if( ITK_MODULE_${itk-module}_ENABLE_SHARED )
-    # Target ${itk-module} may not exist if the module only contains header files
-    if(TARGET ${itk-module})
+  # Target ${itk-module} may not exist if the module only contains header files
+  if(TARGET ${itk-module})
+    if( ITK_MODULE_${itk-module}_ENABLE_SHARED )
       if(ITK_SOURCE_DIR)
         set(_export_header_file "${ITKCommon_BINARY_DIR}/${itk-module}Export.h")
       else()
@@ -230,25 +233,22 @@ macro(itk_module_impl)
         DESTINATION ${${itk-module}_INSTALL_INCLUDE_DIR}
         COMPONENT Development
         )
-
-      if (BUILD_SHARED_LIBS)
-        # export flags are only added when building shared libs, they cause
-        # mismatched visibility warnings when building statically.
-        if(CMAKE_VERSION VERSION_LESS 2.8.12)
-          # future DEPRECATION notice from cmake:
-          #      "The add_compiler_export_flags function is obsolete.
-          #       Use the CXX_VISIBILITY_PRESET and VISIBILITY_INLINES_HIDDEN
-          #       target properties instead."
-          add_compiler_export_flags(my_abi_flags)
-          set_property(TARGET ${itk-module} APPEND
+    endif()
+    if(NOT ITK_MODULE_${itk-module}_NO_HIDDEN)
+      if(CMAKE_VERSION VERSION_LESS 2.8.12)
+        # future DEPRECATION notice from cmake:
+        #      "The add_compiler_export_flags function is obsolete.
+        #       Use the CXX_VISIBILITY_PRESET and VISIBILITY_INLINES_HIDDEN
+        #       target properties instead."
+        add_compiler_export_flags(my_abi_flags)
+        set_property(TARGET ${itk-module} APPEND
             PROPERTY COMPILE_FLAGS "${my_abi_flags}")
-        else()
-          if (USE_COMPILER_HIDDEN_VISIBILITY)
-            # Prefer to use target properties supported by newer cmake
-            set_target_properties(${itk-module} PROPERTIES CXX_VISIBILITY_PRESET hidden)
-            set_target_properties(${itk-module} PROPERTIES C_VISIBILITY_PRESET hidden)
-            set_target_properties(${itk-module} PROPERTIES VISIBILITY_INLINES_HIDDEN 1)
-          endif()
+      else()
+        if (USE_COMPILER_HIDDEN_VISIBILITY)
+          # Prefer to use target properties supported by newer cmake
+          set_target_properties(${itk-module} PROPERTIES CXX_VISIBILITY_PRESET hidden)
+          set_target_properties(${itk-module} PROPERTIES C_VISIBILITY_PRESET hidden)
+          set_target_properties(${itk-module} PROPERTIES VISIBILITY_INLINES_HIDDEN 1)
         endif()
       endif()
     endif()

@@ -6,6 +6,7 @@ format.")
 
 
 itk_module(ITKIOSpatialObjects
+  NO_HIDDEN
   PRIVATE_DEPENDS
     ITKSpatialObjects
     ITKIOXML

@@ -6,6 +6,7 @@ vessels, needles, etc.), blobs (for arbitrary shaped objects), cubes, spheres,
 etc. The complete library is known as MetaIO.")
 
 itk_module(ITKMetaIO
+  NO_HIDDEN
   DEPENDS
     ITKZLIB
   DESCRIPTION
