@@ -480,7 +480,7 @@ public:
 
 protected:
   DataObject();
-  ~DataObject();
+  virtual ~DataObject();
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
   /** Propagate a call to ResetPipeline(). Called only from ProcessObject. */
