@@ -451,13 +451,13 @@ void FloatingPointExceptions
   FloatingPointExceptions::m_Enabled = false;
 }
 
-#else // defined(_MSC_VER) || !defined(ITK_HAVE_FENV_H)
+#else // defined(_MSC_VER)
 
 // MinGW has troubles include'ing float.h.
 void FloatingPointExceptions
 ::Enable()
 {
-  std::cerr << "FloatingPointExceptions are not supported with MinGW." << std::endl;
+  std::cerr << "FloatingPointExceptions are not supported on this platform." << std::endl;
   if(itk::FloatingPointExceptions::GetExceptionAction() ==
      itk::FloatingPointExceptions::ABORT)
     {
@@ -472,7 +472,7 @@ void FloatingPointExceptions
 void FloatingPointExceptions
 ::Disable()
 {
-  std::cerr << "FloatingPointExceptions are not supported with MinGW." << std::endl;
+  std::cerr << "FloatingPointExceptions are not supported on this platform." << std::endl;
   if(itk::FloatingPointExceptions::GetExceptionAction() ==
      itk::FloatingPointExceptions::ABORT)
     {
@@ -486,7 +486,7 @@ void FloatingPointExceptions
 
 #endif // defined(_MSC_VER) || !defined(ITK_HAVE_FENV_H) || !defined(ITK_HAS_FEENABLEEXCEPT)
 
-#else // defined(_WIN32)
+#else // defined(_WIN32) || !defined(ITK_HAVE_FENV_H) || !defined(ITK_HAVE_FEENABLEEXCEPT)
 
 void
 FloatingPointExceptions
@@ -524,6 +524,6 @@ FloatingPointExceptions
   FloatingPointExceptions::m_Enabled = false;
 }
 
-#endif // not defined ( _WIN32 )
+#endif // defined(_WIN32) || !defined(ITK_HAVE_FENV_H) || !defined(ITK_HAVE_FEENABLEEXCEPT)
 
 } // end of itk namespace
