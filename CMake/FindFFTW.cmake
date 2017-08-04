@@ -9,6 +9,13 @@
 ## mark_as_advanced(ITK_USE_FFTWF)
 ## option(ITK_USE_FFTWF "Use single precision FFTW if found" ON)
 
+option(ITK_USE_SYSTEM_MKL "Use system MKL" OFF)
+if(ITK_USE_SYSTEM_MKL)
+  set(ITK_USE_FFTWD ON CACHE BOOL "Use double precision fftw if found" FORCE)
+  set(ITK_USE_FFTWF ON CACHE BOOL "Use single precision fftw if found" FORCE)
+  set(ITK_USE_SYSTEM_FFTW ON CACHE BOOL "Use an installed version of fftw" FORCE)
+endif()
+
 if(ITK_USE_FFTWD OR ITK_USE_FFTWF)
 
   set(FFTW_INC_SEARCHPATH
@@ -18,6 +25,15 @@ if(ITK_USE_FFTWD OR ITK_USE_FFTWF)
     /usr/include/fftw
     /usr/local/include/fftw
   )
+
+  if(ITK_USE_SYSTEM_MKL)
+    set(MKLROOT /opt/intel/mkl)
+    # TODO: Define FFTW specific flags in CMake variables?
+    # Note: CMake > 3.0 (target based) would allow to define flags for specific targets.
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--no-as-needed -lm -ldl")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DMKL_ILP64 -m64")
+    list(APPEND CMAKE_INCLUDE_PATH ${MKLROOT}/include/fftw)
+  endif()
 
   find_path(FFTW_INCLUDE_PATH fftw3.h ${FFTW_INC_SEARCHPATH})
 
@@ -30,41 +46,54 @@ if(ITK_USE_FFTWD OR ITK_USE_FFTWF)
     include_directories(${FFTW_INCLUDE})
   endif()
 
-  get_filename_component(FFTW_INSTALL_BASE_PATH ${FFTW_INCLUDE_PATH} PATH)
+  if(ITK_USE_SYSTEM_MKL)
+    get_filename_component(FFTW_INSTALL_BASE_PATH ${FFTW_INCLUDE_PATH}/../.. ABSOLUTE)
+    set(FFTW_LIB_SEARCHPATH ${FFTW_INSTALL_BASE_PATH}/lib/intel64)
+    set(FFTW_LIBRARY_NAMES mkl_intel_ilp64 mkl_sequential mkl_core pthread)
+    foreach(LIB ${FFTW_LIBRARY_NAMES})
+      mark_as_advanced(${LIB}_LIB)
+      find_library(${LIB}_LIB ${LIB} ${FFTW_LIB_SEARCHPATH})
+      if(${LIB}_LIB)
+        set(${LIB}_FOUND 1)
+        get_filename_component(FFTW_LIBDIR ${${LIB}_LIB} PATH)
+      endif()
+      list(APPEND FFTWF_LIB ${${LIB}_LIB})
+      list(APPEND FFTWD_LIB ${${LIB}_LIB})
+    endforeach()
+  else()
+    get_filename_component(FFTW_INSTALL_BASE_PATH ${FFTW_INCLUDE_PATH} PATH)
+    set(FFTW_LIB_SEARCHPATH
+      ${FFTW_INSTALL_BASE_PATH}/lib
+      ${FFTW_INSTALL_BASE_PATH}/lib64
+      /usr/lib/fftw
+      /usr/local/lib/fftw
+    )
+    if(ITK_USE_FFTWD)
+      mark_as_advanced(FFTWD_LIB)
+      find_library(FFTWD_LIB fftw3 ${FFTW_LIB_SEARCHPATH}) #Double Precision Lib
+      find_library(FFTWD_THREADS_LIB fftw3_threads ${FFTW_LIB_SEARCHPATH}) #Double Precision Lib only if compiled with threads support
 
-  set(FFTW_LIB_SEARCHPATH
-    ${FFTW_INSTALL_BASE_PATH}/lib
-    ${FFTW_INSTALL_BASE_PATH}/lib64
-    /usr/lib/fftw
-    /usr/local/lib/fftw
-  )
+      if(FFTWD_LIB)
+        set(FFTWD_FOUND 1)
+        get_filename_component(FFTW_LIBDIR ${FFTWD_LIB} PATH)
+        if(FFTWD_THREADS_LIB)
+          set(FFTWD_LIB ${FFTWD_LIB} ${FFTWD_THREADS_LIB} )
+        endif()
+      endif()
+    endif()
 
-  if(ITK_USE_FFTWD)
-    mark_as_advanced(FFTWD_LIB)
-    find_library(FFTWD_LIB fftw3 ${FFTW_LIB_SEARCHPATH}) #Double Precision Lib
-    find_library(FFTWD_THREADS_LIB fftw3_threads ${FFTW_LIB_SEARCHPATH}) #Double Precision Lib only if compiled with threads support
+    if(ITK_USE_FFTWF)
+      mark_as_advanced(FFTWF_LIB)
+      find_library(FFTWF_LIB fftw3f ${FFTW_LIB_SEARCHPATH}) #Single Precision Lib
+      find_library(FFTWF_THREADS_LIB fftw3f_threads ${FFTW_LIB_SEARCHPATH}) #Single Precision Lib only if compiled with threads support
 
-    if(FFTWD_LIB)
-      set(FFTWD_FOUND 1)
-      get_filename_component(FFTW_LIBDIR ${FFTWD_LIB} PATH)
-      if(FFTWD_THREADS_LIB)
-        set(FFTWD_LIB ${FFTWD_LIB} ${FFTWD_THREADS_LIB} )
+      if(FFTWF_LIB)
+        set(FFTWF_FOUND 1)
+        get_filename_component(FFTW_LIBDIR ${FFTWF_LIB} PATH)
+        if(FFTWF_THREADS_LIB)
+          set(FFTWF_LIB ${FFTWF_LIB} ${FFTWF_THREADS_LIB} )
+        endif()
       endif()
     endif()
   endif()
-
-  if(ITK_USE_FFTWF)
-    mark_as_advanced(FFTWF_LIB)
-    find_library(FFTWF_LIB fftw3f ${FFTW_LIB_SEARCHPATH}) #Single Precision Lib
-    find_library(FFTWF_THREADS_LIB fftw3f_threads ${FFTW_LIB_SEARCHPATH}) #Single Precision Lib only if compiled with threads support
-
-    if(FFTWF_LIB)
-      set(FFTWF_FOUND 1)
-      get_filename_component(FFTW_LIBDIR ${FFTWF_LIB} PATH)
-      if(FFTWF_THREADS_LIB)
-        set(FFTWF_LIB ${FFTWF_LIB} ${FFTWF_THREADS_LIB} )
-      endif()
-    endif()
-  endif()
-
 endif()
