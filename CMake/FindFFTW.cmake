@@ -31,7 +31,7 @@ if(ITK_USE_FFTWD OR ITK_USE_FFTWF)
     # TODO: Define FFTW specific flags in CMake variables?
     # Note: CMake > 3.0 (target based) would allow to define flags for specific targets.
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--no-as-needed -lm -ldl")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DMKL_ILP64 -m64")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m64")
     list(APPEND CMAKE_INCLUDE_PATH ${MKLROOT}/include/fftw)
   endif()
 
@@ -49,7 +49,7 @@ if(ITK_USE_FFTWD OR ITK_USE_FFTWF)
   if(ITK_USE_SYSTEM_MKL)
     get_filename_component(FFTW_INSTALL_BASE_PATH ${FFTW_INCLUDE_PATH}/../.. ABSOLUTE)
     set(FFTW_LIB_SEARCHPATH ${FFTW_INSTALL_BASE_PATH}/lib/intel64)
-    set(FFTW_LIBRARY_NAMES mkl_intel_ilp64 mkl_sequential mkl_core pthread)
+    set(FFTW_LIBRARY_NAMES  mkl_rt )
     foreach(LIB ${FFTW_LIBRARY_NAMES})
       mark_as_advanced(${LIB}_LIB)
       find_library(${LIB}_LIB ${LIB} ${FFTW_LIB_SEARCHPATH})
