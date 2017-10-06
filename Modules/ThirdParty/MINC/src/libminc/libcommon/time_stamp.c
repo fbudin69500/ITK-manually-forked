@@ -62,6 +62,8 @@
 #include "config.h"
 #endif /*HAVE_CONFIG_H*/
 
+#include "libminc2_private.h"
+
 #ifdef HAVE_STRING_H
 #include <string.h>
 #endif
@@ -69,7 +71,6 @@
 
 #include <time.h>
 #include <time_stamp.h>
-
 /* ----------------------------- MNI Header -----------------------------------
 @NAME       : time_stamp
 @INPUT      : argc - number of arguments
