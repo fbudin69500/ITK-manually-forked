@@ -36,15 +36,21 @@ if(DCMTK_USE_ICU)
       -DICU_ROOT_DIR:PATH=${ITKDCMTK_PREREQS}
       -DDCMTK_ENABLE_CHARSET_CONVERSION:STRING=ICU
       -DICU_ROOT:PATH=${ITKDCMTK_PREREQS} # CMake >= 3.6.20160710
-      # Missing "sbin" subdirectory  in "icu_binary_suffixes" in FindICU.cmake in CMake when called from DCMTK
-      -DICU_GENCCODE_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/genccode
-      -DICU_GENCMN_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/gencmn
-      -DICU_GENNORM2_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/gennorm2
-      -DICU_ICUPKG_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/icupkg
-      -DICU_GENSPREP_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/gensprep
       )
     itk_download_attempt_check(icu)
-    ExternalProject_Add(icu
+    if(MSVC)
+      ExternalProject_Add(icu
+        URL ${ICU_URL}
+        URL_MD5 ${ICU_MD5}
+        SOURCE_DIR ${ITKDCMTK_PREREQS}
+        UPDATE_COMMAND ""
+        ${build_byproducts}
+        CONFIGURE_COMMAND ""
+      BUILD_COMMAND ""
+      INSTALL_COMMAND ""
+      )
+    else()
+      ExternalProject_Add(icu
       URL ${ICU_URL}
       URL_MD5 ${ICU_MD5}
       PREFIX ${ITKDCMTK_BINARY_DIR}
@@ -56,6 +62,15 @@ if(DCMTK_USE_ICU)
         "CC=${CMAKE_C_COMPILER_LAUNCHER} ${CMAKE_C_COMPILER}"
         "CXX=${CMAKE_CXX_COMPILER_LAUNCHER} ${CMAKE_CXX_COMPILER}"
       )
+    list(APPEND ICU_ARGS
+    # Missing "sbin" subdirectory  in "icu_binary_suffixes" in FindICU.cmake in CMake when called from DCMTK
+      -DICU_GENCCODE_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/genccode
+      -DICU_GENCMN_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/gencmn
+      -DICU_GENNORM2_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/gennorm2
+      -DICU_ICUPKG_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/icupkg
+      -DICU_GENSPREP_EXECUTABLE:FILEPATH=${ITKDCMTK_PREREQS}/sbin/gensprep
+      )
+    endif()
     set(ICU_DEPENDENCY icu)
   endif()
 endif()
@@ -190,6 +205,9 @@ endforeach()
 
   # build the list of libraries upon which DCMTK depends
   set(ITKDCMTK_LIBDEP "")
+  if(WIN32)
+    list(APPEND ITKDCMTK_LIBDEP iphlpapi ws2_32 netapi32 wsock32)
+  endif()
   foreach(lib ITKJPEG_LIBRARIES ITKTIFF_LIBRARIES ITKPNG_LIBRARIES
       ITKZLIB_LIBRARIES ITKDCMTK_ICU_LIBRARIES)
     foreach(_lib ${${lib}})
