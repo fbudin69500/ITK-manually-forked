@@ -11,7 +11,7 @@ if(CMAKE_VERSION VERSION_LESS 3.2)
   endif()
   set(build_byproducts)
 else()
-  set(build_byproducts  BUILD_BYPRODUCTS ${BYPRODUCTS})
+  set(build_byproducts  BUILD_BYPRODUCTS ${ICU_BYPRODUCTS})
 endif()
 
 if(DCMTK_USE_ICU)
@@ -207,12 +207,12 @@ endforeach()
         string(TOUPPER "${c}" C)
         set_property(TARGET ${lib} PROPERTY IMPORTED_LOCATION_${C}
           ${lib_dir}/${c}/${lib_prefix}${lib}${lib_suffix})
-        list(APPEND BYPRODUCTS "${lib_dir}/${c}/${lib_prefix}${lib}${lib_suffix}")
+        list(APPEND build_byproducts "${lib_dir}/${c}/${lib_prefix}${lib}${lib_suffix}")
       endforeach()
     else()
       set_property(TARGET ${lib} PROPERTY IMPORTED_LOCATION
         ${lib_dir}/${lib_prefix}${lib}${lib_suffix})
-      list(APPEND BYPRODUCTS "${lib_dir}/${lib_prefix}${lib}${lib_suffix}")
+      list(APPEND build_byproducts "${lib_dir}/${lib_prefix}${lib}${lib_suffix}")
     endif()
 
     # make the imported library depend on its prerequisite
