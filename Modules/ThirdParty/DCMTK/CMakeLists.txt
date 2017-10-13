@@ -18,13 +18,28 @@ if(DCMTK_USE_ICU)
   option(ITK_USE_SYSTEM_ICU "Use an installed version of icu" OFF)
   if(NOT ITK_USE_SYSTEM_ICU)
     if(MSVC)
-      if(CMAKE_SIZEOF_VOID_P EQUAL "8")  # 64 bits
-        set(ICU_URL "http://download.icu-project.org/files/icu4c/54.1/icu4c-54_1-Win64-msvc10.zip")
-        set(ICU_MD5 4d85e1817a5a59582517262b9396c7ba)
-      else()  # 32 bits
-        set(ICU_URL "http://download.icu-project.org/files/icu4c/54.1/icu4c-54_1-Win32-msvc10.zip")
-        set(ICU_MD5 2419927dae9f0ac2498b10de657ff6d3)
+      # Create map of MD5
+      set(ICU_MD5_1800_32 cc66dd31b85bb9eac9a277c0c780327d)
+      set(ICU_MD5_1800_64 312bae64cc659dc55aa47505f07f1747)
+      set(ICU_MD5_1900_32 f52580b23ecba79ea151778da3f73904)
+      set(ICU_MD5_1900_64 8b680329177bb4ed7444c3d809947bf5)
+      set(ICU_MD5_1911_32 9e2b13388351ee7db08a16ff75976487)
+      set(ICU_MD5_1911_64 d9028f4ae7552628062dde8d446a8545)
+      ###
+      if(${MSVC_VERSION} LESS "1900") # Before VS 2015, so VS 2013 and earlier
+        set(version "58.2")
+      else()  # VS2015 && VS2017
+        set(version "59.1")
       endif()
+      string(REPLACE "." "_" version_underscore ${version})
+      math(EXPR bitness "${CMAKE_SIZEOF_VOID_P} * 8")
+      set(root_name "icu4c-${version_underscore}")
+      set(binary_archive_name "${root_name}-install-msvc${MSVC_VERSION}-${bitness}")
+      set(unsupported_version_message
+        "DCMTK will be build with charset conversion disabled: unsupported version of Visual Studio"
+        )
+      set(ICU_URL "https://midas3.kitware.com/midas/download/bitstream/462042/${root_name}-install-msvc${MSVC_VERSION}-${bitness}.zip")
+      set(ICU_MD5 ${ICU_MD${_msvc}${bits}})
     else()
       set(ICU_URL "http://download.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz")
       set(ICU_MD5 fac212b32b7ec7ab007a12dff1f3aea1)
