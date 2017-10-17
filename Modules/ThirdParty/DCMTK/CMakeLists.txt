@@ -38,19 +38,20 @@ if(DCMTK_USE_ICU)
       set(unsupported_version_message
         "DCMTK will be build with charset conversion disabled: unsupported version of Visual Studio"
         )
-      set(ICU_URL "https://midas3.kitware.com/midas/download/bitstream/462042/${root_name}-install-msvc${MSVC_VERSION}-${bitness}.zip")
+      set(ICU_URL "https://midas3.kitware.com/midas/download/bitstream/462042/${root_name}-install-msvc${MSVC_VERSION}-${bitness}.tar.gz")
       set(ICU_MD5 ${ICU_MD${_msvc}${bits}})
     else()
       set(ICU_URL "http://download.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz")
       set(ICU_MD5 fac212b32b7ec7ab007a12dff1f3aea1)
     endif()
 
+  set(ICU_ROOT_DIR ${ITKDCMTK_PREREQS}/$<$<CONFIG:Debug>:Debug>$<$<CONFIG:Release>:Release>)
     set(ICU_ARGS
       -DDCMTK_WITH_STDLIBC_ICONV:BOOL=OFF
       -DDCMTK_WITH_ICU:BOOL=ON
-      -DICU_ROOT_DIR:PATH=${ITKDCMTK_PREREQS}
+      -DICU_ROOT_DIR:PATH=${ICU_ROOT_DIR}
       -DDCMTK_ENABLE_CHARSET_CONVERSION:STRING=ICU
-      -DICU_ROOT:PATH=${ITKDCMTK_PREREQS} # CMake >= 3.6.20160710
+      -DICU_ROOT:PATH=${ICU_ROOT_DIR}  # CMake >= 3.6.20160710
       )
     itk_download_attempt_check(icu)
     if(MSVC)
