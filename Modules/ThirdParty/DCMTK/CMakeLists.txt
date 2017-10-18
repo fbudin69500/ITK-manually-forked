@@ -19,12 +19,12 @@ if(DCMTK_USE_ICU)
   if(NOT ITK_USE_SYSTEM_ICU)
     if(MSVC)
       # Create map of MD5
-      set(ICU_MD5_1800_32 cc66dd31b85bb9eac9a277c0c780327d)
-      set(ICU_MD5_1800_64 312bae64cc659dc55aa47505f07f1747)
-      set(ICU_MD5_1900_32 f52580b23ecba79ea151778da3f73904)
-      set(ICU_MD5_1900_64 8b680329177bb4ed7444c3d809947bf5)
-      set(ICU_MD5_1911_32 9e2b13388351ee7db08a16ff75976487)
-      set(ICU_MD5_1911_64 d9028f4ae7552628062dde8d446a8545)
+      set(ICU_1800_32 462050 6d45a684e608637b0350cd596249373d)
+      set(ICU_1800_64 462052 177721696d87a2cfa6c38a5d385eb21e)
+      set(ICU_1900_32 462049 86f191c160ff86e66437c23ae36c50f8)
+      set(ICU_1900_64 462053 3db188b9ba24ca39a0c5d1411b591d4d)
+      set(ICU_1911_32 9462051 e4053721d7d11125d82df34e0a576c2a)
+      set(ICU_1911_64 462048 1706884a6fb773caad3f3955747cf7db)
       ###
       if(${MSVC_VERSION} LESS "1900") # Before VS 2015, so VS 2013 and earlier
         set(version "58.2")
@@ -35,17 +35,21 @@ if(DCMTK_USE_ICU)
       math(EXPR bitness "${CMAKE_SIZEOF_VOID_P} * 8")
       set(root_name "icu4c-${version_underscore}")
       set(binary_archive_name "${root_name}-install-msvc${MSVC_VERSION}-${bitness}")
-      set(unsupported_version_message
-        "DCMTK will be build with charset conversion disabled: unsupported version of Visual Studio"
+      if(NOT DEFINED ICU_${MSVC_VERSION}_${bitness})
+        message(FATAL_ERROR
+        "Unsupported version of Visual Studio. Disable DCMTK_USE_ICU."
         )
-      set(ICU_URL "https://midas3.kitware.com/midas/download/bitstream/462042/${root_name}-install-msvc${MSVC_VERSION}-${bitness}.tar.gz")
-      set(ICU_MD5 ${ICU_MD${_msvc}${bits}})
+      endif()
+      list(GET ICU_${MSVC_VERSION}${bitness} 0 item_id)
+      set(ICU_URL "https://midas3.kitware.com/midas/download/bitstream/462048/${root_name}-install-msvc${MSVC_VERSION}-${bitness}.tar.gz")
+      list(GET ICU_${MSVC_VERSION}${bitness} 1 ICU_MD5)
     else()
       set(ICU_URL "http://download.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz")
       set(ICU_MD5 fac212b32b7ec7ab007a12dff1f3aea1)
     endif()
 
-  set(ICU_ROOT_DIR ${ITKDCMTK_PREREQS}/$<$<CONFIG:Debug>:Debug>$<$<CONFIG:Release>:Release>)
+    # If not Debug, use Release (for Release, MinSizeRel,...)
+    set(ICU_ROOT_DIR ${ITKDCMTK_PREREQS}/$<$<CONFIG:Debug>:Debug>$<$<NOT:$<CONFIG:Debug>>:Release>)
     set(ICU_ARGS
       -DDCMTK_WITH_STDLIBC_ICONV:BOOL=OFF
       -DDCMTK_WITH_ICU:BOOL=ON
