@@ -59,6 +59,13 @@ class OverRideMap;
 class ITKCommon_EXPORT ObjectFactoryBase:public Object
 {
 public:
+struct ObjectFactoryBasePrivate
+{
+std::list< ::itk::ObjectFactoryBase * > * m_RegisteredFactories;
+std::list< ::itk::ObjectFactoryBase * > * m_InternalFactories;
+bool              m_Initialized;
+};
+
   /** Standard class typedefs. */
   typedef ObjectFactoryBase          Self;
   typedef Object                     Superclass;
@@ -195,6 +202,11 @@ public:
     CreateObjectFunctionBase::Pointer m_CreateObject;
   };
 
+  /** Set/Get the pointer to ObjectFactoryBasePrivate.
+   * Note that SetObjectFactoryBasePrivate is not concurrent thread safe. */
+  static ObjectFactoryBasePrivate *GetObjectFactoryBase();
+  static void SynchronizeObjectFactoryBase(ObjectFactoryBasePrivate * objectFactoryBasePrivate);
+
 protected:
   virtual void PrintSelf(std::ostream & os, Indent indent) const ITK_OVERRIDE;
 
@@ -249,6 +261,8 @@ private:
   std::string   m_LibraryPath;
 
   static  bool  m_StrictVersionChecking;
+
+  static ObjectFactoryBasePrivate * m_ObjectFactoryBasePrivate;
 };
 } // end namespace itk
 
