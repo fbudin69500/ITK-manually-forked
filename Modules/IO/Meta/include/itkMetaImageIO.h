@@ -171,12 +171,12 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const override;
 
 private:
-
+  static unsigned int * GetPointerDefaultDoublePrecision();
   MetaImage m_MetaImage;
 
   unsigned int m_SubSamplingFactor;
 
-  static unsigned int m_DefaultDoublePrecision;
+  static unsigned int * m_DefaultDoublePrecision;
 };
 } // end namespace itk
 
