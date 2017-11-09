@@ -40,26 +40,30 @@ void
 FloatingPointExceptions
 ::SetExceptionAction(ExceptionAction a)
 {
-  FloatingPointExceptions::m_ExceptionAction = a;
+  itkInitGlobalsMacro(Pimpl);
+  FloatingPointExceptions::m_Pimpl->m_ExceptionAction = a;
 }
 
 FloatingPointExceptions::ExceptionAction
 FloatingPointExceptions::GetExceptionAction()
 {
-  return FloatingPointExceptions::m_ExceptionAction;
+  itkInitGlobalsMacro(Pimpl);
+  return FloatingPointExceptions::m_Pimpl->m_ExceptionAction;
 }
 
 bool
 FloatingPointExceptions::
 GetEnabled()
 {
-  return FloatingPointExceptions::m_Enabled;
+  itkInitGlobalsMacro(Pimpl);
+  return FloatingPointExceptions::m_Pimpl->m_Enabled;
 }
 
 void
 FloatingPointExceptions::
 SetEnabled(bool val)
 {
+  itkInitGlobalsMacro(Pimpl);
   if(val)
     {
     FloatingPointExceptions::Enable();
@@ -89,6 +93,7 @@ void itkFloatingPointExceptionsAbortOrExit()
 
 void itkFloatingPointExceptionsNotSupported()
 {
+  itkInitGlobalsMacro(Pimpl);
   std::cerr << "FloatingPointExceptions are not supported on this platform." << std::endl;
   itkFloatingPointExceptionsAbortOrExit();
 }
