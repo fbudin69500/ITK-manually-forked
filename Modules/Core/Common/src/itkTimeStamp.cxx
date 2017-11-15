@@ -119,11 +119,11 @@ TimeStamp::GlobalTimeStampType *
 TimeStamp
 ::GetGlobalTimeStamp()
 {
-  if( m_GlobalTimeStamp == ITK_NULLPTR )
+  if( initializedGlobalTimeStamp == ITK_NULLPTR )
     {
-    m_GlobalTimeStamp = GlobalTimeStampInitializer::GetGlobalTimeStamp();
+    GlobalTimeStampInitializer::GetGlobalTimeStamp();
     }
-  return m_GlobalTimeStamp;
+  return initializedGlobalTimeStamp;
 }
 
 
@@ -131,7 +131,7 @@ void
 TimeStamp
 ::SetGlobalTimeStamp( GlobalTimeStampType * timeStamp )
 {
-  m_GlobalTimeStamp = timeStamp;
+  initializedGlobalTimeStamp = timeStamp;
 }
 
 /**
@@ -145,10 +145,7 @@ TimeStamp
   // initialized.
   static GlobalTimeStampType * globalTimeStamp = GetGlobalTimeStamp();
   Unused(globalTimeStamp);
-  this->m_ModifiedTime = ++(*m_GlobalTimeStamp);
+  this->m_ModifiedTime = ++(*initializedGlobalTimeStamp);
 }
-
-TimeStamp::GlobalTimeStampType * TimeStamp::m_GlobalTimeStamp;
-
 
 } // end namespace itk
