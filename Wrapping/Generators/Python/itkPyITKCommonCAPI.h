@@ -43,7 +43,7 @@ extern "C" {
 #define _ITKCommonPython_GetGlobalTimeStamp_PROTO ()
 
 #define _ITKCommonPython_GetObjectFactoryBase_NUM 1
-#define _ITKCommonPython_GetObjectFactoryBase_RETURN itk::ObjectFactoryBase::ObjectFactoryBasePrivate *
+#define _ITKCommonPython_GetObjectFactoryBase_RETURN itk::ObjectFactoryBasePrivate *
 #define _ITKCommonPython_GetObjectFactoryBase_PROTO ()
 /* Total number of C API pointers */
 #define _ITKCommonPython_API_pointers 2

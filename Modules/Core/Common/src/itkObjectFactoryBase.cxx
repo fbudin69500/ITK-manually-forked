@@ -36,6 +36,16 @@
 #include <algorithm>
 
 
+namespace itk
+{
+  struct ObjectFactoryBasePrivate
+  {
+    std::list< ::itk::ObjectFactoryBase * > * m_RegisteredFactories;
+    std::list< ::itk::ObjectFactoryBase * > * m_InternalFactories;
+    bool              m_Initialized;
+  };
+}//end of itk namespace
+
 namespace
 {
 typedef std::list< ::itk::ObjectFactoryBase * > FactoryListType;
@@ -44,7 +54,7 @@ typedef std::list< ::itk::ObjectFactoryBase * > FactoryListType;
 // the library has been loaded. In some cases, this call will perform the
 // initialization. In other cases, static initializers like the IO factory
 // initialization code will have done the initialization.
-static ::itk::ObjectFactoryBase::ObjectFactoryBasePrivate *
+static ::itk::ObjectFactoryBasePrivate *
     initializedObjectFactoryBasePrivate =
     ::itk::ObjectFactoryBase::GetObjectFactoryBase();
 
@@ -83,13 +93,13 @@ public:
     }
 
   /** Create the GlobalTimeStamp if needed and return it. */
-  static ::itk::ObjectFactoryBase::ObjectFactoryBasePrivate *
+  static ::itk::ObjectFactoryBasePrivate *
       GetObjectFactoryBasePrivate()
     {
     if( !m_ObjectFactoryBasePrivate )
       {
       m_ObjectFactoryBasePrivate =
-          new ::itk::ObjectFactoryBase::ObjectFactoryBasePrivate();
+          new ::itk::ObjectFactoryBasePrivate();
 
       // To avoid being optimized out. The compiler does not like this
       // statement at a higher scope.
@@ -99,14 +109,14 @@ public:
     }
 
 private:
-  static ::itk::ObjectFactoryBase::ObjectFactoryBasePrivate *
+  static ::itk::ObjectFactoryBasePrivate *
       m_ObjectFactoryBasePrivate;
 };
 
 // Takes care of cleaning up the ObjectFactoryBasePrivate
 static ObjectFactoryBasePrivateInitializer ObjectFactoryBasePrivateInstance;
 // Initialized by the compiler to zero
-::itk::ObjectFactoryBase::ObjectFactoryBasePrivate *
+::itk::ObjectFactoryBasePrivate *
     ObjectFactoryBasePrivateInitializer::m_ObjectFactoryBasePrivate;
 
 // Convenience function to synchronize lists and register the new factory,
@@ -270,11 +280,6 @@ void
 ObjectFactoryBase
 ::InitializeFactoryList()
 {
-  //static_cast<void>(m_CleanUpObjectFactoryGlobal);
-//    if( m_ObjectFactoryBasePrivate == ITK_NULLPTR )
-//    {
-//    ObjectFactoryBasePrivateInitializer::GetObjectFactoryBasePrivate();
-//    }
   /**
    * Don't do anything if we are already initialized
    */
@@ -935,7 +940,7 @@ ObjectFactoryBase
 /**
  *
  */
-::itk::ObjectFactoryBase::ObjectFactoryBasePrivate *
+ObjectFactoryBasePrivate *
 ObjectFactoryBase
 ::GetObjectFactoryBase()
 {
@@ -951,7 +956,7 @@ void
 ObjectFactoryBase
 ::SynchronizeObjectFactoryBase(ObjectFactoryBasePrivate * objectFactoryBasePrivate )
 {
-  ::itk::ObjectFactoryBase::ObjectFactoryBasePrivate *previousObjectFactoryBasePrivate;
+  ObjectFactoryBasePrivate *previousObjectFactoryBasePrivate;
   previousObjectFactoryBasePrivate = m_ObjectFactoryBasePrivate;
   m_ObjectFactoryBasePrivate = objectFactoryBasePrivate;
   SyncrhonizeList(m_ObjectFactoryBasePrivate->m_InternalFactories,
@@ -1048,6 +1053,6 @@ ObjectFactoryBase
   return m_LibraryPath.c_str();
 }
 
-ObjectFactoryBase::ObjectFactoryBasePrivate * ObjectFactoryBase::m_ObjectFactoryBasePrivate;
+ObjectFactoryBasePrivate * ObjectFactoryBase::m_ObjectFactoryBasePrivate;
 
 } // end namespace itk

@@ -55,16 +55,11 @@ namespace itk
 
 // Forward reference because of private implementation
 class OverRideMap;
+struct ObjectFactoryBasePrivate;
 
 class ITKCommon_EXPORT ObjectFactoryBase:public Object
 {
 public:
-struct ObjectFactoryBasePrivate
-{
-std::list< ::itk::ObjectFactoryBase * > * m_RegisteredFactories;
-std::list< ::itk::ObjectFactoryBase * > * m_InternalFactories;
-bool              m_Initialized;
-};
 
   /** Standard class typedefs. */
   typedef ObjectFactoryBase          Self;
