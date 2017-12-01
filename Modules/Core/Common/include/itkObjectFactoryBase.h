@@ -197,9 +197,8 @@ public:
     CreateObjectFunctionBase::Pointer m_CreateObject;
   };
 
-  /** Set/Get the pointer to ObjectFactoryBasePrivate.
-   * Note that SetObjectFactoryBasePrivate is not concurrent thread safe. */
-  static ObjectFactoryBasePrivate *GetObjectFactoryBase();
+  /** Set the pointer to ObjectFactoryBasePrivate.
+   * Note that it is not concurrent thread safe. */
   static void SynchronizeObjectFactoryBase(ObjectFactoryBasePrivate * objectFactoryBasePrivate);
 
 protected:
@@ -259,6 +258,30 @@ private:
 
   static ObjectFactoryBasePrivate * m_ObjectFactoryBasePrivate;
 };
+
+struct ObjectFactoryBasePrivate
+{
+  ~ObjectFactoryBasePrivate()
+  {
+    ::itk::ObjectFactoryBase::UnRegisterAllFactories();
+    if ( m_InternalFactories )
+      {
+      for ( std::list< itk::ObjectFactoryBase * >::iterator i =
+              m_InternalFactories->begin();
+            i != m_InternalFactories->end(); ++i )
+        {
+        (*i)->UnRegister();
+        }
+      delete m_InternalFactories;
+      m_InternalFactories = ITK_NULLPTR;
+      }
+  }
+
+  std::list< ::itk::ObjectFactoryBase * > * m_RegisteredFactories;
+  std::list< ::itk::ObjectFactoryBase * > * m_InternalFactories;
+  bool              m_Initialized;
+};
+
 } // end namespace itk
 
 #endif

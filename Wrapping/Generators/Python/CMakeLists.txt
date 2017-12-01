@@ -398,27 +398,23 @@ macro(itk_end_wrap_module_python)
 #include \"itkPyITKCommonCAPI.h\"
 
 static
-_ITKCommonPython_GetGlobalTimeStamp_RETURN
-_ITKCommonPython_GetGlobalTimeStamp
-_ITKCommonPython_GetGlobalTimeStamp_PROTO
+_ITKCommonPython_GetGlobalSingleton_RETURN
+_ITKCommonPython_GetGlobalSingleton
+_ITKCommonPython_GetGlobalSingleton_PROTO
 {
-  return itk::TimeStamp::GetGlobalTimeStamp();
+  if(itk::Singleton::GetGlobalSingleton())
+  {
+    std::cout<<\"_ITKCommonPython_GetGlobalSingleton: \"<< itk::Singleton::GetGlobalSingleton()->m_ObjectFactoryBasePrivate <<std::endl;
+  }
+  return itk::Singleton::GetGlobalSingleton();
 }
 
-static
-_ITKCommonPython_GetObjectFactoryBase_RETURN
-_ITKCommonPython_GetObjectFactoryBase
-_ITKCommonPython_GetObjectFactoryBase_PROTO
-{
-  return itk::ObjectFactoryBase::GetObjectFactoryBase();
-}
 ")
       set(ITK_WRAP_PYTHON_GLOBAL_TIMESTAMP_CALLS "
   static void * _ITKCommonPython_API[_ITKCommonPython_API_pointers];
 
   /* Initialize the C API pointer array */
-  _ITKCommonPython_API[_ITKCommonPython_GetGlobalTimeStamp_NUM] = (void *)_ITKCommonPython_GetGlobalTimeStamp;
-  _ITKCommonPython_API[_ITKCommonPython_GetObjectFactoryBase_NUM] = (void *)_ITKCommonPython_GetObjectFactoryBase;
+  _ITKCommonPython_API[_ITKCommonPython_GetGlobalSingleton_NUM] = (void *)_ITKCommonPython_GetGlobalSingleton;
 
   /* Create a Capsule containing the API pointer array's address */
   PyObject * cAPIObject = PyCapsule_New((void *)_ITKCommonPython_API,
@@ -442,8 +438,7 @@ _ITKCommonPython_GetObjectFactoryBase_PROTO
     return;
 #endif
     }
-  itk::TimeStamp::SetGlobalTimeStamp( _ITKCommonPython_GetGlobalTimeStamp() );
-  itk::ObjectFactoryBase::SynchronizeObjectFactoryBase( _ITKCommonPython_GetObjectFactoryBase() );
+  itk::Singleton::SetGlobalSingleton( _ITKCommonPython_GetGlobalSingleton() );
 ")
     endif()
   endif()

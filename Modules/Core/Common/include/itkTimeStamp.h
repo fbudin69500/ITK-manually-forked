@@ -108,9 +108,7 @@ public:
    * another. */
   const Self & operator=( const Self & other );
 
-  /** Set/Get the pointer to GlobalTimeStamp.
-   * Note that SetGlobalTimeStamp is not concurrent thread safe. */
-  static GlobalTimeStampType * GetGlobalTimeStamp();
+  /** Set the pointer to GlobalTimeStamp.*/
   static void SetGlobalTimeStamp( GlobalTimeStampType * timeStamp );
 
 private:

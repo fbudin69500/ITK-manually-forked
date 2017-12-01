@@ -22,3 +22,4 @@ itkSparseImageTest\.cxx InternalVariables Disable
 itkImageToImageFilter.\h InternalVariables Disable
 itkTimeStamp\.cxx Namespace Disable
 itkObjectFactoryBase\.cxx Namespace Disable
+itkSingleton\.cxx Namespace Disable

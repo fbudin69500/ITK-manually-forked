@@ -35,110 +35,104 @@
 #include <string.h>
 #include <algorithm>
 
-
-namespace itk
-{
-  struct ObjectFactoryBasePrivate
-  {
-    std::list< ::itk::ObjectFactoryBase * > * m_RegisteredFactories;
-    std::list< ::itk::ObjectFactoryBase * > * m_InternalFactories;
-    bool              m_Initialized;
-  };
-}//end of itk namespace
+#include "itkSingleton.h"
 
 namespace
 {
 typedef std::list< ::itk::ObjectFactoryBase * > FactoryListType;
 
-// This ensures that m_ObjectFactoryBasePrivate is has been initialized once
-// the library has been loaded. In some cases, this call will perform the
-// initialization. In other cases, static initializers like the IO factory
-// initialization code will have done the initialization.
-static ::itk::ObjectFactoryBasePrivate *
-    initializedObjectFactoryBasePrivate =
-    ::itk::ObjectFactoryBase::GetObjectFactoryBase();
+//// This ensures that m_ObjectFactoryBasePrivate is has been initialized once
+//// the library has been loaded. In some cases, this call will perform the
+//// initialization. In other cases, static initializers like the IO factory
+//// initialization code will have done the initialization.
+//static ::itk::ObjectFactoryBasePrivate *
+//    initializedObjectFactoryBasePrivate =
+//    ::itk::ObjectFactoryBase::GetObjectFactoryBase();
 
-/** \class ObjectFactoryBasePrivateInitializer
- *
- * \brief Initialize a ObjectFactoryBasePrivate and delete it on program
- * completion.
- * */
-class ObjectFactoryBasePrivateInitializer
-{
-public:
-  typedef ObjectFactoryBasePrivateInitializer            Self;
+///** \class ObjectFactoryBasePrivateInitializer
+// *
+// * \brief Initialize a ObjectFactoryBasePrivate and delete it on program
+// * completion.
+// * */
+//class ObjectFactoryBasePrivateInitializer
+//{
+//public:
+//  typedef ObjectFactoryBasePrivateInitializer            Self;
 
-  ObjectFactoryBasePrivateInitializer() {}
+//  ObjectFactoryBasePrivateInitializer() {}
 
-  /** Delete the time stamp if it was created. */
-  ~ObjectFactoryBasePrivateInitializer()
-    {
-    ::itk::ObjectFactoryBase::UnRegisterAllFactories();
-    if ( m_ObjectFactoryBasePrivate->m_InternalFactories )
-      {
-      for ( std::list< itk::ObjectFactoryBase * >::iterator i =
-              m_ObjectFactoryBasePrivate->m_InternalFactories->begin();
-            i != m_ObjectFactoryBasePrivate->m_InternalFactories->end(); ++i )
-        {
-        (*i)->UnRegister();
-        }
-      delete m_ObjectFactoryBasePrivate->m_InternalFactories;
-      m_ObjectFactoryBasePrivate->m_InternalFactories = ITK_NULLPTR;
-      }
+//  /** Delete the time stamp if it was created. */
+//  ~ObjectFactoryBasePrivateInitializer()
+//    {
+//    ::itk::ObjectFactoryBase::UnRegisterAllFactories();
+//    if ( m_ObjectFactoryBasePrivate->m_InternalFactories )
+//      {
+//      for ( std::list< itk::ObjectFactoryBase * >::iterator i =
+//              m_ObjectFactoryBasePrivate->m_InternalFactories->begin();
+//            i != m_ObjectFactoryBasePrivate->m_InternalFactories->end(); ++i )
+//        {
+//        (*i)->UnRegister();
+//        }
+//      delete m_ObjectFactoryBasePrivate->m_InternalFactories;
+//      m_ObjectFactoryBasePrivate->m_InternalFactories = ITK_NULLPTR;
+//      }
 
-    
-    
-    delete m_ObjectFactoryBasePrivate;
-    m_ObjectFactoryBasePrivate = ITK_NULLPTR;
-    }
+//
+//
+//    delete m_ObjectFactoryBasePrivate;
+//    m_ObjectFactoryBasePrivate = ITK_NULLPTR;
+//    }
 
-  /** Create the GlobalTimeStamp if needed and return it. */
-  static ::itk::ObjectFactoryBasePrivate *
-      GetObjectFactoryBasePrivate()
-    {
-    if( !m_ObjectFactoryBasePrivate )
-      {
-      m_ObjectFactoryBasePrivate =
-          new ::itk::ObjectFactoryBasePrivate();
+//  /** Create the GlobalTimeStamp if needed and return it. */
+//  static ::itk::ObjectFactoryBasePrivate *
+//      GetObjectFactoryBasePrivate()
+//    {
+//    if( !m_ObjectFactoryBasePrivate )
+//      {
+//      m_ObjectFactoryBasePrivate =
+//          new ::itk::ObjectFactoryBasePrivate();
 
-      // To avoid being optimized out. The compiler does not like this
-      // statement at a higher scope.
-      (void) initializedObjectFactoryBasePrivate;
-      }
-    return m_ObjectFactoryBasePrivate;
-    }
+//      // To avoid being optimized out. The compiler does not like this
+//      // statement at a higher scope.
+//      (void) initializedObjectFactoryBasePrivate;
+//      }
+//    return m_ObjectFactoryBasePrivate;
+//    }
 
-private:
-  static ::itk::ObjectFactoryBasePrivate *
-      m_ObjectFactoryBasePrivate;
-};
+//private:
+//  static ::itk::ObjectFactoryBasePrivate *
+//      m_ObjectFactoryBasePrivate;
+//};
 
-// Takes care of cleaning up the ObjectFactoryBasePrivate
-static ObjectFactoryBasePrivateInitializer ObjectFactoryBasePrivateInstance;
-// Initialized by the compiler to zero
-::itk::ObjectFactoryBasePrivate *
-    ObjectFactoryBasePrivateInitializer::m_ObjectFactoryBasePrivate;
+//// Takes care of cleaning up the ObjectFactoryBasePrivate
+//static ObjectFactoryBasePrivateInitializer ObjectFactoryBasePrivateInstance;
+//// Initialized by the compiler to zero
+//::itk::ObjectFactoryBasePrivate *
+//    ObjectFactoryBasePrivateInitializer::m_ObjectFactoryBasePrivate;
 
 // Convenience function to synchronize lists and register the new factory,
 // either with `RegisterFactoryInternal()` or with `RegisterFactory()`. Avoid
 // duplicating factories that have already been registered and only add
 // factories that were not already in the list.
-void SyncrhonizeList(FactoryListType * output,
+void SynchronizeList(FactoryListType * output,
     FactoryListType * input, bool internal)
   {
   if(!input)
     {
     return;
     }
+  // Avoid infinite loops due to bounds changing inside the loops
+  FactoryListType::iterator inputEnd = input->end();
+  FactoryListType::iterator outputEnd = output->end();
   for ( FactoryListType::iterator factory = input->begin();
-      factory != input->end(); ++factory )
+      factory != inputEnd; ++factory )
     {
     int pos = -1;
     if(output)
       {
       int curr = 0;
       for ( std::list< ::itk::ObjectFactoryBase * >::iterator i = output->begin();
-          i != output->end(); ++i )
+          i != outputEnd; ++i )
         {
         if ((*i)->GetNameOfClass() == (*factory)->GetNameOfClass())
           {
@@ -593,8 +587,8 @@ void
 ObjectFactoryBase
 ::RegisterFactoryInternal(ObjectFactoryBase *factory)
 {
-  static ObjectFactoryBasePrivate * objectFactoryBasePrivate = GetObjectFactoryBase();
-  (void) objectFactoryBasePrivate;
+  static Singleton::SingletonPrivate * singleton = Singleton::GetGlobalSingleton();
+  Unused(singleton);
   if ( factory->m_LibraryHandle != ITK_NULLPTR )
     {
     itkGenericExceptionMacro( "A dynamic factory tried to be loaded internally!" );
@@ -605,6 +599,7 @@ ObjectFactoryBase
   // initialization.
   ObjectFactoryBase::InitializeFactoryList();
   m_ObjectFactoryBasePrivate->m_InternalFactories->push_back(factory);
+    std::cout<<"ObjectFactoryBase::RegisterFactoryInternal: " << m_ObjectFactoryBasePrivate->m_InternalFactories<<std::endl;
   factory->Register();
   // if the internal factories have already been register add this one too
   if ( m_ObjectFactoryBasePrivate->m_Initialized )
@@ -940,29 +935,24 @@ ObjectFactoryBase
 /**
  *
  */
-ObjectFactoryBasePrivate *
-ObjectFactoryBase
-::GetObjectFactoryBase()
-{
-  if( m_ObjectFactoryBasePrivate == ITK_NULLPTR )
-    {
-    m_ObjectFactoryBasePrivate = ObjectFactoryBasePrivateInitializer::GetObjectFactoryBasePrivate();
-    }
-  return m_ObjectFactoryBasePrivate;
-}
-
-
 void
 ObjectFactoryBase
 ::SynchronizeObjectFactoryBase(ObjectFactoryBasePrivate * objectFactoryBasePrivate )
 {
+  // We need to register the previously registered factories with the new pointer.
+  // We keep track of the previoulsy registered factory in `previousObjectFactoryBasePrivate`
+  // but assign the new pointer to `m_ObjectFactoryBasePrivate` so factories can be
+  // registered directly with the new pointer.
   ObjectFactoryBasePrivate *previousObjectFactoryBasePrivate;
   previousObjectFactoryBasePrivate = m_ObjectFactoryBasePrivate;
   m_ObjectFactoryBasePrivate = objectFactoryBasePrivate;
-  SyncrhonizeList(m_ObjectFactoryBasePrivate->m_InternalFactories,
+  if(m_ObjectFactoryBasePrivate && previousObjectFactoryBasePrivate)
+    {
+    SynchronizeList(m_ObjectFactoryBasePrivate->m_InternalFactories,
       previousObjectFactoryBasePrivate->m_InternalFactories, true);
-  SyncrhonizeList(m_ObjectFactoryBasePrivate->m_RegisteredFactories,
+    SynchronizeList(m_ObjectFactoryBasePrivate->m_RegisteredFactories,
       previousObjectFactoryBasePrivate->m_RegisteredFactories, false);
+    }
 }
 
 /**
@@ -972,10 +962,8 @@ std::list< ObjectFactoryBase * >
 ObjectFactoryBase
 ::GetRegisteredFactories()
 {
-  if( m_ObjectFactoryBasePrivate == ITK_NULLPTR )
-    {
-    GetObjectFactoryBase();
-    }
+  static Singleton::SingletonPrivate * singleton = Singleton::GetGlobalSingleton();
+  Unused(singleton);
   ObjectFactoryBase::Initialize();
   return *m_ObjectFactoryBasePrivate->m_RegisteredFactories;
 }
