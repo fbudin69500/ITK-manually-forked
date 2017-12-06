@@ -13,7 +13,12 @@ import sys
 import os
 import glob
 from doxy2swig import *
-from cStringIO import StringIO
+if sys.version_info >= (3,0):
+    # Python 3
+    from io import StringIO
+else:
+    # Python 2
+    from cStringIO import StringIO
 
 class itkDoxy2SWIG(Doxy2SWIG):
     def __init__(self, src, cpp_name="", swig_name=""):
@@ -94,7 +99,7 @@ class itkDoxy2SWIG(Doxy2SWIG):
 
 
 def d2s_dir(in_dir_name, out_swig_i):
-  conffile = file(in_dir_name)
+  conffile = open(in_dir_name)
   output = StringIO()
   for l in conffile:
     l = l.strip()
