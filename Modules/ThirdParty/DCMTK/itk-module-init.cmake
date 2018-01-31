@@ -40,9 +40,11 @@ else(ITK_USE_SYSTEM_DCMTK)
         )
       set(_DCMTK_USE_ICU_default OFF)
     else()
-      if(WIN32 AND "${MSVC_VERSION}" LESS 1800) # No precompiled ICU for VS < 2013
-        set(_DCMTK_USE_ICU_default OFF)
-      elseif(WIN32 AND CMAKE_VERSION VERSION_LESS 3.7)  # FindICU.cmake included in DMCTK doesn't find Windows ICU libraries.
+      if(WIN32)
+        # ICU is not compiled as part of ITK on Windows.
+        # This is because ICU data library on Windows can only be built as a
+        # shared library, and this complexifies ITK build and install. Instead,
+        # ICU should be built outside of ITK on Windows.
         set(_DCMTK_USE_ICU_default OFF)
       else()
         set(_DCMTK_USE_ICU_default ON)
@@ -52,7 +54,7 @@ else(ITK_USE_SYSTEM_DCMTK)
   endif()
   if(DCMTK_USE_ICU)
     if(ITK_USE_SYSTEM_ICU)
-      find_package(ICU COMPONENTS uc data)
+      find_package(ICU REQUIRED COMPONENTS uc data)
       set(ITKDCMTK_ICU_LIBRARIES ${ICU_LIBRARIES})
     endif()
   endif()
