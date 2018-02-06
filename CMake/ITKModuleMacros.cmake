@@ -137,19 +137,17 @@ macro(itk_module_impl)
   set(${itk-module}_INSTALL_ARCHIVE_DIR ${ITK_INSTALL_ARCHIVE_DIR})
   set(${itk-module}_INSTALL_INCLUDE_DIR ${ITK_INSTALL_INCLUDE_DIR})
 
-  # Collect all sources and headers for IDE projects.
+  # Collect all sources and headers for IDE projects and interface library.
   set(_srcs "")
-  if("${CMAKE_GENERATOR}" MATCHES "Xcode|Visual Studio|KDevelop"
-      OR CMAKE_EXTRA_GENERATOR)
-    # Add sources to the module target for easy editing in the IDE.
-    set(_include ${${itk-module}_SOURCE_DIR}/include)
-    if(EXISTS ${_include})
-      set(_src ${${itk-module}_SOURCE_DIR}/src)
-      file(GLOB_RECURSE _srcs ${_src}/*.cxx)
-      file(GLOB_RECURSE _hdrs ${_include}/*.h ${_include}/*.hxx)
-      list(APPEND _srcs ${_hdrs})
-    endif()
+  # Add sources to the module target for easy editing in the IDE.
+  set(_include ${${itk-module}_SOURCE_DIR}/include)
+  if(EXISTS ${_include})
+    set(_src ${${itk-module}_SOURCE_DIR}/src)
+    file(GLOB_RECURSE _srcs ${_src}/*.cxx)
+    file(GLOB_RECURSE _hdrs ${_include}/*.h ${_include}/*.hxx)
+    list(APPEND _srcs ${_hdrs})
   endif()
+
 
   # Create a ${itk-module}-all target to build the whole module.
   add_custom_target(${itk-module}-all ALL SOURCES ${_srcs})
@@ -241,6 +239,11 @@ macro(itk_module_impl)
         set_target_properties(${itk-module} PROPERTIES VISIBILITY_INLINES_HIDDEN 1)
       endif()
     endif()
+  else()
+    # Create interface library
+    add_library(${itk-module} INTERFACE ${_hdrs})
+    target_include_directories(${itk-module} INTERFACE ${${itk-module}_INCLUDE_DIRS})
+    itk_module_link_dependencies()
   endif()
 
   set(itk-module-EXPORT_CODE-build "${${itk-module}_EXPORT_CODE_BUILD}")
