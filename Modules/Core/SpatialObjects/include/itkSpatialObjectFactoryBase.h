@@ -29,6 +29,7 @@
 #define itkSpatialObjectFactoryBase_h
 
 #include "itkObjectFactoryBase.h"
+#include "itkSingleton.h"
 #include "itkSpatialObjectExport.h"
 
 namespace itk
@@ -66,13 +67,18 @@ public:
   /** Register this SpatialObject */
   static SpatialObjectFactoryBase * GetFactory()
   {
-    if ( m_Factory == nullptr )
-      {
-      // Make and register the factory
-      SpatialObjectFactoryBase::Pointer p = SpatialObjectFactoryBase::New();
-      m_Factory = p.GetPointer();
-      ObjectFactoryBase::RegisterFactory (p);
-      p->RegisterDefaultSpatialObjects ();
+      if( m_Factory == nullptr )
+        {
+        static auto setLambda = [](void * a)
+          {
+            delete m_Factory;
+            m_Factory = static_cast<SpatialObjectFactoryBase*>(a);
+          };
+        static auto deleteLambda = [](){ delete m_Factory; };
+        m_Factory = Singleton<SpatialObjectFactoryBase>( "SpatialObjectFactoryBase" , setLambda, deleteLambda);
+        // Make and register the factory
+        ObjectFactoryBase::RegisterFactory (m_Factory);
+        m_Factory->RegisterDefaultSpatialObjects ();
       }
     return m_Factory;
   }
@@ -92,6 +98,9 @@ protected:
   ~SpatialObjectFactoryBase() override;
 
 private:
+  // Allow the Singleton function to allocate and delete this class.
+  template<typename T> friend T* ::itk::Singleton(const char *, std::function<void(void*)>, std::function<void(void)>);
+
   static ITKSpatialObjectExport SpatialObjectFactoryBase *m_Factory;
 };
 } // end namespace itk

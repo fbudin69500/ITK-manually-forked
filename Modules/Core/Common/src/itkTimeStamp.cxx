@@ -27,10 +27,13 @@
  *=========================================================================*/
 #include "itkTimeStamp.h"
 
-#include <functional>
+#include "itkSingleton.h"
 
 namespace itk
 {
+
+itkGetGlobalValueMacro(TimeStamp, TimeStamp::GlobalTimeStampType, GlobalTimeStamp, 0);
+
 
 /**
  * Instance creation.
@@ -52,30 +55,6 @@ TimeStamp::operator=( const Self & other )
   return *this;
 }
 
-TimeStamp::GlobalTimeStampType *
-TimeStamp
-::GetGlobalTimeStamp()
-{
-  if( m_GlobalTimeStamp == nullptr )
-    {
-      static auto func = [](void * a){ SetGlobalTimeStamp(a); };
-      static auto deleteFunc = [](){ delete m_GlobalTimeStamp; };
-      m_GlobalTimeStamp = Singleton<TimeStamp::GlobalTimeStampType>("GlobalTimeStamp", func, deleteFunc);
-    }
-  return m_GlobalTimeStamp;
-}
-
-/**
- * This function should only be called from within the Singleton Index.
- */
-void
-TimeStamp
-::SetGlobalTimeStamp( void * timeStamp )
-{
-  delete m_GlobalTimeStamp;
-  m_GlobalTimeStamp = reinterpret_cast<GlobalTimeStampType *>(timeStamp);
-}
-
 /**
  * Make sure the new time stamp is greater than all others so far.
  */
@@ -85,11 +64,10 @@ TimeStamp
 {
   // This is called once, on-demand to ensure that m_GlobalTimeStamp is
   // initialized.
-  static GlobalTimeStampType * globalTimeStamp = GetGlobalTimeStamp();
-  Unused(globalTimeStamp);
+  itkInitGlobalsMacro(GlobalTimeStamp);
   this->m_ModifiedTime = ++(*m_GlobalTimeStamp);
 }
 
-TimeStamp::GlobalTimeStampType * TimeStamp::m_GlobalTimeStamp;
+TimeStamp::GlobalTimeStampType * TimeStamp::m_GlobalTimeStamp = TimeStamp::GetGlobalTimeStampPointer();
 
 } // end namespace itk

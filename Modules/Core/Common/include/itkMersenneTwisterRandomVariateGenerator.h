@@ -25,6 +25,7 @@
 #include "itkMath.h"
 #include "itkMutexLockHolder.h"
 #include "itkSimpleFastMutexLock.h"
+#include "itkSingletonMacro.h"
 #include <climits>
 #include <ctime>
 
@@ -119,6 +120,7 @@ namespace Statistics
  * \wikiexample{Utilities/MersenneTwisterRandomVariateGenerator,Random number generator}
  * \endwiki
  */
+
 struct MersenneTwisterGlobals;
 
 class ITKCommon_EXPORT MersenneTwisterRandomVariateGenerator:
@@ -280,11 +282,8 @@ protected:
 
 private:
 
-  /** Internal method for synchronization across modules. */
-  static void SetStaticGlobals(void * globals);
-
-  /** Internal method for synchronization across modules. */
-  static MersenneTwisterGlobals * GetStaticGlobals();
+  /** Only used to synchronize the global variable across static libraries.*/
+  itkGetGlobalDeclarationMacro(MersenneTwisterGlobals, Pimpl);
 
   /** Internal method to actually create a new object. */
   static Pointer CreateInstance();
@@ -293,7 +292,7 @@ private:
   SimpleFastMutexLock m_InstanceLock;
 
   // Static/Global Variable need to be thread-safely accessed
-  static MersenneTwisterGlobals *m_StaticGlobals;
+  static MersenneTwisterGlobals *m_Pimpl;
 
 };  // end of class
 

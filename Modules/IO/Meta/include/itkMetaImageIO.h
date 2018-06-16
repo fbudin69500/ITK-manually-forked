@@ -22,6 +22,7 @@
 
 #include <fstream>
 #include "itkImageIOBase.h"
+#include "itkSingletonMacro.h"
 #include "metaObject.h"
 #include "metaImage.h"
 
@@ -171,7 +172,9 @@ protected:
   void PrintSelf(std::ostream & os, Indent indent) const override;
 
 private:
-  static unsigned int * GetPointerDefaultDoublePrecision();
+  /** Only used to synchronize the global variable across static libraries.*/
+  itkGetGlobalDeclarationMacro(unsigned int, DefaultDoublePrecision);
+
   MetaImage m_MetaImage;
 
   unsigned int m_SubSamplingFactor;

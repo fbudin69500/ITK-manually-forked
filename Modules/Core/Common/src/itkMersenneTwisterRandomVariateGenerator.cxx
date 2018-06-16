@@ -17,12 +17,15 @@
  *=========================================================================*/
 #include "itkMersenneTwisterRandomVariateGenerator.h"
 
+#include "itkSingleton.h"
+
 
 namespace itk
 {
 namespace Statistics
 {
 
+/** Private nested class to easily synchronize global variables across static libraries.*/
 struct MersenneTwisterGlobals
 {
   MersenneTwisterGlobals():m_StaticInstance(nullptr),
@@ -30,10 +33,13 @@ struct MersenneTwisterGlobals
   {};
   MersenneTwisterRandomVariateGenerator::Pointer m_StaticInstance;
   SimpleFastMutexLock m_StaticInstanceLock;
-  MersenneTwisterRandomVariateGenerator::IntegerType m_StaticDiffer = 0;
+  MersenneTwisterRandomVariateGenerator::IntegerType m_StaticDiffer;
 };
 
-MersenneTwisterGlobals * MersenneTwisterRandomVariateGenerator::m_StaticGlobals;
+itkGetGlobalSimpleMacro(MersenneTwisterRandomVariateGenerator, MersenneTwisterGlobals, Pimpl);
+
+MersenneTwisterGlobals * MersenneTwisterRandomVariateGenerator::m_Pimpl\
+  = MersenneTwisterRandomVariateGenerator::GetPimplPointer();
 
 MersenneTwisterRandomVariateGenerator::Pointer
 MersenneTwisterRandomVariateGenerator
@@ -64,42 +70,20 @@ MersenneTwisterRandomVariateGenerator
   return obj;
 }
 
-
-void
-MersenneTwisterRandomVariateGenerator
-::SetStaticGlobals(void * globals)
-{
-  m_StaticGlobals = reinterpret_cast<MersenneTwisterGlobals *>(globals);
-}
-
-MersenneTwisterGlobals *
-MersenneTwisterRandomVariateGenerator
-::GetStaticGlobals()
-{
-  if( m_StaticGlobals == nullptr )
-  {
-    static auto func = [](void * a){ SetStaticGlobals(a); };
-    static auto deleteFunc = [](){ delete m_StaticGlobals; };
-    m_StaticGlobals = Singleton<MersenneTwisterGlobals>("MersenneTwisterGlobals", func, deleteFunc);
-  }
-  return m_StaticGlobals;
-}
-
 MersenneTwisterRandomVariateGenerator::Pointer
 MersenneTwisterRandomVariateGenerator
 ::GetInstance()
 {
-  static MersenneTwisterGlobals * staticGlobals = GetStaticGlobals();
-  (void) staticGlobals;
-  MutexLockHolder<SimpleFastMutexLock> mutexHolder(m_StaticGlobals->m_StaticInstanceLock);
+  itkInitGlobalsMacro(Pimpl);
+  MutexLockHolder<SimpleFastMutexLock> mutexHolder(m_Pimpl->m_StaticInstanceLock);
 
-  if ( !m_StaticGlobals->m_StaticInstance )
+  if ( !m_Pimpl->m_StaticInstance )
     {
-    m_StaticGlobals->m_StaticInstance  = MersenneTwisterRandomVariateGenerator::CreateInstance();
-    m_StaticGlobals->m_StaticInstance->SetSeed();
+    m_Pimpl->m_StaticInstance  = MersenneTwisterRandomVariateGenerator::CreateInstance();
+    m_Pimpl->m_StaticInstance->SetSeed();
     }
 
-  return m_StaticGlobals->m_StaticInstance;
+  return m_Pimpl->m_StaticInstance;
 }
 
 MersenneTwisterRandomVariateGenerator
@@ -115,8 +99,7 @@ MersenneTwisterRandomVariateGenerator::IntegerType
 MersenneTwisterRandomVariateGenerator
 ::hash(time_t t, clock_t c)
 {
-  static MersenneTwisterGlobals * staticGlobals = GetStaticGlobals();
-  (void) staticGlobals;
+  itkInitGlobalsMacro(Pimpl);
   // Get an IntegerType from t and c
   // Better than IntegerType(x) in case x is floating point in [0,1]
   // Based on code by Lawrence Kirby: fred at genesis dot demon dot co dot uk
@@ -140,20 +123,19 @@ MersenneTwisterRandomVariateGenerator
     h2 += p[j];
     }
   // lock for m_StaticDiffer
-  MutexLockHolder<SimpleFastMutexLock> mutexHolder(m_StaticGlobals->m_StaticInstanceLock);
-  return ( h1 + m_StaticGlobals->m_StaticDiffer++ ) ^ h2;
+  MutexLockHolder<SimpleFastMutexLock> mutexHolder(m_Pimpl->m_StaticInstanceLock);
+  return ( h1 + m_Pimpl->m_StaticDiffer++ ) ^ h2;
 }
 
 MersenneTwisterRandomVariateGenerator::IntegerType
 MersenneTwisterRandomVariateGenerator
 ::GetNextSeed()
 {
-  static MersenneTwisterGlobals * staticGlobals = GetStaticGlobals();
-  (void) staticGlobals;
+  itkInitGlobalsMacro(Pimpl);
   IntegerType newSeed = GetInstance()->GetSeed();
   {
-    MutexLockHolder<SimpleFastMutexLock> mutexHolder(m_StaticGlobals->m_StaticInstanceLock);
-    newSeed += m_StaticGlobals->m_StaticDiffer++;
+    MutexLockHolder<SimpleFastMutexLock> mutexHolder(m_Pimpl->m_StaticInstanceLock);
+    newSeed += m_Pimpl->m_StaticDiffer++;
   }
   return newSeed;
 }

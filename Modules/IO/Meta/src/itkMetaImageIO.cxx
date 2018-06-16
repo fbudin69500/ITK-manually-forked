@@ -22,12 +22,15 @@
 #include "itkIOCommon.h"
 #include "itksys/SystemTools.hxx"
 #include "itkMath.h"
+#include "itkSingleton.h"
 
 namespace itk
 {
 // Explicitly set std::numeric_limits<double>::max_digits10 this will provide
 // better accuracy when writing out floating point number in MetaImage header.
-unsigned int * MetaImageIO::m_DefaultDoublePrecision = MetaImageIO::GetPointerDefaultDoublePrecision();// = 17;
+itkGetGlobalValueMacro(MetaImageIO, unsigned int, DefaultDoublePrecision, 17);
+
+unsigned int * MetaImageIO::m_DefaultDoublePrecision = MetaImageIO::GetDefaultDoublePrecisionPointer();
 
 MetaImageIO::MetaImageIO()
 {
@@ -1304,18 +1307,7 @@ void MetaImageIO::SetDefaultDoublePrecision(unsigned int precision)
 
 unsigned int MetaImageIO::GetDefaultDoublePrecision()
 {
-  return *MetaImageIO::GetPointerDefaultDoublePrecision();
+  return *MetaImageIO::GetDefaultDoublePrecisionPointer();
 }
 
-unsigned int * MetaImageIO::GetPointerDefaultDoublePrecision()
-{
-  if( m_DefaultDoublePrecision == nullptr )
-    {
-      static auto func = [](void * a){ delete m_DefaultDoublePrecision; m_DefaultDoublePrecision = static_cast<unsigned int *>(a); };
-      static auto deleteFunc = [](){ delete m_DefaultDoublePrecision; };
-      m_DefaultDoublePrecision = Singleton<unsigned int>("MetaImageDoublePrecision", func, deleteFunc);
-      *m_DefaultDoublePrecision = 17;
-    }
-  return m_DefaultDoublePrecision;
-}
 } // end namespace itk

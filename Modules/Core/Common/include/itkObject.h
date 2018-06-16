@@ -31,6 +31,7 @@
 #include "itkLightObject.h"
 #include "itkEventObject.h"
 #include "itkMetaDataDictionary.h"
+#include "itkSingletonMacro.h"
 
 namespace itk
 {
@@ -202,7 +203,7 @@ protected:
 
 private:
   /** Only used to synchronize the global variable across static libraries.*/
-  static void SetGlobalWarningDisplay(void* val);
+  itkGetGlobalDeclarationMacro(bool, GlobalWarningDisplay);
 
   /** Enable/Disable debug messages. */
   mutable bool m_Debug;

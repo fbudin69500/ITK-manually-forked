@@ -30,6 +30,7 @@
 
 #include "itkObject.h"
 #include "itkMacro.h"
+#include "itkSingletonMacro.h"
 #include "itkWeakPointer.h"
 #include "itkRealTimeStamp.h"
 
@@ -523,7 +524,8 @@ private:
   bool DisconnectSource(ProcessObject *s, const DataObjectIdentifierType & name);
 
   /** Only used to synchronize the global variable across static libraries.*/
-  static void SetGlobalReleaseDataFlag(void* val);
+  itkGetGlobalDeclarationMacro(bool, GlobalReleaseDataFlag);
+
 
   /** Friends of DataObject */
   friend class ProcessObject;

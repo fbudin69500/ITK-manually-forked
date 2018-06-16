@@ -34,6 +34,7 @@
 #include "itkIntTypes.h"
 #include "itkImageRegion.h"
 #include "itkImageIORegion.h"
+#include "itkSingletonMacro.h"
 #include <functional>
 #include <thread>
 
@@ -55,7 +56,6 @@ namespace itk
  */
 
 struct MultiThreaderBaseGlobals;
-
 class ProcessObject;
 
 class ITKCommon_EXPORT MultiThreaderBase : public Object
@@ -401,15 +401,10 @@ protected:
 
 private:
 
-  /** Set/Get the pointer to MultiThreaderBaseGlobals.
-   * Note that these functions are not part of the public API and should not be
-   * used outside of ITK. They are an implementation detail and will be
-   * removed in the future. Also note that SetMultiThreaderBaseGlobals is not
-   * concurrent thread safe. */
-  static MultiThreaderBaseGlobals *GetMultiThreaderBaseGlobals();
-  static void SetMultiThreaderBaseGlobals(void * multiThreaderBaseGlobals);
+  /** Only used to synchronize the global variable across static libraries.*/
+  itkGetGlobalDeclarationMacro(MultiThreaderBaseGlobals, Pimpl);
 
-  static MultiThreaderBaseGlobals * m_MultiThreaderBaseGlobals;
+  static MultiThreaderBaseGlobals * m_Pimpl;
   /** Friends of Multithreader.
    * ProcessObject is a friend so that it can call PrintSelf() on its
    * Multithreader. */

@@ -29,7 +29,7 @@
 #define itkObjectFactoryBase_h
 
 #include "itkCreateObjectFunction.h"
-#include "itkSingleton.h"
+#include "itkSingletonMacro.h"
 #include <list>
 #include <vector>
 
@@ -199,14 +199,6 @@ public:
     CreateObjectFunctionBase::Pointer m_CreateObject;
   };
 
-  /** Set/Get the pointer to ObjectFactoryBasePrivate.
-   * Note that these functions are not part of the public API and should not be
-   * used outside of ITK. They are an implementation detail and will be
-   * removed in the future. Also note that SetObjectFactoryBasePrivate is not
-   * concurrent thread safe. */
-  static ObjectFactoryBasePrivate *GetObjectFactoryBase();
-  static void SynchronizeObjectFactoryBase(void * objectFactoryBasePrivate);
-
 protected:
   void PrintSelf(std::ostream & os, Indent indent) const override;
 
@@ -232,6 +224,12 @@ protected:
   ~ObjectFactoryBase() override;
 
 private:
+
+  /** Set/Get the pointer to ObjectFactoryBasePrivate.
+   * No concurrent thread safe. */
+  static void SynchronizeObjectFactoryBase(void * objectFactoryBasePrivate);
+  itkGetGlobalDeclarationMacro(ObjectFactoryBasePrivate, Pimpl);
+
   OverRideMap *m_OverrideMap;
 
   /** Initialize the static list of Factories. */
@@ -260,37 +258,9 @@ private:
 
   static  bool  m_StrictVersionChecking;
 
-  static ObjectFactoryBasePrivate * m_ObjectFactoryBasePrivate;
+  static ObjectFactoryBasePrivate * m_Pimpl;
 };
 
-struct ObjectFactoryBasePrivate
-{
-  ~ObjectFactoryBasePrivate()
-  {
-    ::itk::ObjectFactoryBase::UnRegisterAllFactories();
-    if ( m_InternalFactories )
-      {
-      for ( std::list< itk::ObjectFactoryBase * >::iterator i =
-              m_InternalFactories->begin();
-            i != m_InternalFactories->end(); ++i )
-        {
-        (*i)->UnRegister();
-        }
-      delete m_InternalFactories;
-      m_InternalFactories = nullptr;
-      }
-  }
-  ObjectFactoryBasePrivate()
-  {
-    m_RegisteredFactories = nullptr;
-    m_InternalFactories = nullptr;
-    m_Initialized = false;
-  }
-
-  std::list< ::itk::ObjectFactoryBase * > * m_RegisteredFactories;
-  std::list< ::itk::ObjectFactoryBase * > * m_InternalFactories;
-  bool              m_Initialized;
-};
 
 } // end namespace itk
 

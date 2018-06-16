@@ -26,11 +26,14 @@
  *
  *=========================================================================*/
 #include "itkProcessObject.h"
+#include "itkSingleton.h"
 
 namespace itk
 {
+
+itkGetGlobalValueMacro(DataObject, bool, GlobalReleaseDataFlag, false);
 // after use by filter
-bool * DataObject:: m_GlobalReleaseDataFlag;
+bool * DataObject::m_GlobalReleaseDataFlag = DataObject::GetGlobalReleaseDataFlagPointer();
 
 DataObjectError
 ::DataObjectError() noexcept:
@@ -164,6 +167,7 @@ void
 DataObject
 ::SetGlobalReleaseDataFlag(bool val)
 {
+  itkInitGlobalsMacro(GlobalReleaseDataFlag);
   if ( val == *m_GlobalReleaseDataFlag )
     {
     return;
@@ -171,27 +175,12 @@ DataObject
   *m_GlobalReleaseDataFlag = val;
 }
 
-void
-DataObject
-::SetGlobalReleaseDataFlag(void* val)
-{
-  delete m_GlobalReleaseDataFlag;
-  m_GlobalReleaseDataFlag = reinterpret_cast<bool*>(val);
-}
-
 //----------------------------------------------------------------------------
 bool
 DataObject
 ::GetGlobalReleaseDataFlag()
 {
-  if( m_GlobalReleaseDataFlag == nullptr )
-    {
-      static auto func = [](void * a){ SetGlobalReleaseDataFlag(a); };
-      static auto deleteFunc = [](){ delete m_GlobalReleaseDataFlag; };
-      m_GlobalReleaseDataFlag = Singleton<bool>("GlobalReleaseDataFlag", func, deleteFunc);
-      *m_GlobalReleaseDataFlag = false; // initialization
-    }
-  return m_GlobalReleaseDataFlag;
+  return *DataObject::GetGlobalReleaseDataFlagPointer();
 }
 
 //----------------------------------------------------------------------------

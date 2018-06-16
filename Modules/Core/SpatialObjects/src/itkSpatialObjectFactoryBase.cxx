@@ -24,7 +24,7 @@
 
 namespace itk
 {
-SpatialObjectFactoryBase *SpatialObjectFactoryBase:: m_Factory = nullptr;
+SpatialObjectFactoryBase *SpatialObjectFactoryBase:: m_Factory = SpatialObjectFactoryBase::GetFactory();
 
 SpatialObjectFactoryBase::SpatialObjectFactoryBase()
 {}
@@ -34,6 +34,8 @@ SpatialObjectFactoryBase::~SpatialObjectFactoryBase()
 
 void SpatialObjectFactoryBase::RegisterDefaultSpatialObjects()
 {
+  static SpatialObjectFactoryBase * staticGlobals = GetFactory ();
+  (void) staticGlobals;
   if ( !m_Factory )
     {
     // 3D Objects

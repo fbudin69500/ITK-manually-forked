@@ -17,6 +17,7 @@
  *=========================================================================*/
 #include "itkFloatingPointExceptions.h"
 #include <iostream>
+#include "itkSingleton.h"
 
 //
 // invariant over all targets -- set a preference for what
@@ -31,10 +32,14 @@
 namespace itk
 {
 
-FloatingPointExceptions::ExceptionAction
-FloatingPointExceptions::m_ExceptionAction =
-  FloatingPointExceptions::ABORT;
-bool FloatingPointExceptions::m_Enabled(false);
+struct ExceptionGlobals
+{
+  ExceptionGlobals():m_ExceptionAction(FloatingPointExceptions::ABORT),
+  m_Enabled(false)
+  {};
+  FloatingPointExceptions::ExceptionAction m_ExceptionAction;
+  bool m_Enabled;
+};
 
 void
 FloatingPointExceptions
@@ -74,6 +79,10 @@ SetEnabled(bool val)
     }
 }
 
+itkGetGlobalSimpleMacro(FloatingPointExceptions, ExceptionGlobals, Pimpl);
+
+ExceptionGlobals * FloatingPointExceptions::m_Pimpl = FloatingPointExceptions::GetPimplPointer();
+
 } // end of itk namespace
 
 namespace {
@@ -93,7 +102,6 @@ void itkFloatingPointExceptionsAbortOrExit()
 
 void itkFloatingPointExceptionsNotSupported()
 {
-  itkInitGlobalsMacro(Pimpl);
   std::cerr << "FloatingPointExceptions are not supported on this platform." << std::endl;
   itkFloatingPointExceptionsAbortOrExit();
 }

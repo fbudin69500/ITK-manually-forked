@@ -31,7 +31,7 @@
 #include "itkMacro.h"
 #include "itkIntTypes.h"
 #include "itkAtomicInt.h"
-#include "itkSingleton.h"
+#include "itkSingletonMacro.h"
 
 namespace itk
 {
@@ -112,8 +112,7 @@ public:
 private:
   /** Set/Get the pointer to GlobalTimeStamp.
    * Note that SetGlobalTimeStamp is not concurrent thread safe. */
-  static GlobalTimeStampType * GetGlobalTimeStamp();
-  static void SetGlobalTimeStamp( void * timeStamp );
+  itkGetGlobalDeclarationMacro(GlobalTimeStampType, GlobalTimeStamp);
 
   ModifiedTimeType m_ModifiedTime;
 
