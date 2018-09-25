@@ -62,7 +62,7 @@ public:
   // globalName, if unknown then nullptr will be returned.
   template<typename T>
   T *GetGlobalInstance( const char *globalName )
-    { return reinterpret_cast<T*>(this->GetGlobalInstancePrivate(globalName)); }
+    { return static_cast<T*>(this->GetGlobalInstancePrivate(globalName)); }
 
 
   // returns true if the globalName has not been registered yet.

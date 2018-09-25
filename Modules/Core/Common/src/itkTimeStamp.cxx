@@ -73,7 +73,7 @@ TimeStamp
 ::SetGlobalTimeStamp( void * timeStamp )
 {
   delete m_GlobalTimeStamp;
-  m_GlobalTimeStamp = reinterpret_cast<GlobalTimeStampType *>(timeStamp);
+  m_GlobalTimeStamp = static_cast<GlobalTimeStampType *>(timeStamp);
 }
 
 /**
