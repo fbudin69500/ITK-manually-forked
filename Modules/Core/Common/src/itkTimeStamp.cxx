@@ -29,6 +29,7 @@
 
 #include <functional>
 
+
 namespace itk
 {
 
@@ -58,22 +59,15 @@ TimeStamp
 {
   if( m_GlobalTimeStamp == nullptr )
     {
-      static auto func = [](void * a){ SetGlobalTimeStamp(a); };
-      static auto deleteFunc = [](){ delete m_GlobalTimeStamp; };
-      m_GlobalTimeStamp = Singleton<TimeStamp::GlobalTimeStampType>("GlobalTimeStamp", func, deleteFunc);
+    static auto setLambda = [](void * a)
+      {
+        delete m_GlobalTimeStamp;
+        m_GlobalTimeStamp = static_cast<TimeStamp::GlobalTimeStampType*>(a);
+      };
+    static auto deleteLambda = [](){ delete m_GlobalTimeStamp; };
+    m_GlobalTimeStamp = Singleton<TimeStamp::GlobalTimeStampType>( "GlobalTimeStamp" , setLambda, deleteLambda);
     }
   return m_GlobalTimeStamp;
-}
-
-/**
- * This function should only be called from within the Singleton Index.
- */
-void
-TimeStamp
-::SetGlobalTimeStamp( void * timeStamp )
-{
-  delete m_GlobalTimeStamp;
-  m_GlobalTimeStamp = static_cast<GlobalTimeStampType *>(timeStamp);
 }
 
 /**

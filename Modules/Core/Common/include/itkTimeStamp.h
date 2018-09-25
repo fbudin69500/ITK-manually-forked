@@ -57,6 +57,7 @@ namespace itk
  * \ingroup ITKSystemObjects
  * \ingroup ITKCommon
  */
+
 class ITKCommon_EXPORT TimeStamp
 {
 public:
@@ -112,8 +113,8 @@ public:
 private:
   /** Set/Get the pointer to GlobalTimeStamp.
    * Note that SetGlobalTimeStamp is not concurrent thread safe. */
-  static GlobalTimeStampType * GetGlobalTimeStamp();
-  static void SetGlobalTimeStamp( void * timeStamp );
+static GlobalTimeStampType * GetGlobalTimeStamp();
+
 
   ModifiedTimeType m_ModifiedTime;
 
