@@ -65,8 +65,13 @@ TimeStamp
         m_GlobalTimeStamp = static_cast<TimeStamp::GlobalTimeStampType*>(a);
       };
     static auto deleteLambda = [](){ delete m_GlobalTimeStamp; };
+//    auto* old_instance = SingletonIndex::GetInstance()->GetGlobalInstance<GlobalTimeStampType>("GlobalTimeStamp");
     m_GlobalTimeStamp = Singleton<TimeStamp::GlobalTimeStampType>( "GlobalTimeStamp" , setLambda, deleteLambda);
-    }
+//  if( old_instance == nullptr)
+//  {
+//    *m_GlobalTimeStamp = 0;
+//  }
+  }
   return m_GlobalTimeStamp;
 }
 
@@ -84,6 +89,6 @@ TimeStamp
   this->m_ModifiedTime = ++(*m_GlobalTimeStamp);
 }
 
-TimeStamp::GlobalTimeStampType * TimeStamp::m_GlobalTimeStamp;
+TimeStamp::GlobalTimeStampType * TimeStamp::m_GlobalTimeStamp= TimeStamp::GetGlobalTimeStamp();
 
 } // end namespace itk
