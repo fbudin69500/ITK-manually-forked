@@ -233,6 +233,11 @@ if(ITK_WRAP_unsigned_char AND WRAP_2)
       ${ITK_TEST_OUTPUT_DIR}/ResampleImageFilterTest4.png
       3
     )
+
+    itk_python_add_test(NAME PythonIntensityWindowingImageFilter
+      COMMAND IntensityWindowingImageFilter.py
+        DATA{${WrapITK_SOURCE_DIR}/images/cthead1.png}
+      )
 endif()
 
 itk_python_add_test(NAME PythonLazyLoadingImage COMMAND LazyLoadingImage.py)
