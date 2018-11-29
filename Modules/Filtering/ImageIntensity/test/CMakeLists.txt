@@ -369,3 +369,10 @@ if(ITK_WRAP_unsigned_char AND wrap_2_index GREATER -1)
       10 240 10 170
     )
 endif()
+
+if(ITK_WRAP_unsigned_char AND WRAP_2)
+    itk_python_add_test(NAME PythonIntensityWindowingImageFilterTest
+      COMMAND itkIntensityWindowingImageFilterTest.py
+        DATA{${WrapITK_SOURCE_DIR}/images/cthead1.png}
+      )
+endif()
