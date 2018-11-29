@@ -44,6 +44,13 @@ ReaderType = itk.ImageFileReader[ImageType]
 reader = ReaderType.New(FileName=fileName)
 
 
+# test setting the IO manually
+png_io = itk.PNGImageIO.New()
+assert png_io.GetComponentTypeAsString() == 'unknown'
+reader=NewImageFileReader(FileName=fileName, ImageIO=png_io)
+reader.Update()
+assert png_io.GetComponentTypeAsString() == 'unsigned_char'
+
 # test echo
 itk.echo(reader)
 itk.echo(reader, sys.stdout)
