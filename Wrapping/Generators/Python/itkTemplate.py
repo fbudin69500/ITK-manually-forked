@@ -395,7 +395,13 @@ class itkTemplate(object):
         keys = self.keys()
         cur = itk.auto_pipeline.current
         if self.__name__ == "itk::ImageFileReader":
-            return self._NewImageFileReader(*args, **kwargs)
+            import itk
+            return self._NewImageReader(itk.ImageFileReader, 'FileName', *args, **kwargs)
+        elif self.__name__ == "itk::ImageSeriesReader":
+            import itk
+            # Only support `FileNames`, not `FileName`, to simplify the logic and avoid having
+            # to deal with checking if both keyword arguments are given.
+            return self._NewImageReader(itk.ImageSeriesReader, 'FileNames', *args, **kwargs)
         primary_input_methods = ('Input', 'InputImage', 'Input1')
         if len(args) != 0:
             # try to find a type suitable for the primary input provided
@@ -416,20 +422,20 @@ class itkTemplate(object):
             raise RuntimeError("No suitable template parameter can be found.")
         return self[list(keys)[0]].New(*args, **kwargs)
 
-    def _NewImageFileReader(self, *args, **kwargs):
-        primaryInputMethods = ('FileName',)
+    def _NewImageReader(self, TemplateReaderType, primaryInputMethod, *args, **kwargs):
+        def firstIfList(arg):
+            if type(arg) in [list, tuple]:
+                return arg[0]
+            else:
+                return arg
         inputFileName = ''
         if len(args) != 0:
             # try to find a type suitable for the primary input provided
-            inputFileName = args[0]
-        elif set(primaryInputMethods).intersection(kwargs.keys()):
-            for method in primaryInputMethods:
-                if method in kwargs:
-                    inputFileName = kwargs[method]
-                    break
+            inputFileName = firstIfList(args[0])
+        elif primaryInputMethods in kwargs:
+                inputFileName = firstIfList(kwargs[method])
         if not inputFileName:
             raise RuntimeError("No FileName specified.")
-        import itk
         if "ImageIO" in kwargs:
             imageIO = kwargs["ImageIO"]
         else:
@@ -444,12 +450,15 @@ class itkTemplate(object):
         imageIO.SetFileName( inputFileName )
         imageIO.ReadImageInformation()
         dimension = imageIO.GetNumberOfDimensions()
+        # For image series, increase dimension if last dimension is not of size one.
+        if itkTemplate == itk.ImageSeriesReader and imageIO.GetDimensions(dimension-1) != 1:
+            dimension += 1
         componentAsString = imageIO.GetComponentTypeAsString(imageIO.GetComponentType())
         component = componentTypeDic[componentAsString]
         pixel = imageIO.GetPixelTypeAsString(imageIO.GetPixelType())
         PixelType = itkTemplate._pixelTypeFromIO(pixel, component, dimension)
         ImageType = itk.Image[PixelType, dimension]
-        ReaderType = itk.ImageFileReader[ImageType]
+        ReaderType = TemplateReaderType[ImageType]
         return ReaderType.New(*args, **kwargs)
 
     @staticmethod
