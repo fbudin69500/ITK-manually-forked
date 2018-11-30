@@ -455,6 +455,33 @@ def imread(fileName, pixelType=None):
     reader.Update()
     return reader.GetOutput()
 
+def imseriesread(fileNames, pixelType=None):
+    """Read an image series from list of files and return an itk.Image.
+
+    The reader is instantiated with the image type of the image file if
+    no `pixelType` is provided.
+    """
+    import itk
+    if pixelType:
+        imageIO = itk.ImageIOFactory.CreateImageIO( fileNames[0], itk.ImageIOFactory.ReadMode )
+        if not imageIO:
+            raise RuntimeError("No ImageIO is registered to handle the given file.")
+        imageIO.SetFileName( fileNames[0] )
+        imageIO.ReadImageInformation()
+        dimension = imageIO.GetNumberOfDimensions()
+        if dimension < 1:
+            raise ValueError("First image dimension in list has dimension < 1.")
+        # Increase dimension if last dimension is not of size one.
+        if imageIO.GetDimensions(dimension-1) != 1:
+            dimension += 1
+        ImageType=itk.Image[pixelType,dimension]
+        reader = itk.ImageSeriesReader[ImageType].New(FileNames=fileNames)
+    else:
+        reader = itk.ImageSeriesReader.New(FileNames=fileNames)
+    reader.Update()
+    return reader.GetOutput()
+
+
 def search(s, case_sensitive=False):  # , fuzzy=True):
     """Search for a class name in the itk module.
     """
@@ -566,10 +593,21 @@ def set_inputs(newItkObject, args=[], kargs={}):
         # (Ex: itk.ImageFileReader.UC2.New(SetFileName='image.png'))
         if attribName not in ["auto_progress", "template_parameters"]:
             attrib = getattr(newItkObject, 'Set' + attribName)
-            if type(value) == list:
+            # Tries first with iterables to get a better error
+            # message if it fails (the error message that is printed
+            # is the one returned by sending a single variable to the
+            # function). Note: This could be improved to catch the case
+            # where the number of arguments passed is not one (the list
+            # should be expanded) but does not match the number of
+            # arguments expected by the function. For this, we would
+            # need to analyze the signature of the function contained in
+            # ITK Python modules.
+            try:
+                # Fails if object is not iterable
                 output_value = [output(x) for x in value]
+                # Fails if input list size does not match number of expected arguments
                 attrib(*output_value)
-            else:
+            except (TypeError, NotImplementedError):
                 attrib(output(value))
 
 
